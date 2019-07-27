@@ -1,0 +1,215 @@
+/*
+Theme Name: gaeaPeopleMagazine
+Author: Lattedev
+Author URI: https://www.lattedev.com
+Description: The official theme for gaeaPeopleMagazine
+Version: 1.0
+*/
+
+:root {
+  /*VARIABLES DE PERSONALIZACION DE PAGINA*/
+  /* la idea de esto es que sean como controles con los
+  que hacer facilmente diferentes versiones de la pagina */
+
+
+  /* COLORS */
+  /* Al editar colores siempre usar HEX y nunca
+  dejar espacio entre los dos puntos y el color */
+  --color1:#0F0F0F;
+  --color2:#FFFFFF;
+  --color3:#D2AA6C;
+  /* --color4:#EBE1C8; */
+  /* --color5:#F5F0DC; */
+  /* --color6:#FFFAE6; */
+
+  /* SIZES */
+  /* Al editar los tamaños, hacerlo siempre sin unidades
+  sabiendo que el numero corresponde a la cantidad de pixeles */
+  --size1a: 38; --size1b: 80; --size1c: 64; --size1d:128;
+  --size2a: 33; --size2b: 63; --size2c: 53; --size2d:100;
+  --size3a: 29; --size3b: 50; --size3c: 40; --size3d: 56;
+  --size4a: 24; --size4b: 34; --size4c: 23; --size4d: 35;
+  --size5a: 14; --size5b: 18; --size5c: 18; --size5d: 23;
+  --size6a: 14; --size6b: 16; --size6c: 14; --size6d: 19;
+  --size7a: 12; --size7b: 14; --size7c: 12; --size7d: 18;
+  --size8a: 10; --size8b: 12; --size8c: 10; --size8d: 15;
+
+
+  /*VARIABLES DE CAMBIO VISUAL RELACIONADO A AL ANCHO DE LA PANTALLA*/
+}
+
+
+/* ------------------------------------------- MEDIA QUERIES ------------------------------------------- */
+@media     screen and (min-width: 360px)  {
+  :root {
+  /* font-size: calc([minimum size] + ([maximum size] - [minimum size]) * ((100vw - 400px) / (1024 - 400))); */
+  --size1: calc(calc(var(--size1a) * 1px) + (var(--size1b) - var(--size1a)) * ((100vw - 360px) / (768 - 360)));
+  --size2: calc(calc(var(--size2a) * 1px) + (var(--size2b) - var(--size2a)) * ((100vw - 360px) / (768 - 360)));
+  --size3: calc(calc(var(--size3a) * 1px) + (var(--size3b) - var(--size3a)) * ((100vw - 360px) / (768 - 360)));
+  --size4: calc(calc(var(--size4a) * 1px) + (var(--size4b) - var(--size4a)) * ((100vw - 360px) / (768 - 360)));
+  --size5: calc(calc(var(--size5a) * 1px) + (var(--size5b) - var(--size5a)) * ((100vw - 360px) / (768 - 360)));
+  --size6: calc(calc(var(--size6a) * 1px) + (var(--size6b) - var(--size6a)) * ((100vw - 360px) / (768 - 360)));
+  --size7: calc(calc(var(--size7a) * 1px) + (var(--size7b) - var(--size7a)) * ((100vw - 360px) / (768 - 360)));
+  --size8: calc(calc(var(--size8a) * 1px) + (var(--size8b) - var(--size8a)) * ((100vw - 360px) / (768 - 360)));
+}}
+@media screen and (min-width: 576px) {:root {}}
+@media screen and (min-width: 768px) {
+  :root {
+    --size1: calc(calc(var(--size1c) * 1px) + (var(--size1d) - var(--size1c)) * ((100vw - 768px) / (1200 - 768)));
+    --size2: calc(calc(var(--size2c) * 1px) + (var(--size2d) - var(--size2c)) * ((100vw - 768px) / (1200 - 768)));
+    --size3: calc(calc(var(--size3c) * 1px) + (var(--size3d) - var(--size3c)) * ((100vw - 768px) / (1200 - 768)));
+    --size4: calc(calc(var(--size4c) * 1px) + (var(--size4d) - var(--size4c)) * ((100vw - 768px) / (1200 - 768)));
+    --size5: calc(calc(var(--size5c) * 1px) + (var(--size5d) - var(--size5c)) * ((100vw - 768px) / (1200 - 768)));
+    --size6: calc(calc(var(--size6c) * 1px) + (var(--size6d) - var(--size6c)) * ((100vw - 768px) / (1200 - 768)));
+    --size7: calc(calc(var(--size7c) * 1px) + (var(--size7d) - var(--size7c)) * ((100vw - 768px) / (1200 - 768)));
+    --size8: calc(calc(var(--size8c) * 1px) + (var(--size8d) - var(--size8c)) * ((100vw - 768px) / (1200 - 768)));
+}}
+@media screen and (min-width:  992px) {:root {}}
+@media  screen and (min-width: 1200px) {
+    :root {
+      --size1: calc(var(--size1d) * 1px);
+      --size2: calc(var(--size2d) * 1px);
+      --size3: calc(var(--size3d) * 1px);
+      --size4: calc(var(--size4d) * 1px);
+      --size5: calc(var(--size5d) * 1px);
+      --size6: calc(var(--size6d) * 1px);
+      --size7: calc(var(--size7d) * 1px);
+      --size8: calc(var(--size8d) * 1px);
+    }
+}
+
+
+
+/* ----------------------------------------- LOGIC FOLD/ ----------------------------------------- */
+/* -------------------------------------------- FONTS -------------------------------------------- */
+/* ------------------------------------------- GENERAL ------------------------------------------- */
+
+body,figure,ul,ol,h1,h2,h3,h4,h5,h6,p {margin:0}
+ul,ol{padding:0;list-style-type: none;}
+img{object-fit: cover;}
+a {text-decoration:none;color:var(--color1);}
+
+section {
+  display: grid;
+  grid-template-columns: repeat(6,1fr);
+  padding: 20px;
+  grid-gap: 20px;
+}
+
+
+/* HEADER */
+header{
+  background: var(--color1);
+  display:grid;
+  grid-template-rows: repeat(1fr,3);
+  text-align: center;
+}
+header a{color:var(--color2);}
+header a:hover{color:var(--color3);}
+#logoHeader {
+  grid-row: span 2;
+  /* width: 40%; */
+  height: 60px;
+  margin: auto;
+}
+#logoHeader img {
+  height: 100%;
+  width: auto;
+}
+#navBig {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  padding: 20px 10%;
+}
+
+
+/* ABOVE THE FOLD */
+#atf {
+  padding: 50px 10%;
+  height: 100vh;
+  display: grid
+}
+#atf img {
+  height: 100%;
+  width: 90%;
+  grid-row: 1;
+  grid-column: 1;
+}
+#atf p {
+  padding: 10px 0;
+}
+#atf figcaption {
+  grid-row: 1;
+  grid-column: 1;
+  background: rgba(0, 0, 0, 0.85);
+  padding: 20px;
+  margin: auto;
+  margin-right: 0;
+  color: var(--color2);
+  max-width: 40%;
+}
+#atfTitle {
+  border-bottom: solid 1px rgba(255, 255, 255, .5);
+  padding: 10px 0;
+}
+
+
+
+/* SECTION */
+.sectionMarker{
+  grid-row: span 2;
+  background: #191B1A;
+  width: 100%;
+  height: 100px;
+  display: grid;
+  grid-auto-flow: column dense;
+  justify-content: center;
+  align-items: center;
+  color:var(--color2);
+  position: sticky;
+  top: 0;
+}
+#sec1Main{
+  height: 100vh;
+  grid-column: span 5;
+  display: grid;
+  grid-template-columns: repeat(5,1fr);
+  grid-gap:20px;
+}
+#sec1Main a:nth-child(1){
+  grid-column: span 3;
+  grid-row: span 2;
+}
+#sec1Main figure{
+  width: 100%;
+}
+#sec1Main img{
+  width: 100%;
+  height: 80%;
+}
+.sec1MainExcerpt{
+  display: none!important;
+}
+
+#sec1Second{
+  height: 100vh;
+  grid-column: span 5;
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  grid-gap:20px;
+  height: auto;
+}
+#sec1Second figure{
+  width: 100%;
+  height: 100%;
+}
+#sec1Second img{
+  width: 100%;
+  height: 80%;
+}
+
+
+/* FOOTER */
+footer{
+  background: var(--color1);
+}
