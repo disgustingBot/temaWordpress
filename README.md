@@ -1,0 +1,2 @@
+# gaeaMagazine
+Custom Wordpress Theme
