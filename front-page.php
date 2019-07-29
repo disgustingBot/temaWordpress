@@ -15,24 +15,33 @@
   while($atf->have_posts()){$atf->the_post(); ?>
     <img src="<?php echo get_the_post_thumbnail_url(get_the_ID()); ?>" alt="">
     <figcaption>
-      <p id="atfCategory"></p>
+      <p id="atfCategory"><?php echo get_the_category_list(', '); ?></p>
       <h3 id="atfTitle"><?php the_title(); ?></h3>
-      <p id="atfAuthor">Por <?php the_author(); ?></p>
+      <p id="atfAuthor">Por <?php the_author(); ?> - <?php the_time('F j, Y'); ?></p>
     </figcaption>
-  <?php } ?>
+  <?php } wp_reset_query(); ?>
 </figure>
 
 <h1>FRONT PAGE</h1>
 
 <section id="sec1">
+  <?php
+  $args = array(
+    // 'post_type' => 'project',
+    'post_type'=>'post',
+    'posts_per_page'=>5,
+    // 'tax_query' => array(
+    //   array(
+    //     'taxonomy' => 'category',
+    //     'field'    => 'term_id',
+    //     'terms'    => $cat->cat_ID,
+    //   ),
+    // ),
+  );$blogPosts=new WP_Query($args);$i=0;
+  ?>
   <div class="sectionMarker" id="sec1Marker"><p>Section 1</p></div>
   <div id="sec1Main">
     <?php
-    $args = array(
-      // 'post_type' => 'project',
-      'post_type'=>'post',
-      'posts_per_page'=>5,
-    );$blogPosts=new WP_Query($args);$i=0;
     while($blogPosts->have_posts()) {
       $blogPosts->the_post(); ?>
       <a href="<?php the_permalink(); ?>">
@@ -40,12 +49,13 @@
           <img src="<?php echo get_the_post_thumbnail_url(get_the_ID()); ?>" alt="">
           <h3><?php the_title(); ?></h3>
           <p class="sec1MainExcerpt"><?php if($i==0){the_excerpt();$i++;} ?></p>
-          <p class="sec1MainAuthor">Por <?php the_author(); ?></p>
+          <!-- <p class="sec1MainExcerpt"><?php if($i==0){wp_trim_words(get_the_excerpt(), 30);$i++;} ?></p> -->
+          <p class="sec1MainAuthor">Por <?php the_author(); ?> <span>- <?php the_time('F j, Y'); ?></span></p>
         </figure>
       </a>
 
 
-    <?php } ?>
+    <?php } wp_reset_query(); ?>
   </div>
   <div id="sec1Second">
     <?php
@@ -60,8 +70,7 @@
         <figure>
           <img src="<?php echo get_the_post_thumbnail_url(get_the_ID()); ?>" alt="">
           <h3><?php the_title(); ?></h3>
-          <p class="sec1MainExcerpt"><?php if($i==0){the_excerpt();$i++;} ?></p>
-          <p class="sec1MainAuthor">Por <?php the_author(); ?></p>
+          <p class="sec1MainAuthor">Por <?php the_author(); ?> <span>- <?php the_time('F j, Y'); ?></span></p>
         </figure>
       </a>
 
@@ -69,6 +78,10 @@
     <?php } ?>
   </div>
 </section>
+
+<div class="pagination">
+  <?php echo paginate_links(); ?>
+</div>
 
 
 
