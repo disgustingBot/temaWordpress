@@ -1,7 +1,9 @@
 d=document;w=window;c=console;
 const detector = d.querySelector('#detector');
 const headerMenu = d.querySelector('#headerMenu');
-const isoLogo = d.querySelector('#isoLogo');
+const headerSocl = d.querySelector('#headerSocial');
+const headerLogo = d.querySelector('#isoLogo');
+const headerNavB = d.querySelector('#navBar');
 
 
 const options = {
@@ -12,11 +14,20 @@ const options = {
 
 const observer = new IntersectionObserver(function(entries, observer){
   entries.forEach(entry => {
-    // if (entry.isIntersecting) {
-    //   // cambios visuales
-    // }
-    headerMenu.classList.toggle("inactive");
-    isoLogo.classList.toggle("inactive");
+    if (entry.isIntersecting) {
+      headerMenu.classList.add("inactive");
+      headerSocl.classList.add("inactive");
+      headerLogo.classList.add("inactive");
+      headerNavB.classList.add("inactive");
+
+
+    } else {
+      headerSocl.classList.remove("inactive");
+      headerMenu.classList.remove("inactive");
+      headerLogo.classList.remove("inactive");
+      headerNavB.classList.remove("inactive");
+
+    }
     // c.log(entry);
     // c.log(entry.target);
   })
