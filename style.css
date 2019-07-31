@@ -161,6 +161,18 @@ section {
   grid-gap: var(--sE);
 }
 
+banner{
+  background: var(--color1);
+  height: 100px;
+  display: grid;
+  text-align: center;
+  color: var(--color2);
+  width: 100%;
+  margin: var(--sE) 0;
+  justify-content: center;
+  align-items: center;
+}
+
 
 /* ----------------------- HEADER ----------------------- */
 header{
@@ -170,19 +182,25 @@ header{
   text-align: center;
   position: sticky!important;
   top:var(--topCero);
+  z-index: 2;
   /* justify-content: center; */
   /* top:0; */
 }
 #isoLogo{
   color:var(--color2);
   width: min-content;
-  margin: 0 auto;
-  /* margin-left:auto; */
+  /* margin: 0 auto; */
+  margin-left: 0%;
+  transform: translateX(0%);
   transition: .3s;
   grid-row: 1;
   grid-column: 1;
+  transition: .3s;
 }
-/* #isoLogo.inactive{margin:0 0;} */
+#isoLogo.inactive{
+  margin-left: 50%;
+  transform: translateX(-50%);
+}
 header a:hover{color:var(--color3);}
 #logoHeader {
   /* grid-row: span 2; */
@@ -201,9 +219,11 @@ header a:hover{color:var(--color3);}
   grid-column: 1;
   grid-gap: 5px;
   width: min-content;
-  margin: 10px 20px 0 auto;
+  margin: -50px 20px 0 auto;
   height: min-content;
+  transition: .3s;
 }
+#headerSocial.inactive {margin-top:10px;}
 #headerSocial li{
   display: flex;
   align-items: center;
@@ -216,16 +236,35 @@ header a:hover{color:var(--color3);}
   width:  20px;
   height: 20px;
 }
-#navBar {
+#navBar{
+  position: fixed;
+  top: -200px;
+  right: 0;
   display: grid;
-  grid-template-columns: repeat(5,1fr);
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(5,1fr);
   padding: var(--sE) 10%;
   background: var(--color1);
+  width: min-content;
   align-items:     center;
   justify-content: center;
   text-align:      center;
+  transition: .3s;
+}
+#headerMenu:focus+#navBar,
+#navBar:focus,
+#navBar:hover{top:calc(var(--topCero) + 60px)}
+
+#navBar.inactive {
+  width: 100%;
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: repeat(5,1fr);
+  grid-template-rows: 1fr;
+  position: static;
 }
 #navBar a{color:var(--color2);}
+#navBar a:hover{color:var(--color3);}
 #headerMenu{
   display: inline-flex;
   position: fixed;
@@ -343,34 +382,90 @@ header a:hover{color:var(--color3);}
 
 
 /* ------------------- ARCHIVE ------------------- */
-#archiveAtf {
-  display: grid;
-  grid-template-columns: repeat(8,1fr);
-  grid-gap:var(--sE);
-  padding: 0 var(--sE);
-}
+
 #archiveTitle{
   grid-column: span 8;
+  margin: 50px 12.5%;
 }
 #archiveNav {
   grid-column: span 8;
+  margin: 0 12.5%;
+  padding: 20px 50px;
+  border-top:    1px solid var(--color1);
+  border-bottom: 1px solid var(--color1);
 }
 #archiveNav ul{
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  display: flex;
+  justify-content: space-between;
 }
-#archiveAtf figure{
+#archiveAtf {
+  display: grid;
+  grid-template-columns: repeat(8,1fr);
+  grid-auto-rows: min-content;
+  grid-gap:var(--sE);
+  padding: var(--sE);
+}
+#archiveAtf .archiveAtfCard{
+  display: grid;
   grid-column: span 3;
   width: 100%;
-  height: auto;
+  /* height: min-content; */
+  /* height: 200px; */
+  min-height: 300px;
 }
-#archiveAtf figure:nth-child(1){
+#archiveAtf figure{
+  display: grid;
+}
+#archiveAtf .archiveAtfCard:nth-child(3){
   grid-column: 2/span 3!important;
 }
 #archiveAtf img{
-  width: 100%;
-  height: 100%;
+  grid-row: 1;
+  grid-column: 1;
+  width:  calc(100% - var(--sE));
+  height: calc(100% - var(--sE));
 }
+#archiveAtf .archiveAtfCard:nth-child(3) img{
+  margin-left: auto;
+}
+#archiveAtf figcaption{
+  grid-row: 1;
+  grid-column: 1;
+  background: rgba(0, 0, 0, 0.85);
+  padding: var(--sE);
+  margin: auto;
+  margin-right: 0;
+  margin-bottom: 0;
+  color: var(--color2);
+  max-width: 40%;
+}
+#archiveAtf .archiveAtfCard:nth-child(3) figcaption{
+  margin-left: 0;
+}
+/* ARCHIVE SECTION */
+.archiveSection {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+}
+.card {
+  width: 100%;
+}
+.card:nth-child(even) {grid-column: 4/6;}
+.card:nth-child(odd)  {grid-column: 6/8;}
+.mainCard {
+  grid-column: 1/4!important;
+  position: sticky;
+  /* top: 100px; */
+  top:calc(var(--topCero) + var(--sE) + 60px);
+}
+.card figure{
+  width: 100%;
+}
+.card img{
+  width: 100%;
+  height: 70%;
+}
+
 
 
 /* FOOTER */
