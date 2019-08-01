@@ -7,7 +7,7 @@ Version: 1.0
 */
 
 
-/* Content
+/* CONTENT
 
 1) Variables
 
@@ -15,7 +15,9 @@ Version: 1.0
 
 3) Global Elements
 
-4) Strupcture
+4) Structure
+  4.1) Header
+  4.x) Footer
 
 5) Typography
 
@@ -28,7 +30,7 @@ Version: 1.0
   /*VARIABLES DE PERSONALIZACION DE PAGINA*/
   /* la idea de esto es que sean como controles con los
   que hacer facilmente diferentes versiones de la pagina */
-  --sE:20px;
+  --sE:20;
 
   /* COLORS */
   /* Al editar colores siempre usar HEX y nunca
@@ -176,8 +178,8 @@ a {text-decoration:none;color:var(--color3);}
 
 section {
   display: grid;
-  padding:  var(--sE);
-  grid-gap: var(--sE);
+  padding:  calc(var(--sE) * 1px);
+  grid-gap: calc(var(--sE) * 1px);
 }
 
 h1 {color:rgba(255,255,255,0)}
@@ -188,7 +190,7 @@ banner{
   text-align: center;
   color: var(--color2);
   width: 100%;
-  margin: var(--sE) 0;
+  margin: calc(var(--sE) * 1px) 0;
   justify-content: center;
   align-items: center;
 }
@@ -266,7 +268,7 @@ header a:hover{color:var(--color3)}
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: repeat(5,1fr);
-  padding: var(--sE) 10%;
+  padding: calc(var(--sE) * 1px) 10%;
   background: var(--color1);
   width: min-content;
   align-items:     center;
@@ -318,7 +320,7 @@ header a:hover{color:var(--color3)}
 
 /*TODO: acomodar en el css del ATF*/
 #atf {
-  padding: 50px 10%;
+  padding: 0 10%;
   height: 50vw;
   max-height: 100vh;
   display: grid;
@@ -339,13 +341,14 @@ header a:hover{color:var(--color3)}
   grid-row: 1;
   grid-column: 1;
   background: rgba(0, 0, 0, 0.85);
-  padding: calc(var(--sE) * 3);
+  padding: calc(calc(var(--sE) * 1px) * 3);
   margin: auto;
   margin-right: 0;
   color: var(--color2);
   width: 500px;
   height: auto;
   box-sizing: border-box;
+  box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
 }
 
 #atfTitle {
@@ -385,7 +388,7 @@ header a:hover{color:var(--color3)}
 #sec1Main{
   display: grid;
   grid-template-columns: repeat(15,1fr);
-  grid-gap:var(--sE);
+  grid-gap:calc(var(--sE) * 1px);
 }
 
 #sec1Main figure{
@@ -402,8 +405,8 @@ header a:hover{color:var(--color3)}
 #archiveAtf {
   display: grid;
   grid-template-columns: repeat(8,1fr);
-  grid-gap:var(--sE);
-  padding: 0 var(--sE);
+  grid-gap:calc(var(--sE) * 1px);
+  padding: 0 calc(var(--sE) * 1px);
 }
 #archiveTitle{
   grid-column: span 8;
@@ -424,8 +427,8 @@ header a:hover{color:var(--color3)}
   display: grid;
   grid-template-columns: repeat(8,1fr);
   grid-auto-rows: min-content;
-  grid-gap:var(--sE);
-  padding: var(--sE);
+  grid-gap:calc(var(--sE) * 1px);
+  padding: calc(var(--sE) * 1px);
 }
 #archiveAtf .archiveAtfCard{
   display: grid;
@@ -444,8 +447,8 @@ header a:hover{color:var(--color3)}
 #archiveAtf img{
   grid-row: 1;
   grid-column: 1;
-  width:  calc(100% - var(--sE));
-  height: calc(100% - var(--sE));
+  width:  calc(100% - calc(var(--sE) * 1px));
+  height: calc(100% - calc(var(--sE) * 1px));
 }
 #archiveAtf .archiveAtfCard:nth-child(3) img{
   margin-left: auto;
@@ -454,7 +457,7 @@ header a:hover{color:var(--color3)}
   grid-row: 1;
   grid-column: 1;
   background: rgba(0, 0, 0, 0.85);
-  padding: var(--sE);
+  padding: calc(var(--sE) * 1px);
   margin: auto;
   margin-right: 0;
   margin-bottom: 0;
@@ -464,33 +467,22 @@ header a:hover{color:var(--color3)}
 #archiveAtf .archiveAtfCard:nth-child(3) figcaption{
   margin-left: 0;
 }
-/* ARCHIVE SECTION */
+
+/* -------------------
+   ARCHIVE SECTION
+------------------- */
+
 .archiveSection {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
 }
-.card {
-  width: 100%;
-}
-.card:nth-child(even) {grid-column: 4/6;}
-.card:nth-child(odd)  {grid-column: 6/8;}
-.mainCard {
-  grid-column: 1/4!important;
-  position: sticky;
-  /* top: 100px; */
-  top:calc(var(--topCero) + var(--sE) + 60px);
-}
-.card figure{
-  width: 100%;
-}
-.card img{
-  width: 100%;
-  height: 70%;
-}
 
 
 
-/* FOOTER */
+
+/* -------------------
+       FOOTER
+------------------- */
 footer{
   display: flex;
   flex-direction: column;
@@ -765,34 +757,80 @@ footer{
          CARDS
 ----------------------- */
 
+
+
+.card {
+  /* overflow: hidden; */
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  border-radius: 4px;
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+  width: 100%;
+  height: min-content;
+}
+.card:hover {
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  border-radius: 8px;
+}
+
+.card figure{
+  width: 100%;
+  height: 100%;
+}
+.card img{
+  width: 100%;
+  height: 70%;
+}
+.card figcaption{
+  text-align: left;
+  padding: calc(var(--sE) * 1px);
+  color: var(--color1);
+}
+.card h3, .card p {
+  margin-bottom: calc(var(--sE) * .25px);
+}
+.card h3 {
+  font-size: var(--size5);
+}
+.card p {
+  font-size: var(--size7);
+}
+
+/*
+COSAS PARA LA PAGINA ARCHIVE
+.card:nth-child(even) {grid-column: 4/6;}
+.card:nth-child(odd)  {grid-column: 6/8;}
+.mainCard {
+  grid-column: 1/4!important;
+  position: sticky;
+  top: 100px;
+  top:calc(var(--topCero) + calc(var(--sE) * 1px) + 60px);
+}*/
+
+
+
+
+
+
+
+
+
+
+
 .sectionMainPost {
   grid-column: 1/10;
   grid-row: 1;
-  height: 800px;
 }
 
-.sectionMainPost figure {
-  height: 100%;
+.sectionMainPost img {height: 80%!important}
+
+.sectionMainPost h3 {
+  font-size: var(--size4);
+  margin-bottom: calc(var(--sE) * .5px);
 }
 
-.sectionMainPost img {
-  height: 80%!important:
-}
-
-.sectionMainPost figure figcaption {
-  padding-right: 80px;
-}
-
-.sectionMainPost figure figcaption h3 {
-  color: black;
-  font-size: 1.8em;
-  margin-bottom: 10px;
-}
-
-.sectionMainPost figure figcaption p {
-  color: black;
-  font-size: 1.2em;
-  margin-bottom: 10px;
+.sectionMainPost p {
+  font-size: var(--size6);
+  margin-bottom: calc(var(--sE) * .5px);
 }
 
 .sec1MainAuthor {
@@ -805,117 +843,11 @@ footer{
   font-weight: 300;
 }
 
-.sectionSecnPost:nth-child(3n+2) {
-  grid-column: span 3;
-  height: 250px;
-}
+.sectionSecnPost {grid-row:1}
 
-.sectionSecnPost figure {
- height: 100%;
-}
+.sectionSecnPost:nth-child(2),.sectionSecnPost:nth-child(4){grid-column: 10/13;}
+.sectionSecnPost:nth-child(3),.sectionSecnPost:nth-child(5){grid-column: 13/16;}
+.sectionSecnPost:nth-child(4){margin-top: 270px;}
+.sectionSecnPost:nth-child(5){margin-top: 420px;}
 
-.sectionSecnPost img {
-  height: 70%!important;
-}
-
-.sectionSecnPost:nth-child(3n+2) figcaption {
-  padding-right: 20px;
-}
-
-.sectionSecnPost:nth-child(3n+2) h3 {
-  color: black;
-  font-size: 1.2em;
-  margin-bottom: 5px;
-}
-
-.sectionSecnPost:nth-child(3n+2) p {
-  color: black;
-  font-size: 1em;
-  margin-bottom: 5px;
-}
-
-.sectionSecnPost:nth-child(3), .sectionSecnPost:nth-child(4) {
-  grid-column: span 3;
-  height: 400px;
-}
-
-
-.sectionSecnPost:nth-child(3) figcaption, .sectionSecnPost:nth-child(4) figcaption {
-  padding-right: 20px;
-}
-
-.sectionSecnPost:nth-child(3) h3, .sectionSecnPost:nth-child(4) h3 {
-  color: black;
-  font-size: 1.2em;
-  margin-bottom: 5px;
-}
-
-.sectionSecnPost:nth-child(3) p, .sectionSecnPost:nth-child(4) p {
-  color: black;
-  font-size: 1em;
-  margin-bottom: 5px;
-}
-
-.sectionThrdPost {
-  grid-column: span 5;
-}
-
-.sectionThrdPost {
-  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-}
-
-.sectionThrdPost:hover {
-  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
-}
-
-
-.sectionSecnPost {
-  grid-row: 1;
-}
-
-.sectionSecnPost:nth-child(2)  {
-  grid-column: 10/13;
-}
-
-.sectionSecnPost:nth-child(4)  {
-  grid-column: 10/13;
-  margin-top: 270px;
-}
-
-.sectionSecnPost:nth-child(3)  {
-  grid-column: 13/16;
-}
-
-.sectionSecnPost:nth-child(5)  {
-  grid-column: 13/16;
-  margin-top: 420px;
-}
-
-.sectionThrdPost {
-  grid-column: span 5;
-  height: 700px;
-}
-
-.sectionThrdPost figure{
-  height: 100%;
-}
-
-.sectionThrdPost img {
-  height: 70%!important;
-}
-
-.sectionThrdPost figcaption {
-  padding-right: 20px;
-}
-
-.sectionThrdPost h3 {
-  color: black;
-  font-size: 1.2em;
-  margin-bottom: 5px;
-}
-
-.sectionThrdPost p {
-  color: black;
-  font-size: 1em;
-  margin-bottom: 5px;
-}
+.sectionThrdPost {grid-column: span 5;}
