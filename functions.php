@@ -14,7 +14,6 @@ function gp_setup(){
   wp_enqueue_style('style', get_stylesheet_uri(), NULL, microtime(), 'all');
   wp_enqueue_script('main', get_theme_file_uri('/js/main.js'), NULL, microtime(), true);
 }
-
 add_action('wp_enqueue_scripts', 'gp_setup');
 
 // Adding Theme Support
@@ -26,8 +25,19 @@ function gp_init() {
     array('comment-list', 'comment-form', 'search-form')
   );
 }
-
 add_action('after_setup_theme', 'gp_init');
+
+
+add_filter('get_the_archive_title',function($title){
+  if(is_category()){
+    $title=single_cat_title('',false);
+  }elseif(is_tag()){
+    $title=single_tag_title('',false);
+  }elseif(is_author()) {
+    $title='<span class="vcard">'.get_the_author().'</span>';
+  }
+  return $title;
+});
 
 
 // Custom Post Type

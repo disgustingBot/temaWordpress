@@ -8,7 +8,7 @@
     </div>
 
     <div id="footerImgContainer">
-      <img id="footerBackground" src="<?php echo get_template_directory_uri(); ?>../../../../wp-content/uploads/2019/07/team-e1564508690853.png" alt="Ilustración del equipo de OmniGaea">
+      <img id="footerBackground" src="<?php echo get_template_directory_uri(); ?>../../../../wp-content/uploads/2019/07/team.png" alt="Ilustración del equipo de OmniGaea">
     </div>
 
     <div id="legalFooter">
@@ -131,7 +131,7 @@
 
       <div id="nubeEtiquetasContainer">
         <h6 id="nubeEtiquetasTitle">Lo más leido</h6>
-        <img id="nubeEtiquetasMuestra" src="<?php echo get_template_directory_uri(); ?>../../../../wp-content/uploads/2019/07/tags-e1564508633183.png" alt="">
+        <img id="nubeEtiquetasMuestra" src="<?php echo get_template_directory_uri(); ?>../../../../wp-content/uploads/2019/07/tags.png" alt="">
       </div>
     </div>
 
