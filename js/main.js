@@ -19,14 +19,11 @@ const observer = new IntersectionObserver(function(entries, observer){
       headerSocl.classList.add("inactive");
       headerLogo.classList.add("inactive");
       headerNavB.classList.add("inactive");
-
-
     } else {
       headerSocl.classList.remove("inactive");
       headerMenu.classList.remove("inactive");
       headerLogo.classList.remove("inactive");
       headerNavB.classList.remove("inactive");
-
     }
     // c.log(entry);
     // c.log(entry.target);
@@ -34,3 +31,13 @@ const observer = new IntersectionObserver(function(entries, observer){
 }, options);
 
 observer.observe(detector);
+
+
+
+function correctSizesAndPositions (){
+  var h = document.getElementById('atf');
+  // var h = document.getElementById('atf').offsetHeight;
+  c.log("hola, soy gardel");
+  c.log(h.offsetHeight);
+}
+correctSizesAndPositions();
