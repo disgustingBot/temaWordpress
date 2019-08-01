@@ -51,7 +51,7 @@
         if($i==0)            {echo 'sectionMainPost';}
         if($i>0 && $i<=5)    {echo 'sectionSecnPost';} //TODO: Hacer responsive con Js que lea margenes
         if($i>5)             {echo 'sectionThrdPost';}
-        ?>" href="<?php the_permalink(); ?>">
+        ?> card" href="<?php the_permalink(); ?>">
         <figure>
           <img src="<?php echo get_the_post_thumbnail_url(get_the_ID()); ?>" alt="">
           <figcaption>
