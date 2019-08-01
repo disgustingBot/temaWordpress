@@ -4,11 +4,11 @@
   <footer>
 
     <div id="gaeaLogoFooterContainer">
-      <img id="footerLogo" src="<?php echo get_template_directory_uri(); ?>../../../../wp-content/uploads/2019/07/Logo_GaeaPeople-1.png" alt="logo Gaea People">
+      <img id="footerLogo" src="<?php echo get_template_directory_uri(); ?>../../../../wp-content/uploads/2019/07/Logo_GaeaPeople.png" alt="logo Gaea People">
     </div>
 
     <div id="footerImgContainer">
-      <img id="footerBackground" src="<?php echo get_template_directory_uri(); ?>../../../../wp-content/uploads/2019/07/team-e1564244964416.png" alt="Ilustración del equipo de OmniGaea">
+      <img id="footerBackground" src="<?php echo get_template_directory_uri(); ?>../../../../wp-content/uploads/2019/07/team-e1564508690853.png" alt="Ilustración del equipo de OmniGaea">
     </div>
 
     <div id="legalFooter">
@@ -131,7 +131,7 @@
 
       <div id="nubeEtiquetasContainer">
         <h6 id="nubeEtiquetasTitle">Lo más leido</h6>
-        <img id="nubeEtiquetasMuestra" src="<?php echo get_template_directory_uri(); ?>../../../../wp-content/uploads/2019/07/tags-e1564250450552.png" alt="">
+        <img id="nubeEtiquetasMuestra" src="<?php echo get_template_directory_uri(); ?>../../../../wp-content/uploads/2019/07/tags-e1564508633183.png" alt="">
       </div>
     </div>
 
