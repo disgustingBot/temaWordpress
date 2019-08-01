@@ -40,27 +40,32 @@
     //     'terms'    => $cat->cat_ID,
     //   ),
     // ),
-  );$blogPosts=new WP_Query($args);$i=0;
+  );$blogPosts=new WP_Query($args);
   ?>
   <div class="sectionMarker" id="sec1Marker"><img src="<?php echo get_template_directory_uri(); ?>../../../../wp-content/uploads/2019/07/marketing-strategy.png" alt=""></div>
   <div id="sec1Main">
-    <?php
+    <?php $i=0;
     while($blogPosts->have_posts()) {
       $blogPosts->the_post(); ?>
+      <?php if ($i==1 OR $i==3) { ?>
+        <div class="specialCont">
+      <?php } ?>
       <a class="<?php
         if($i==0)            {echo 'sectionMainPost';}
-        if($i>0 && $i<=5)    {echo 'sectionSecnPost';} //TODO: Hacer responsive con Js que lea margenes
-        if($i>5)             {echo 'sectionThrdPost';}
+        if($i>0 && $i<=4)    {echo 'sectionSecnPost';} //TODO: Hacer responsive con Js que lea margenes
+        if($i>4)             {echo 'sectionThrdPost';}
         ?> card" href="<?php the_permalink(); ?>">
         <figure>
           <img src="<?php echo get_the_post_thumbnail_url(get_the_ID()); ?>" alt="">
           <figcaption>
           <h3><?php the_title(); ?></h3>
           <p class="sec1MainExcerpt"><?php if($i==0){the_excerpt();} ?></p>
-          <!-- <p class="sec1MainExcerpt"><?php if($i==0){wp_trim_words(get_the_excerpt(), 30);$i++;} ?></p> -->
           <p class="sec1MainAuthor">Por <?php the_author(); ?> <span>- <?php the_time('F j, Y'); ?></span></p>
         </figure>
       </a>
+      <?php if ($i==2 OR $i==4) { ?>
+        </div>
+      <?php } ?>
 
 
     <?php $i++;} wp_reset_query(); ?>

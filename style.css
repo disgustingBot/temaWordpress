@@ -26,7 +26,7 @@ Version: 1.0
 */
 
 :root {
-  --topCero: 0;
+  --topCero: 32px;
   /*VARIABLES DE PERSONALIZACION DE PAGINA*/
   /* la idea de esto es que sean como controles con los
   que hacer facilmente diferentes versiones de la pagina */
@@ -760,12 +760,15 @@ footer{
 
 
 .card {
-  /* overflow: hidden; */
+  overflow: hidden;
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
   border-radius: 4px;
   transition: all 0.3s cubic-bezier(.25,.8,.25,1);
   width: 100%;
-  height: min-content;
+  /* height min content ofrece tamaños de imagen regulares en la fila 3 */
+  /* height: min-content; */
+  /* height 100% ofrece tamaños regulares de targetas en la fila de 3 */
+  height: 100%;
 }
 .card:hover {
   box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
@@ -775,15 +778,20 @@ footer{
 .card figure{
   width: 100%;
   height: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr min-content;
 }
 .card img{
   width: 100%;
-  height: 70%;
+  height: 100%;
+  min-height: 150px;
 }
 .card figcaption{
   text-align: left;
   padding: calc(var(--sE) * 1px);
   color: var(--color1);
+  height: min-content;
 }
 .card h3, .card p {
   margin-bottom: calc(var(--sE) * .25px);
@@ -795,19 +803,30 @@ footer{
   font-size: var(--size7);
 }
 
-/*
-COSAS PARA LA PAGINA ARCHIVE
-.card:nth-child(even) {grid-column: 4/6;}
+
+/* COSAS PARA LA PAGINA ARCHIVE */
+/* .card:nth-child(even) {grid-column: 4/6;}
 .card:nth-child(odd)  {grid-column: 6/8;}
 .mainCard {
   grid-column: 1/4!important;
   position: sticky;
-  top: 100px;
   top:calc(var(--topCero) + calc(var(--sE) * 1px) + 60px);
-}*/
+} */
 
 
 
+.specialCont{
+  grid-column: span 3;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: calc(var(--sE) * 1px);
+  height: 100%;
+}
+.specialCont .card{
+  height: 100%;
+}
+.specialCont:nth-child(2){grid-template-rows: 2fr 3fr;}
+.specialCont:nth-child(3){grid-template-rows: 3fr 2fr;}
 
 
 
@@ -819,9 +838,10 @@ COSAS PARA LA PAGINA ARCHIVE
 .sectionMainPost {
   grid-column: 1/10;
   grid-row: 1;
+  height: 100%;
 }
 
-.sectionMainPost img {height: 80%!important}
+/* .sectionMainPost img {height: 65%!important} */
 
 .sectionMainPost h3 {
   font-size: var(--size4);
@@ -842,12 +862,11 @@ COSAS PARA LA PAGINA ARCHIVE
   color: #262626!important;
   font-weight: 300;
 }
+/* .sectionSecnPost {grid-row:1} */
 
-.sectionSecnPost {grid-row:1}
-
-.sectionSecnPost:nth-child(2),.sectionSecnPost:nth-child(4){grid-column: 10/13;}
-.sectionSecnPost:nth-child(3),.sectionSecnPost:nth-child(5){grid-column: 13/16;}
-.sectionSecnPost:nth-child(4){margin-top: 270px;}
-.sectionSecnPost:nth-child(5){margin-top: 420px;}
+/* .sectionSecnPost:nth-child(2),.sectionSecnPost:nth-child(4){grid-column: 10/13;} */
+/* .sectionSecnPost:nth-child(3),.sectionSecnPost:nth-child(5){grid-column: 13/16;} */
+/* .sectionSecnPost:nth-child(4){margin-top: 270px;} */
+/* .sectionSecnPost:nth-child(5){margin-top: 420px;} */
 
 .sectionThrdPost {grid-column: span 5;}
