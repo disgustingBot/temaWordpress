@@ -63,3 +63,9 @@ function gp_custom_post_type() {
 }
 
 add_action('init', 'gp_custom_post_type');
+
+
+function ejr_jpeg_quality () {
+	return 100;
+	}
+add_filter ('jpeg_quality', 'ejr_jpeg_quality');
