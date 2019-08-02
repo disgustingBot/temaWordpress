@@ -413,9 +413,12 @@ header a:hover{color:var(--color3)}
       SECTION 1
 -------------------- */
 
-#sec1 {
-  background-color: #ffffff;
+#sec1, #sec3 {
+  /* background-color: #ffffff; */
   grid-template-columns: 1fr 5fr;
+}
+#sec2 {
+  grid-template-columns: 5fr 1fr;
 }
 
 #sec1Main{
@@ -773,7 +776,8 @@ footer{
   align-items: center;
   color:var(--color2);
   position: sticky;
-  top: 100px;
+  top: 80px;
+  top: calc(var(--topCero) + 60px + var(--sE) * 1px);
   z-index: 0;
 }
 
@@ -786,6 +790,7 @@ footer{
   width: 100%!important;
   object-fit: cover;
 }
+
 
 
 
