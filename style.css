@@ -380,9 +380,12 @@ header a:hover{color:var(--color3)}
       SECTION 1
 -------------------- */
 
-#sec1 {
-  background-color: #ffffff;
+#sec1, #sec3 {
+  /* background-color: #ffffff; */
   grid-template-columns: 1fr 5fr;
+}
+#sec2 {
+  grid-template-columns: 5fr 1fr;
 }
 
 #sec1Main{
@@ -741,13 +744,11 @@ footer{
   color:var(--color2);
   position: sticky;
   top: 80px;
+  top: calc(var(--topCero) + 60px + var(--sE) * 1px);
   z-index: 0;
-}
-
-#sec1Marker {
-  width: 100%!important;
   object-fit: cover;
 }
+
 
 
 
@@ -816,7 +817,9 @@ footer{
 
 
 .specialCont{
-  grid-column: span 3;
+  /* grid-column: span 3; */
+  /* grid-column: span calc((15 - var(--mainCardSpan)) * .5); */
+  grid-column: span var(--specialContSpan);
   display: grid;
   grid-template-columns: 1fr;
   grid-gap: calc(var(--sE) * 1px);
@@ -832,11 +835,15 @@ footer{
 
 
 
-
+:root{
+  --mainCardSpan: 7;
+  --specialContSpan: 4;
+}
 
 
 .sectionMainPost {
-  grid-column: 1/10;
+  /* grid-column: span var(--mainCardSpan); */
+  grid-column: span calc(15 - var(--specialContSpan) * 2);
   grid-row: 1;
   height: 100%;
 }
