@@ -30,7 +30,8 @@ Version: 1.0
   /*VARIABLES DE PERSONALIZACION DE PAGINA*/
   /* la idea de esto es que sean como controles con los
   que hacer facilmente diferentes versiones de la pagina */
-  --sE:20;
+  --sE: 20;
+  --specialContSpan: 4 ;
 
   /* COLORS */
   /* Al editar colores siempre usar HEX y nunca
@@ -83,6 +84,19 @@ Version: 1.0
     --footerNavBarGridC: 1fr;
 
 
+    --specialContSpan: 1;
+
+    --sec1MainTemplateC: repeat(12,1fr);
+
+    --specialContGridC: span 6;
+
+    --thrdPostGridC: span 4;
+
+    --cardImgMinHeight: 25vw;
+
+    --sectionMainPostImg: 40vw!important;
+
+    --thrdPostImgMinHeight: 200px;
 
 
 }
@@ -132,6 +146,10 @@ Version: 1.0
 
     --footerNavBarGridC: 1fr;
 
+    --thrdPostImgMinHeight: 200px;
+
+
+
 
 }}
 
@@ -139,6 +157,21 @@ Version: 1.0
 
   :root {
     --nubeEtiquetasContainerHeight: 220px;
+
+    --specialContSpan: 5;
+
+    --specialContGridC: span var(--specialContSpan);
+
+    --sec1MainTemplateC: repeat(15,1fr);
+
+    --thrdPostGridC: span 5;
+
+    --cardImgMinHeight: 10vw;
+
+    --sectionMainPostImg: var(--cardImgMinHeight);
+
+    --thrdPostImgMinHeight: 500px;
+
 
   }
   }
@@ -157,7 +190,7 @@ Version: 1.0
 
       --footerLogoheight: 120px;
 
-
+      --specialContSpan: 4 ;
 
     }
 
@@ -387,7 +420,7 @@ header a:hover{color:var(--color3)}
 
 #sec1Main{
   display: grid;
-  grid-template-columns: repeat(15,1fr);
+  grid-template-columns: var(--sec1MainTemplateC);
   grid-gap:calc(var(--sE) * 1px);
 }
 
@@ -729,19 +762,24 @@ footer{
          MARKER
 ----------------------- */
 
-.sectionMarker{
+.sectionMarker {
   grid-row: span 2;
   background: #191B1A;
   width: 100%;
-  height: 400px;
+  height: min-content;
   display: grid;
   grid-auto-flow: column dense;
   justify-content: center;
   align-items: center;
   color:var(--color2);
   position: sticky;
-  top: 80px;
+  top: 100px;
   z-index: 0;
+}
+
+.sectionMarker img {
+  width: 100%;
+  height: auto;
 }
 
 #sec1Marker {
@@ -785,7 +823,7 @@ footer{
 .card img{
   width: 100%;
   height: 100%;
-  min-height: 150px;
+  min-height: var(--cardImgMinHeight);
 }
 .card figcaption{
   text-align: left;
@@ -793,10 +831,10 @@ footer{
   color: var(--color1);
   height: min-content;
 }
-.card h3, .card p {
+.card h6, .card p {
   margin-bottom: calc(var(--sE) * .25px);
 }
-.card h3 {
+.card h6 {
   font-size: var(--size5);
 }
 .card p {
@@ -816,7 +854,7 @@ footer{
 
 
 .specialCont{
-  grid-column: span 3;
+  grid-column: var(--specialContGridC);
   display: grid;
   grid-template-columns: 1fr;
   grid-gap: calc(var(--sE) * 1px);
@@ -829,21 +867,19 @@ footer{
 .specialCont:nth-child(3){grid-template-rows: 3fr 2fr;}
 
 
-
-
-
-
-
-
 .sectionMainPost {
-  grid-column: 1/10;
+  grid-column: span calc(15 - var(--specialContSpan) * 2);
   grid-row: 1;
   height: 100%;
 }
 
+.sectionMainPost img {
+  min-height: var(--sectionMainPostImg);
+}
+
 /* .sectionMainPost img {height: 65%!important} */
 
-.sectionMainPost h3 {
+.sectionMainPost h6 {
   font-size: var(--size4);
   margin-bottom: calc(var(--sE) * .5px);
 }
@@ -869,4 +905,6 @@ footer{
 /* .sectionSecnPost:nth-child(4){margin-top: 270px;} */
 /* .sectionSecnPost:nth-child(5){margin-top: 420px;} */
 
-.sectionThrdPost {grid-column: span 5;}
+.sectionThrdPost {grid-column: var(--thrdPostGridC);}
+
+.sectionThrdPost img {min-height: var(--thrdPostImgMinHeight)}
