@@ -53,9 +53,9 @@
         <?php if(is_front_page()){echo 'class="active"';} ?>
         <?php if(get_post_type() == 'post'){echo 'class="active"';} ?>
         <?php if(is_page('about')){echo 'class="active"';} ?>
-      >Marketing Strategy</a>
-    <a href="<?php echo site_url('/category/digital-health'); ?>">Digital Health</a>
-    <a href="<?php echo site_url('/category/whatever'); ?>">Whatever</a>
-    <a href="<?php echo site_url('/category/events-training'); ?>">Events & Training</a>
-    <a href="<?php echo site_url('/category/news'); ?>">News</a>
+      ><nobr>Marketing Strategy</nobr></a>
+    <a href="<?php echo site_url('/category/digital-health'); ?>"><nobr>Digital Health</nobr></a>
+    <a href="<?php echo site_url('/category/whatever'); ?>"><nobr>Cool Reading</nobr></a>
+    <a href="<?php echo site_url('/category/events-training'); ?>"><nobr>Events & Training</nobr></a>
+    <a href="<?php echo site_url('/category/news'); ?>"><nobr>News</nobr></a>
   </nav>
