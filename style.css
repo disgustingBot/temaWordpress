@@ -31,7 +31,7 @@ Version: 1.0
   /* la idea de esto es que sean como controles con los
   que hacer facilmente diferentes versiones de la pagina */
   --sE: 20;
-  --specialContSpan: 4 ;
+  --specialContSpan: 4;
 
   /* COLORS */
   /* Al editar colores siempre usar HEX y nunca
@@ -83,6 +83,8 @@ Version: 1.0
     --legalFooterUlMarginRight: auto;
     --footerNavBarGridC: 1fr;
 
+    --atfGridR: 2fr 1fr;
+
 
     --specialContSpan: 1;
 
@@ -97,6 +99,14 @@ Version: 1.0
     --sectionMainPostImg: 40vw!important;
 
     --thrdPostImgMinHeight: 200px;
+
+    --sec1y3GridTemplateC: 1fr;
+
+    --sec2GridTemplateC: 1fr;
+
+    --sectionMarkerDisplay: none;
+
+  --sectionMainPostGridC: span 12;
 
 
 }
@@ -146,8 +156,17 @@ Version: 1.0
 
     --footerNavBarGridC: 1fr;
 
+    --atfGridR: 1fr;
+
     --thrdPostImgMinHeight: 200px;
 
+    --sec1y3GridTemplateC: 1fr 5fr;
+
+    --sec2GridTemplateC: 5fr 1fr;
+
+    --sectionMarkerDisplay: grid;
+
+    --sectionMainPostGridC: span calc(15 - var(--specialContSpan) * 2);
 
 
 
@@ -170,7 +189,8 @@ Version: 1.0
 
     --sectionMainPostImg: var(--cardImgMinHeight);
 
-    --thrdPostImgMinHeight: 500px;
+
+
 
 
   }
@@ -200,8 +220,8 @@ Version: 1.0
 
 /* ----------------------------------------- LOGIC FOLD/ ----------------------------------------- */
 /* -------------------------------------------- FONTS -------------------------------------------- */
-h1,h2,h3,h4,h5 {font-family:'Roboto',sans-serif}
-h6,p,a         {font-family:'Nunito',sans-serif}
+h1,h2,h3,h4,h5,h6 {font-family: 'Bitter', serif;}
+p,a         {font-family: 'Raleway', sans-serif;}
 /* ------------------------------------------- GENERAL ------------------------------------------- */
 
 body,figure,ul,ol,h1,h2,h3,h4,h5,h6,p {margin:0}
@@ -354,13 +374,14 @@ header a:hover{color:var(--color3)}
 /*TODO: acomodar en el css del ATF*/
 #atf {
   padding: 0 10%;
-  height: 50vw;
+  height: 40vw;
   max-height: 100vh;
   display: grid;
+  grid-row: var(--atfGridR);
   background-color: #ffffff;
 }
 #atf img {
-  height: 80%;
+  height:90%;
   width: calc(100% - 50px);
   margin: auto;
   margin-left: 0;
@@ -381,7 +402,7 @@ header a:hover{color:var(--color3)}
   width: 500px;
   height: auto;
   box-sizing: border-box;
-  box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+  /*box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);*/
 }
 
 #atfTitle {
@@ -415,16 +436,16 @@ header a:hover{color:var(--color3)}
 
 #sec1, #sec3 {
   /* background-color: #ffffff; */
-  grid-template-columns: 1fr 5fr;
+  grid-template-columns: var(--sec1y3GridTemplateC);
 }
 #sec2 {
-  grid-template-columns: 5fr 1fr;
+  grid-template-columns: var(--sec2GridTemplateC);
 }
 
 #sec1Main{
   display: grid;
   grid-template-columns: var(--sec1MainTemplateC);
-  grid-gap:calc(var(--sE) * 1px);
+  grid-gap: calc(var(--sE) * 2px);
 }
 
 #sec1Main figure{
@@ -767,13 +788,14 @@ footer{
 
 .sectionMarker {
   grid-row: span 2;
-  background: #191B1A;
-  width: 100%;
-  height: min-content;
-  display: grid;
+  background: ;
+  margin: auto;
+  margin-top: 0px;
+  width: var(--sectionMarkerVW);
+  height: 400px;
+  display: var(--sectionMarkerDisplay);
   grid-auto-flow: column dense;
-  justify-content: center;
-  align-items: center;
+  grid-template-rows: 2fr 1fr 2fr;
   color:var(--color2);
   position: sticky;
   top: 80px;
@@ -781,17 +803,18 @@ footer{
   z-index: 0;
 }
 
-.sectionMarker img {
-  width: 100%;
-  height: auto;
+.sectionMarker h3 {
+  font-size: var(--size4);
+  margin: auto;
+  padding: 0 30px;
+  color: black;
 }
 
-#sec1Marker {
-  width: 100%!important;
-  object-fit: cover;
-}
+.markerLetter {width: 80%; max-height: 80%; fill: var(--color3);}
 
+.markerFirstLetter2 {margin: 0 auto auto 0;}
 
+.markerSecondLetter2 {margin: auto 0 0 auto;}
 
 
 
@@ -803,9 +826,10 @@ footer{
 
 
 .card {
+  position: relative;
   overflow: hidden;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-  border-radius: 4px;
+  /*box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);*/
+
   transition: all 0.3s cubic-bezier(.25,.8,.25,1);
   width: 100%;
   /* height min content ofrece tamaños de imagen regulares en la fila 3 */
@@ -814,9 +838,12 @@ footer{
   height: 100%;
 }
 .card:hover {
-  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
-  border-radius: 8px;
+  /*box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);*/
+
 }
+
+
+
 
 .card figure{
   width: 100%;
@@ -836,6 +863,8 @@ footer{
   color: var(--color1);
   height: min-content;
 }
+
+.card figcaption
 .card h6, .card p {
   margin-bottom: calc(var(--sE) * .25px);
 }
@@ -862,20 +891,39 @@ footer{
   grid-column: var(--specialContGridC);
   display: grid;
   grid-template-columns: 1fr;
-  grid-gap: calc(var(--sE) * 1px);
+  grid-gap: calc(var(--sE) * 2px);
   height: 100%;
 }
+
+.specialCont:nth-child(2) {
+  border-left: solid black 5px;
+/* border-left: solid rgba(0,0,0,0.5) 5px;*/
+}
+
 .specialCont .card{
   height: 100%;
 }
-.specialCont:nth-child(2){grid-template-rows: 2fr 3fr;}
-.specialCont:nth-child(3){grid-template-rows: 3fr 2fr;}
+.specialCont:nth-child(2){grid-template-rows: 2fr 3fr; position:relative;}
+.specialCont:nth-child(3){grid-template-rows: 3fr 2fr; position:relative;}
 
 
 .sectionMainPost {
-  grid-column: span calc(15 - var(--specialContSpan) * 2);
+  grid-column: var(--sectionMainPostGridC);
   grid-row: 1;
   height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.sectionMainPost img {
+  order: 2;
+  object-fit: contain!important;
+  margin: auto;
+  height: 80%;
+}
+.sectionMainPost figcaption {
+  order: 1;
+  text-align: center!important;
 }
 
 .sectionMainPost img {
@@ -903,13 +951,36 @@ footer{
   color: #262626!important;
   font-weight: 300;
 }
+
+
+
+  .sectionSecnPost img {
+    width: 80%!important;
+    margin: auto;
+  }
+
+
+
 /* .sectionSecnPost {grid-row:1} */
 
 /* .sectionSecnPost:nth-child(2),.sectionSecnPost:nth-child(4){grid-column: 10/13;} */
 /* .sectionSecnPost:nth-child(3),.sectionSecnPost:nth-child(5){grid-column: 13/16;} */
-/* .sectionSecnPost:nth-child(4){margin-top: 270px;} */
+/* .sectionSecnPost:nth-child(4:after {
+    content:'';
+    position:absolute;
+    width:150px;
+    height:1px;
+    background:#000;
+    bottom:0;
+    left:0;
+    right:0;
+    margin:auto;
+}){margin-top: 270px;} */
 /* .sectionSecnPost:nth-child(5){margin-top: 420px;} */
 
 .sectionThrdPost {grid-column: var(--thrdPostGridC);}
+
+
+
 
 .sectionThrdPost img {min-height: var(--thrdPostImgMinHeight)}
