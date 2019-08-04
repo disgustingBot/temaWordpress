@@ -34,15 +34,13 @@
     ?>
   </nav>
   <?php
+  // TODO: hacer un condicional para chequear que sea categoria
+  $category = get_queried_object();
   $args=array(
     'post_type'=>'post',
     'posts_per_page'=>2,
-    'meta_query'=>array(
-       array(
-         'key'=>'_featured',
-         'value'=>'yes'
-       )
-    )
+    'category' => $category->term_id,
+    'tag' => 'atf',
   );$atf=new WP_Query($args);
   while($atf->have_posts()){$atf->the_post(); ?>
   <a class="archiveAtfCard" href="<?php the_permalink(); ?>">
@@ -67,9 +65,12 @@
       <a class="card<?php if ($i  % 6==0) {echo " mainCard";} ?>" href="<?php the_permalink(); ?>">
         <figure>
           <img src="<?php echo get_the_post_thumbnail_url(get_the_ID()); ?>" alt="">
-          <h3><?php the_title(); ?></h3>
-          <p class="sec1MainAuthor">Por <?php the_author(); ?> - <?php the_time('F j, Y'); ?></p>
-          <p class="sec1MainExcerpt"><?php if($i==0){the_excerpt();} ?></p>
+          <figcaption>
+            <h3><?php the_title(); ?></h3>
+            <p class="sec1MainAuthor">Por <?php the_author(); ?> - <?php the_time('F j, Y'); ?></p>
+            <p class="sec1MainExcerpt"><?php if($i==0){the_excerpt();} ?></p>
+            <!-- <p id="archiveAtfCategory"><?php echo get_the_category_list(', '); ?></p> -->
+          </figcaption>
         </figure>
       </a>
 

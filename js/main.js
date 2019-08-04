@@ -34,10 +34,40 @@ observer.observe(detector);
 
 
 
-function correctSizesAndPositions (){
-  var h = document.getElementById('atf');
-  // var h = document.getElementById('atf').offsetHeight;
-  c.log("hola, soy gardel");
-  c.log(h.offsetHeight);
+
+// SLIDER:
+var slideIndex = 1;
+showDivs(slideIndex);
+
+function plusDivs(n) {
+  showDivs(slideIndex += n);
 }
-correctSizesAndPositions();
+
+function showDivs(n) {
+  var i;
+  var x = document.getElementsByClassName("slide");
+  if (n > x.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = x.length} ;
+  for (i = 0; i < x.length; i++) {
+    // x[i].style.display = "none";
+    x[i].classList.add("inactive");
+  }
+  // x[slideIndex-1].style.display = "grid";
+  x[slideIndex-1].classList.remove("inactive");
+}
+
+// carousel();
+//
+// function carousel() {
+//   var i;
+//   var x = document.getElementsByClassName("slide");
+//   for (i = 0; i < x.length; i++) {
+//     // x[i].style.display = "none";
+//     x[i].classList.add("inactive");
+//   }
+//   slideIndex++;
+//   if (slideIndex > x.length) {slideIndex = 1}
+//   // x[slideIndex-1].style.display = "block";
+//   x[slideIndex-1].classList.remove("inactive");
+//   setTimeout(carousel, 4000); // Change image every 2 seconds
+// }
