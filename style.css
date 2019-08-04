@@ -169,6 +169,12 @@ Version: 1.0
     --sectionMainPostGridC: span calc(15 - var(--specialContSpan) * 2);
 
 
+    --sectionMarkerPadding: 0;
+    --markerLetterMaxWidth: 70%;
+    --markerLetterHeight: 60%;
+    --letterMMaxWidth: 80%!important;
+
+
 
 }}
 
@@ -188,6 +194,13 @@ Version: 1.0
     --cardImgMinHeight: 10vw;
 
     --sectionMainPostImg: var(--cardImgMinHeight);
+
+    --sectionMarkerPadding: 0;
+    --markerLetterMaxWidth: 90%;
+    --markerLetterHeight: 70%;
+    --letterMMaxWidth: 90%!important;
+
+
 
 
 
@@ -211,6 +224,25 @@ Version: 1.0
       --footerLogoheight: 120px;
 
       --specialContSpan: 4 ;
+
+      --sectionMarkerVW: 10vw;
+
+      --sectionMarkerPadding: 0 40px;
+
+      --sectionMarkerPadding: 0 10px;
+      --markerLetterMaxWidth: 80%;
+      --letterMMaxWidth: 80%!important;
+
+
+    }
+
+}
+
+@media  screen and (min-width: 1500px) {
+    :root {
+      --sectionMarkerPadding: 0 50px;
+      --markerLetterMaxWidth: 70%;
+      --letterMMaxWidth: 70%!important;
 
     }
 
@@ -236,9 +268,11 @@ section {
 }
 
 h1 {color:rgba(255,255,255,0)}
+
+
 banner{
   background: var(--color1);
-  height: 100px;
+  height: 300px;
   display: grid;
   text-align: center;
   color: var(--color2);
@@ -341,8 +375,7 @@ header a:hover{color:var(--color3)}
   grid-template-rows: 1fr;
   position: static;
 }
-#navBar a{color:var(--color2);}
-#navBar a:hover{color:var(--color3);}
+
 #headerMenu{
   display: inline-flex;
   position: fixed;
@@ -363,7 +396,37 @@ header a:hover{color:var(--color3)}
 #headerMenu.inactive{right:-50px;transform:rotate(90deg);}
 #headerMenu svg{width:60%;height:60%}
 
+#navBar a {
+  color: white;
+  font-size: var(--size6);
+  width: min-content;
+  margin: auto;
+  position: relative;
+  -webkit-transition: all 0.25s ease;
+	transition: all 0.25s ease;
+}
 
+#navBar a:hover {color: var(--color3);}
+
+#navBar a:after {
+	content: "";
+	position: absolute;
+	height: 2px;
+	background-color: white;
+	width: 0;
+	left: 50%;
+	bottom: -5px;
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+	transform: translateX(-50%);
+	/*-webkit-transition: 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55) all;*/
+  transition: 0.25s  all;
+}
+
+
+#navBar a:hover:after {
+	width: 100%;
+}
 
 /* --------------------
       FRONT PAGE
@@ -702,7 +765,7 @@ footer{
 	background-color: white;
 	width: 0;
 	left: 50%;
-	bottom: 0;
+	bottom: -3px;
   -webkit-transform: translateX(-50%);
   -ms-transform: translateX(-50%);
 	transform: translateX(-50%);
@@ -833,34 +896,33 @@ footer{
 
 .sectionMarker {
   grid-row: span 2;
-  background: #191B1A;
-  margin: auto;
-  margin-top: 0px;
-  width: var(--sectionMarkerVW);
+  padding: var(--sectionMarkerPadding);
+  background: none;
   height: 400px;
   display: var(--sectionMarkerDisplay);
   grid-auto-flow: column dense;
   grid-template-rows: 2fr 1fr 2fr;
-  color:var(--color2);
   position: sticky;
   top: 80px;
   top: calc(var(--topCero) + 60px + var(--sE) * 1px);
   z-index: 0;
-  object-fit: cover;
 }
+
 
 .sectionMarker h3 {
-  font-size: var(--size4);
+  font-size: var(--size5);
   margin: auto;
-  padding: 0 30px;
   color: black;
+  line-height: 30px;
 }
 
-.markerLetter {width: 80%; max-height: 80%; fill: var(--color3);}
+.markerLetter {height: var(--markerLetterHeight); max-width: var(--markerLetterMaxWidth); fill: var(--color3);}
 
-.markerFirstLetter2 {margin: 0 auto auto 0;}
+.markerFirstLetter {margin: 0 auto auto 0;}
 
-.markerSecondLetter2 {margin: auto 0 0 auto;}
+.markerSecondLetter {margin: auto 0 0 auto;}
+
+.letterM {max-width: var(--letterMMaxWidth);}
 
 
 
