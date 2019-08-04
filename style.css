@@ -372,27 +372,62 @@ header a:hover{color:var(--color3)}
 /* ABOVE THE FOLD */
 
 /*TODO: acomodar en el css del ATF*/
-#atf {
+#homeAtf {
+  position: relative;
+  z-index:   0;
+  display: grid;
+  overflow: hidden;
+}
+
+.slideButton {
+  position: relative;
+  grid-column: 1;
+  grid-row:  1;
+  margin: auto;
+  border: none;
+  height: 50px;
+  width:  50px;
+  z-index:   2;
+  color:var(--color2);
+  transition: .3s;
+  background: rgba(0, 0, 0, 0.85);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+.slideButton:hover{
+  cursor: pointer;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+.slideLeft {margin-left:  0}
+.slideRight{margin-right: 0}
+
+
+#homeAtf .slide {
   padding: 0 10%;
   height: 40vw;
   max-height: 100vh;
   display: grid;
-  grid-row: var(--atfGridR);
-  background-color: #ffffff;
-}
-#atf img {
-  height:90%;
+  grid-column: 1;
+  grid-row: 1;
+  transition:       .5s;
+  transition-delay: .5s;
+}#homeAtf .slide.inactive {transition-delay: 0s;}
+#homeAtf .slide img {
+  height: 80%;
   width: calc(100% - 50px);
   margin: auto;
   margin-left: 0;
   grid-row: 1;
   grid-column: 1;
+  transform-origin: left;
+  transition:       inherit;
+  transition-delay: inherit;
 }
-#atf p {
-  padding: 10px 0;
+#homeAtf .slide.inactive img {
+  transform:translate(-100vw,0);
+  transition-delay: inherit;
 }
-#atf figcaption {
-  grid-row: 1;
+#homeAtf .slide figcaption {
+  grid-row:    1;
   grid-column: 1;
   background: rgba(0, 0, 0, 0.85);
   padding: calc(calc(var(--sE) * 1px) * 3);
@@ -402,24 +437,34 @@ header a:hover{color:var(--color3)}
   width: 500px;
   height: auto;
   box-sizing: border-box;
-  /*box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);*/
+  box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+  transform-origin: right;
+  transition:       inherit;
+  transition-delay: inherit;
+}
+#homeAtf .slide.inactive figcaption {
+  transform:translate(100vw,0);
+  transition-delay: inherit;
+}
+#homeAtf .slide p {
+  padding: 10px 0;
 }
 
-#atfTitle {
+#homeAtf .slide #atfTitle {
   border-bottom: solid 1px rgba(255, 255, 255, .5);
   padding: 10px 0;
 }
 
-#atf #atfCategory {
+#homeAtf .slide #atfCategory {
   text-transform: uppercase;
   color: #D2AA6C!important;
   font-size: 1.3em;
 }
 
-#atfTitle {
+#homeAtf .slide #atfTitle {
   font-size: 2em;
 }
-#atfAuthor {
+#homeAtf .slide #atfAuthor {
   font-size: 1.5em;
   color: var(--color3);
 }
@@ -788,7 +833,7 @@ footer{
 
 .sectionMarker {
   grid-row: span 2;
-  background: ;
+  background: #191B1A;
   margin: auto;
   margin-top: 0px;
   width: var(--sectionMarkerVW);
@@ -801,6 +846,7 @@ footer{
   top: 80px;
   top: calc(var(--topCero) + 60px + var(--sE) * 1px);
   z-index: 0;
+  object-fit: cover;
 }
 
 .sectionMarker h3 {
@@ -877,13 +923,13 @@ footer{
 
 
 /* COSAS PARA LA PAGINA ARCHIVE */
-/* .card:nth-child(even) {grid-column: 4/6;}
-.card:nth-child(odd)  {grid-column: 6/8;}
+.archiveSection .card:nth-child(even) {grid-column: 4/6;}
+.archiveSection .card:nth-child(odd)  {grid-column: 6/8;}
 .mainCard {
   grid-column: 1/4!important;
   position: sticky;
   top:calc(var(--topCero) + calc(var(--sE) * 1px) + 60px);
-} */
+}
 
 
 
