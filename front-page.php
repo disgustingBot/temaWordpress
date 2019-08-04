@@ -26,20 +26,6 @@
 
 
 <section id="sec1">
-  <?php
-  $args = array(
-    // 'post_type' => 'project',
-    'post_type'=>'post',
-    'posts_per_page'=>8,
-    // 'tax_query' => array(
-    //   array(
-    //     'taxonomy' => 'category',
-    //     'field'    => 'term_id',
-    //     'terms'    => $cat->cat_ID,
-    //   ),
-    // ),
-  );$blogPosts=new WP_Query($args);
-  ?>
   <div class="sectionMarker">
     <svg class="markerLetter markerFirstLetter letterM" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
     viewBox="0 0 43.68 25.92" xml:space="preserve">
