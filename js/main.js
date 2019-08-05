@@ -56,18 +56,18 @@ function showDivs(n) {
   x[slideIndex-1].classList.remove("inactive");
 }
 
-// carousel();
-//
-// function carousel() {
-//   var i;
-//   var x = document.getElementsByClassName("slide");
-//   for (i = 0; i < x.length; i++) {
-//     // x[i].style.display = "none";
-//     x[i].classList.add("inactive");
-//   }
-//   slideIndex++;
-//   if (slideIndex > x.length) {slideIndex = 1}
-//   // x[slideIndex-1].style.display = "block";
-//   x[slideIndex-1].classList.remove("inactive");
-//   setTimeout(carousel, 4000); // Change image every 2 seconds
-// }
+carousel();
+
+function carousel() {
+  var i;
+  var x = document.getElementsByClassName("slide");
+  for (i = 0; i < x.length; i++) {
+    // x[i].style.display = "none";
+    x[i].classList.add("inactive");
+  }
+  slideIndex++;
+  if (slideIndex > x.length) {slideIndex = 1}
+  // x[slideIndex-1].style.display = "block";
+  x[slideIndex-1].classList.remove("inactive");
+  setTimeout(carousel, 5000); // Change image every 5 seconds
+}

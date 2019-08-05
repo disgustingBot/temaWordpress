@@ -26,7 +26,7 @@ Version: 1.0
 */
 
 :root {
-  --topCero: 32px;
+  --topCero: 46px;
   /*VARIABLES DE PERSONALIZACION DE PAGINA*/
   /* la idea de esto es que sean como controles con los
   que hacer facilmente diferentes versiones de la pagina */
@@ -85,14 +85,25 @@ Version: 1.0
 
     --atfGridR: 2fr 1fr;
 
+    --homeSlideFigcaptionMarginBottom: calc(var(--sE) * 1px);
+    --homeSlidePaddingX: 0;
+    --homeSlideButtonMarginX: calc(var(--sE) * -.5px);
+    --homeSlideFigcaptionPadding:calc(var(--sE) * 1px);
+    --homeSlideImgWidth:100%;
+
+    --homeSectionPadding: 0;
 
     --specialContSpan: 1;
 
-    --sec1MainTemplateC: repeat(12,1fr);
+    --secGridTemplateC:  1fr;
+    --sec2GridTemplateC: 1fr;
+    /* --sec1MainTemplateC: repeat(12,1fr); */
+    --sec1MainTemplateC: 1fr 1fr;
+    --sec1MainGridGap:calc(var(--sE) * 1px);
 
-    --specialContGridC: span 6;
+    --specialContGridC: span 1;
 
-    --thrdPostGridC: span 4;
+    --thrdPostGridC: span 2;
 
     --cardImgMinHeight: 25vw;
 
@@ -106,7 +117,7 @@ Version: 1.0
 
     --sectionMarkerDisplay: none;
 
-  --sectionMainPostGridC: span 12;
+  --sectionMainPostGridC: span 2;
 
 
 }
@@ -128,6 +139,9 @@ Version: 1.0
 @media screen and (min-width: 576px) {
   :root {
     --footerNavBarGridC: 1fr 1fr;
+    --homeSlideImgWidth:calc(100% - var(--sE) * 3px);
+    --sec1MainGridGap:calc(var(--sE) * 2px);
+    --homeSectionPadding: calc(var(--sE) * 1px);
   }
 
   }
@@ -156,27 +170,24 @@ Version: 1.0
 
     --footerNavBarGridC: 1fr;
 
+
+    --secGridTemplateC:  min-content 1fr;
+    --sec2GridTemplateC: 1fr min-content;
     --atfGridR: 1fr;
+    --homeSlideButtonMarginX: 0;
+    --homeSlideFigcaptionPadding:calc(var(--sE) * 3px);
 
     --thrdPostImgMinHeight: 200px;
 
-    --sec1y3GridTemplateC: 1fr 5fr;
-
-    --sec2GridTemplateC: 5fr 1fr;
-
     --sectionMarkerDisplay: grid;
 
-    --sectionMainPostGridC: span calc(15 - var(--specialContSpan) * 2);
+    /* --sectionMainPostGridC: span calc(15 - var(--specialContSpan) * 2); */
 
-
-    --sectionMarkerPadding: 0;
-    --markerLetterMaxWidth: 70%;
-    --markerLetterHeight: 60%;
-    --letterMMaxWidth: 80%!important;
-
-
+    --homeSlidePaddingX: 10%;
 
 }}
+
+@media screen and (min-width:  783px) {:root{--topCero: 32px}}
 
 @media screen and (min-width:  992px) {
 
@@ -195,14 +206,9 @@ Version: 1.0
 
     --sectionMainPostImg: var(--cardImgMinHeight);
 
-    --sectionMarkerPadding: 0;
-    --markerLetterMaxWidth: 90%;
-    --markerLetterHeight: 70%;
-    --letterMMaxWidth: 90%!important;
+    --homeSlideFigcaptionMarginBottom: auto;
 
-
-
-
+    --sectionMainPostGridC: span calc(15 - var(--specialContSpan) * 2);
 
 
 
@@ -225,25 +231,6 @@ Version: 1.0
 
       --specialContSpan: 4 ;
 
-      --sectionMarkerVW: 10vw;
-
-      --sectionMarkerPadding: 0 40px;
-
-      --sectionMarkerPadding: 0 10px;
-      --markerLetterMaxWidth: 80%;
-      --letterMMaxWidth: 80%!important;
-
-
-    }
-
-}
-
-@media  screen and (min-width: 1500px) {
-    :root {
-      --sectionMarkerPadding: 0 50px;
-      --markerLetterMaxWidth: 70%;
-      --letterMMaxWidth: 70%!important;
-
     }
 
 }
@@ -263,23 +250,25 @@ a {text-decoration:none;color:var(--color3);}
 
 section {
   display: grid;
+  grid-auto-flow: column;
+  /* grid-auto-columns: min-content; */
+  grid-auto-columns: auto;
+  /* grid-auto-rows: auto */
   padding:  calc(var(--sE) * 1px);
   grid-gap: calc(var(--sE) * 1px);
 }
 
 h1 {color:rgba(255,255,255,0)}
-
-
 banner{
   background: var(--color1);
-  height: 300px;
+  height: 100px;
   display: grid;
   text-align: center;
   color: var(--color2);
   width: 100%;
-  margin: calc(var(--sE) * 1px) 0;
   justify-content: center;
   align-items: center;
+  margin: calc(var(--sE) * 1px) 0;
 }
 
 
@@ -376,7 +365,8 @@ header a:hover{color:var(--color3)}
   grid-template-rows: 1fr;
   position: static;
 }
-
+#navBar a{color:var(--color2);}
+#navBar a:hover{color:var(--color3);}
 #headerMenu{
   display: inline-flex;
   position: fixed;
@@ -397,37 +387,7 @@ header a:hover{color:var(--color3)}
 #headerMenu.inactive{right:-50px;transform:rotate(90deg);}
 #headerMenu svg{width:60%;height:60%}
 
-#navBar a {
-  color: white;
-  font-size: var(--size6);
-  width: min-content;
-  margin: auto;
-  position: relative;
-  -webkit-transition: all 0.25s ease;
-	transition: all 0.25s ease;
-}
 
-#navBar a:hover {color: var(--color3);}
-
-#navBar a:after {
-	content: "";
-	position: absolute;
-	height: 2px;
-	background-color: white;
-	width: 0;
-	left: 50%;
-	bottom: -5px;
-  -webkit-transform: translateX(-50%);
-  -ms-transform: translateX(-50%);
-	transform: translateX(-50%);
-	/*-webkit-transition: 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55) all;*/
-  transition: 0.25s  all;
-}
-
-
-#navBar a:hover:after {
-	width: 100%;
-}
 
 /* --------------------
       FRONT PAGE
@@ -439,8 +399,10 @@ header a:hover{color:var(--color3)}
 #homeAtf {
   position: relative;
   z-index:   0;
+  padding-top: 0;
   display: grid;
-  grid-template-rows: calc(100vh - 100px);
+  grid-auto-flow: row;
+  grid-template-rows: calc(100vh - 100px - var(--topCero));
   grid-auto-rows: auto;
   overflow: hidden;
 }
@@ -463,14 +425,15 @@ header a:hover{color:var(--color3)}
   cursor: pointer;
   box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
-.slideLeft {margin-left:  0}
-.slideRight{margin-right: 0}
+.slideLeft {margin-left:  var(--homeSlideButtonMarginX)}
+.slideRight{margin-right: var(--homeSlideButtonMarginX)}
 
 
 #homeAtf .slide {
-  padding: 0 10%;
+  /* padding: 0 10%; */
   /* height: 40vw; */
   /* max-height: 100vh; */
+  padding: 0 var(--homeSlidePaddingX);
   display: grid;
   grid-column: 1;
   grid-row: 1;
@@ -479,7 +442,8 @@ header a:hover{color:var(--color3)}
 }#homeAtf .slide.inactive {transition-delay: 0s;}
 #homeAtf .slide img {
   height: 80%;
-  width: calc(100% - 50px);
+  /* width: calc(100% - 50px); */
+  width: var(--homeSlideImgWidth);
   margin: auto;
   margin-left: 0;
   grid-row: 1;
@@ -496,11 +460,14 @@ header a:hover{color:var(--color3)}
   grid-row:    1;
   grid-column: 1;
   background: rgba(0, 0, 0, 0.85);
-  padding: calc(calc(var(--sE) * 1px) * 3);
+  /* padding: calc(var(--sE) * 3px); */
+  padding: var(--homeSlideFigcaptionPadding);
   margin: auto;
   margin-right: 0;
+  margin-bottom: var(--homeSlideFigcaptionMarginBottom);
   color: var(--color2);
-  width: 500px;
+  max-width: 500px;
+  width: 100%;
   height: auto;
   box-sizing: border-box;
   box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
@@ -512,27 +479,26 @@ header a:hover{color:var(--color3)}
   transform:translate(100vw,0);
   transition-delay: inherit;
 }
-#homeAtf .slide p {
-  padding: 10px 0;
-}
 
 #homeAtf .slide #atfTitle {
   border-bottom: solid 1px rgba(255, 255, 255, .5);
   padding: 10px 0;
+  font-size: var(--size4);
 }
 
 #homeAtf .slide #atfCategory {
   text-transform: uppercase;
   color: #D2AA6C!important;
-  font-size: 1.3em;
+  /* font-size: 1.3em; */
+  font-size: var(--size5);
+  padding: 10px 0;
 }
 
-#homeAtf .slide #atfTitle {
-  font-size: 2em;
-}
 #homeAtf .slide #atfAuthor {
-  font-size: 1.5em;
+  /* font-size: 1.5em; */
+  font-size: var(--size5);
   color: var(--color3);
+  padding: 10px 0;
 }
 
 
@@ -541,30 +507,33 @@ header a:hover{color:var(--color3)}
       SECTIONS
 -------------------- */
 
-/* --------------------
-      SECTION 1
--------------------- */
-
-#sec1, #sec3 {
-  /* background-color: #ffffff; */
-  grid-template-columns: var(--sec1y3GridTemplateC);
+.section{
+  grid-template-columns: var(--secGridTemplateC);
+  padding: var(--homeSectionPadding);
 }
-#sec2 {
-  grid-template-columns: var(--sec2GridTemplateC);
-}
-
-#sec1Main{
+.secMain{
   display: grid;
+  /* grid-gap: calc(var(--sE) * 2px); */
+  grid-gap: var(--sec1MainGridGap);
   grid-template-columns: var(--sec1MainTemplateC);
-  grid-gap: calc(var(--sE) * 2px);
+  /* min-width: min-content; */
+  /* width: 100vw; */
 }
 
-#sec1Main figure{
-}
-
-#sec1Main img{
+.secMain img{
   width: 100%;
 }
+
+/* --------------------
+      SECTION 2
+-------------------- */
+#sec2{grid-template-columns: var(--sec2GridTemplateC);}
+#sec2 .secMain {order:-1}
+/* #sec2 .sectionMainPost {order:1!important; background: red;} */
+/* #sec2 .specialCont:nth-child(2)     {order:-1!important;} */
+/* #sec2 .specialCont:nth-child(3)     {order:-1!important;} */
+/* #sec2 .sectionThrdPost {order:4!important;} */
+
 
 /* -------------------
        ARCHIVE
@@ -768,7 +737,7 @@ footer{
 	background-color: white;
 	width: 0;
 	left: 50%;
-	bottom: -3px;
+	bottom: 0;
   -webkit-transform: translateX(-50%);
   -ms-transform: translateX(-50%);
 	transform: translateX(-50%);
@@ -898,34 +867,26 @@ footer{
 ----------------------- */
 
 .sectionMarker {
-  grid-row: span 2;
-  padding: var(--sectionMarkerPadding);
-  background: none;
-  height: 400px;
+  margin-bottom: calc(var(--sE) * 1px);
+  width: min-content;
+  height: min-content;
   display: var(--sectionMarkerDisplay);
-  grid-auto-flow: column dense;
-  grid-template-rows: 2fr 1fr 2fr;
+  grid-template-rows: 100px 1fr 100px;
+  color:var(--color1);
   position: sticky;
-  top: 80px;
-  top: calc(var(--topCero) + 60px + var(--sE) * 1px);
+  top: calc(var(--topCero) + 50% - 30px - 133px);
   z-index: 0;
 }
 
-
 .sectionMarker h3 {
-  font-size: var(--size5);
-  margin: auto;
-  color: black;
-  line-height: 30px;
+  font-size: var(--size4);
+  margin: calc(var(--sE) * 2px) 0;
+  padding: 0 calc(var(--sE) * 1.5px);
 }
 
-.markerLetter {height: var(--markerLetterHeight); max-width: var(--markerLetterMaxWidth); fill: var(--color3);}
-
-.markerFirstLetter {margin: 0 auto auto 0;}
-
+.markerLetter {height: 100%; fill: var(--color3);}
+.markerFirstLetter  {margin: 0 auto auto 0;}
 .markerSecondLetter {margin: auto 0 0 auto;}
-
-.letterM {max-width: var(--letterMMaxWidth);}
 
 
 
@@ -995,6 +956,7 @@ footer{
   position: sticky;
   top:calc(var(--topCero) + calc(var(--sE) * 1px) + 60px);
 }
+/* FIN DE COSAS PARA LA PAGINA ARCHIVE */
 
 
 
@@ -1006,10 +968,10 @@ footer{
   height: 100%;
 }
 
-.specialCont:nth-child(2) {
-  border-left: solid black 5px;
-/* border-left: solid rgba(0,0,0,0.5) 5px;*/
-}
+.specialCont:nth-child(2) {border-left: solid black 5px;}
+
+#sec2 .specialCont:nth-child(2) {border-left: 0;}
+#sec2 .specialCont:nth-child(3) {border-right: solid black 5px;}
 
 .specialCont .card{
   height: 100%;
@@ -1021,29 +983,29 @@ footer{
 .sectionMainPost {
   grid-column: var(--sectionMainPostGridC);
   grid-row: 1;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
+}
+.sectionMainPost figure {
   grid-template-rows: min-content 1fr;
 }
 
 .sectionMainPost img {
   order: 2;
-  object-fit: cover!important;
   margin: auto;
   height: 100%!important;
-  width:  auto!important;
+  width:  100%!important;
 }
 .sectionMainPost figcaption {
   order: 1;
   text-align: center!important;
+  box-sizing: border-box;
+  padding: 0;
+  padding-bottom: calc(var(--sE) * 1px);
 }
 
 .sectionMainPost img {
-  min-height: var(--sectionMainPostImg);
+  /* min-height: var(--sectionMainPostImg); */
+  min-height: calc(var(--cardImgMinHeight) + 20vh);
 }
-
-/* .sectionMainPost img {height: 65%!important} */
 
 .sectionMainPost h6 {
   font-size: var(--size4);
@@ -1066,34 +1028,12 @@ footer{
 }
 
 
+.sectionSecnPost img {
+  width: 80%!important;
+  margin: auto;
+}
 
-  .sectionSecnPost img {
-    width: 80%!important;
-    margin: auto;
-  }
-
-
-
-/* .sectionSecnPost {grid-row:1} */
-
-/* .sectionSecnPost:nth-child(2),.sectionSecnPost:nth-child(4){grid-column: 10/13;} */
-/* .sectionSecnPost:nth-child(3),.sectionSecnPost:nth-child(5){grid-column: 13/16;} */
-/* .sectionSecnPost:nth-child(4:after {
-    content:'';
-    position:absolute;
-    width:150px;
-    height:1px;
-    background:#000;
-    bottom:0;
-    left:0;
-    right:0;
-    margin:auto;
-}){margin-top: 270px;} */
-/* .sectionSecnPost:nth-child(5){margin-top: 420px;} */
 
 .sectionThrdPost {grid-column: var(--thrdPostGridC);}
-
-
-
 
 .sectionThrdPost img {min-height: var(--thrdPostImgMinHeight)}
