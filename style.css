@@ -867,14 +867,21 @@ footer{
 ----------------------- */
 
 .sectionMarker {
-  margin-bottom: calc(var(--sE) * 1px);
+  padding-top: -50%;
+  /* margin-top: 50%; */
+  margin-bottom: calc(var(--sE) * -4px);
+  margin-top: calc(var(--sE) * -2px);
+
+  mix-blend-mode: difference;
   width: min-content;
   height: min-content;
   display: var(--sectionMarkerDisplay);
   grid-template-rows: 100px 1fr 100px;
   color:var(--color1);
   position: sticky;
-  top: calc(var(--topCero) + 50% - 30px - 133px);
+  /* top: calc(var(--topCero) + 50% - 30px - 133px); */
+  top: calc(50%);
+  transform: translateY(calc(-50% + var(--topCero)));
   z-index: 0;
 }
 
