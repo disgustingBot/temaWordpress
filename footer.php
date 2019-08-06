@@ -129,9 +129,17 @@
         </div>
       </div>
 
-      <div id="nubeEtiquetasContainer">
-        <h6 id="nubeEtiquetasTitle">Lo más leido</h6>
-        <img id="nubeEtiquetasMuestra" src="<?php echo get_template_directory_uri(); ?>../../../../wp-content/uploads/2019/07/tags.png" alt="">
+      <div id="gaeaBrandingContainer">
+        <h6 id="somosTitle">Somos...</h6>
+        <a href="http://www.and7dreams.com/" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>../../../../wp-content/uploads/2019/08/dreams.png" alt="&7D isologotipo"></a>
+
+        <a href="http://www.gaealearning.com/" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>../../../../wp-content/uploads/2019/08/learning.png" alt="Gaea Learning isologotipo"></a>
+
+        <a href="http://www.saludenlared.com/" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>../../../../wp-content/uploads/2019/08/salud.png" alt="salud en la red imagotipo"></a>
+
+        <a href="http://www.gaeasmartdata.com/" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>../../../../wp-content/uploads/2019/08/smartdata.png" alt="Gaea Smart Data imagotipo"></a>
+
+
       </div>
     </div>
 
