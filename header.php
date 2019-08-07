@@ -49,7 +49,7 @@
   </div>
 
   <nav id="navBar">
-    <a href="<?php echo site_url('/category/marketing-strategy'); ?>"
+    <a href="<?php echo site_url('/category/marketing-digital'); ?>"
         <?php if(is_front_page()){echo 'class="active"';} ?>
         <?php if(get_post_type() == 'post'){echo 'class="active"';} ?>
         <?php if(is_page('about')){echo 'class="active"';} ?>
