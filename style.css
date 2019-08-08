@@ -57,6 +57,15 @@ Version: 1.0
 
 /*VARIABLES DE CAMBIO VISUAL RELACIONADO A AL ANCHO DE LA PANTALLA*/
 
+    --navBarPosition:fixed;
+    --navBarGTC: 1fr;
+    --navBarGTR: repeat(5,1fr);
+    --navBarHeight: calc(100vh - 80px - var(--topCero));
+    --navBarWidth:min-content;
+    --headerMenuRight: 0;
+    --headerMenuTransform:rotate(0);
+    --headerSocialMarginTop:-50px;
+
     --footerLogoheight: 100px;
 
     --footerInfoDisplay: flex;
@@ -189,9 +198,22 @@ Version: 1.0
     --homeSlidePaddingX: 10%;
 
     --navBarPadding: calc(var(--sE) * .5px) 5%;
-
-}}
-
+  }
+  #navBar.inactive {
+    --navBarPosition:static;
+    --navBarGTC: repeat(5,1fr);
+    --navBarGTR: 1fr;
+    --navBarHeight: 60px;
+    --navBarWidth:100%;
+  }
+  #headerMenu.inactive{
+    --headerMenuRight: -50px;
+    --headerMenuTransform:rotate(90deg);
+  }
+  #headerSocial.inactive {
+    --headerSocialMarginTop:calc(var(--sE) * .5px);
+  }
+}
 @media screen and (min-width:  783px) {
 
 
@@ -343,79 +365,57 @@ header a:hover{color:var(--color3)}
   grid-column: 1;
   grid-gap: 5px;
   width: min-content;
-  margin: -50px 20px 0 auto;
+  margin: 0 auto;
+  /* margin-top:-50px; */
+  margin-top:var(--headerSocialMarginTop);
+  margin-right:calc(var(--sE) * 1px);
   height: min-content;
   transition: .3s;
 }
 
-
-#twitterHeader{transition: 0.25s;fill:#D2AA6C}
-#twitterHeader:hover{ fill:#00aced!important}
-#facebookHeader{transition: 0.25s;fill:#D2AA6C}
-#facebookHeader:hover{ fill: #3b5998!important}
-#instagramHeader{transition: 0.25s;fill:#D2AA6C}
-#instagramHeader:hover{ fill: #E1306C!important}
-#linkedInHeader{transition: 0.25s;fill:#D2AA6C}
-#linkedInHeader:hover{ fill: #0e76a8!important}
-#youtubeHeader{transition: 0.25s;fill:#D2AA6C}
-#youtubeHeader:hover{ fill: #ff0000!important}
-
-
-
-
-
-
-
-
-
-#headerSocial.inactive {margin-top:10px;}
 #headerSocial li{
   display: flex;
   align-items: center;
   justify-content: center;
 }
-#headerSocial a{
-  color:var(--color3);
-}
 #headerSocial svg{
   width:  20px;
   height: 20px;
+  transition: 0.25s;
+  fill:var(--color3);
 }
+#twitterHeader:hover  {fill:#00aced}
+#facebookHeader:hover {fill:#3b5998}
+#instagramHeader:hover{fill:#E1306C}
+#linkedInHeader:hover {fill:#0e76a8}
+#youtubeHeader:hover  {fill:#ff0000}
+
 #navBar{
-  position: fixed;
-  top: -200px;
-  right: 0;
-  height: 60px;
+  position: var(--navBarPosition);
+  top:   calc(var(--topCero) + 80px);
+  right: -350px;
+  height: var(--navBarHeight);
+  width:  var(--navBarWidth);
   display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: repeat(5,1fr);
+  z-index: 1;
+  grid-template-columns: var(--navBarGTC);
+  grid-template-rows:    var(--navBarGTR);
   padding: var(--navBarPadding);
   background: var(--color1);
-  width: min-content;
   align-items:     center;
   justify-content: center;
   text-align:      center;
-  transition: .3s;
-}
-#headerMenu:focus+#navBar,
-#navBar:focus,
-#navBar:hover{top:calc(var(--topCero) + 60px)}
-
-#navBar.inactive {
-  width: 100%;
+  transition: right .3s;
   box-sizing: border-box;
-  display: grid;
-  grid-template-columns: repeat(5,1fr);
-  grid-template-rows: 1fr;
-  position: static;
 }
-#navBar a {
+#headerMenu:focus+#navBar,#navBar:focus,#navBar:hover{right:0;}
+#navBar a{
   color:var(--color2);
   transition: all 0.25s ease;
   position: relative;
   width: min-content;
-  margin: auto;
-
+  margin: 0 auto;
+  height: min-content;
 }
 
 
@@ -439,16 +439,13 @@ header a:hover{color:var(--color3)}
  width: 100%;
 }
 
-
-
-
-
 #headerMenu{
   display: inline-flex;
   position: fixed;
   z-index: 2;
   top:var(--topCero);
-  right:  0;
+  /* right:  0; */
+  right:  var(--headerMenuRight);
   margin: 20px 10px;
   width:  40px;
   height: 40px;
@@ -458,9 +455,9 @@ header a:hover{color:var(--color3)}
   justify-content: center;
   align-items:     center;
   transition: .3s;
-  transform: rotate(0);
+  /* transform: rotate(0); */
+  transform: var(--headerMenuTransform);
 }
-#headerMenu.inactive{right:-50px;transform:rotate(90deg);}
 #headerMenu svg{width:60%;height:60%}
 
 
@@ -478,7 +475,9 @@ header a:hover{color:var(--color3)}
   padding-top: 0;
   display: grid;
   grid-auto-flow: row;
-  grid-template-rows: calc(100vh - 100px - var(--topCero));
+  /* grid-template-rows: calc(100vh - 140px - var(--topCero)); */
+  /* grid-template-rows: calc(100vh - 100px - var(--topCero)); */
+  grid-template-rows: calc(100vh - var(--topCero));
   grid-auto-rows: auto;
   overflow: hidden;
 }
@@ -1095,21 +1094,13 @@ footer{
 ----------------------- */
 
 .sectionMarker {
-  padding-top: -50%;
-  /* margin-top: 50%; */
-  margin-bottom: calc(var(--sE) * -4px);
-  margin-top: calc(var(--sE) * -2px);
-
-  mix-blend-mode: difference;
   width: min-content;
   height: min-content;
   display: var(--sectionMarkerDisplay);
   grid-template-rows: 100px 1fr 100px;
   color:var(--color1);
   position: sticky;
-  /* top: calc(var(--topCero) + 50% - 30px - 133px); */
-  top: calc(50%);
-  transform: translateY(calc(-50% + var(--topCero)));
+  top: calc(var(--topCero) + 50% - 30px - 133px);
   z-index: 0;
 }
 
