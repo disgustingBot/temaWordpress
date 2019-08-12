@@ -1,9 +1,11 @@
-<?php get_header(); ?>
+  <?php get_header(); ?>
 
 
 
 <section id="archiveAtf">
+  <div id="archiveTitleContainer">
   <h1 id="archiveTitle"><?php the_archive_title(); ?></h1>
+  </div>
   <nav id="archiveNav">
     <ul>
       <li><a href="">SEO y SEM</a></li>
@@ -47,7 +49,7 @@
     <figure>
       <img src="<?php echo get_the_post_thumbnail_url(get_the_ID()); ?>" alt="">
       <figcaption>
-        <!-- <p id="archiveAtfCategory"><?php echo get_the_category_list(', '); ?></p> -->
+ <p id="archiveAtfCategory"><?php echo get_the_category(); ?></p>
         <h3 id="archiveAtfTitle"><?php the_title(); ?></h3>
         <p id="archiveAtfAuthor">Por <?php the_author(); ?> - <?php the_time('F j, Y'); ?></p>
       </figcaption>

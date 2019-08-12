@@ -111,3 +111,8 @@ function gp_get_related_posts( $post_id, $related_count, $args = array() ) {
 		return $related_args;
 	}
 }
+
+$categories = get_the_category();
+if ( ! empty( $categories ) ) {
+    echo '<a href="' . esc_url( get_category_link( $categories[0]->term_id ) ) . '">' . esc_html( $categories[0]->name ) . '</a>';
+}
