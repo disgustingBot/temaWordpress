@@ -68,7 +68,7 @@
           <figcaption>
             <h3><?php the_title(); ?></h3>
             <p class="sec1MainAuthor">Por <?php the_author(); ?> - <?php the_time('F j, Y'); ?></p>
-            <p class="sec1MainExcerpt"><?php if($i==0){the_excerpt();} ?></p>
+            <p class="sec1MainExcerpt"><?php if($i  % 6==0){the_excerpt();} ?></p>
             <!-- <p id="archiveAtfCategory"><?php echo get_the_category_list(', '); ?></p> -->
           </figcaption>
         </figure>

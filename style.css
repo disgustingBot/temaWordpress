@@ -744,12 +744,19 @@ header a:hover{color:var(--color3)}
 }
 
 .archiveSection .card:nth-child(even) {grid-column: var(--archiveSectionCardEvnGC);}
-.archiveSection .card:nth-child(odd)  {grid-column: var(--archiveSectionCardOddGC);}
+.archiveSection .card:nth-child(odd)  {grid-column: var(--archiveSectionCardOddGC);min-height:calc(50vh - 60px);}
+.archiveSection .card:nth-child(odd) img{min-height:calc(50vh - 60px);}
 .archiveSection .mainCard {
   grid-column: var(--archiveSectionMainCardGC)!important;
   position: var(--archiveSectionMainCardPosition);
   /* position: sticky; */
   top:calc(var(--topCero) + calc(var(--sE) * 1px) + 80px);
+  height: calc(100vh - 120px)!important;
+  grid-row: span 2;
+}
+.archiveSection .mainCard figcaption{
+  padding:0!important;
+  padding-top:calc(var(--sE) * 1px)!important;
 }
 
 .archiveSection .card figcaption{
