@@ -17,7 +17,7 @@
 <section class="postMain">
   <div class="postContent">
     <?php the_content(); ?>
-    <?php echo get_the_tag_list('<p class="postTags"><span>TAGS</span> ',', ','</p>'); ?>
+    <?php echo get_the_tag_list('<p class="postTags"><span>TAGS</span> ','','</p>'); ?>
 
     <br>
     <ul id="postSocialMenu">
@@ -74,7 +74,57 @@
       <?php endif; wp_reset_postdata(); ?>
     </div>
 
+    <!-- <ul class="commentList">
+      <?php  foreach (get_comments() as $comment): ?>
+        <li>
+          <?php echo $comment->comment_author; ?> said: "<?php echo $comment->comment_content; ?>".
+        </li>
+      <?php endforeach; ?>
+    </ul> -->
+    <div style="display:none"><?php comments_template(); ?></div>
+
+
+    <ul class="comment-list comments">
+      <?php
+      // Display comments
+      wp_list_comments( array(
+      'callback' => 'better_comments'
+      ) ); ?>
+    </ul><!-- .comment-list -->
+
+
+
+
+
+
+
+
     <?php
+
+
+// $fields={};
+
+// $fields['title'] = '<p class="comment-form-title">' . '<label for="title">' . __( 'Title' ) . ( $req ? ' <span class="required">*</span>' : '' ) . '</label> ' .
+// '<input id="title" name="title" type="text" value="' . esc_attr( $commenter['comment_title'] ) . '" size="30"' . $aria_req . ' /></p>';
+
+// $fields['industry'] = '<p class="comment-form-industry"><label for="industry">' . __( 'Industry' ) . ( $req ? ' <span class="required">*</span>' : '' ) . '</label> ' .
+// '<input id="industry" name="industry" ' . ( $html5 ? 'type="industry"' : 'type="text"' ) . ' value="' . esc_attr(  $commenter['comment_author_industry'] ) . '" size="30"' . $aria_req . ' /></p>';
+
+// $fields['author'] = '<p class="comment-form-author">' . '<label for="author">' . __( 'Name' ) . ( $req ? ' <span class="required">*</span>' : '' ) . '</label> ' .
+// '<input id="author" name="author" type="text" value="' . esc_attr( $commenter['comment_author'] ) . '" size="30"' . $aria_req . ' /></p>';
+
+// $fields['email']  = '<p class="comment-form-email"><label for="email">' . __( 'Email' ) . ( $req ? ' <span class="required">*</span>' : '' ) . '</label> ' .
+// '<input id="email" name="email" ' . ( $html5 ? 'type="email"' : 'type="text"' ) . ' value="' . esc_attr(  $commenter['comment_author_email'] ) . '" size="30"' . $aria_req . ' /></p>';
+
+
+
+$fields   = array(
+  'author' => '<p class="comment-form-author"><label for="author">' . __( 'Tu nombre' ) . ( $req ? ' <span class="required">*</span>' : '' ) . '</label> ' .'<input id="author" name="author" type="text" value="' . esc_attr( $commenter['comment_author'] ) . '" size="30" maxlength="245"' . $html_req . ' /></p>',
+  'email'  => '<p class="comment-form-email" ><label for="email" >' . __( 'Tu mail  ' ) . ( $req ? ' <span class="required">*</span>' : '' ) . '</label> ' .'<input id="email" name="email" ' . ( $html5 ? 'type="email"' : 'type="text"' ) . ' value="' . esc_attr( $commenter['comment_author_email'] ) . '" size="30" maxlength="100" aria-describedby="email-notes"' . $html_req . ' /></p>',
+  'url'    => '<p class="comment-form-url"   ><label for="url"   >' . __( 'Sitio web' ) . '</label> ' .'<input id="url" name="url" ' . ( $html5 ? 'type="url"' : 'type="text"' ) . ' value="' . esc_attr( $commenter['comment_author_url'] ) . '" size="30" maxlength="200" /></p>',
+);
+
+
     $args = array(
       'id_form'           => 'commentform',
       'class_form'        => 'comment-form',
@@ -105,15 +155,12 @@
           wp_logout_url( apply_filters( 'the_permalink', get_permalink( ) ) )
         ) . '</p>',
 
-      'comment_notes_before' => '<p class="comment-notes">' .
-        __( 'Tu e-mail no será publicado.' ) . ( $req ? $required_text : '' ) .
-        '</p>',
-
-      'comment_notes_after' => '<p class="form-allowed-tags">' .
-        sprintf(
-          __( '' ),
-          ' <code>' . allowed_tags() . '</code>'
-        ) . '</p>',
+      // 'comment_notes_before' => '<p class="comment-notes">' .
+      // __( 'Tu e-mail no será publicado.' ) . ( $req ? $required_text : '' ) .
+      // '</p>',
+      
+      'comment_notes_before' => '',
+      'comment_notes_after'  => '',
 
       'fields' => apply_filters( 'comment_form_default_fields', $fields ),
     );

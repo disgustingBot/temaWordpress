@@ -111,3 +111,16 @@ function gp_get_related_posts( $post_id, $related_count, $args = array() ) {
 		return $related_args;
 	}
 }
+
+
+
+require_once get_stylesheet_directory() . '/inc/better-comments.php';
+
+function wpb_move_comment_field_to_bottom( $fields ) {
+	$comment_field = $fields['comment'];
+	unset( $fields['comment'] );
+	$fields['comment'] = $comment_field;
+	return $fields;
+}
+	  
+add_filter( 'comment_form_fields', 'wpb_move_comment_field_to_bottom');
