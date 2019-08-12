@@ -1,7 +1,6 @@
 <?php get_header(); ?>
 
 
-<link href="https://fonts.googleapis.com/css?family=Bitter|Raleway:300,400&display=swap" rel="stylesheet">
 <section id="homeAtf">
   <h1>Gaea People</h1>
   <?php

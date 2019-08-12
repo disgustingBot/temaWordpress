@@ -27,6 +27,7 @@ Version: 1.0
 
 :root {
   --topCero: 46px;
+  --topCero: 0px;
   /*VARIABLES DE PERSONALIZACION DE PAGINA*/
   /* la idea de esto es que sean como controles con los
   que hacer facilmente diferentes versiones de la pagina */
@@ -142,6 +143,15 @@ Version: 1.0
 
     --commentFormGTC:1fr;
     --secondColumn: 1;
+
+    --archiveAtfCardGC: 1 / span 8;
+    --archiveAtfCard3GC:span 8;
+    --archiveAtfCard3GR:4;
+    --archiveNavMarginX:0;
+    --archiveAtfFigcaptionMaxWidth: 80%;
+    --archiveSectionMainCardGC: span 2;
+    --archiveSectionMainCardPosition:static;
+    --archiveSectionFigcaptionPadding:0;
 }
 
 
@@ -166,6 +176,12 @@ Version: 1.0
     --homeSectionPadding: calc(var(--sE) * 1px);
     --commentFormGTC:1fr 1fr;
     --secondColumn: 2;
+    
+    --archiveAtfCardGC: span 4;
+    --archiveAtfCard3GC:span 4;
+    --archiveAtfCard3GR:3;
+    --archiveAtfFigcaptionMaxWidth: 60%;
+    --archiveSectionGTC:1fr 1fr;
   }
   #isoLogo.inactive{
     --isoLogoMarginLeft:50%;
@@ -213,6 +229,18 @@ Version: 1.0
     --homeSlidePaddingX: 10%;
 
     --postMainGTC: 1fr min-content;
+
+    --archiveAtfCardGC:     span 3;
+    --archiveAtfCard3GC:2 / span 3;
+    --archiveNavMarginX:12.5%;
+    --archiveAtfFigcaptionMaxWidth: 40%;
+    --archiveSectionGTC:repeat(7, 1fr);
+    --archiveSectionMainCardGC:1/4;
+    --archiveSectionMainCardPosition:sticky;
+    --archiveSectionCardEvnGC: 4/6;
+    --archiveSectionCardOddGC: 6/8;
+    --archiveSectionFigcaptionPadding:calc(var(--sE) * 1px);
+
   }
   #navBar.inactive {
     --navBarPosition:static;
@@ -235,6 +263,7 @@ Version: 1.0
 
   :root{
     --topCero: 32px;
+    --topCero: 0px;
     --bannerProvisionalHeight: 400px;
   }}
 
@@ -627,14 +656,22 @@ header a:hover{color:var(--color3)}
 }
 #archiveTitle{
   grid-column: span 8;
-  margin: 50px 12.5%;
+  margin: calc(var(--sE) * 2px) 12.5%;
+  color: var(--color1);
+  font-size: var(--size3);
 }
 #archiveNav {
   grid-column: span 8;
-  margin: 0 12.5%;
-  padding: 20px 50px;
-  border-top:    1px solid var(--color1);
-  border-bottom: 1px solid var(--color1);
+  margin: 0 var(--archiveNavMarginX);
+  /* margin: 0 12.5%; */
+  padding: 20px;
+  text-align: center;
+  /* border-top:    1px solid var(--color1); */
+  border-bottom: 2px solid var(--color3);
+}
+#archiveNav a{
+  font-size: var(--size6);
+  color: var(--color1);
 }
 #archiveNav ul{
   display: flex;
@@ -649,18 +686,19 @@ header a:hover{color:var(--color3)}
 }
 #archiveAtf .archiveAtfCard{
   display: grid;
-  grid-column: span 3;
+  grid-row:3;
+  grid-column: var(--archiveAtfCardGC);
   width: 100%;
   /* height: min-content; */
   /* height: 200px; */
   min-height: 300px;
 }
-#archiveAtf figure{
-  display: grid;
-}
 #archiveAtf .archiveAtfCard:nth-child(3){
-  grid-column: 2/span 3!important;
+  grid-column: var(--archiveAtfCard3GC)!important;
+  grid-row:var(--archiveAtfCard3GR);
+  /* grid-column: 2/span 3!important; */
 }
+#archiveAtf figure{display: grid;}
 #archiveAtf img{
   grid-row: 1;
   grid-column: 1;
@@ -679,7 +717,13 @@ header a:hover{color:var(--color3)}
   margin-right: 0;
   margin-bottom: 0;
   color: var(--color2);
-  max-width: 40%;
+  max-width: var(--archiveAtfFigcaptionMaxWidth);
+  /* max-width: 40%; */
+  font-size: var(--size7);
+}
+#archiveAtfAuthor{
+  font-size: var(--size8);
+  color:var(--color3);
 }
 #archiveAtf .archiveAtfCard:nth-child(3) figcaption{
   margin-left: 0;
@@ -694,10 +738,24 @@ header a:hover{color:var(--color3)}
 
 .archiveSection {
   display: grid;
-  grid-template-columns: repeat(7, 1fr);
+  grid-template-columns: var(--archiveSectionGTC);
+  grid-auto-flow: row;
+  /* grid-template-columns: repeat(7, 1fr); */
 }
 
+.archiveSection .card:nth-child(even) {grid-column: var(--archiveSectionCardEvnGC);}
+.archiveSection .card:nth-child(odd)  {grid-column: var(--archiveSectionCardOddGC);}
+.archiveSection .mainCard {
+  grid-column: var(--archiveSectionMainCardGC)!important;
+  position: var(--archiveSectionMainCardPosition);
+  /* position: sticky; */
+  top:calc(var(--topCero) + calc(var(--sE) * 1px) + 80px);
+}
 
+.archiveSection .card figcaption{
+  padding: var(--archiveSectionFigcaptionPadding);
+  padding-top: calc(var(--sE) * 1px);
+}
 
 
 
@@ -1222,18 +1280,6 @@ footer{
 .card p {
   font-size: var(--size7);
 }
-
-
-/* COSAS PARA LA PAGINA ARCHIVE */
-.archiveSection .card:nth-child(even) {grid-column: 4/6;}
-.archiveSection .card:nth-child(odd)  {grid-column: 6/8;}
-.mainCard {
-  grid-column: 1/4!important;
-  position: sticky;
-  top:calc(var(--topCero) + calc(var(--sE) * 1px) + 60px);
-}
-/* FIN DE COSAS PARA LA PAGINA ARCHIVE */
-
 
 
 .specialCont{
