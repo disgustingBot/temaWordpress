@@ -30,7 +30,7 @@
 while($j<=2){ ?>
 
     <?php if ($j==0) {
-      $categoryName = 'marketing-digital';
+      $categoryName = 'sin-categoria';
       $args = array(
         'post_type'=>'post',
         'posts_per_page'=>1,
@@ -51,7 +51,7 @@ while($j<=2){ ?>
         <div id="sec1Main" class="secMain">
     <?php } ?>
     <?php if ($j==1) {
-      $categoryName = 'salud-en-la-red';
+      $categoryName = 'sin-categoria';
       $args = array(
         'post_type'=>'post',
         'posts_per_page'=>1,
@@ -76,7 +76,7 @@ while($j<=2){ ?>
         <div id="sec2Main" class="secMain">
     <?php } ?>
     <?php if ($j==2) {
-      $categoryName = 'tendencias';
+      $categoryName = 'sin-categoria';
       $args = array(
         'post_type'=>'post',
         'posts_per_page'=>1,
@@ -146,7 +146,25 @@ while($j<=2){ ?>
 </section>
 
 
-<banner>BANNER</banner>
+<banner>
+  <?php
+  switch ($j) {
+    case 0:
+      echo do_shortcode("[the_ad id='113']");
+      break;
+    case 1:
+      echo do_shortcode("[the_ad id='115']");
+      break;
+    case 2:
+      echo do_shortcode("[the_ad id='117']");
+      break;
+
+    default:
+      echo do_shortcode("[the_ad id='']");
+      break;
+  }
+  ?>
+</banner>
 
 <?php $j++;} ?>
 

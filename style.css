@@ -176,7 +176,7 @@ Version: 1.0
     --homeSectionPadding: calc(var(--sE) * 1px);
     --commentFormGTC:1fr 1fr;
     --secondColumn: 2;
-    
+
     --archiveAtfCardGC: span 4;
     --archiveAtfCard3GC:span 4;
     --archiveAtfCard3GR:3;
@@ -294,6 +294,8 @@ Version: 1.0
 
     --postMainGridGap: calc(var(--sE) * 3px);
 
+    --archiveSectionImgMinHeight: var(--cardImgMinHeight);
+
 
   }
   #navBar.inactive{--navBarPadding: calc(var(--sE) * .5px) 10%;}
@@ -347,14 +349,18 @@ h1 {color:rgba(255,255,255,0)}
 
 banner {
   background: var(--color1);
-  height: var(--bannerProvisionalHeight);
+  height: min-content;
   display: grid;
   text-align: center;
   color: var(--color2);
   width: 100%;
-  justify-content: center;
-  align-items: center;
   margin: calc(var(--sE) * 1px) 0;
+}
+
+banner img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
 }
 
 
@@ -739,21 +745,31 @@ header a:hover{color:var(--color3)}
 .archiveSection {
   display: grid;
   grid-template-columns: var(--archiveSectionGTC);
-  grid-auto-flow: row;
+  grid-template-rows: repeat(5, 1fr)!important;
+  grid-auto-flow: column dense;
   /* grid-template-columns: repeat(7, 1fr); */
 }
-
+.archiveSection .card  img            {min-height: var(--archiveSectionImgMinHeight);}
+.archiveSection .card figure          {height: 100%;}
 .archiveSection .card:nth-child(even) {grid-column: var(--archiveSectionCardEvnGC);}
-.archiveSection .card:nth-child(odd)  {grid-column: var(--archiveSectionCardOddGC);min-height:calc(50vh - 60px);}
-.archiveSection .card:nth-child(odd) img{min-height:calc(50vh - 60px);}
+.archiveSection .card:nth-child(odd)  {grid-column: var(--archiveSectionCardOddGC);}
+.archiveSection .card:nth-child(2)    {grid-row: span 2!important; height: 100%;}
+.archiveSection .card:nth-child(3)    {grid-row: span 1;}
+.archiveSection .card:nth-child(4)    {grid-row: span 1;}
+.archiveSection .card:nth-child(5)    {grid-row: span 2;}
+.archiveSection .card:nth-child(6)    {grid-row: span 2;}
+
+
+
 .archiveSection .mainCard {
   grid-column: var(--archiveSectionMainCardGC)!important;
   position: var(--archiveSectionMainCardPosition);
   /* position: sticky; */
   top:calc(var(--topCero) + calc(var(--sE) * 1px) + 80px);
-  height: calc(100vh - 120px)!important;
+  /* height: calc(100vh - 120px)!important; */
   grid-row: span 2;
 }
+.archiveSection .mainCard img{height: 100%; min-height: 300px;}
 .archiveSection .mainCard figcaption{
   padding:0!important;
   padding-top:calc(var(--sE) * 1px)!important;
