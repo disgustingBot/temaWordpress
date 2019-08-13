@@ -1,5 +1,5 @@
 d=document;w=window;c=console;
-const detector = d.querySelector('#detector');
+const detector   = d.querySelector('#detector');
 const headerMenu = d.querySelector('#headerMenu');
 const headerSocl = d.querySelector('#headerSocial');
 const headerLogo = d.querySelector('#isoLogo');
@@ -30,7 +30,28 @@ const observer = new IntersectionObserver(function(entries, observer){
   })
 }, options);
 
+const observer2 = new IntersectionObserver(function(entries, observer2){
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      // headerMenu.classList.add("inactive");
+      entry.target.querySelector(".markerFirstLetter").style.marginLeft = "0";
+      entry.target.querySelector(".markerFirstLetter").style.opacity = "1";
+
+      
+      entry.target.querySelector(".markerSecondLetter").style.marginRight = "0";
+      entry.target.querySelector(".markerSecondLetter").style.opacity = "1";
+      c.log("activate!");
+      // c.log(entry.target);
+    } else {
+      // headerSocl.classList.remove("inactive");
+    }
+  })
+}, options);
+
 observer.observe(detector);
+d.querySelectorAll('.sectionMarker').forEach(e => {
+  observer2.observe(e);
+})
 
 
 
@@ -57,7 +78,6 @@ function showDivs(n) {
 }
 
 carousel();
-
 function carousel() {
   var i;
   var x = document.getElementsByClassName("slide");
@@ -69,5 +89,5 @@ function carousel() {
   if (slideIndex > x.length) {slideIndex = 1}
   // x[slideIndex-1].style.display = "block";
   x[slideIndex-1].classList.remove("inactive");
-  setTimeout(carousel, 8000); // Change image every 5 seconds
+  setTimeout(carousel, 8000); // Change image every 8 seconds
 }
