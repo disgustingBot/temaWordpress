@@ -51,13 +51,13 @@
   </div>
 
   <nav id="navBar">
-    <a href="<?php echo site_url('/marketing-digital'); ?>"
-        <?php if(is_front_page()){echo 'class="active"';} ?>
+    <a href="<?php echo site_url('/marketing-strategy'); ?>"
+        <?php //if(is_front_page()){echo 'class="active"';} ?>
         <?php if(get_post_type() == 'post'){echo 'class="active"';} ?>
-        <?php if(is_page('about')){echo 'class="active"';} ?>
+        <?php if(is_page('marketing-strategy')){echo 'class="active"';} ?>
       ><nobr>Marketing Strategy</nobr></a>
     <a href="<?php echo site_url('/digital-health'); ?>"><nobr>Digital Health</nobr></a>
-    <a href="<?php echo site_url('/whatever'); ?>"><nobr>Cool Reading</nobr></a>
+    <a href="<?php echo site_url('/cool-reading'); ?>"><nobr>Cool Reading</nobr></a>
     <a href="<?php echo site_url('/events-training'); ?>"><nobr>Events & Training</nobr></a>
     <a href="<?php echo site_url('/news'); ?>"><nobr>News</nobr></a>
   </nav>

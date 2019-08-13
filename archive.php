@@ -11,7 +11,7 @@
 
 
 
-  if(is_category()){ 
+  if(is_category()){
     $args = array('parent' => $category->term_id);
     $args = array('child_of' => $category->term_id);
     $categories = get_categories( $args );
@@ -54,13 +54,13 @@
 <section class="archiveSection">
     <?php $i=0;
     while(have_posts()){the_post(); ?>
-      <a class="card<?php if ($i  % 6==0) {echo " mainCard";} ?>" href="<?php the_permalink(); ?>">
+      <a class="card<?php if ($i  % 7==0) {echo " mainCard";} ?>" href="<?php the_permalink(); ?>">
         <figure>
           <img src="<?php echo get_the_post_thumbnail_url(get_the_ID()); ?>" alt="">
           <figcaption>
             <h3><?php the_title(); ?></h3>
             <p class="sec1MainAuthor">Por <?php the_author(); ?> - <?php the_time('F j, Y'); ?></p>
-            <p class="sec1MainExcerpt"><?php if($i  % 6==0){the_excerpt();} ?></p>
+            <p class="sec1MainExcerpt"><?php if($i  % 7==0){the_excerpt();} ?></p>
             <!-- <p id="archiveAtfCategory"><?php echo get_the_category_list(', '); ?></p> -->
           </figcaption>
         </figure>
@@ -69,7 +69,7 @@
 
     <?php
 
-    if ($i % 6==5){ ?>
+    if ($i % 7==6){ ?>
       </section>
       <banner>BANNER</banner>
       <section class="archiveSection">
