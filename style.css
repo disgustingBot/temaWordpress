@@ -760,7 +760,6 @@ header a:hover{color:var(--color3)}
 .archiveSection .card:nth-child(6)   {grid-row: span 4;}
 .archiveSection .card img{min-height: 250px!important;}
 
-
 .archiveSection .mainCard {
   grid-column: var(--archiveSectionMainCardGC)!important;
   position: var(--archiveSectionMainCardPosition);
@@ -770,20 +769,26 @@ header a:hover{color:var(--color3)}
   /* grid-row: span 6!important; */
   grid-row: var(--archiveSectionMainCardGR)!important;
 }
-
-
-
 .archiveSection .mainCard figcaption{
   padding:0!important;
   padding-top:calc(var(--sE) * 1px)!important;
 }
-
 .archiveSection .card figcaption{
   padding: var(--archiveSectionFigcaptionPadding);
   padding-top: calc(var(--sE) * 1px);
 }
 
 
+.theContent figure,
+.theContent ul,
+.theContent ol,
+.theContent h1,
+.theContent h2,
+.theContent h3,
+.theContent h4,
+.theContent h5,
+.theContent h6,
+.theContent p {margin:1rem 0!important;}
 
 
 
