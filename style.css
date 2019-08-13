@@ -150,8 +150,11 @@ Version: 1.0
     --archiveNavMarginX:0;
     --archiveAtfFigcaptionMaxWidth: 80%;
     --archiveSectionMainCardGC: span 2;
+    --archiveSectionMainCardGR: 1;
     --archiveSectionMainCardPosition:static;
     --archiveSectionFigcaptionPadding:0;
+    --archiveSectionGTR:3fr 2fr 1fr 1fr 1fr 1fr 2fr;
+
 }
 
 
@@ -234,8 +237,10 @@ Version: 1.0
     --archiveAtfCard3GC:2 / span 3;
     --archiveNavMarginX:12.5%;
     --archiveAtfFigcaptionMaxWidth: 40%;
-    --archiveSectionGTC:repeat(7, 1fr);
-    --archiveSectionMainCardGC:1/4;
+    --archiveSectionGTC:3fr 2fr 2fr;
+    --archiveSectionGTR:2fr 1fr 1fr 1fr 1fr 2fr;
+    --archiveSectionMainCardGC:1;
+    --archiveSectionMainCardGR: span 6;
     --archiveSectionMainCardPosition:sticky;
     --archiveSectionCardEvnGC: 4/6;
     --archiveSectionCardOddGC: 6/8;
@@ -329,7 +334,7 @@ Version: 1.0
 h1,h2,h3,h4,h5,h6 {font-family: 'Bitter', serif;}
 p,a         {font-family: 'Raleway', sans-serif;}
 /* ------------------------------------------- GENERAL ------------------------------------------- */
-
+body{overflow-x: hidden;}
 body,figure,ul,ol,h1,h2,h3,h4,h5,h6,p {margin:0}
 ul,ol{padding:0;list-style-type: none;}
 img{object-fit:cover}
@@ -744,21 +749,16 @@ header a:hover{color:var(--color3)}
 
 .archiveSection {
   display: grid;
+  grid-gap: calc(var(--sE) * 1px);
+  grid-template-rows: 2fr 1fr 1fr 1fr 1fr 2fr;
+  grid-template-rows: var(--archiveSectionGTR);
+  grid-template-columns: 3fr 2fr 2fr;
   grid-template-columns: var(--archiveSectionGTC);
-  grid-template-rows: repeat(5, 1fr)!important;
   grid-auto-flow: column dense;
-  /* grid-template-columns: repeat(7, 1fr); */
 }
-.archiveSection .card  img            {min-height: var(--archiveSectionImgMinHeight);}
-.archiveSection .card figure          {height: 100%;}
-.archiveSection .card:nth-child(even) {grid-column: var(--archiveSectionCardEvnGC);}
-.archiveSection .card:nth-child(odd)  {grid-column: var(--archiveSectionCardOddGC);}
-.archiveSection .card:nth-child(2)    {grid-row: span 2!important; height: 100%;}
-.archiveSection .card:nth-child(3)    {grid-row: span 1;}
-.archiveSection .card:nth-child(4)    {grid-row: span 1;}
-.archiveSection .card:nth-child(5)    {grid-row: span 2;}
-.archiveSection .card:nth-child(6)    {grid-row: span 2;}
-
+.archiveSection .card:nth-child(-n+4){grid-row: span 2;}
+.archiveSection .card:nth-child(6)   {grid-row: span 4;}
+.archiveSection .card img{min-height: 250px!important;}
 
 
 .archiveSection .mainCard {
@@ -766,10 +766,13 @@ header a:hover{color:var(--color3)}
   position: var(--archiveSectionMainCardPosition);
   /* position: sticky; */
   top:calc(var(--topCero) + calc(var(--sE) * 1px) + 80px);
-  /* height: calc(100vh - 120px)!important; */
-  grid-row: span 2;
+  height: calc(100vh - 120px)!important;
+  /* grid-row: span 6!important; */
+  grid-row: var(--archiveSectionMainCardGR)!important;
 }
-.archiveSection .mainCard img{height: 100%; min-height: 300px;}
+
+
+
 .archiveSection .mainCard figcaption{
   padding:0!important;
   padding-top:calc(var(--sE) * 1px)!important;
@@ -877,9 +880,7 @@ header a:hover{color:var(--color3)}
 #postRelatedList li:nth-child(2n){grid-row:   span 2;}
 #postRelatedList li:nth-child(2n+1){grid-row: span 3;}
 #postRelatedList li:nth-child(3){grid-row: var(--postRelatedListLi3th);}
-/* #postRelatedList li:nth-child(5){grid-row: 3 / span 4;} */
 #postRelatedList li:nth-child(5){grid-row: var(--postRelatedListLi5th);}
-/* #postRelatedList li:nth-child(3){grid-row: 3 / span 3;} */
 
 
 .comments ul{
@@ -1232,7 +1233,7 @@ footer{
   grid-template-rows: 100px 1fr 100px;
   color:var(--color1);
   position: sticky;
-  top: calc(var(--topCero) + 50% - 30px - 133px);
+  top: calc(var(--topCero) + 50% - 150px);
   z-index: 0;
 }
 
@@ -1242,9 +1243,9 @@ footer{
   padding: 0 calc(var(--sE) * 1.5px);
 }
 
-.markerLetter {height: 100%; fill: var(--color3);}
-.markerFirstLetter  {margin: 0 auto auto 0;}
-.markerSecondLetter {margin: auto 0 0 auto;}
+.markerLetter {height: 100%; fill: var(--color3);transition:.4s;opacity:0;}
+.markerFirstLetter  {margin: 0 auto auto -100px;}
+.markerSecondLetter {margin: auto -100px 0 auto;}
 
 
 

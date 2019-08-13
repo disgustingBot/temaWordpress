@@ -30,7 +30,7 @@
 while($j<=2){ ?>
 
     <?php if ($j==0) {
-      $categoryName = 'sin-categoria';
+      $categoryName = 'marketing-strategy';
       $args = array(
         'post_type'=>'post',
         'posts_per_page'=>1,
@@ -51,7 +51,7 @@ while($j<=2){ ?>
         <div id="sec1Main" class="secMain">
     <?php } ?>
     <?php if ($j==1) {
-      $categoryName = 'sin-categoria';
+      $categoryName = 'digital-health';
       $args = array(
         'post_type'=>'post',
         'posts_per_page'=>1,
@@ -76,7 +76,7 @@ while($j<=2){ ?>
         <div id="sec2Main" class="secMain">
     <?php } ?>
     <?php if ($j==2) {
-      $categoryName = 'sin-categoria';
+      $categoryName = 'cool-reading';
       $args = array(
         'post_type'=>'post',
         'posts_per_page'=>1,
