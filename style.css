@@ -299,6 +299,8 @@ Version: 1.0
 
     --postMainGridGap: calc(var(--sE) * 3px);
 
+    --archiveSectionImgMinHeight: var(--cardImgMinHeight);
+
 
   }
   #navBar.inactive{--navBarPadding: calc(var(--sE) * .5px) 10%;}
@@ -352,14 +354,18 @@ h1 {color:rgba(255,255,255,0)}
 
 banner {
   background: var(--color1);
-  height: var(--bannerProvisionalHeight);
+  height: min-content;
   display: grid;
   text-align: center;
   color: var(--color2);
   width: 100%;
-  justify-content: center;
-  align-items: center;
   margin: calc(var(--sE) * 1px) 0;
+}
+
+banner img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
 }
 
 

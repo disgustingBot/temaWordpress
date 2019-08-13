@@ -146,7 +146,25 @@ while($j<=2){ ?>
 </section>
 
 
-<banner>BANNER</banner>
+<banner>
+  <?php
+  switch ($j) {
+    case 0:
+      echo do_shortcode("[the_ad id='113']");
+      break;
+    case 1:
+      echo do_shortcode("[the_ad id='115']");
+      break;
+    case 2:
+      echo do_shortcode("[the_ad id='117']");
+      break;
+
+    default:
+      echo do_shortcode("[the_ad id='']");
+      break;
+  }
+  ?>
+</banner>
 
 <?php $j++;} ?>
 
