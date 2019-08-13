@@ -150,8 +150,11 @@ Version: 1.0
     --archiveNavMarginX:0;
     --archiveAtfFigcaptionMaxWidth: 80%;
     --archiveSectionMainCardGC: span 2;
+    --archiveSectionMainCardGR: 1;
     --archiveSectionMainCardPosition:static;
     --archiveSectionFigcaptionPadding:0;
+    --archiveSectionGTR:3fr 2fr 1fr 1fr 1fr 1fr 2fr;
+
 }
 
 
@@ -176,7 +179,7 @@ Version: 1.0
     --homeSectionPadding: calc(var(--sE) * 1px);
     --commentFormGTC:1fr 1fr;
     --secondColumn: 2;
-    
+
     --archiveAtfCardGC: span 4;
     --archiveAtfCard3GC:span 4;
     --archiveAtfCard3GR:3;
@@ -234,8 +237,10 @@ Version: 1.0
     --archiveAtfCard3GC:2 / span 3;
     --archiveNavMarginX:12.5%;
     --archiveAtfFigcaptionMaxWidth: 40%;
-    --archiveSectionGTC:repeat(7, 1fr);
-    --archiveSectionMainCardGC:1/4;
+    --archiveSectionGTC:3fr 2fr 2fr;
+    --archiveSectionGTR:2fr 1fr 1fr 1fr 1fr 2fr;
+    --archiveSectionMainCardGC:1;
+    --archiveSectionMainCardGR: span 6;
     --archiveSectionMainCardPosition:sticky;
     --archiveSectionCardEvnGC: 4/6;
     --archiveSectionCardOddGC: 6/8;
@@ -738,22 +743,30 @@ header a:hover{color:var(--color3)}
 
 .archiveSection {
   display: grid;
+  grid-gap: calc(var(--sE) * 1px);
+  grid-template-rows: 2fr 1fr 1fr 1fr 1fr 2fr;
+  grid-template-rows: var(--archiveSectionGTR);
+  grid-template-columns: 3fr 2fr 2fr;
   grid-template-columns: var(--archiveSectionGTC);
-  grid-auto-flow: row;
-  /* grid-template-columns: repeat(7, 1fr); */
+  grid-auto-flow: column dense;
 }
+.archiveSection .card:nth-child(-n+4){grid-row: span 2;}
+.archiveSection .card:nth-child(6)   {grid-row: span 4;}
+.archiveSection .card img{min-height: 250px!important;}
 
-.archiveSection .card:nth-child(even) {grid-column: var(--archiveSectionCardEvnGC);}
-.archiveSection .card:nth-child(odd)  {grid-column: var(--archiveSectionCardOddGC);min-height:calc(50vh - 60px);}
-.archiveSection .card:nth-child(odd) img{min-height:calc(50vh - 60px);}
+
 .archiveSection .mainCard {
   grid-column: var(--archiveSectionMainCardGC)!important;
   position: var(--archiveSectionMainCardPosition);
   /* position: sticky; */
   top:calc(var(--topCero) + calc(var(--sE) * 1px) + 80px);
   height: calc(100vh - 120px)!important;
-  grid-row: span 2;
+  /* grid-row: span 6!important; */
+  grid-row: var(--archiveSectionMainCardGR)!important;
 }
+
+
+
 .archiveSection .mainCard figcaption{
   padding:0!important;
   padding-top:calc(var(--sE) * 1px)!important;
@@ -861,9 +874,7 @@ header a:hover{color:var(--color3)}
 #postRelatedList li:nth-child(2n){grid-row:   span 2;}
 #postRelatedList li:nth-child(2n+1){grid-row: span 3;}
 #postRelatedList li:nth-child(3){grid-row: var(--postRelatedListLi3th);}
-/* #postRelatedList li:nth-child(5){grid-row: 3 / span 4;} */
 #postRelatedList li:nth-child(5){grid-row: var(--postRelatedListLi5th);}
-/* #postRelatedList li:nth-child(3){grid-row: 3 / span 3;} */
 
 
 .comments ul{
