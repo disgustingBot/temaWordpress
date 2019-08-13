@@ -16,7 +16,7 @@
 
 <section class="postMain">
   <div class="postContent">
-    <?php the_content(); ?>
+    <div class="theContent"><?php the_content(); ?></div>
     <?php echo get_the_tag_list('<p class="postTags"><span>TAGS</span> ','','</p>'); ?>
 
     <br>
@@ -158,7 +158,7 @@ $fields   = array(
       // 'comment_notes_before' => '<p class="comment-notes">' .
       // __( 'Tu e-mail no será publicado.' ) . ( $req ? $required_text : '' ) .
       // '</p>',
-      
+
       'comment_notes_before' => '',
       'comment_notes_after'  => '',
 
@@ -168,13 +168,30 @@ $fields   = array(
     ?>
 
   </div>
+
   <ul class="postSideBar">
-      <li><a href=""><nobr>SEO y SEM</nobr></a></li>
-      <li><a href=""><nobr>Analítica Web</nobr></a></li>
-      <li><a href=""><nobr>Redes Sociales</nobr></a></li>
-      <li><a href=""><nobr>Marketing de Contenidos</nobr></a></li>
-      <li class="banner">BANNER</li>
+    <?php
+      // $category = get_queried_object();
+      $categories = get_the_category();
+      // var_dump($category);
+      foreach($categories as $category) {
+        $args = array('parent' => $category->term_id);
+        $args = array('child_of' => $category->term_id);
+        // echo $categories->term_id;
+
+        $subCategories = get_categories($args);
+        // var_dump($categories[0]);
+        if ($subCategories) {
+          for ($h=0; $h < 4; $h++) {
+            echo "<li><a href='". get_category_link( $subCategories[$h]->term_id ) ."'><nobr>". $subCategories[$h]->name ."</nobr></a></li>";
+          }
+          break;
+        }
+      }
+    ?>
+    <li class="banner">BANNER</li>
   </ul>
+
 </section>
 
 
