@@ -171,23 +171,18 @@ $fields   = array(
 
   <ul class="postSideBar">
     <?php
-      // $category = get_queried_object();
-      $categories = get_the_category();
-      // var_dump($category);
-      foreach($categories as $category) {
-        $args = array('parent' => $category->term_id);
-        $args = array('child_of' => $category->term_id);
-        // echo $categories->term_id;
+    $categories = get_the_category(); // busca las categorias a las que pertenece el post
+    foreach($categories as $category) { // ejecuta el codigo a continuacion una vez por cada categoria que encuentre
+      $args = array('child_of' => $category->term_id); // prepara los argumentos de la solicitud
 
-        $subCategories = get_categories($args);
-        // var_dump($categories[0]);
-        if ($subCategories) {
-          for ($h=0; $h < 4; $h++) {
-            echo "<li><a href='". get_category_link( $subCategories[$h]->term_id ) ."'><nobr>". $subCategories[$h]->name ."</nobr></a></li>";
-          }
-          break;
+      $subCategories = get_categories($args); // encuentra las sub-categorias de la categoria en la que se encuentre el iterador
+      if ($subCategories) { // si el vector sub-categorias es no vacio
+        for ($h=0; $h < 4; $h++) { // toma 4 sub-categorias para armar el menu de navegacion
+          echo "<li><a href='".get_category_link( $subCategories[$h]->term_id )."'><nobr>".$subCategories[$h]->name ."</nobr></a></li>"; // aqui da formato al item del menu
         }
+        break;
       }
+    }
     ?>
     <li class="banner">BANNER</li>
   </ul>
