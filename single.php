@@ -184,7 +184,9 @@ $fields   = array(
       }
     }
     ?>
-    <li class="banner">BANNER</li>
+    <li class="banner" id="singleBanner">
+      <?php echo do_shortcode("[the_ad id='113']");?>
+    </li>
   </ul>
 
 </section>

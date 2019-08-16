@@ -795,6 +795,19 @@ header a:hover{color:var(--color3)}
 /* -------------------
       POST PAGE
 ------------------- */
+
+#singleBanner {
+  width: 150px;
+  height: 150px;
+  padding:0;
+}
+
+#singleBanner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 .postMain{
   display: grid;
   grid-gap: var(--postMainGridGap);
