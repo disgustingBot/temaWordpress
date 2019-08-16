@@ -1,7 +1,6 @@
 <?php get_header(); ?>
 
 
-
 <section id="archiveAtf">
   <h1 id="archiveTitle"><?php the_archive_title(); ?></h1>
   <?php
@@ -73,12 +72,12 @@
       </section>
       <banner>
         <?php
-        switch ($j) {
-          case 0:
-            echo do_shortcode("[the_ad id='113']");
+        switch ($i) {
+          case 6:
+            echo do_shortcode("[the_ad id='10913']");
             break;
-          case 1:
-            echo do_shortcode("[the_ad id='115']");
+          case 13:
+            echo do_shortcode("[the_ad id='10915']");
             break;
 
           default:
