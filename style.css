@@ -1401,3 +1401,24 @@ footer{
 .sectionThrdPost {grid-column: var(--thrdPostGridC);}
 
 .sectionThrdPost img {min-height: var(--thrdPostImgMinHeight)}
+
+/* QUOTES */
+blockquote {
+  box-shadow: 2px 2px 15px #ccc;
+  padding: 15px 20px 15px calc(var(--size2) - 1em);
+  box-sizing: border-box;
+  margin: auto;
+  font-style: oblique;
+  border-left: 15px solid var(--color3);
+  color: #666 !important;
+  font-size: var(--size5);
+  position: relative;
+}
+blockquote::before {
+  color: #999;
+  content: "“";
+  font-size: var(--size2);
+  position: absolute;
+  left: 0px;
+  top: 25px;
+}
