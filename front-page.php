@@ -15,7 +15,7 @@
       <figcaption>
         <p id="atfCategory"><?php echo get_the_category_list(', '); ?></p>
         <h3 id="atfTitle"><?php the_title(); ?></h3>
-        <p id="atfAuthor">Por <?php the_author(); ?> - <?php the_date(); ?></p>
+        <p id="atfAuthor">Por <?php the_author_posts_link(); ?> - <?php the_date(); ?></p>
       </figcaption>
     </figure>
   <?php } wp_reset_query(); ?>
@@ -106,7 +106,7 @@ while($j<=2){ ?>
           <figcaption>
             <h6><?php the_title(); ?></h6>
             <p class="sec1MainExcerpt"><?php if($i==0){the_excerpt();} ?></p>
-            <p class="sec1MainAuthor">Por <?php the_author(); ?> <span>- <?php the_time('F j, Y'); ?></span></p>
+            <p class="sec1MainAuthor">Por <?php the_author_posts_link(); ?> <span>- <?php the_time('F j, Y'); ?></span></p>
             <!-- <p><?php echo get_the_category_list(', '); ?></p> -->
           </figcaption>
         </figure>
@@ -133,7 +133,7 @@ while($j<=2){ ?>
           <figcaption>
             <h6><?php the_title(); echo $featuredID; ?></h6>
             <p class="sec1MainExcerpt"><?php if($i==0){the_excerpt();} ?></p>
-            <p class="sec1MainAuthor">Por <?php the_author(); ?> <span>- <?php the_time('F j, Y'); ?></span></p>
+            <p class="sec1MainAuthor">Por <?php the_author_posts_link(); ?> <span>- <?php the_time('F j, Y'); ?></span></p>
             <!-- <p><?php echo get_the_category_list(', '); ?></p> -->
           </figcaption>
         </figure>
