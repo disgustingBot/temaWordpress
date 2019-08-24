@@ -155,6 +155,9 @@ Version: 1.0
     --archiveSectionFigcaptionPadding:0;
     --archiveSectionGTR:3fr 2fr 1fr 1fr 1fr 1fr 2fr;
 
+
+    --footerBackgroundPosition: static;
+    --footerInfoMarginTop: -8px;
 }
 
 
@@ -246,6 +249,9 @@ Version: 1.0
     --archiveSectionCardOddGC: 6/8;
     --archiveSectionFigcaptionPadding:calc(var(--sE) * 1px);
 
+
+    --footerBackgroundPosition: fixed;
+    --footerInfoMarginTop: calc(48vw - 250px);
   }
   #navBar.inactive {
     --navBarPosition:static;
@@ -340,7 +346,7 @@ a  { font-size: var(--size7)}
 /* ----------------------------------------- LOGIC FOLD/ ----------------------------------------- */
 /* -------------------------------------------- FONTS -------------------------------------------- */
 h1,h2,h3,h4,h5,h6 {font-family: 'Bitter', serif;}
-p,a         {font-family: 'Raleway', sans-serif;}
+p,a,div         {font-family: 'Raleway', sans-serif;}
 /* ------------------------------------------- GENERAL ------------------------------------------- */
 body{overflow-x: hidden;}
 body,figure,ul,ol,h1,h2,h3,h4,h5,h6,p {margin:0}
@@ -356,6 +362,7 @@ section {
   /* grid-auto-rows: auto */
   padding:  calc(var(--sE) * 1px);
   grid-gap: calc(var(--sE) * 1px);
+  background: var(--color2);
 }
 
 h1 {color:rgba(255,255,255,0)}
@@ -367,7 +374,7 @@ banner {
   text-align: center;
   color: var(--color2);
   width: 100%;
-  margin: calc(var(--sE) * 1px) 0;
+  padding: calc(var(--sE) * 1px) 0;
 }
 
 banner img {
@@ -787,16 +794,43 @@ header a:hover{color:var(--color3)}
 }
 
 
-.theContent figure,
-.theContent ul,
-.theContent ol,
-.theContent h1,
-.theContent h2,
-.theContent h3,
-.theContent h4,
-.theContent h5,
-.theContent h6,
-.theContent p {margin:1rem 0!important;}
+
+.theContent {
+  display:grid;
+  grid-template-columns: 70%;
+  margin:auto;
+  /* grid-template-columns: minmax(40ch, 100vw); */
+}
+
+/* .theContent figure, */
+.theContent > div,
+.theContent > ul,
+.theContent > ol,
+.theContent   li,
+.theContent > blockquote,
+.theContent > h1,
+.theContent > h2,
+.theContent > h3,
+.theContent > h4,
+.theContent > h5,
+.theContent > h6,
+.theContent > p {
+  margin:1rem auto!important;
+  /* grid-column: 2; */
+  /* padding: 0 10%; */
+  /* width: auto; */
+  /* max-width: 60%; */
+  float:left;
+}
+/* .theContent figure, */
+.theContent iframe{
+}
+.theContent img{
+  /* grid-column: 2 / span 2;*/
+  /* float: right; */
+  /* width: 60%; */
+  /* margin-right: -20%; */
+}
 
 
 
@@ -805,8 +839,8 @@ header a:hover{color:var(--color3)}
 ------------------- */
 
 #singleBanner {
-  width: 150px;
-  height: 150px;
+  width:  100%;
+  height: 100%;
   padding:0;
 }
 
@@ -885,9 +919,10 @@ header a:hover{color:var(--color3)}
 }
 .postTags{
   margin: calc(var(--sE) * 1px) 0;
-  display: inline-grid;
+  display: grid;
   grid-gap: calc(var(--sE) * 1px);
-  grid-auto-flow: column;
+  grid-auto-flow: row;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr) );
 }
 .postTags span{
   border-bottom: calc(var(--sE) * .25px) solid var(--color3);
@@ -897,6 +932,7 @@ header a:hover{color:var(--color3)}
   background: var(--color3);
   color: var(--color2);
   padding: calc(var(--sE) * .25px) calc(var(--sE) * 1px);
+  transition: 0.5s;
 }
 
 #postSocialMenu{
@@ -1018,27 +1054,29 @@ input, textarea {
   background: var(--color2);
   border: none;
 }
+.comment-form-subscriptions{display:none!important}
 
 
 
 
 
-
-/* -------------------
-       FOOTER
-------------------- */
+/* ----------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------
+                                   FOOTER
+-------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------- */
 footer{
   display: flex;
   flex-direction: column;
   position: relative;
-  background: var(--color1);
-}
+  }
 
 #gaeaLogoFooterContainer {
+  background: var(--color1);
   display: flex;
   flex-direction: column;
-  width: 100%;
   height: var(--logoFooterContainerHeight);
+  width: 100%;
 }
 
 #footerLogo {
@@ -1047,53 +1085,42 @@ footer{
   margin: auto;
 }
 
+
+
+
+
+
+
+
+
+
 #footerBackground {
+  position:var(--footerBackgroundPosition);
+  /* position:fixed; */
   bottom: 0px;
   width: 100%;
-}
-
-#legalFooter {
-  font-size: var(--size7);
-  color: white;
-  display: flex;
-  flex-direction: var(--legalFooterFlexDirection);
-  align-content: space-between;
-  height: var(--legalFooterHeight);
-  padding: var(--legalFooterPadding);
-  order: 4;
-}
-
-#RegisteredBrand {
-  margin: auto;
-  margin-bottom: 10px;
-  margin-left: var(--registeredBrandMarginLeft);
-}
-
-#legalFooter ul {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  margin: auto;
-  margin-bottom: 10px!important;
-  margin-right: var(--legalFooterUlMarginRight);
+  z-index: -1;
+  max-height: 100vh;
 }
 
 
 
-.legalFooterNavBarItem {
-  font-size: var(--size7);
-  color: white;
-  list-style: none;
-  text-decoration: none;
-  text-align: var(--legaFooterNavBarItem);
-  margin: auto;
-}
+
+
+
+
+
+
+
 
 
 #footerInfo {
-  position: var(--footerInfoPosition);
-  bottom: var(--footerInfoBottomPosition);
+  /* position: relative; */
+  /* bottom: -4px; */
   width: 100%;
   padding: var(--footerInfoPadding);
+  margin-top: var(--footerInfoMarginTop);
+  margin-bottom: -4px;
   background: rgba(0, 0, 0, 0.85);
   display: var(--footerInfoDisplay);
   grid-template-columns: repeat(3, 1fr);
@@ -1104,20 +1131,14 @@ footer{
 #footerNavBar {
   display: grid;
   grid-template-columns: var(--footerNavBarGridC);
-  height: var(--footerNavBarHeight);
+  grid-gap: 10px;
   padding: var(--footerNavBarPadding);
   margin: auto;
 }
 
-.arrowNavBarFooter {
-  font-weight: bolder;
-  color: #D2AA6C;
-  font-size: var(--size4);
-}
-
 .footerNavBarItem {
   display: flex;
-  margin-bottom: 20px;
+  /* margin-bottom: calc(var(--size8) - 2px); */
   transition: 0.25s;
 }
 
@@ -1132,6 +1153,7 @@ footer{
 
 .footerNavBarItem a p {
   margin: auto;
+  height: 30px;
 }
 
 .footerNavBarItem a:after {
@@ -1186,18 +1208,24 @@ footer{
 }
 
 .footerSocialSvg {
+  /* width: 40px; */
   height: 40px;
   margin: 10px;
+  transition: 0.3s;
+  fill:#D2AA6C;
 }
-
-
-
+#footerTwitter:hover   {fill:#00aced}
+#footerFacebook:hover  {fill:#3b5998}
+#footerInstagram:hover {fill:#E1306C}
+#footerLinkedIn:hover  {fill:#0e76a8}
+#footerYouTube:hover   {fill:#ff0000}
 
 #gaeaBrandingContainer {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 3fr 3fr;
-  padding: var(--footerSocialContainerPadding);
+  grid-template-rows: 1fr 2fr 1fr;
+  padding: 1em;
+  grid-column-gap: 1em;
 }
 
 #somosTitle {
@@ -1217,61 +1245,67 @@ footer{
   margin: auto;
   display: flex;
 }
-
 #gaeaBrandingContainer a img {
   max-width: 100%;
   margin: auto;
-
 }
 
 
-#footerTwitter {
-  transition: 0.3s;
-  fill:#D2AA6C;
+
+
+
+
+
+
+
+
+
+
+
+
+
+#legalFooter {
+  background: var(--color1);
+  font-size: var(--size7);
+  color: white;
+  display: flex;
+  flex-direction: var(--legalFooterFlexDirection);
+  align-content: space-between;
+  padding: var(--legalFooterPadding);
+  order: 4;
 }
 
-#footerTwitter:hover {
-  widows: 100px;
-  fill:#00aced;
-
+#RegisteredBrand {
+  margin: auto;
+  margin-left: var(--registeredBrandMarginLeft);
+  min-width: max-content;
 }
 
-#footerFacebook {
-  transition: 0.3s;
-  fill:#D2AA6C;
+#legalFooter ul {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(max-content, min-content);
+  margin: auto;
+  margin-right: var(--legalFooterUlMarginRight);
 }
-
-#footerFacebook:hover {
-  fill: #3b5998;
+.legalFooterNavBarItem {
+  width:  100%;
+  height: 100%;
+  font-size: var(--size7);
+  color: white;
+  list-style: none;
+  padding: 0 var(--size8);
+  box-sizing: border-box;
 }
-
-#footerInstagram {
-  transition: 0.3s;
-  fill:#D2AA6C;
+#legalFooter a{
+  width:  100%;
+  height: 100%;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  text-align: var(--legaFooterNavBarItem);
 }
-
-#footerInstagram:hover {
-  fill: #E1306C;
-}
-
-#footerLinkedIn {
-  transition: 0.3s;
-  fill:#D2AA6C;
-}
-
-#footerLinkedIn:hover {
-  fill: #0e76a8;
-}
-
-#footerYouTube {
-  transition: 0.3s;
-  fill: #D2AA6C;
-}
-
-#footerYouTube:hover {
-  fill: #ff0000;
-}
-
 
 
 
@@ -1459,4 +1493,18 @@ blockquote::before {
   position: absolute;
   left: 0px;
   top: 25px;
+}
+
+
+
+/* BREADCRUMB */
+
+.breadcrumb {
+    padding: 20px 15px;
+    background: var(--color2);
+    /* border-radius: 4px; */
+}
+.breadcrumb a {
+    color: #428bca;
+    text-decoration: none;
 }

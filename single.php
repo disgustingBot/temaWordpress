@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-
+<div class="breadcrumb"><?php get_breadcrumb(); ?></div>
 
 <?php while(have_posts()){the_post(); ?>
 <section id="homeAtf">
@@ -17,9 +17,6 @@
 <section class="postMain">
   <div class="postContent">
     <div class="theContent"><?php the_content(); ?></div>
-    <?php echo get_the_tag_list('<p class="postTags"><span>TAGS</span> ','','</p>'); ?>
-
-    <br>
     <ul id="postSocialMenu">
       <li>
         <a href="">
@@ -47,6 +44,10 @@
         </a>
       </li>
     </ul>
+
+    <?php echo get_the_tag_list('<p class="postTags"><span>TAGS</span> ','','</p>'); ?>
+
+    <br>
 
     <div class="postRelated">
       <h3>Artículos relacionados</h3>

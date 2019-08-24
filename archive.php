@@ -1,5 +1,6 @@
 <?php get_header(); ?>
 
+<div class="breadcrumb"><?php get_breadcrumb(); ?></div>
 
 <section id="archiveAtf">
   <h1 id="archiveTitle"><?php the_archive_title(); ?></h1>

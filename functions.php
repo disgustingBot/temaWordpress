@@ -122,5 +122,112 @@ function wpb_move_comment_field_to_bottom( $fields ) {
 	$fields['comment'] = $comment_field;
 	return $fields;
 }
-	  
+
 add_filter( 'comment_form_fields', 'wpb_move_comment_field_to_bottom');
+
+
+
+
+
+
+/**
+ * Generate breadcrumbs
+ * @author CodexWorld and https://github.com/molinerozadkiel
+ * @authorURL www.codexworld.com
+ */
+function get_breadcrumb() {
+    echo '<p>';
+    echo '<a href="'.home_url().'" rel="nofollow">Home</a>';
+    if (is_category()) {
+        echo "&nbsp;&nbsp;&#187;&nbsp;&nbsp;";
+        $category = get_queried_object();
+        $currentId = $category->term_id;
+        $currentNm = $category->name;
+
+        $categories = get_categories(array('parent'=>0));
+        foreach ( $categories as $category ) {
+          $cat = get_categories(array('parent'=>$category->term_id));
+          $parentId = $category->term_id;
+          $parentNm = $category->name;
+          if ($category->term_id == $currentId) {
+            ?><a href="<?php get_category_link( $parentId ); ?> "><?php echo $parentNm ?></a><?php
+          } else {
+            foreach ( $cat as $caty ) {
+              if ($caty->term_id == $currentId) {
+                ?><a href="<?php get_category_link( $parentId ); ?> "><?php echo $parentNm ?></a><?php
+                echo "&nbsp;&nbsp;&#187;&nbsp;&nbsp;";
+                ?><a href="<?php get_category_link( $currentId ); ?> "><?php echo $currentNm ?></a><?php
+              }
+            }
+          }
+        }
+    } elseif (is_single()) {
+      echo "&nbsp;&nbsp;&#187;&nbsp;&nbsp;";
+      the_category(' &bull; ');
+      echo "&nbsp;&nbsp;&#187;&nbsp;&nbsp;";
+      the_title();
+      // $crumbs = explode("/",$_SERVER["REQUEST_URI"]);
+      // foreach($crumbs as $crumb){
+      //     echo ucfirst(str_replace(array(".php","_"),array(""," "),$crumb) . ' ');
+      // }
+
+
+
+
+      // This function will take $_SERVER['REQUEST_URI'] and build a breadcrumb based on the user's current path
+      function breadcrumbs($separator = ' &raquo; ', $home = 'Home') {
+          // This gets the REQUEST_URI (/path/to/file.php), splits the string (using '/') into an array, and then filters out any empty values
+          $path = array_filter(explode('/', parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH)));
+
+          // This will build our "base URL" ... Also accounts for HTTPS :)
+          $base = ($_SERVER['HTTPS'] ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'] . '/';
+
+          // Initialize a temporary array with our breadcrumbs. (starting with our home page, which I'm assuming will be the base URL)
+          $breadcrumbs = Array("<a href=\"$base\">$home</a>");
+
+          // Find out the index for the last value in our path array
+          $last = end(array_keys($path));
+
+          // Build the rest of the breadcrumbs
+          foreach ($path AS $x => $crumb) {
+              // Our "title" is the text that will be displayed (strip out .php and turn '_' into a space)
+              $title = ucwords(str_replace(Array('.php', '_'), Array('', ' '), $crumb));
+
+              // If we are not on the last index, then display an <a> tag
+              if ($x != $last)
+                  $breadcrumbs[] = "<a href=\"$base$crumb\">$title</a>";
+              // Otherwise, just display the title (minus)
+              else
+                  $breadcrumbs[] = $title;
+          }
+
+          // Build our temporary array (pieces of bread) into one big string :)
+          return implode($separator, $breadcrumbs);
+      }
+
+      ?>
+
+      <!-- <p><?= breadcrumbs() ?></p>
+      <p><?= breadcrumbs(' > ') ?></p>
+      <p><?= breadcrumbs(' ^^ ', 'Index') ?></p> -->
+
+      <?php
+
+
+
+
+
+
+
+
+    } elseif (is_page()) {
+        echo "&nbsp;&nbsp;&#187;&nbsp;&nbsp;";
+        echo the_title();
+    } elseif (is_search()) {
+        echo "&nbsp;&nbsp;&#187;&nbsp;&nbsp;Search Results for... ";
+        echo '"<em>';
+        echo the_search_query();
+        echo '</em>"';
+    }
+    echo '</p>';
+}
