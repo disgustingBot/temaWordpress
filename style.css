@@ -158,6 +158,9 @@ Version: 1.0
 
     --footerBackgroundPosition: static;
     --footerInfoMarginTop: -8px;
+
+
+    --conocenosTop: 10%;
 }
 
 
@@ -252,6 +255,9 @@ Version: 1.0
 
     --footerBackgroundPosition: fixed;
     --footerInfoMarginTop: calc(48vw - 250px);
+
+    --conocenosTop: 20%;
+
   }
   #navBar.inactive {
     --navBarPosition:static;
@@ -306,6 +312,7 @@ Version: 1.0
     --postMainGridGap: calc(var(--sE) * 3px);
 
     --archiveSectionImgMinHeight: var(--cardImgMinHeight);
+
 
 
   }
@@ -479,6 +486,8 @@ header a:hover{color:var(--color3)}
   width: min-content;
   margin: 0 auto;
   height: min-content;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 #navBar a:after {
   content: "";
@@ -1065,11 +1074,56 @@ input, textarea {
                                    FOOTER
 -------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------- */
-footer{
+footer {
   display: flex;
   flex-direction: column;
   position: relative;
   }
+
+  #conocenos {
+    position: absolute;
+    display: flex;
+    width: 100%;
+    margin: 0 auto;
+    top: var(--conocenosTop);
+  }
+
+  #conocenos a {
+    position: relative;
+    margin: auto;
+    padding: 10px 20px;
+    font-size: var(--size3);
+    color: var(--color1);
+    background-color: rgba(255,255,255,0.6);
+    border-radius: 2px;
+    transition: all 0.25s ease;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    letter-spacing: 2px;
+  }
+
+
+    #conocenos a:after {
+  	content: "";
+  	position: absolute;
+  	height: 2px;
+  	background-color: black;
+  	width: 0;
+  	left: 50%;
+  	bottom: -1px;
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+  	transform: translateX(-50%);
+  	/*-webkit-transition: 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55) all;*/
+    transition: 0.25s  all;
+  }
+
+
+    #conocenos a:hover:after {
+  	width: 100%;
+  }
+
+
+
 
 #gaeaLogoFooterContainer {
   background: var(--color1);
@@ -1500,11 +1554,49 @@ blockquote::before {
 /* BREADCRUMB */
 
 .breadcrumb {
+    display: flex;
     padding: 20px 15px;
     background: var(--color2);
     /* border-radius: 4px; */
 }
+
+.breadcrumb p {
+    margin: auto;
+    padding: 20px 15px;
+    background: var(--color2);
+    border-top: black solid 2px;
+    border-bottom: black solid 2px;
+    /* border-radius: 4px; */
+}
+
+
+
+
 .breadcrumb a {
-    color: #428bca;
+    color: black;
     text-decoration: none;
+    font-family: 'Bitter', serif;
+    text-decoration: none;
+    text-transform: capitalize;
+    /* text-transform: uppercase; */
+    transition: 0.25s  all ease;
+
+}
+.breadcrumb a::after {
+  content: "";
+  position: absolute;
+  height: 2px;
+  background-color: black!important;
+  width: 0;
+  left: 50%;
+  bottom: -4px;
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
+  transition: 0.25s  all ease;
+}
+.breadcrumb a:hover{color:var(--color3)}
+
+.breadcrumb a:hover::after {
+  width: 100%;
 }
