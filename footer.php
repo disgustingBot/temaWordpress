@@ -3,6 +3,8 @@
 
   <footer>
 
+    <p id="conocenos"><a href="https://gaeapeople.com/" target="_blank">Conócenos</a></p>
+
     <div id="gaeaLogoFooterContainer">
       <img id="footerLogo" src="<?php echo get_template_directory_uri(); ?>/img/logo.png" alt="logo Gaea People">
     </div>
@@ -10,13 +12,6 @@
 
 
     <img id="footerBackground" src="<?php echo get_template_directory_uri(); ?>/img/nuevoEquipo.jpg" alt="Ilustración del equipo de OmniGaea">
-
-
-
-
-
-
-
 
 
 
