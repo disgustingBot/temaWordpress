@@ -158,9 +158,10 @@ Version: 1.0
 
     --footerBackgroundPosition: static;
     --footerInfoMarginTop: -8px;
-
+    --legalFooterUlGTR: 1fr 1fr;
 
     --conocenosTop: 10%;
+    --theContentGTC: 90;
 }
 
 
@@ -191,6 +192,9 @@ Version: 1.0
     --archiveAtfCard3GR:3;
     --archiveAtfFigcaptionMaxWidth: 60%;
     --archiveSectionGTC:1fr 1fr;
+
+    --legalFooterUlGTR: 1fr;
+    --theContentGTC: 70;
   }
   #isoLogo.inactive{
     --isoLogoMarginLeft:50%;
@@ -314,6 +318,7 @@ Version: 1.0
     --archiveSectionImgMinHeight: var(--cardImgMinHeight);
 
 
+    /* --theContentGTC: 550px; */
 
   }
   #navBar.inactive{--navBarPadding: calc(var(--sE) * .5px) 10%;}
@@ -806,7 +811,8 @@ header a:hover{color:var(--color3)}
 
 .theContent {
   display:grid;
-  grid-template-columns: 70%;
+  grid-template-columns: calc(var(--theContentGTC) * 1%);
+  /* justify-content: center; */
   margin:auto;
   /* grid-template-columns: minmax(40ch, 100vw); */
 }
@@ -825,6 +831,7 @@ header a:hover{color:var(--color3)}
 .theContent > h6,
 .theContent > p {
   margin:1rem auto!important;
+  color:black;
   /* grid-column: 2; */
   /* padding: 0 10%; */
   /* width: auto; */
@@ -838,7 +845,9 @@ header a:hover{color:var(--color3)}
   /* grid-column: 2 / span 2;*/
   /* float: right; */
   /* width: 60%; */
-  /* margin-right: -20%; */
+  /* margin-right: calc((100% - 70%) * -100 / 140)!important; */
+  margin-left: calc((100% - (var(--theContentGTC) * 1%)) * 100 / var(--theContentGTC))!important;
+  /* border: 2px solid red; */
 }
 
 
@@ -876,7 +885,6 @@ header a:hover{color:var(--color3)}
 }
 
 .postSideBar{
-    mix-blend-mode: difference;
     width: min-content;
     /* height: min-content; */
     display: var(--sectionMarkerDisplay);
@@ -886,7 +894,7 @@ header a:hover{color:var(--color3)}
     height: 400px;
     color:var(--color1);
     position: sticky;
-    top: calc(var(--topCero) + 50% - 200px);
+    top: calc(var(--topCero) + 50% - 160px);
     z-index: 0;
 }
 .postSideBar li{
@@ -946,7 +954,10 @@ header a:hover{color:var(--color3)}
 
 #postSocialMenu{
   display: inline-grid;
-  grid-template-columns: repeat(5, min-content);
+  grid-template-columns: repeat(6, min-content);
+  justify-content: center;
+  align-items: center;
+  color: var(--color2);
   /* width: 200px; */
   height: auto;
   grid-gap: calc(var(--sE) * .5px);
@@ -956,6 +967,8 @@ header a:hover{color:var(--color3)}
 #postSocialMenu svg{
   width:  40px;
   height: 40px;
+  max-width:  calc((100vw - 212px) / 5);
+  /* max-height: calc(20% - 80px - 72px); */
 }
 
 .postRelated{
@@ -1339,6 +1352,7 @@ footer {
   display: grid;
   grid-auto-flow: column;
   grid-auto-columns: minmax(max-content, min-content);
+  grid-template-rows: var(--legalFooterUlGTR);
   margin: auto;
   margin-right: var(--legalFooterUlMarginRight);
 }
