@@ -52,12 +52,18 @@
 
   <nav id="navBar">
     <a href="<?php echo site_url('/marketing-strategy'); ?>"
-        <?php //if(is_front_page()){echo 'class="active"';} ?>
-        <?php if(get_post_type() == 'post'){echo 'class="active"';} ?>
-        <?php if(is_page('marketing-strategy')){echo 'class="active"';} ?>
-      ><nobr>Marketing Strategy</nobr></a>
-    <a href="<?php echo site_url('/digital-health'); ?>"><nobr>Digital Health</nobr></a>
-    <a href="<?php echo site_url('/cool-reading'); ?>"><nobr>Cool Reading</nobr></a>
-    <a href="<?php echo site_url('/events-training'); ?>"><nobr>Events & Training</nobr></a>
-    <a href="<?php echo site_url('/news'); ?>"><nobr>News</nobr></a>
+        <?php if(is_category("marketing-strategy")){echo 'class="active"';} ?>
+      >Marketing Strategy</a>
+    <a href="<?php echo site_url('/digital-health'); ?>"
+        <?php if(is_category("digital-health")){echo 'class="active"';} ?>
+      >Digital Health</a>
+    <a href="<?php echo site_url('/cool-reading'); ?>"
+        <?php if(is_category("cool-reading")){echo 'class="active"';} ?>
+      >Cool Reading</a>
+    <a href="<?php echo site_url('/events-training'); ?>"
+        <?php if(is_category("events-training")){echo 'class="active"';} ?>
+      >Events & Training</a>
+    <a href="<?php echo site_url('/news'); ?>"
+        <?php if(is_category("news")){echo 'class="active"';} ?>
+        >News</a>
   </nav>

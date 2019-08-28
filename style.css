@@ -62,8 +62,8 @@ Version: 1.0
     --navBarGTC: 1fr;
     --navBarGTR: repeat(5,1fr);
     --navBarHeight: calc(100vh - 80px - var(--topCero));
-    --navBarWidth:200px;
-    /* --navBarWidth:min-content; */
+    /* --navBarWidth:200px; */
+    --navBarWidth:max-content;
     --navBarPadding: calc(var(--sE) * 1px);
     --headerMenuRight: 0;
     --headerMenuTransform:rotate(0);
@@ -265,7 +265,7 @@ Version: 1.0
   }
   #navBar.inactive {
     --navBarPosition:static;
-    --navBarGTC: repeat(5,1fr);
+    --navBarGTC: repeat(5,auto);
     --navBarGTR: 1fr;
     --navBarHeight: 60px;
     --navBarWidth:100%;
@@ -288,7 +288,7 @@ Version: 1.0
     --bannerProvisionalHeight: 400px;
   }}
 
-@media screen and (min-width:  992px) {
+@media screen and (min-width: 992px) {
 
   :root {
     --nubeEtiquetasContainerHeight: 220px;
@@ -345,14 +345,6 @@ Version: 1.0
 
 }
 
-h1 { font-size: var(--size3)}
-h2 { font-size: var(--size4)}
-h3 { font-size: var(--size5)}
-h4 { font-size: var(--size6)}
-h5 { font-size: var(--size7)}
-h6 { font-size: var(--size8)}
-p  { font-size: var(--size6); line-height: 30px;}
-a  { font-size: var(--size7)}
 
 
 /* ----------------------------------------- LOGIC FOLD/ ----------------------------------------- */
@@ -375,6 +367,7 @@ section {
   padding:  calc(var(--sE) * 1px);
   grid-gap: calc(var(--sE) * 1px);
   background: var(--color2);
+  -webkit-transform: translateZ(0);
 }
 
 h1 {color:rgba(255,255,255,0)}
@@ -395,6 +388,14 @@ banner img {
   object-fit: contain;
 }
 
+h1 { font-size: var(--size3)}
+h2 { font-size: var(--size4)}
+h3 { font-size: var(--size5)}
+h4 { font-size: var(--size6)}
+h5 { font-size: var(--size7)}
+h6 { font-size: var(--size8)}
+p  { font-size: var(--size6); line-height: 30px;}
+a  { font-size: var(--size7)}
 
 /* ------------------------------------------- STRUCTURE ------------------------------------------- */
 
@@ -474,22 +475,29 @@ header a:hover{color:var(--color3)}
   background: var(--color1);
   height: var(--navBarHeight);
   width:  var(--navBarWidth);
-  right: -200px;
+  /* right: -200px; */
+  right: 0;
+  transform: translateX(100%);
   display: grid;
   z-index: 1;
   align-items:     center;
-  justify-content: center;
+  justify-content: space-between;
   text-align:      center;
-  transition: right .3s;
+
   box-sizing: border-box;
 }
-#headerMenu:focus+#navBar,#navBar:focus,#navBar:hover{right:0}
+#navBar.inactive{transform: unset}
+#headerMenu:focus+#navBar,#navBar:focus,#navBar:hover{transform: translateX(0);transition: transform .3s;}
 #navBar a{
   color:var(--color2);
   transition: all 0.25s ease;
   position: relative;
-  width: min-content;
-  margin: 0 auto;
+  left:0;
+  right:0;
+  width: max-content;
+  /* margin: 0 auto; */
+  /* margin-left: 50%; */
+  /* transform: translateX(-50%); */
   height: min-content;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -510,6 +518,9 @@ header a:hover{color:var(--color3)}
 #navBar a:hover{color:var(--color3)}
 
 #navBar a:hover:after {
+  width: 100%;
+}
+#navBar a.active:after {
   width: 100%;
 }
 
