@@ -107,6 +107,7 @@ while($j<=2){ ?>
             <h6><?php the_title(); ?></h6>
             <p class="sec1MainExcerpt"><?php if($i==0){the_excerpt();} ?></p>
             <p class="sec1MainAuthor">Por <?php the_author(); ?> <span>- <?php the_time('F j, Y'); ?></span></p>
+            <p><?php the_views(); ?></p>
             <!-- <p><?php echo get_the_category_list(', '); ?></p> -->
           </figcaption>
         </figure>
@@ -134,6 +135,7 @@ while($j<=2){ ?>
             <h6><?php the_title(); echo $featuredID; ?></h6>
             <p class="sec1MainExcerpt"><?php if($i==0){the_excerpt();} ?></p>
             <p class="sec1MainAuthor">Por <?php the_author(); ?> <span>- <?php the_time('F j, Y'); ?></span></p>
+            <p><?php the_views(); ?></p>
             <!-- <p><?php echo get_the_category_list(', '); ?></p> -->
           </figcaption>
         </figure>

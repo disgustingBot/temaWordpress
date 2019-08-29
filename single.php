@@ -1,6 +1,15 @@
 <?php get_header(); ?>
 
-<div class="breadcrumb"><?php get_breadcrumb(); ?></div>
+<!-- <div class="breadcrumb"><?php // get_breadcrumb(); ?></div> -->
+<!-- <div class="breadcrumb"><?php if(function_exists('bcn_display')){ bcn_display(); } ?></div> -->
+<?php
+if ( function_exists('yoast_breadcrumb') ) {
+  yoast_breadcrumb( '<p id="breadcrumbs">','</p>' );
+}
+?>
+
+
+
 
 <?php while(have_posts()){the_post(); ?>
 <section id="homeAtf">
@@ -10,6 +19,7 @@
         <p id="atfCategory"><?php echo get_the_category_list(', '); ?></p>
         <h3 id="atfTitle"><?php the_title(); ?></h3>
         <p id="atfAuthor">Por <?php the_author(); ?> - <?php the_date(); ?></p>
+        <?php if(function_exists('the_views')){ ?><p><?php the_views(); ?></p><?php } ?>
       </figcaption>
     </figure>
 </section>
@@ -18,6 +28,95 @@
 <section class="postMain">
   <div class="postContent">
     <div class="theContent"><?php the_content(); ?></div>
+
+
+<?php if(function_exists('the_ratings')) { the_ratings(); } ?>
+
+
+
+
+
+
+
+
+
+
+
+
+        <div style="display:none"><?php comments_template(); ?></div>
+
+
+        <!-- .comment-list -->
+        <ul class="comment-list comments">
+          <?php wp_list_comments(array('callback' => 'better_comments')); ?>
+        </ul>
+
+
+
+        <?php
+        $fields   = array(
+        'author' => '<p class="comment-form-author"><label for="author">' . __( 'Tu nombre' ) . ( $req ? ' <span class="required">*</span>' : '' ) . '</label> ' .'<input id="author" name="author" type="text" value="' . esc_attr( $commenter['comment_author'] ) . '" size="30" maxlength="245"' . $html_req . ' /></p>',
+        'email'  => '<p class="comment-form-email" ><label for="email" >' . __( 'Tu mail  ' ) . ( $req ? ' <span class="required">*</span>' : '' ) . '</label> ' .'<input id="email" name="email" ' . ( $html5 ? 'type="email"' : 'type="text"' ) . ' value="' . esc_attr( $commenter['comment_author_email'] ) . '" size="30" maxlength="100" aria-describedby="email-notes"' . $html_req . ' /></p>',
+        'url'    => '<p class="comment-form-url"   ><label for="url"   >' . __( 'Sitio web' ) . '</label> ' .'<input id="url" name="url" ' . ( $html5 ? 'type="url"' : 'type="text"' ) . ' value="' . esc_attr( $commenter['comment_author_url'] ) . '" size="30" maxlength="200" /></p>',
+        );
+
+        $args = array(
+          'id_form'           => 'commentform',
+          'class_form'        => 'comment-form',
+          'id_submit'         => 'submit',
+          'class_submit'      => 'submit',
+          'name_submit'       => 'submit',
+          'title_reply'       => __( 'deja tu comentario' ),
+          'title_reply_to'    => __( 'respondele a %s' ),
+          'cancel_reply_link' => __( 'Cancelar respuesta' ),
+          'label_submit'      => __( 'Enviar' ),
+          'format'            => 'xhtml',
+
+          'comment_field' =>  '<p class="comment-form-comment"><label for="comment">' . _x( 'Tu comentario', 'noun' ) .
+            '</label><textarea id="comment" name="comment" cols="45" rows="8" aria-required="true">' .
+            '</textarea></p>',
+
+          'must_log_in' => '<p class="must-log-in">' .
+            sprintf(
+              __( 'Para comentar debes <a href="%s">iniciar sesion</a>.' ),
+              wp_login_url( apply_filters( 'the_permalink', get_permalink() ) )
+            ) . '</p>',
+
+          'logged_in_as' => '<p class="logged-in-as">' .
+            sprintf(
+            __( 'Has iniciado sesion como: <a href="%1$s">%2$s</a>. <a href="%3$s" title="Log out of this account">Cerrar la sesion?</a>' ),
+              admin_url( 'profile.php' ),
+              $user_identity,
+              wp_logout_url( apply_filters( 'the_permalink', get_permalink( ) ) )
+            ) . '</p>',
+
+          // 'comment_notes_before' => '<p class="comment-notes">' .
+          // __( 'Tu e-mail no será publicado.' ) . ( $req ? $required_text : '' ) .
+          // '</p>',
+
+          'comment_notes_before' => '',
+          'comment_notes_after'  => '',
+
+          'fields' => apply_filters( 'comment_form_default_fields', $fields ),
+        );
+        comment_form($args);
+        ?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     <ul id="postSocialMenu">
       <h4>Compartir</h4>
       <li>
@@ -76,100 +175,6 @@
 
       <?php endif; wp_reset_postdata(); ?>
     </div>
-
-    <!-- <ul class="commentList">
-      <?php  foreach (get_comments() as $comment): ?>
-        <li>
-          <?php echo $comment->comment_author; ?> said: "<?php echo $comment->comment_content; ?>".
-        </li>
-      <?php endforeach; ?>
-    </ul> -->
-    <div style="display:none"><?php comments_template(); ?></div>
-
-
-    <ul class="comment-list comments">
-      <?php
-      // Display comments
-      wp_list_comments( array(
-      'callback' => 'better_comments'
-      ) ); ?>
-    </ul><!-- .comment-list -->
-
-
-
-
-
-
-
-
-    <?php
-
-
-// $fields={};
-
-// $fields['title'] = '<p class="comment-form-title">' . '<label for="title">' . __( 'Title' ) . ( $req ? ' <span class="required">*</span>' : '' ) . '</label> ' .
-// '<input id="title" name="title" type="text" value="' . esc_attr( $commenter['comment_title'] ) . '" size="30"' . $aria_req . ' /></p>';
-
-// $fields['industry'] = '<p class="comment-form-industry"><label for="industry">' . __( 'Industry' ) . ( $req ? ' <span class="required">*</span>' : '' ) . '</label> ' .
-// '<input id="industry" name="industry" ' . ( $html5 ? 'type="industry"' : 'type="text"' ) . ' value="' . esc_attr(  $commenter['comment_author_industry'] ) . '" size="30"' . $aria_req . ' /></p>';
-
-// $fields['author'] = '<p class="comment-form-author">' . '<label for="author">' . __( 'Name' ) . ( $req ? ' <span class="required">*</span>' : '' ) . '</label> ' .
-// '<input id="author" name="author" type="text" value="' . esc_attr( $commenter['comment_author'] ) . '" size="30"' . $aria_req . ' /></p>';
-
-// $fields['email']  = '<p class="comment-form-email"><label for="email">' . __( 'Email' ) . ( $req ? ' <span class="required">*</span>' : '' ) . '</label> ' .
-// '<input id="email" name="email" ' . ( $html5 ? 'type="email"' : 'type="text"' ) . ' value="' . esc_attr(  $commenter['comment_author_email'] ) . '" size="30"' . $aria_req . ' /></p>';
-
-
-
-$fields   = array(
-  'author' => '<p class="comment-form-author"><label for="author">' . __( 'Tu nombre' ) . ( $req ? ' <span class="required">*</span>' : '' ) . '</label> ' .'<input id="author" name="author" type="text" value="' . esc_attr( $commenter['comment_author'] ) . '" size="30" maxlength="245"' . $html_req . ' /></p>',
-  'email'  => '<p class="comment-form-email" ><label for="email" >' . __( 'Tu mail  ' ) . ( $req ? ' <span class="required">*</span>' : '' ) . '</label> ' .'<input id="email" name="email" ' . ( $html5 ? 'type="email"' : 'type="text"' ) . ' value="' . esc_attr( $commenter['comment_author_email'] ) . '" size="30" maxlength="100" aria-describedby="email-notes"' . $html_req . ' /></p>',
-  'url'    => '<p class="comment-form-url"   ><label for="url"   >' . __( 'Sitio web' ) . '</label> ' .'<input id="url" name="url" ' . ( $html5 ? 'type="url"' : 'type="text"' ) . ' value="' . esc_attr( $commenter['comment_author_url'] ) . '" size="30" maxlength="200" /></p>',
-);
-
-
-    $args = array(
-      'id_form'           => 'commentform',
-      'class_form'        => 'comment-form',
-      'id_submit'         => 'submit',
-      'class_submit'      => 'submit',
-      'name_submit'       => 'submit',
-      'title_reply'       => __( 'deja tu comentario' ),
-      'title_reply_to'    => __( 'respondele a %s' ),
-      'cancel_reply_link' => __( 'Cancelar respuesta' ),
-      'label_submit'      => __( 'Enviar' ),
-      'format'            => 'xhtml',
-
-      'comment_field' =>  '<p class="comment-form-comment"><label for="comment">' . _x( 'Tu comentario', 'noun' ) .
-        '</label><textarea id="comment" name="comment" cols="45" rows="8" aria-required="true">' .
-        '</textarea></p>',
-
-      'must_log_in' => '<p class="must-log-in">' .
-        sprintf(
-          __( 'Para comentar debes <a href="%s">iniciar sesion</a>.' ),
-          wp_login_url( apply_filters( 'the_permalink', get_permalink() ) )
-        ) . '</p>',
-
-      'logged_in_as' => '<p class="logged-in-as">' .
-        sprintf(
-        __( 'Has iniciado sesion como: <a href="%1$s">%2$s</a>. <a href="%3$s" title="Log out of this account">Cerrar la sesion?</a>' ),
-          admin_url( 'profile.php' ),
-          $user_identity,
-          wp_logout_url( apply_filters( 'the_permalink', get_permalink( ) ) )
-        ) . '</p>',
-
-      // 'comment_notes_before' => '<p class="comment-notes">' .
-      // __( 'Tu e-mail no será publicado.' ) . ( $req ? $required_text : '' ) .
-      // '</p>',
-
-      'comment_notes_before' => '',
-      'comment_notes_after'  => '',
-
-      'fields' => apply_filters( 'comment_form_default_fields', $fields ),
-    );
-    comment_form($args);
-    ?>
-
   </div>
 
   <ul class="postSideBar">
