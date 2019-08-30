@@ -138,9 +138,9 @@ Version: 1.0
 
     --postMainGTC: 1fr;
     --postMainGridGap: calc(var(--sE) * 1px);
-    --postRelatedListGTR: repeat(8, 1fr);
-    --postRelatedListLi3th: span 3;
-    --postRelatedListLi5th: 3 / span 4;
+    --postRelatedListGTR: repeat(7, 1fr);
+    --postRelatedListLi3th: span 2;
+    --postRelatedListLi5th: 3 / span 3;
 
     --commentFormGTC:1fr;
     --secondColumn: 1;
@@ -258,7 +258,7 @@ Version: 1.0
     --archiveSectionFigcaptionPadding:calc(var(--sE) * 1px);
 
 
-    --footerBackgroundPosition: fixed;
+    --footerBackgroundPosition: absolute;
     --footerInfoMarginTop: calc(48vw - 250px);
 
     --conocenosTop: 20%;
@@ -346,6 +346,21 @@ Version: 1.0
     }
 
 }
+
+<<<<<<< Updated upstream
+=======
+/* Global Elements */
+
+*  { font-size: var(--size6); line-height: 30px;}
+h1 { font-size: var(--size3)}
+h2 { font-size: var(--size4)}
+h3 { font-size: var(--size5)}
+h4 { font-size: var(--size6)}
+h5 { font-size: var(--size7)}
+h6 { font-size: var(--size8)}
+p  { font-size: var(--size6); line-height: 30px;}
+a  { font-size: var(--size7)}
+>>>>>>> Stashed changes
 
 
 
@@ -851,8 +866,7 @@ header a:hover{color:var(--color3)}
   float:left;
 }
 /* .theContent figure, */
-.theContent iframe{
-}
+.theContent iframe{ width: 100%;}
 .theContent img{
   /* grid-column: 2 / span 2;*/
   /* float: right; */
@@ -1100,6 +1114,7 @@ input, textarea {
 -------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------- */
 footer {
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   position: relative;
@@ -1585,6 +1600,7 @@ blockquote::before {
     display: flex;
     padding: 20px 15px;
     background: var(--color2);
+    box-sizing: border-box;
     /* border-radius: 4px; */
 }
 
