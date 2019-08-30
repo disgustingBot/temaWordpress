@@ -1385,12 +1385,13 @@ footer {
 ----------------------- */
 
 .sectionMarker {
-  width: min-content;
-  height: min-content;
+  width: -webkit-min-content;
+  height: -webkit-min-content;
   display: var(--sectionMarkerDisplay);
   grid-template-rows: 100px 1fr 100px;
   color:var(--color1);
   position: sticky;
+  position: -webkit-sticky;
   top: calc(var(--topCero) + 50% - 150px);
   z-index: 0;
 }
