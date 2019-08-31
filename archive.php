@@ -66,9 +66,17 @@
           <figcaption>
             <h3><?php the_title(); ?></h3>
             <p class="sec1MainAuthor">Por <?php the_author(); ?> - <?php the_time('F j, Y'); ?></p>
-            <p><?php the_views(); ?></p>
-            <p class="sec1MainExcerpt"><?php if($i  % 7==0){the_excerpt();} ?></p>
-            <!-- <p id="archiveAtfCategory"><?php echo get_the_category_list(', '); ?></p> -->
+            <?php if(function_exists('the_views')){ ?><p><?php the_views(); ?></p><?php } ?>
+            <p class="sec1MainExcerpt"><?php if($i % 7==0){the_excerpt();} ?></p>
+            <p id="archiveAtfCategory"><?php $array2 = get_the_category(); ?>
+
+            <?php
+            foreach ($array2 as $valor) {
+                echo $valor->name;
+                echo "<br>";
+            }
+            ?>
+           </p>
           </figcaption>
         </figure>
       </a>
