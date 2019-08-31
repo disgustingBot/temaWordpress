@@ -153,6 +153,7 @@ Version: 1.0
     --archiveSectionMainCardGC: span 2;
     --archiveSectionMainCardGR: 1;
     --archiveSectionMainCardPosition:static;
+    --archiveSectionMainCardPositionWebkit: -webkit-static;
     --archiveSectionFigcaptionPadding:0;
     --archiveSectionGTR:3fr 2fr 1fr 1fr 1fr 1fr 2fr;
 
@@ -163,6 +164,27 @@ Version: 1.0
 
     --conocenosTop: 10%;
     --theContentGTC: 90;
+
+    --sectionMainPostMinHeight: 220px;
+    --frontPageImg2: 100px;
+    --frontPageImg3: 250px;
+
+    --archiveSectionMainCardImg: 500px;
+    --archiveSectionImg2: 490px;
+    --archiveSectionImg3: 270px;
+    --archiveSectionImg4: 450px;
+    --archiveSectionImg5: 360px;
+    --archiveSectionImg6: 750px;
+    --archiveSectionImg7: 400px;
+
+    --postRelatedListImg1: 320px;
+    --postRelatedListImg2: 220px;
+    --postRelatedListImg3: 150px;
+    --postRelatedListImg4: 210px;
+    --postRelatedListImg4: 130px;
+    --postRelatedListImg5: 320px;
+    --postRelatedListImg6: 120px;
+
 }
 
 
@@ -196,10 +218,32 @@ Version: 1.0
 
     --legalFooterUlGTR: 1fr;
     --theContentGTC: 70;
+
+    --sectionMainPostMinHeight: 350px;
+    --frontPageImg2: 140px;
+    --frontPageImg3: 400px;
+    --frontPageImg3: 320px;
+
+    --archiveSectionImg3: 470px;
+    --archiveSectionImg4: 700px;
+    --archiveSectionImg6: 900px;
+
+    --postRelatedListImg1: 360px;
+    --postRelatedListImg3: 200px;
+    --postRelatedListImg4: 210px;
+    --postRelatedListImg5: 370px;
+    --postRelatedListImg6: 150px;
+
+
+
+
+
+
   }
   #isoLogo.inactive{
     --isoLogoMarginLeft:50%;
     --isoLogoTransform: translateX(-50%);
+
   }
 }
 @media screen and (min-width: 768px) {
@@ -253,15 +297,38 @@ Version: 1.0
     --archiveSectionMainCardGC:1;
     --archiveSectionMainCardGR: span 6;
     --archiveSectionMainCardPosition:sticky;
+    --archiveSectionMainCardPositionWebkit: -webkit-sticky;
     --archiveSectionCardEvnGC: 4/6;
     --archiveSectionCardOddGC: 6/8;
     --archiveSectionFigcaptionPadding:calc(var(--sE) * 1px);
 
 
-    --footerBackgroundPosition: absolute;
+    --footerBackgroundPosition: fixed;
     --footerInfoMarginTop: calc(48vw - 250px);
 
     --conocenosTop: 20%;
+
+    --sectionMainPostMinHeight: 530px;
+    --frontPageImg2: 210px;
+    --frontPageImg3: 400px;
+
+    --archiveSectionMainCardImg: 500px;
+    --archiveSectionImg2: 550px;
+    --archiveSectionImg4: 510px;
+    --archiveSectionImg5: 250px;
+    --archiveSectionImg6: 770px;
+    --archiveSectionImg7: 270px;
+
+    --postRelatedListImg1: 450px;
+    --postRelatedListImg2: 240px;
+    --postRelatedListImg3: 220px;
+    --postRelatedListImg4: 220px;
+    --postRelatedListImg5: 420px;
+    --postRelatedListImg6: 220px;
+
+
+
+
 
   }
   #navBar.inactive {
@@ -319,6 +386,30 @@ Version: 1.0
 
     --archiveSectionImgMinHeight: var(--cardImgMinHeight);
 
+      --sectionMainPostMinHeight: 300px;
+      --frontPageImg2: 130px;
+      --frontPageImg3: 330px;
+
+      --archiveSectionMainCardImg: 430px;
+      --archiveSectionImg2: 460px;
+      --archiveSectionImg3: 270px;
+
+      --postRelatedListImg1: 350px;
+      --postRelatedListImg2: 160px;
+      --postRelatedListImg3: 220px;
+      --postRelatedListImg3: 130px;
+      --postRelatedListImg4: 270px;
+      --postRelatedListImg5: 330px;
+      --postRelatedListImg6: 100px;
+
+
+
+
+
+
+
+
+
 
     /* --theContentGTC: 550px; */
 
@@ -342,6 +433,33 @@ Version: 1.0
 
       --specialContSpan: 4 ;
 
+      --sectionMainPostMinHeight: 550px;
+      --frontPageImg2: 150px;
+      --frontPageImg3: 350px;
+
+      --archiveSectionImg2: 470px;
+      --archiveSectionImg3: 270px;
+
+      --postRelatedListImg2: 170px;
+      --postRelatedListImg3: 160px;
+      --postRelatedListImg4: 240px;
+      --postRelatedListImg6: 150px;
+
+
+
+    }
+
+}
+
+
+@media  screen and (min-width: 1400px) {
+    :root {
+
+      --sectionMainPostMinHeight: 600px;
+      --frontPageImg2: 170px;
+      --frontPageImg3: 370px;
+
+      --archiveSectionMainCardImg: 520px;
 
     }
 
@@ -351,7 +469,7 @@ Version: 1.0
 =======
 /* Global Elements */
 
-*  { font-size: var(--size6); line-height: 30px;}
+*  { font-size: var(--size6); line-height: 30px; height: intrin}
 h1 { font-size: var(--size3)}
 h2 { font-size: var(--size4)}
 h3 { font-size: var(--size5)}
@@ -424,6 +542,7 @@ header{
   display: grid;
   text-align: center;
   position: sticky!important;
+  position: -webkit-sticky!important;
   top:var(--topCero);
   z-index: 5;
 }
@@ -833,6 +952,31 @@ header a:hover{color:var(--color3)}
   padding: var(--archiveSectionFigcaptionPadding);
   padding-top: calc(var(--sE) * 1px);
 }
+@media screen and (min-color-index:0) and(-webkit-min-device-pixel-ratio:0) {
+    @media {
+      .archiveSection .mainCard {
+        position: var(--archiveSectionMainCardPositionWebkit);
+      }
+    }
+}
+@media not all and (min-resolution:.001dpcm) {
+    @media {
+      .archiveSection .mainCard {
+        position: var(--archiveSectionMainCardPositionWebkit);
+      }
+    }
+}
+
+/* Max height img fix for Safari */
+.archiveSection .mainCard img {max-height: var(--archiveSectionMainCardImg)!important;}
+.archiveSection a:nth-child(2) img {max-height: var(--archiveSectionImg2)!important;}
+.archiveSection a:nth-child(3) img {max-height: var(--archiveSectionImg3)!important;}
+.archiveSection a:nth-child(4) img {max-height: var(--archiveSectionImg4)!important;}
+.archiveSection a:nth-child(5) img {max-height: var(--archiveSectionImg5)!important;}
+.archiveSection a:nth-child(6) img {max-height: var(--archiveSectionImg6)!important;}
+.archiveSection a:nth-child(7) img {max-height: var(--archiveSectionImg7)!important;}
+
+
 
 
 
@@ -920,6 +1064,7 @@ header a:hover{color:var(--color3)}
     height: 400px;
     color:var(--color1);
     position: sticky;
+    position: -webkit-sticky;
     top: calc(var(--topCero) + 50% - 160px);
     z-index: 0;
 }
@@ -1017,6 +1162,15 @@ header a:hover{color:var(--color3)}
   grid-template-rows: var(--postRelatedListGTR);
   grid-auto-flow: column dense;
 }
+/* Fix for layout on Safari */
+#postRelatedList li:nth-child(1) img {max-height: var(--postRelatedListImg1)!important;}
+#postRelatedList li:nth-child(2) img {max-height: var(--postRelatedListImg2)!important;}
+#postRelatedList li:nth-child(3) img {max-height: var(--postRelatedListImg3)!important;}
+#postRelatedList li:nth-child(4) img {max-height: var(--postRelatedListImg4)!important;}
+#postRelatedList li:nth-child(5) img {max-height: var(--postRelatedListImg5)!important;}
+#postRelatedList li:nth-child(6) img {max-height: var(--postRelatedListImg6)!important;}
+
+
 #postRelatedList li:nth-child(2n){grid-row:   span 2;}
 #postRelatedList li:nth-child(2n+1){grid-row: span 3;}
 #postRelatedList li:nth-child(3){grid-row: var(--postRelatedListLi3th);}
@@ -1275,6 +1429,7 @@ footer {
   width: 10px;
   fill: #D2AA6C;
   margin-right: 10px;
+  height: intrinsic;
 }
 
 #footerSocialContainer {
@@ -1418,6 +1573,7 @@ footer {
   grid-template-rows: 100px 1fr 100px;
   color:var(--color1);
   position: sticky;
+  position: -webkit-sticky;
   top: calc(var(--topCero) + 50% - 150px);
   z-index: 0;
 }
@@ -1501,6 +1657,17 @@ footer {
 
 .specialCont:nth-child(2) {border-left: solid black 5px;}
 
+/* Max height fix for layout on Safari */
+.sectionMainPost img                                        { max-height: var(--sectionMainPostMinHeight);}
+.specialCont:nth-child(2) .sectionSecnPost:nth-child(1) img { max-height: var(--frontPageImg2)!important; }
+.specialCont:nth-child(2) .sectionSecnPost:nth-child(2) img { max-height: var(--frontPageImg3)!important; }
+.specialCont:nth-child(3) .sectionSecnPost:nth-child(1) img { max-height: var(--frontPageImg3)!important; }
+.specialCont:nth-child(3) .sectionSecnPost:nth-child(2) img { max-height: var(--frontPageImg2)!important; }
+.sectionThrdPost figure img                                 { max-height: 200px; }
+
+
+
+
 #sec2 .specialCont:nth-child(2) {border-left: 0;}
 #sec2 .specialCont:nth-child(3) {border-right: solid black 5px;}
 
@@ -1524,6 +1691,8 @@ footer {
   margin: auto;
   height: 100%!important;
   width:  100%!important;
+  min-height: calc(var(--cardImgMinHeight) + 20vh);
+  max-height: var(--sectionMainPostMinHeight);
 }
 .sectionMainPost figcaption {
   order: 1;
@@ -1533,10 +1702,7 @@ footer {
   padding-bottom: calc(var(--sE) * 1px);
 }
 
-.sectionMainPost img {
-  /* min-height: var(--sectionMainPostImg); */
-  min-height: calc(var(--cardImgMinHeight) + 20vh);
-}
+
 
 .sectionMainPost h6 {
   font-size: var(--size4);
@@ -1662,3 +1828,5 @@ blockquote::before {
 .post-ratings p{
   grid-column: span 5;
 }
+
+#wpstats {display: none!important;}
