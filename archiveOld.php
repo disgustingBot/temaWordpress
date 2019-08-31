@@ -1,15 +1,23 @@
 <?php get_header(); ?>
 
-<!-- <div class="breadcrumb"><?php //get_breadcrumb(); ?></div> -->
-<!-- <div class="breadcrumb"><?php //if(function_exists('bcn_display')){bcn_display();} ?></div> -->
+<!-- <div class="breadcrumb"><?php get_breadcrumb(); ?></div> -->
+<div class="breadcrumb"><?php if(function_exists('bcn_display'))
+{
+    bcn_display();
+}?></div>
 
 
 
 <section id="archiveAtf">
+  <?php echo do_shortcode("[the_ad_group id='1621']"); ?>
   <?php if(function_exists('yoast_breadcrumb')){yoast_breadcrumb('<p id="breadcrumbs">','</p>');} ?>
   <h1 id="archiveTitle"><?php the_archive_title(); ?></h1>
   <?php
   $category = get_queried_object();
+
+
+
+
 
   if(is_category()){
     $args = array('parent' => $category->term_id);
@@ -26,7 +34,26 @@
     </nav>
     <?php } ?>
   <?php } ?>
-  <?php echo do_shortcode("[the_ad_group id='1621']"); ?>
+  <?php
+  // TODO: hacer un condicional para chequear que sea categoria
+  $args=array(
+    'post_type'=>'post',
+    'posts_per_page'=>2,
+    'category' => $category->term_id,
+    'tag' => 'atf',
+  );$atf=new WP_Query($args);
+  while($atf->have_posts()){$atf->the_post(); ?>
+  <a class="archiveAtfCard" href="<?php the_permalink(); ?>">
+    <figure>
+      <img src="<?php echo get_the_post_thumbnail_url(get_the_ID()); ?>" alt="">
+      <figcaption>
+        <!-- <p id="archiveAtfCategory"><?php echo get_the_category_list(', '); ?></p> -->
+        <h3 id="archiveAtfTitle"><?php the_title(); ?></h3>
+        <p id="archiveAtfAuthor">Por <?php the_author(); ?> - <?php the_time('F j, Y'); ?></p>
+      </figcaption>
+    </figure>
+  </a>
+  <?php } wp_reset_query(); ?>
 </section>
 
 
@@ -35,44 +62,31 @@
 <section class="archiveSection">
     <?php $i=0;
     while(have_posts()){the_post();  ?>
-      <figure class="card<?php if ($i  % 7==0) {echo " mainCard";} ?>">
-        <a href="<?php the_permalink(); ?>">
+      <a class="card<?php if ($i  % 7==0) {echo " mainCard";} ?>" href="<?php the_permalink(); ?>">
+        <figure>
           <img src="<?php echo get_the_post_thumbnail_url(get_the_ID()); ?>" alt="">
-        </a>
-        <figcaption>
-          <a href="<?php the_permalink(); ?>">
+          <figcaption>
             <h3><?php the_title(); ?></h3>
-          </a>
-          <p class="sec1MainAuthor">Por <?php the_author(); ?> - <?php the_time('F j, Y'); ?></p>
-          <?php if(function_exists('the_views')){ ?>
-            <div class="theViews">
-              <svg viewBox="0 0 576 512"><path fill="currentColor" d="M572.52 241.4C518.29 135.59 410.93 64 288 64S57.68 135.64 3.48 241.41a32.35 32.35 0 0 0 0 29.19C57.71 376.41 165.07 448 288 448s230.32-71.64 284.52-177.41a32.35 32.35 0 0 0 0-29.19zM288 400a144 144 0 1 1 144-144 143.93 143.93 0 0 1-144 144zm0-240a95.31 95.31 0 0 0-25.31 3.79 47.85 47.85 0 0 1-66.9 66.9A95.78 95.78 0 1 0 288 160z"></path></svg>
-              <p><?php the_views(); ?></p>
-            </div>
-          <?php } ?>
-          <p class="sec1MainExcerpt"><?php if($i % 7==0){the_excerpt();} ?></p>
-          <p><?php echo get_the_category_list(', '); ?></p>
-        </figcaption>
-      </figure>
-      <!-- <ul id="archiveAtfCategory"><?php $array2 = get_the_category(); ?> -->
+            <p class="sec1MainAuthor">Por <?php the_author(); ?> - <?php the_time('F j, Y'); ?></p>
+            <?php if(function_exists('the_views')){ ?>
+              <div class="theViews">
+                <svg viewBox="0 0 576 512"><path fill="currentColor" d="M572.52 241.4C518.29 135.59 410.93 64 288 64S57.68 135.64 3.48 241.41a32.35 32.35 0 0 0 0 29.19C57.71 376.41 165.07 448 288 448s230.32-71.64 284.52-177.41a32.35 32.35 0 0 0 0-29.19zM288 400a144 144 0 1 1 144-144 143.93 143.93 0 0 1-144 144zm0-240a95.31 95.31 0 0 0-25.31 3.79 47.85 47.85 0 0 1-66.9 66.9A95.78 95.78 0 1 0 288 160z"></path></svg>
+                <p><?php the_views(); ?></p>
+              </div>
+            <?php } ?>
+            <p class="sec1MainExcerpt"><?php if($i % 7==0){the_excerpt();} ?></p>
+            <p id="archiveAtfCategory"><?php $array2 = get_the_category(); ?>
 
-        <?php
-        foreach ($array2 as $valor) {
-          $link = get_category_link( $valor->term_id );
-          // echo '<a href="'.get_category_link( $valor->id ).'">'.$valor->name.'</a>';
-          // var_dump($valor);
-          // echo '<a href="';
-          // echo $link;
-          // echo '">';
-          // echo $valor->name;
-          // echo "</a>";
-          // echo '<li>';
-          // echo "</li>";
-
-            // echo "<br>";
-        }
-        ?>
-      <!-- </ul> -->
+            <?php
+            foreach ($array2 as $valor) {
+                echo $valor->name;
+                echo "<br>";
+            }
+            ?>
+           </p>
+          </figcaption>
+        </figure>
+      </a>
 
 
     <?php
