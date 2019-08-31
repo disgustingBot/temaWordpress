@@ -2,6 +2,7 @@
 
 
 <section id="homeAtf">
+  <?php if(function_exists('yoast_breadcrumb')){yoast_breadcrumb('<p id="breadcrumbs">','</p>');} ?>
   <h1>Gaea People</h1>
   <?php
   $args=array(
@@ -100,18 +101,23 @@ while($j<=2){ ?>
     <?php
     while($blogPosts->have_posts()) {
       $blogPosts->the_post();$featuredID=get_the_ID(); ?>
-      <a class="sectionMainPost card" href="<?php the_permalink(); ?>">
-        <figure>
+      <figure class="sectionMainPost card">
+        <a href="<?php the_permalink(); ?>">
           <img src="<?php echo get_the_post_thumbnail_url(get_the_ID()); ?>" alt="">
-          <figcaption>
-            <h6><?php the_title(); ?></h6>
-            <p class="sec1MainExcerpt"><?php if($i==0){the_excerpt();} ?></p>
-            <p class="sec1MainAuthor">Por <?php the_author(); ?> <span>- <?php the_time('F j, Y'); ?></span></p>
-            <p><?php the_views(); ?></p>
-            <!-- <p><?php echo get_the_category_list(', '); ?></p> -->
-          </figcaption>
-        </figure>
-      </a>
+        </a>
+        <figcaption>
+          <a href="<?php the_permalink(); ?>"><h6><?php the_title(); ?></h6></a>
+          <?php if($i==0){ ?><a href="<?php the_permalink(); ?>"><p class="sec1MainExcerpt"><?php the_excerpt(); ?></p></a><?php } ?>
+          <p class="sec1MainAuthor">Por <?php the_author(); ?> <span>- <?php the_time('F j, Y'); ?></span></p>
+          <?php if(function_exists('the_views')){ ?>
+            <div class="theViews">
+              <svg viewBox="0 0 576 512"><path fill="currentColor" d="M572.52 241.4C518.29 135.59 410.93 64 288 64S57.68 135.64 3.48 241.41a32.35 32.35 0 0 0 0 29.19C57.71 376.41 165.07 448 288 448s230.32-71.64 284.52-177.41a32.35 32.35 0 0 0 0-29.19zM288 400a144 144 0 1 1 144-144 143.93 143.93 0 0 1-144 144zm0-240a95.31 95.31 0 0 0-25.31 3.79 47.85 47.85 0 0 1-66.9 66.9A95.78 95.78 0 1 0 288 160z"></path></svg>
+              <p><?php the_views(); ?></p>
+            </div>
+          <?php } ?>
+          <!-- <p><?php echo get_the_category_list(', '); ?></p> -->
+        </figcaption>
+      </figure>
     <?php } $i=1;
     $args = array(
       'post_type'=>'post',
@@ -125,21 +131,26 @@ while($j<=2){ ?>
       if ($i==1 OR $i==3) { ?>
         <div class="specialCont">
       <?php } ?>
-      <a class="<?php
+      <figure class="<?php
         if($i>0 && $i<=4)    {echo 'sectionSecnPost';} //TODO: Hacer responsive con Js que lea margenes
         if($i>4)             {echo 'sectionThrdPost';}
-        ?> card" href="<?php the_permalink(); ?>">
-        <figure>
+        ?> card">
+        <a href="<?php the_permalink(); ?>">
           <img src="<?php echo get_the_post_thumbnail_url(get_the_ID()); ?>" alt="">
-          <figcaption>
-            <h6><?php the_title(); echo $featuredID; ?></h6>
-            <p class="sec1MainExcerpt"><?php if($i==0){the_excerpt();} ?></p>
-            <p class="sec1MainAuthor">Por <?php the_author(); ?> <span>- <?php the_time('F j, Y'); ?></span></p>
-            <p><?php the_views(); ?></p>
-            <!-- <p><?php echo get_the_category_list(', '); ?></p> -->
-          </figcaption>
-        </figure>
-      </a>
+        </a>
+        <figcaption>
+          <a href="<?php the_permalink(); ?>"><h6><?php the_title(); ?></h6></a>
+          <a href="<?php the_permalink(); ?>"><p class="sec1MainExcerpt"><?php if($i==0){the_excerpt();} ?></p></a>
+          <p class="sec1MainAuthor">Por <?php the_author(); ?> <span>- <?php the_time('F j, Y'); ?></span></p>
+          <?php if(function_exists('the_views')){ ?>
+            <div class="theViews">
+              <svg viewBox="0 0 576 512"><path fill="currentColor" d="M572.52 241.4C518.29 135.59 410.93 64 288 64S57.68 135.64 3.48 241.41a32.35 32.35 0 0 0 0 29.19C57.71 376.41 165.07 448 288 448s230.32-71.64 284.52-177.41a32.35 32.35 0 0 0 0-29.19zM288 400a144 144 0 1 1 144-144 143.93 143.93 0 0 1-144 144zm0-240a95.31 95.31 0 0 0-25.31 3.79 47.85 47.85 0 0 1-66.9 66.9A95.78 95.78 0 1 0 288 160z"></path></svg>
+              <p><?php the_views(); ?></p>
+            </div>
+          <?php } ?>
+          <!-- <p><?php echo get_the_category_list(', '); ?></p> -->
+        </figcaption>
+      </figure>
       <?php if ($i==2 OR $i==4) { ?>
         </div>
       <?php }

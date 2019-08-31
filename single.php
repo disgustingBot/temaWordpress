@@ -2,20 +2,25 @@
 
 <!-- <div class="breadcrumb"><?php // get_breadcrumb(); ?></div> -->
 <!-- <div class="breadcrumb"><?php if(function_exists('bcn_display')){ bcn_display(); } ?></div> -->
-<?php if(function_exists('yoast_breadcrumb')){yoast_breadcrumb('<p id="breadcrumbs">','</p>');} ?>
 
 
 
+<section id="homeAtf">
+  <?php if(function_exists('yoast_breadcrumb')){yoast_breadcrumb('<p id="breadcrumbs">','</p>');} ?>
 
 <?php while(have_posts()){the_post(); ?>
-<section id="homeAtf">
     <figure class="slide">
       <img src="<?php echo get_the_post_thumbnail_url(get_the_ID()); ?>" alt="">
       <figcaption>
         <p id="atfCategory"><?php echo get_the_category_list(', '); ?></p>
         <h3 id="atfTitle"><?php the_title(); ?></h3>
         <p id="atfAuthor">Por <?php the_author(); ?> - <?php the_date(); ?></p>
-        <?php if(function_exists('the_views')){ ?><p><?php the_views(); ?></p><?php } ?>
+        <?php if(function_exists('the_views')){ ?>
+          <div class="theViews">
+            <svg viewBox="0 0 576 512"><path fill="currentColor" d="M572.52 241.4C518.29 135.59 410.93 64 288 64S57.68 135.64 3.48 241.41a32.35 32.35 0 0 0 0 29.19C57.71 376.41 165.07 448 288 448s230.32-71.64 284.52-177.41a32.35 32.35 0 0 0 0-29.19zM288 400a144 144 0 1 1 144-144 143.93 143.93 0 0 1-144 144zm0-240a95.31 95.31 0 0 0-25.31 3.79 47.85 47.85 0 0 1-66.9 66.9A95.78 95.78 0 1 0 288 160z"></path></svg>
+            <p><?php the_views(); ?></p>
+          </div>
+        <?php } ?>
       </figcaption>
     </figure>
 </section>
