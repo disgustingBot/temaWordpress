@@ -193,7 +193,7 @@ if ( function_exists('yoast_breadcrumb') ) {
     }
     ?>
     <li class="banner" id="singleBanner">
-      <?php echo do_shortcode("[the_ad id='10916']");?>
+      <?php echo do_shortcode("[the_ad_group id='1628']");?>
     </li>
   </ul>
 

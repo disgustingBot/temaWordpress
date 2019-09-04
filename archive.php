@@ -82,14 +82,14 @@
         <?php
         switch ($i) {
           case 6:
-            echo do_shortcode("[the_ad id='10913']");
+            echo do_shortcode("[the_ad_group id='1626']");
             break;
           case 13:
-            echo do_shortcode("[the_ad id='10915']");
+            echo do_shortcode("[the_ad_group id='1627']");
             break;
 
           default:
-            echo do_shortcode("[the_ad id='']");
+            echo do_shortcode("[the_ad_group id='1626']");
             break;
         }
         ?>

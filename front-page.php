@@ -152,17 +152,17 @@ while($j<=2){ ?>
   <?php
   switch ($j) {
     case 0:
-      echo do_shortcode("[the_ad id='113']");
+      echo do_shortcode("[the_ad_group id='1622']");
       break;
     case 1:
-      echo do_shortcode("[the_ad id='115']");
+      echo do_shortcode("[the_ad_group id='1623']");
       break;
     case 2:
-      echo do_shortcode("[the_ad id='117']");
+      echo do_shortcode("[the_ad_group id='1624']");
       break;
 
     default:
-      echo do_shortcode("[the_ad id='']");
+      echo do_shortcode("[the_ad_group id='']");
       break;
   }
   ?>
