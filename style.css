@@ -56,6 +56,15 @@ Version: 1.0
   --size7a: 12; --size7b: 14; --size7c: 12; --size7d: 18;
   --size8a: 10; --size8b: 12; --size8c: 10; --size8d: 15;
 
+  --size1: calc(var(--size1a) * 1px);
+  --size2: calc(var(--size2a) * 1px);
+  --size3: calc(var(--size3a) * 1px);
+  --size4: calc(var(--size4a) * 1px);
+  --size5: calc(var(--size5a) * 1px);
+  --size6: calc(var(--size6a) * 1px);
+  --size7: calc(var(--size7a) * 1px);
+  --size8: calc(var(--size8a) * 1px);
+
 /*VARIABLES DE CAMBIO VISUAL RELACIONADO A AL ANCHO DE LA PANTALLA*/
 
     --navBarPosition:fixed;
