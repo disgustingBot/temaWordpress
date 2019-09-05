@@ -159,12 +159,12 @@ Version: 1.0
     --archiveAtfCard3GR:4;
     --archiveNavMarginX:0;
     --archiveAtfFigcaptionMaxWidth: 80%;
-    --archiveSectionMainCardGC: span 2;
+    --archiveSectionMainCardGC: 1 / span 2;
     --archiveSectionMainCardGR: 1;
     --archiveSectionMainCardPosition:static;
     --archiveSectionMainCardPositionWebkit: -webkit-static;
     --archiveSectionFigcaptionPadding:0;
-    --archiveSectionGTR:3fr 2fr 1fr 1fr 1fr 1fr 2fr;
+    --archiveSectionGTR:  1fr 1fr 1fr .5fr .5fr .5fr 1fr;
     --pageNumbersPadding: .5em 1em;
 
     --footerBackgroundPosition: static;
@@ -174,12 +174,14 @@ Version: 1.0
     --conocenosTop: 10%;
     --theContentGTC: 90;
 
-    --sectionMainPostMinHeight: 220px;
+    --hirschman: 1;
+    --omedi: 2;
+    /* --sectionMainPostMinHeight: 220px;
     --frontPageImg2: 100px;
     --frontPageImg3: 250px;
 
     --archiveSectionMainCardImg: 500px;
-    --archiveSectionImg2: 490px;
+    --archiveSectionImg2: 300px;
     --archiveSectionImg3: 270px;
     --archiveSectionImg4: 450px;
     --archiveSectionImg5: 360px;
@@ -192,7 +194,7 @@ Version: 1.0
     --postRelatedListImg4: 210px;
     --postRelatedListImg4: 130px;
     --postRelatedListImg5: 320px;
-    --postRelatedListImg6: 120px;
+    --postRelatedListImg6: 120px; */
 
 }
 
@@ -229,7 +231,7 @@ Version: 1.0
     --legalFooterUlGTR: 1fr;
     --theContentGTC: 70;
 
-    --sectionMainPostMinHeight: 350px;
+    /* --sectionMainPostMinHeight: 350px;
     --frontPageImg2: 140px;
     --frontPageImg3: 400px;
     --frontPageImg3: 320px;
@@ -242,7 +244,7 @@ Version: 1.0
     --postRelatedListImg3: 200px;
     --postRelatedListImg4: 210px;
     --postRelatedListImg5: 370px;
-    --postRelatedListImg6: 150px;
+    --postRelatedListImg6: 150px; */
 
 
 
@@ -278,6 +280,8 @@ Version: 1.0
     --legaFooterNavBarItem: right;
 
 
+        --hirschman: 2;
+        --omedi: 3;
 
     --footerNavBarGridC: 1fr;
 
@@ -303,9 +307,9 @@ Version: 1.0
     --archiveNavMarginX:12.5%;
     --archiveAtfFigcaptionMaxWidth: 40%;
     --archiveSectionGTC:3fr 2fr 2fr;
-    --archiveSectionGTR:2fr 1fr 1fr 1fr 1fr 2fr;
+    --archiveSectionGTR: 1fr .5fr .5fr .5fr 1fr;
     --archiveSectionMainCardGC:1;
-    --archiveSectionMainCardGR: span 6;
+    --archiveSectionMainCardGR: span 5;
     --archiveSectionMainCardPosition:sticky;
     --archiveSectionMainCardPositionWebkit: -webkit-sticky;
     --archiveSectionCardEvnGC: 4/6;
@@ -318,7 +322,7 @@ Version: 1.0
 
     --conocenosTop: 20%;
 
-    --sectionMainPostMinHeight: 530px;
+    /* --sectionMainPostMinHeight: 530px;
     --frontPageImg2: 210px;
     --frontPageImg3: 400px;
 
@@ -326,7 +330,7 @@ Version: 1.0
     --archiveSectionImg2: 550px;
     --archiveSectionImg4: 510px;
     --archiveSectionImg5: 250px;
-    --archiveSectionImg6: 770px;
+    --archiveSectionImg6: 500px;
     --archiveSectionImg7: 270px;
 
     --postRelatedListImg1: 450px;
@@ -334,7 +338,7 @@ Version: 1.0
     --postRelatedListImg3: 220px;
     --postRelatedListImg4: 220px;
     --postRelatedListImg5: 420px;
-    --postRelatedListImg6: 220px;
+    --postRelatedListImg6: 220px; */
 
 
 
@@ -396,7 +400,7 @@ Version: 1.0
 
     --archiveSectionImgMinHeight: var(--cardImgMinHeight);
 
-      --sectionMainPostMinHeight: 300px;
+      /* --sectionMainPostMinHeight: 300px;
       --frontPageImg2: 130px;
       --frontPageImg3: 330px;
 
@@ -410,7 +414,7 @@ Version: 1.0
       --postRelatedListImg3: 130px;
       --postRelatedListImg4: 270px;
       --postRelatedListImg5: 330px;
-      --postRelatedListImg6: 100px;
+      --postRelatedListImg6: 100px; */
 
 
 
@@ -443,7 +447,7 @@ Version: 1.0
 
       --specialContSpan: 4 ;
 
-      --sectionMainPostMinHeight: 550px;
+      /* --sectionMainPostMinHeight: 550px;
       --frontPageImg2: 150px;
       --frontPageImg3: 350px;
 
@@ -453,7 +457,7 @@ Version: 1.0
       --postRelatedListImg2: 170px;
       --postRelatedListImg3: 160px;
       --postRelatedListImg4: 240px;
-      --postRelatedListImg6: 150px;
+      --postRelatedListImg6: 150px; */
 
 
 
@@ -465,11 +469,11 @@ Version: 1.0
 @media  screen and (min-width: 1400px) {
     :root {
 
-      --sectionMainPostMinHeight: 600px;
+      /* --sectionMainPostMinHeight: 600px;
       --frontPageImg2: 170px;
       --frontPageImg3: 370px;
 
-      --archiveSectionMainCardImg: 520px;
+      --archiveSectionMainCardImg: 520px; */
 
     }
 
@@ -698,6 +702,12 @@ header a:hover{color:var(--color3)}
 
 /* ABOVE THE FOLD */
 
+/* Fix for not showing breadcrum cuz i'm lazy */
+.singleAtf #breadcrumbs {
+  position: absolute;
+  top: -100px;
+}
+
 /*TODO: acomodar en el css del ATF*/
 #homeAtf {
   position: relative;
@@ -865,12 +875,15 @@ header a:hover{color:var(--color3)}
   grid-auto-flow: row;
   grid-gap:calc(var(--sE) * 1px);
   padding: calc(var(--sE) * 1px);
+  padding-top: 0px!important;
 }
 #archiveTitle{
   /* grid-column: span 8; */
   margin: calc(var(--sE) * 2px) 12.5%;
   color: var(--color1);
   font-size: var(--size3);
+  position: absolute;
+  top: -1000px;
 }
 #archiveNav {
   /* grid-column: span 8; */
@@ -889,8 +902,7 @@ header a:hover{color:var(--color3)}
   display: flex;
   justify-content: space-between;
 }
-#archiveAtf {
-}
+
 #archiveAtf .archiveAtfCard{
   display: grid;
   grid-row: 3;
@@ -906,11 +918,13 @@ header a:hover{color:var(--color3)}
   /* grid-column: 2/span 3!important; */
 }
 #archiveAtf figure{display: grid;}
+#archiveAtf > a{display: flex;}
 #archiveAtf img{
   grid-row: 1;
   grid-column: 1;
   width:  calc(100% - calc(var(--sE) * 1px));
   height: calc(100% - calc(var(--sE) * 1px));
+  margin: auto;
 }
 #archiveAtf .archiveAtfCard:nth-child(3) img{
   margin-left: auto;
@@ -937,33 +951,41 @@ header a:hover{color:var(--color3)}
 }
 
 
-
-
 /* -------------------
     ARCHIVE SECTION
 ------------------- */
 
+.cardFixForMac1 {}
+.cardFixForMac2 {}
+.cardFixForMac3 {}
 .archiveSection {
   display: grid;
   grid-gap: calc(var(--sE) * 1px);
-  grid-template-rows: 2fr 1fr 1fr 1fr 1fr 2fr;
   grid-template-rows: var(--archiveSectionGTR);
-  grid-template-columns: 3fr 2fr 2fr;
   grid-template-columns: var(--archiveSectionGTC);
   grid-auto-flow: column dense;
+  grid-row-gap: 30px;
 }
-.archiveSection .card:nth-child(-n+4){grid-row: span 2;}
-.archiveSection .card:nth-child(6)   {grid-row: span 4;}
-.archiveSection .card img{min-height: 250px!important;}
+/* .archiveSection .card:nth-child(-n+4){grid-row: span 2;} */
+/* .archiveSection .card:nth-child(6)   {grid-row: span 4;} */
+.archiveSection .card img{min-height: 100px!important; margin-top: auto;}
 
+.archiveSection .cardSize2{
+  grid-row: span 2;
+}
+.archiveSection .card:not(.mainCard):nth-child(-n+4){grid-column: var(--hirschman);}
+.archiveSection .card:not(.mainCard):nth-child( n+5){grid-column: var(--omedi);}
+/* .archiveSection .cardSize2 img {max-height: 250px;} */
 .archiveSection .mainCard {
+  /* grid-row: span 2; */
+  /* grid-column: span 2; */
+  grid-row: var(--archiveSectionMainCardGR)!important;
   grid-column: var(--archiveSectionMainCardGC)!important;
   position: var(--archiveSectionMainCardPosition);
   /* position: sticky; */
   top:calc(var(--topCero) + calc(var(--sE) * 1px) + 80px);
   height: calc(100vh - 120px)!important;
   /* grid-row: span 6!important; */
-  grid-row: var(--archiveSectionMainCardGR)!important;
 }
 .archiveSection .mainCard figcaption{
   padding:0!important;
@@ -989,13 +1011,13 @@ header a:hover{color:var(--color3)}
 }
 
 /* Max height img fix for Safari */
-.archiveSection .mainCard img {max-height: var(--archiveSectionMainCardImg)!important;}
+/* .archiveSection .mainCard img {max-height: var(--archiveSectionMainCardImg)!important;}
 .archiveSection figure:nth-child(2) img {max-height: var(--archiveSectionImg2)!important;}
 .archiveSection figure:nth-child(3) img {max-height: var(--archiveSectionImg3)!important;}
 .archiveSection figure:nth-child(4) img {max-height: var(--archiveSectionImg4)!important;}
 .archiveSection figure:nth-child(5) img {max-height: var(--archiveSectionImg5)!important;}
 .archiveSection figure:nth-child(6) img {max-height: var(--archiveSectionImg6)!important;}
-.archiveSection figure:nth-child(7) img {max-height: var(--archiveSectionImg7)!important;}
+.archiveSection figure:nth-child(7) img {max-height: var(--archiveSectionImg7)!important;} */
 
 
 
@@ -1046,17 +1068,14 @@ header a:hover{color:var(--color3)}
 /* -------------------
       POST PAGE
 ------------------- */
-
-#singleBanner {
+#singleBanner a {
   width:  100%;
   height: 100%;
-  padding:0;
 }
 
 #singleBanner img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  width: 100%!important;
+  height: 100%!important;
 }
 
 .postMain{
@@ -1092,7 +1111,10 @@ header a:hover{color:var(--color3)}
 .postSideBar li{
   background: rgba(0,0,0,.9);
   padding: calc(var(--sE) * .5px);
+}
 
+.postSideBar li:last-child {
+  padding: 4px;
 }
 
 .postSideBar a {
@@ -1121,11 +1143,6 @@ header a:hover{color:var(--color3)}
  width: 100%;
 }
 
-
-
-.postSideBar li.banner{
-  color: var(--color2);
-}
 .postTags{
   margin: calc(var(--sE) * 1px) 0;
   display: grid;
@@ -1650,6 +1667,7 @@ footer {
   padding: calc(var(--sE) * 1px);
   color: var(--color1);
   height: min-content;
+  padding-bottom: 40px!important;
 }
 
 .card figcaption
