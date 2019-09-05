@@ -6,6 +6,9 @@
 
 
 <section id="archiveAtf">
+
+  <?php echo do_shortcode("[the_ad_group id='1625']"); ?>
+
   <?php if(function_exists('yoast_breadcrumb')){yoast_breadcrumb('<p id="breadcrumbs">','</p>');} ?>
   <h1 id="archiveTitle"><?php the_archive_title(); ?></h1>
   <?php
@@ -26,7 +29,6 @@
     </nav>
     <?php } ?>
   <?php } ?>
-  <?php echo do_shortcode("[the_ad_group id='1625']"); ?>
 </section>
 
 
@@ -35,7 +37,32 @@
 <section class="archiveSection">
     <?php $i=0;
     while(have_posts()){the_post();  ?>
-      <figure class="card<?php if ($i  % 7==0) {echo " mainCard";} ?>">
+      <figure class="card<?php
+
+      switch ($i) {
+        case 1:
+          echo " cardSize2 cardFixForMac1";
+          break;
+        case 2:
+          echo " cardSize2 cardFixForMac2";
+          break;
+        case 3:
+          echo " cardSize1 cardFixForMac3";
+          break;
+        case 4:
+          echo " cardSize1 cardFixForMac3";
+          break;
+        case 5:
+          echo " cardSize2 cardFixForMac2";
+          break;
+        case 6:
+          echo " cardSize2 cardFixForMac1";
+        default:
+          echo "";
+          break;
+      }
+
+       if ($i  % 7==0) {echo " mainCard";} ?>">
         <a href="<?php the_permalink(); ?>">
           <img src="<?php echo get_the_post_thumbnail_url(get_the_ID()); ?>" alt="">
         </a>
@@ -90,7 +117,7 @@
             break;
 
           default:
-            echo do_shortcode("[the_ad_group id='1626']");
+            echo do_shortcode("[the_ad_group id='']");
             break;
         }
         ?>

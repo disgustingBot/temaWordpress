@@ -24,7 +24,9 @@
       </figcaption>
     </figure>
 </section>
-<banner>banner</banner>
+<banner>
+  <?php echo do_shortcode("[the_ad_group id='1629']");?>
+</banner>
 
 <section class="postMain">
   <div class="postContent">
