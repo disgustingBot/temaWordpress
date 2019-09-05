@@ -147,7 +147,7 @@ Version: 1.0
 
     --postMainGTC: 1fr;
     --postMainGridGap: calc(var(--sE) * 1px);
-    --postRelatedListGTR: repeat(7, 1fr);
+    --postRelatedListGTR: 1fr .4fr .4fr .4fr 1fr;
     --postRelatedListLi3th: span 2;
     --postRelatedListLi5th: 3 / span 3;
 
@@ -160,11 +160,11 @@ Version: 1.0
     --archiveNavMarginX:0;
     --archiveAtfFigcaptionMaxWidth: 80%;
     --archiveSectionMainCardGC: 1 / span 2;
-    --archiveSectionMainCardGR: 1;
+    --archiveSectionMainCardGR: span 2;
     --archiveSectionMainCardPosition:static;
     --archiveSectionMainCardPositionWebkit: -webkit-static;
     --archiveSectionFigcaptionPadding:0;
-    --archiveSectionGTR:  1fr 1fr 1fr .5fr .5fr .5fr 1fr;
+    --archiveSectionGTR:  1fr .4fr 1fr .5fr .5fr .5fr 1fr;
     --pageNumbersPadding: .5em 1em;
 
     --footerBackgroundPosition: static;
@@ -176,6 +176,12 @@ Version: 1.0
 
     --hirschman: 1;
     --omedi: 2;
+    --related1GR:span 2;
+    --related2GR:span 2;
+    --related3GR:span 1;
+    --related4GR:span 1;
+    --related5GR:span 2;
+    --related6GR:span 2;
     /* --sectionMainPostMinHeight: 220px;
     --frontPageImg2: 100px;
     --frontPageImg3: 250px;
@@ -392,7 +398,7 @@ Version: 1.0
 
     --sectionMainPostGridC: span calc(15 - var(--specialContSpan) * 2);
 
-    --postRelatedListGTR: repeat(5, 1fr);
+    --postRelatedListGTR: 1fr .3fr 1fr;
     --postRelatedListLi3th: 3 / span 3;
     --postRelatedListLi5th: span 3;
 
@@ -417,6 +423,12 @@ Version: 1.0
       --postRelatedListImg6: 100px; */
 
 
+      --related1GR:span 1;
+      --related2GR:span 2;
+      --related3GR:span 2;
+      --related4GR:span 1;
+      --related5GR:span 1;
+      --related6GR:span 2;
 
 
 
@@ -972,23 +984,19 @@ header a:hover{color:var(--color3)}
 .archiveSection .card:not(.mainCard):nth-child( n+5){grid-column: var(--omedi);}
 /* .archiveSection .cardSize2 img {max-height: 250px;} */
 .archiveSection .mainCard {
-  /* grid-row: span 2; */
-  /* grid-column: span 2; */
   grid-row: var(--archiveSectionMainCardGR)!important;
   grid-column: var(--archiveSectionMainCardGC)!important;
   position: var(--archiveSectionMainCardPosition);
   /* position: sticky; */
-  top:calc(var(--topCero) + calc(var(--sE) * 1px) + 80px);
+  top: calc(var(--sE) * 1px + 80px);
   height: calc(100vh - 120px)!important;
-  /* grid-row: span 6!important; */
-}
-.archiveSection .mainCard figcaption{
-  padding:0!important;
-  padding-top:calc(var(--sE) * 1px)!important;
 }
 .archiveSection .card figcaption{
   padding: var(--archiveSectionFigcaptionPadding);
-  padding-top: calc(var(--sE) * 1px);
+  padding-top: calc(var(--sE) * 1px)!important;
+}
+.archiveSection .mainCard figcaption{
+  padding:0;
 }
 @media screen and (min-color-index:0) and(-webkit-min-device-pixel-ratio:0) {
     @media {
@@ -1192,22 +1200,30 @@ header a:hover{color:var(--color3)}
 #postRelatedList {
   display: grid;
   grid-gap: calc(var(--sE) * 1px);
+  grid-template-rows: 1fr .4fr .4fr .4fr 1fr;
   grid-template-rows: var(--postRelatedListGTR);
   grid-auto-flow: column dense;
 }
+#postRelatedList .related1{grid-row:var(--related1GR)}
+#postRelatedList .related2{grid-row:var(--related2GR)}
+#postRelatedList .related3{grid-row:var(--related3GR)}
+#postRelatedList .related4{grid-row:var(--related4GR)}
+#postRelatedList .related5{grid-row:var(--related5GR)}
+#postRelatedList .related6{grid-row:var(--related6GR)}
+
 /* Fix for layout on Safari */
-#postRelatedList li:nth-child(1) img {max-height: var(--postRelatedListImg1)!important;}
+/* #postRelatedList li:nth-child(1) img {max-height: var(--postRelatedListImg1)!important;}
 #postRelatedList li:nth-child(2) img {max-height: var(--postRelatedListImg2)!important;}
 #postRelatedList li:nth-child(3) img {max-height: var(--postRelatedListImg3)!important;}
 #postRelatedList li:nth-child(4) img {max-height: var(--postRelatedListImg4)!important;}
 #postRelatedList li:nth-child(5) img {max-height: var(--postRelatedListImg5)!important;}
-#postRelatedList li:nth-child(6) img {max-height: var(--postRelatedListImg6)!important;}
+#postRelatedList li:nth-child(6) img {max-height: var(--postRelatedListImg6)!important;} */
 
 
-#postRelatedList li:nth-child(2n){grid-row:   span 2;}
+/* #postRelatedList li:nth-child(2n){grid-row:   span 2;}
 #postRelatedList li:nth-child(2n+1){grid-row: span 3;}
 #postRelatedList li:nth-child(3){grid-row: var(--postRelatedListLi3th);}
-#postRelatedList li:nth-child(5){grid-row: var(--postRelatedListLi5th);}
+#postRelatedList li:nth-child(5){grid-row: var(--postRelatedListLi5th);} */
 
 
 .comments ul{
@@ -1705,8 +1721,8 @@ footer {
 .specialCont .card{
   height: 100%;
 }
-.specialCont:nth-child(2){grid-template-rows: 2fr 3fr; position:relative;}
-.specialCont:nth-child(3){grid-template-rows: 3fr 2fr; position:relative;}
+.specialCont:nth-child(2){grid-template-rows: 1fr 1.3fr; position:relative;}
+.specialCont:nth-child(3){grid-template-rows: 1.3fr 1fr; position:relative;}
 
 
 .sectionMainPost {
@@ -1729,8 +1745,8 @@ footer {
   order: 1;
   text-align: center!important;
   box-sizing: border-box;
-  padding: 0;
-  padding-bottom: calc(var(--sE) * 1px);
+  padding: calc(var(--sE) * 1px) 0;
+  /* padding-bottom: calc(var(--sE) * 1px); */
 }
 
 
@@ -1743,6 +1759,7 @@ footer {
 .sectionMainPost p {
   font-size: var(--size6);
   margin-bottom: calc(var(--sE) * .5px);
+  color: var(--color1);
 }
 
 .sec1MainAuthor {
