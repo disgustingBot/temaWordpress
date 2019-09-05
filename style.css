@@ -909,8 +909,9 @@ header a:hover{color:var(--color3)}
 #archiveAtf img{
   grid-row: 1;
   grid-column: 1;
-  width:  calc(100% - calc(var(--sE) * 1px));
-  height: calc(100% - calc(var(--sE) * 1px));
+  width: 100%;
+  height: auto;
+  /* height: calc(100% - var(--sE) * 1px); */
 }
 #archiveAtf .archiveAtfCard:nth-child(3) img{
   margin-left: auto;
