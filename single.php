@@ -155,25 +155,50 @@
 
     <div class="postRelated">
       <h3>Artículos relacionados</h3>
-      <?php
+      <?php $i=0;
       $related = gp_get_related_posts( get_the_ID(), 6 );
       if ( $related->have_posts() ): ?>
 
       <ul id="postRelatedList">
-        <?php while ( $related->have_posts() ): $related->the_post(); ?>
-          <li>
-            <a class="card" href="<?php the_permalink(); ?>">
-              <figure>
+        <?php while($related->have_posts()): $related->the_post(); ?>
+          <li class="<?php
+
+          switch ($i) {
+            case 0:
+              echo "related1 cardFixForMac1";
+              break;
+            case 1:
+              echo "related2 cardFixForMac2";
+              break;
+            case 2:
+              echo "related3 cardFixForMac3";
+              break;
+            case 3:
+              echo "related4 cardFixForMac3";
+              break;
+            case 4:
+              echo "related5 cardFixForMac2";
+              break;
+            case 5:
+              echo "related6 cardFixForMac1";
+            default:
+              echo "";
+              break;
+          } ?>">
+            <figure class="card">
+              <a href="<?php the_permalink(); ?>">
                 <img src="<?php echo get_the_post_thumbnail_url(get_the_ID()); ?>" alt="">
-                <figcaption>
+              </a>
+              <figcaption>
+                <a href="<?php the_permalink(); ?>">
                   <h6><?php the_title(); echo $featuredID; ?></h6>
-                  <p class="sec1MainAuthor">Por <?php the_author(); ?> <span>- <?php the_time('F j, Y'); ?></span></p>
-                  <!-- <p><?php echo get_the_category_list(', '); ?></p> -->
-                </figcaption>
-              </figure>
-            </a>
+                </a>
+                <p class="sec1MainAuthor">Por <?php the_author(); ?> <span>- <?php the_time('F j, Y'); ?></span></p>
+                <!-- <p><?php echo get_the_category_list(', '); ?></p> -->
+              </figcaption>
+            </figure>
           </li>
-        <?php endwhile; ?>
+        <?php $i++; endwhile; ?>
       </ul>
 
       <?php endif; wp_reset_postdata(); ?>
