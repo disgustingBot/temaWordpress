@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 
 
-<section id="homeAtf">
+<section id="homeAtf" class="singleAtf">
   <?php if(function_exists('yoast_breadcrumb')){yoast_breadcrumb('<p id="breadcrumbs">','</p>');} ?>
   <h1>Gaea People</h1>
   <?php
