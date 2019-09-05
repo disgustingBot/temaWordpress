@@ -29,7 +29,6 @@
     </nav>
     <?php } ?>
   <?php } ?>
-
 </section>
 
 

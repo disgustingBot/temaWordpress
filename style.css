@@ -479,11 +479,7 @@ Version: 1.0
 
 }
 
-<<<<<<< Updated upstream
-=======
-/* Global Elements */
-
-*  { font-size: var(--size6); line-height: 30px; height: intrin}
+*  { font-size: var(--size6); line-height: 30px; height: intrinsec;}
 h1 { font-size: var(--size3)}
 h2 { font-size: var(--size4)}
 h3 { font-size: var(--size5)}
@@ -492,7 +488,6 @@ h5 { font-size: var(--size7)}
 h6 { font-size: var(--size8)}
 p  { font-size: var(--size6); line-height: 30px;}
 a  { font-size: var(--size7)}
->>>>>>> Stashed changes
 
 
 
