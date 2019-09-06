@@ -1679,7 +1679,7 @@ footer {
 }
 .card figcaption{
   text-align: left;
-  padding: calc(var(--sE) * 1px);
+  padding: calc(var(--sE) * 1px) 0;
   color: var(--color1);
   height: min-content;
   padding-bottom: 40px!important;
@@ -1706,7 +1706,7 @@ footer {
   height: 100%;
 }
 
-.specialCont:nth-child(2) {border-left: solid black 5px;}
+/* .specialCont:nth-child(2) {border-left: solid black 5px;} */
 
 /* Max height fix for layout on Safari */
 .sectionMainPost img                                        { max-height: var(--sectionMainPostMinHeight);}
@@ -1719,8 +1719,8 @@ footer {
 
 
 
-#sec2 .specialCont:nth-child(2) {border-left: 0;}
-#sec2 .specialCont:nth-child(3) {border-right: solid black 5px;}
+/* #sec2 .specialCont:nth-child(2) {border-left: 0;} */
+/* #sec2 .specialCont:nth-child(3) {border-right: solid black 5px;} */
 
 .specialCont .card{
   height: 100%;
@@ -1778,7 +1778,7 @@ footer {
 
 
 .sectionSecnPost img {
-  width: 80%!important;
+  /* width: 80%!important; */
   margin: auto;
 }
 
