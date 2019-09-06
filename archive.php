@@ -50,13 +50,13 @@
           echo " cardSize1 cardFixForMac3";
           break;
         case 4:
-          echo " cardSize1 cardFixForMac3";
+          echo " cardSize1 cardFixForMac4";
           break;
         case 5:
-          echo " cardSize2 cardFixForMac2";
+          echo " cardSize2 cardFixForMac5";
           break;
         case 6:
-          echo " cardSize2 cardFixForMac1";
+          echo " cardSize2 cardFixForMac6";
         default:
           echo "";
           break;
