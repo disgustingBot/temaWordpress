@@ -39,7 +39,7 @@
     while(have_posts()){the_post();  ?>
       <figure class="card<?php
 
-      switch ($i) {
+      switch ($i % 7) {
         case 1:
           echo " cardSize2 cardFixForMac1";
           break;
