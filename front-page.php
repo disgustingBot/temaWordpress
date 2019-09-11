@@ -159,6 +159,10 @@ while($j<=2){ ?>
   </div>
 </section>
 
+<div class="more">
+  <a class="leerMas" href="<?php echo get_category_link( get_category_by_slug($categoryName)->term_id ) ?>">Leer más</a>
+</div>
+
 
 <banner>
   <?php
