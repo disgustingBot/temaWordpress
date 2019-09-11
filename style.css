@@ -933,6 +933,13 @@ header a:hover{color:var(--color3)}
   height: calc(100% - calc(var(--sE) * 1px));
   margin: auto;
 }
+
+#archiveAtf img:nth-child(1) {
+  width: 90%;
+  height: auto!important;
+  margin: auto;
+}
+
 #archiveAtf .archiveAtfCard:nth-child(3) img{
   margin-left: auto;
 }

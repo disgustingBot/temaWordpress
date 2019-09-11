@@ -59,6 +59,7 @@ while($j<=2){ ?>
         'category_name' => $categoryName,
         'tag' => 'featured',
       );
+
       $blogPosts=new WP_Query($args); ?>
       <section id="sec2" class="section">
         <div class="sectionMarker">
