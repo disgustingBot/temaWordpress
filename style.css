@@ -176,13 +176,14 @@ Version: 1.0
 
     --hirschman: 1;
     --omedi: 2;
+
     --related1GR:span 2;
     --related2GR:span 2;
     --related3GR:span 1;
     --related4GR:span 1;
     --related5GR:span 2;
     --related6GR:span 2;
-    /* --sectionMainPostMinHeight: 220px;
+    --sectionMainPostMinHeight: 220px;
     --frontPageImg2: 100px;
     --frontPageImg3: 250px;
 
@@ -200,7 +201,7 @@ Version: 1.0
     --postRelatedListImg4: 210px;
     --postRelatedListImg4: 130px;
     --postRelatedListImg5: 320px;
-    --postRelatedListImg6: 120px; */
+    --postRelatedListImg6: 120px;
 
 }
 
@@ -237,11 +238,11 @@ Version: 1.0
     --legalFooterUlGTR: 1fr;
     --theContentGTC: 70;
 
-    /* --sectionMainPostMinHeight: 350px;
+    --sectionMainPostMinHeight: 350px;
     --frontPageImg2: 140px;
     --frontPageImg3: 400px;
     --frontPageImg3: 320px;
-
+/*
     --archiveSectionImg3: 470px;
     --archiveSectionImg4: 700px;
     --archiveSectionImg6: 900px;
@@ -328,7 +329,7 @@ Version: 1.0
 
     --conocenosTop: 20%;
 
-    /* --sectionMainPostMinHeight: 530px;
+    --sectionMainPostMinHeight: 530px;
     --frontPageImg2: 210px;
     --frontPageImg3: 400px;
 
@@ -344,7 +345,7 @@ Version: 1.0
     --postRelatedListImg3: 220px;
     --postRelatedListImg4: 220px;
     --postRelatedListImg5: 420px;
-    --postRelatedListImg6: 220px; */
+    --postRelatedListImg6: 220px;
 
 
 
@@ -406,7 +407,7 @@ Version: 1.0
 
     --archiveSectionImgMinHeight: var(--cardImgMinHeight);
 
-      /* --sectionMainPostMinHeight: 300px;
+      --sectionMainPostMinHeight: 300px;
       --frontPageImg2: 130px;
       --frontPageImg3: 330px;
 
@@ -420,7 +421,7 @@ Version: 1.0
       --postRelatedListImg3: 130px;
       --postRelatedListImg4: 270px;
       --postRelatedListImg5: 330px;
-      --postRelatedListImg6: 100px; */
+      --postRelatedListImg6: 100px;
 
 
       --related1GR:span 1;
@@ -459,7 +460,7 @@ Version: 1.0
 
       --specialContSpan: 4 ;
 
-      /* --sectionMainPostMinHeight: 550px;
+       --sectionMainPostMinHeight: 550px;
       --frontPageImg2: 150px;
       --frontPageImg3: 350px;
 
@@ -469,7 +470,7 @@ Version: 1.0
       --postRelatedListImg2: 170px;
       --postRelatedListImg3: 160px;
       --postRelatedListImg4: 240px;
-      --postRelatedListImg6: 150px; */
+      --postRelatedListImg6: 150px;
 
 
 
@@ -481,11 +482,10 @@ Version: 1.0
 @media  screen and (min-width: 1400px) {
     :root {
 
-      /* --sectionMainPostMinHeight: 600px;
+    --sectionMainPostMinHeight: 600px;
       --frontPageImg2: 170px;
       --frontPageImg3: 370px;
-
-      --archiveSectionMainCardImg: 520px; */
+      --archiveSectionMainCardImg: 520px;
 
     }
 
@@ -989,7 +989,7 @@ header a:hover{color:var(--color3)}
 }
 .archiveSection .card:not(.mainCard):nth-child(-n+4){grid-column: var(--hirschman);}
 .archiveSection .card:not(.mainCard):nth-child( n+5){grid-column: var(--omedi);}
-/* .archiveSection .cardSize2 img {max-height: 250px;} */
+.archiveSection .cardSize2 img {max-height: 250px;}
 .archiveSection .mainCard {
   grid-row: var(--archiveSectionMainCardGR)!important;
   grid-column: var(--archiveSectionMainCardGC)!important;
@@ -1021,13 +1021,13 @@ header a:hover{color:var(--color3)}
 }
 
 /* Max height img fix for Safari */
-/* .archiveSection .mainCard img {max-height: var(--archiveSectionMainCardImg)!important;}
+.archiveSection .mainCard img {max-height: var(--archiveSectionMainCardImg)!important;}
 .archiveSection figure:nth-child(2) img {max-height: var(--archiveSectionImg2)!important;}
 .archiveSection figure:nth-child(3) img {max-height: var(--archiveSectionImg3)!important;}
 .archiveSection figure:nth-child(4) img {max-height: var(--archiveSectionImg4)!important;}
 .archiveSection figure:nth-child(5) img {max-height: var(--archiveSectionImg5)!important;}
 .archiveSection figure:nth-child(6) img {max-height: var(--archiveSectionImg6)!important;}
-.archiveSection figure:nth-child(7) img {max-height: var(--archiveSectionImg7)!important;} */
+.archiveSection figure:nth-child(7) img {max-height: var(--archiveSectionImg7)!important;}
 
 
 
