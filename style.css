@@ -118,29 +118,13 @@ Version: 1.0
 
     --specialContSpan: 1;
 
-    --secGridTemplateC:  1fr;
-    --sec2GridTemplateC: 1fr;
-
-    --sec1MainTemplateC: 1fr 1fr;
-    --sec1MainGridGap:calc(var(--sE) * 1px);
-
     --specialContGridC: span 1;
 
     --thrdPostGridC: span 2;
 
-    --cardImgMinHeight: 25vw;
-
-    --sectionMainPostImg: 40vw!important;
-
     --thrdPostImgMinHeight: 200px;
 
-    --sec1y3GridTemplateC: 1fr;
-
-    --sec2GridTemplateC: 1fr;
-
     --sectionMarkerDisplay: none;
-
-    --sectionMainPostGridC: span 2;
 
     --bannerProvisionalHeight: 200px;
 
@@ -158,10 +142,6 @@ Version: 1.0
     --archiveAtfCard3GR:4;
     --archiveNavMarginX:0;
     --archiveAtfFigcaptionMaxWidth: 80%;
-    --archiveSectionMainCardGC: 1 / span 2;
-    --archiveSectionMainCardGR: span 2;
-    --archiveSectionMainCardPosition:static;
-    --archiveSectionMainCardPositionWebkit: -webkit-static;
     --archiveSectionFigcaptionPadding:0;
     --archiveSectionGTR:  1fr .4fr 1fr .5fr .5fr .5fr 1fr;
     --pageNumbersPadding: .5em 1em;
@@ -183,6 +163,23 @@ Version: 1.0
     --related5GR:span 2;
     --related6GR:span 2;
 
+
+    --separationStandar: 10;
+    --categorySectionHeight: min-content;
+    --sectionMarkerDisplay: none;
+    --mainCorridorGridC: span 6;
+    --scndCorridorGridC: span 3;
+    --thrdCorridorGridC: span 3;
+    --mainCorridorBorder: none;
+    --bottomPostContainerGridC: span 6;
+    --bottomPostGridC: span 3;
+    --postFigCaptionTextAlign: center;
+
+
+    --archiveMainCorridorGridC: span 2;
+    --span2Span4: span 1;
+    --archiveSectionGridTemplateC: repeat(2, 1fr);
+
 }
 
 
@@ -202,7 +199,6 @@ Version: 1.0
   :root {
     --footerNavBarGridC: 1fr 1fr;
     --homeSlideImgWidth:calc(100% - var(--sE) * 3px);
-    --sec1MainGridGap:calc(var(--sE) * 2px);
     --homeSectionPadding: calc(var(--sE) * 1px);
     --commentFormGTC:1fr 1fr;
     --secondColumn: 2;
@@ -216,6 +212,19 @@ Version: 1.0
 
     --legalFooterUlGTR: 1fr;
     --theContentGTC: 70;
+
+    --categorySectionHeight: 200vh;
+    --mainCorridorGridC: span 5;
+    --scndCorridorGridC: 2/ span 3;
+    --thrdCorridorGridC: span 2;
+    --corridorDisplay: block;
+    --scndCorridorImgBigHeight: 200px;
+    --scondCorridorImgSmallHeight: 300px;
+    --sectionMarkerDisplay: block;
+    --mainCorridorBorder: solid 5px black;
+    --bottomPostContainerGridC: 2/ span 5;
+    --bottomPostGridC: span 1;
+
 
 
   }
@@ -252,9 +261,6 @@ Version: 1.0
 
     --footerNavBarGridC: 1fr;
 
-
-    --secGridTemplateC:  min-content 1fr;
-    --sec2GridTemplateC: 1fr min-content;
     --atfGridR: 1fr;
     --homeSlideButtonMarginX: 0;
     --homeSlideFigcaptionPadding:calc(var(--sE) * 3px);
@@ -274,12 +280,6 @@ Version: 1.0
     --archiveAtfFigcaptionMaxWidth: 40%;
     --archiveSectionGTC:3fr 2fr 2fr;
     --archiveSectionGTR: 1fr .5fr .5fr .5fr 1fr;
-    --archiveSectionMainCardGC:1;
-    --archiveSectionMainCardGR: span 5;
-    --archiveSectionMainCardPosition:sticky;
-    --archiveSectionMainCardPositionWebkit: -webkit-sticky;
-    --archiveSectionCardEvnGC: 4/6;
-    --archiveSectionCardOddGC: 6/8;
     --archiveSectionFigcaptionPadding:calc(var(--sE) * 1px);
 
 
@@ -287,6 +287,10 @@ Version: 1.0
     --footerInfoMarginTop: calc(48vw - 250px);
 
     --conocenosTop: 20%;
+
+    --archiveSectionGridTemplateC: repeat(7, 1fr);
+    --archiveMainCorridorGridC: span 3;
+    --span2Span4: span 2;
 
 
   }
@@ -325,25 +329,15 @@ Version: 1.0
 
     --specialContGridC: span var(--specialContSpan);
 
-    --sec1MainTemplateC: repeat(15,1fr);
-
     --thrdPostGridC: span 5;
 
-    --cardImgMinHeight: 10vw;
-
-    --sectionMainPostImg: var(--cardImgMinHeight);
-
     --homeSlideFigcaptionMarginBottom: auto;
-
-    --sectionMainPostGridC: span calc(15 - var(--specialContSpan) * 2);
 
     --postRelatedListGTR: 1fr .3fr 1fr;
     --postRelatedListLi3th: 3 / span 3;
     --postRelatedListLi5th: span 3;
 
     --postMainGridGap: calc(var(--sE) * 3px);
-
-    --archiveSectionImgMinHeight: var(--cardImgMinHeight);
 
 
       --related1GR:span 1;
@@ -353,8 +347,15 @@ Version: 1.0
       --related5GR:span 1;
       --related6GR:span 2;
 
+      --mainCorridorGridC: span 3;
+      --scndCorridorGridC: span 1;
+      --thrdCorridorGridC: span 1;
+      --corridorDisplay: flex;
+      --scndCorridorImgBigHeight: 60%;
+      --scondCorridorImgSmallHeight: 70%;
+      --postFigCaptionTextAlign: left;
 
-    /* --theContentGTC: 550px; */
+
 
   }
   #navBar.inactive{--navBarPadding: calc(var(--sE) * .5px) 10%;}
@@ -376,38 +377,11 @@ Version: 1.0
 
       --specialContSpan: 4 ;
 
-       --sectionMainPostMinHeight: 550px;
-      --frontPageImg2: 150px;
-      --frontPageImg3: 350px;
-
-      --archiveSectionImg2: 470px;
-      --archiveSectionImg3: 270px;
-
-      --postRelatedListImg2: 170px;
-      --postRelatedListImg3: 160px;
-      --postRelatedListImg4: 240px;
-      --postRelatedListImg6: 150px;
-
-
-
     }
 
 }
 
-
-@media  screen and (min-width: 1400px) {
-    :root {
-
-    --sectionMainPostMinHeight: 600px;
-      --frontPageImg2: 170px;
-      --frontPageImg3: 370px;
-      --archiveSectionMainCardImg: 520px;
-
-    }
-
-}
-
-*  { font-size: var(--size6); line-height: 30px; height: intrinsec;}
+*  { font-size: var(--size6); line-height: 30px;}
 h1 { font-size: var(--size3)}
 h2 { font-size: var(--size4)}
 h3 { font-size: var(--size5)}
@@ -424,7 +398,7 @@ a  { font-size: var(--size7)}
 h1,h2,h3,h4,h5,h6 {font-family: 'Bitter', serif;}
 p,a,div         {font-family: 'Raleway', sans-serif;}
 /* ------------------------------------------- GENERAL ------------------------------------------- */
-body{overflow-x: hidden;}
+body{ overflow-x: hidden;}
 body,figure,ul,ol,h1,h2,h3,h4,h5,h6,p {margin:0}
 ul,ol{padding:0;list-style-type: none;}
 img{object-fit:cover}
@@ -436,7 +410,7 @@ section {
   grid-auto-flow: column;
   grid-auto-columns: auto;
   grid-gap: calc(var(--sE) * 1px);
-  padding:  calc(var(--sE) * 1px);
+  padding: 0 2.5%;
   -webkit-transform: translateZ(0);
 }
 
@@ -717,21 +691,7 @@ header a:hover{color:var(--color3)}
 /* --------------------
       FRONT PAGE
       SECTIONS
--------------------- */
 
-.section{grid-template-columns: var(--secGridTemplateC);padding:20px}
-.secMain{
-  display: grid;
-  grid-gap: var(--sec1MainGridGap);
-  grid-template-columns: var(--sec1MainTemplateC);
-}
-.secMain img{width:100%}
-
-/* --------------------
-      SECTION 2
--------------------- */
-#sec2{grid-template-columns: var(--sec2GridTemplateC)}
-#sec2 .secMain{order:-1}
 
 
 /* -------------------
@@ -815,22 +775,6 @@ header a:hover{color:var(--color3)}
   grid-auto-flow: column dense;
   grid-row-gap: 30px;
 }
-.archiveSection .card img{min-height:100px!important;margin-top:auto}
-.archiveSection .cardSize2{grid-row:span 2}
-.archiveSection .card:not(.mainCard):nth-child(-n+4){grid-column:var(--hirschman)}
-.archiveSection .card:not(.mainCard):nth-child( n+5){grid-column:var(--omedi)}
-.archiveSection .mainCard{
-  grid-row: var(--archiveSectionMainCardGR)!important;
-  grid-column: var(--archiveSectionMainCardGC)!important;
-  height: calc(100vh - 120px)!important;
-  position: var(--archiveSectionMainCardPosition);
-  top: calc(var(--sE) * 1px + 80px);
-}
-.archiveSection .card figcaption{
-  padding: var(--archiveSectionFigcaptionPadding);
-  padding-top: calc(var(--sE) * 1px)!important;
-}
-.archiveSection .mainCard figcaption{padding:0}
 
 
 
@@ -1300,23 +1244,6 @@ footer {
          MARKER
 ----------------------- */
 
-.sectionMarker {
-  width: min-content;
-  height: min-content;
-  display: var(--sectionMarkerDisplay);
-  grid-template-rows: 100px 1fr 100px;
-  color:var(--color1);
-  position: sticky;
-  position: -webkit-sticky;
-  top: calc(var(--topCero) + 50% - 150px);
-  z-index: 0;
-}
-
-.sectionMarker h3 {
-  font-size: var(--size4);
-  margin: calc(var(--sE) * 2px) 0;
-  padding: 0 calc(var(--sE) * 1.5px);
-}
 
 .markerLetter {height: 100%; fill: var(--color3);transition:.4s;opacity:0;}
 .markerFirstLetter  {margin: 0 auto auto -100px;}
@@ -1328,96 +1255,8 @@ footer {
          CARDS
 ----------------------- */
 
-.card {
-  position: relative;
-  overflow: hidden;
-  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
-  width: 100%;
-  height: 100%;
-  grid-template-rows: 1fr min-content;
-  display: grid;
-}
-.card h3 { color: var(--color1); }
-
-.card > a:nth-child(1){ display: grid; }
-
-.card img{
-  height: 100%;
-  min-height: var(--cardImgMinHeight);
-  width: 100%;
-}
-
-.card figcaption{
-  color: var(--color1);
-  height: min-content;
-  padding: calc(var(--sE) * 1px) 0;
-  padding-bottom: 40px!important;
-  text-align: left;
-}
 
 
-.card h6, .card p { margin-bottom: calc(var(--sE) * .25px); }
-.card h6 { font-size: var(--size5); color: black!important; }
-.card p { font-size: var(--size7); }
-
-
-.specialCont{
-  display: grid;
-  height: 100%;
-  grid-column: var(--specialContGridC);
-  grid-template-columns: 1fr;
-  grid-gap: calc(var(--sE) * 2px);
-}
-
-
-
-.specialCont .card{ height: 100%; }
-
-.specialCont:nth-child(2){grid-template-rows: 1fr 1.3fr; position:relative;}
-.specialCont:nth-child(3){grid-template-rows: 1.3fr 1fr; position:relative;}
-
-
-.sectionMainPost { grid-column: var(--sectionMainPostGridC); grid-row: 1;}
-.sectionMainPost figure { grid-template-rows: min-content 1fr; }
-
-.sectionMainPost img {
-  height: 100%!important;
-  margin: auto;
-  min-height: calc(var(--cardImgMinHeight) + 20vh);
-  order: 2;
-  width: 100%!important;
-}
-.sectionMainPost figcaption {
-  box-sizing: border-box;
-  order: 1;
-  padding: calc(var(--sE) * 1px) 0;
-  text-align: center!important;
-}
-
-
-
-.sectionMainPost h6 {
-  font-size: var(--size4);
-  margin-bottom: calc(var(--sE) * .5px);
-}
-
-.sectionMainPost p {
-  color: var(--color1);
-  font-size: var(--size6);
-  margin-bottom: calc(var(--sE) * .5px);
-}
-
-.sec1MainAuthor {color: var(--color3)!important; font-weight: 700; }
-
-.sec1MainAuthor span { color: #262626!important; font-weight: 300; }
-
-
-.sectionSecnPost img { margin: auto;}
-
-
-.sectionThrdPost {grid-column: var(--thrdPostGridC);}
-
-.sectionThrdPost img {min-height: var(--thrdPostImgMinHeight)}
 
 /* QUOTES */
 
@@ -1546,4 +1385,382 @@ blockquote::before {
   border: 1px solid var(--color1);
   margin:auto;
   padding: .5em 1em;
+}
+
+
+
+
+/* CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CUL CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO O  CULO  CULO  CULO  CULO  CULO CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO   CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO */
+
+/*
+------------------------------------------------------------
+------------------------ARCHIVE PAGE------------------------
+------------------------------------------------------------
+*/
+/* General front-page's sections CSS */
+.categorySection {
+  height: var(--categorySectionHeight);
+  display: grid;
+  grid-gap: 25px;
+  grid-template-columns: repeat(6, 1fr);
+  position: relative;
+}
+
+
+
+.sectionMarker {
+  width: min-content;
+  height: min-content;
+  display: var(--sectionMarkerDisplay);
+  grid-template-rows: 100px 1fr 100px;
+  color:var(--color1);
+  position: sticky;
+  position: -webkit-sticky;
+  top: calc(var(--topCero) + 50% - 150px);
+  z-index: 0;
+}
+
+.sectionMarker h3 {
+  font-size: var(--size4);
+  margin: calc(var(--sE) * 2px) 0;
+  padding: 0 calc(var(--sE) * 1.5px);
+}
+
+
+
+
+
+
+
+.corridor {
+  display: var(--corridorDisplay);
+  flex-direction: column;
+}
+
+.post {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  width: 100%;
+  align-items: stretch;
+  overflow: hidden;
+}
+
+.postImg {
+  object-fit: cover;
+  margin: 0 auto;
+}
+
+  .postFigcaption {
+  width: 100%;
+  text-align: var(--postFigCaptionTextAlign);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.postAuthor {
+  margin: 5px 0;
+}
+.postTxt {
+}
+
+.vistoNVeces {
+  position: absolute;
+  top: 0;
+  margin: 0;
+  width: 100%;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.authorColor {
+  color: var(--color3);
+}
+
+/* Main corridor */
+
+.mainCorridor {
+  border-right: var(--mainCorridorBorder);
+  grid-column: var(--mainCorridorGridC);
+  padding: calc(var(--separationStandar) * 2px);
+}
+
+.mainPost {
+  height: 100%;
+}
+
+.mainImg {
+  width: 90%;
+  max-height: 70%;
+  flex: 3;
+}
+
+.postFigcaption {
+  flex: 1;
+}
+
+.mainTxt {
+  font-size: var(--size3);
+  text-align: center;
+  margin: calc(var(--separationStandar) * 1px) 0;
+}
+
+.mainTxt2 {
+  font-size: var(--size5);
+  text-align: center;
+  margin: calc(var(--separationStandar) * 1px) 0;
+}
+
+/* Secondary corridors category*/
+
+.scndCorridor {
+  grid-column: var(--scndCorridorGridC);
+}
+
+.thrdCorridor {
+  grid-column: var(--thrdCorridorGridC);
+}
+
+/* Small Posts */
+
+.corridorPostSmall {
+ flex: 2;
+ margin-bottom: calc(var(--separationStandar) * 4px);
+}
+
+.scndCorridorImgSmall {
+  height: var(--scondCorridorImgSmallHeight);
+  max-height: 70%;
+  width: 100%;
+}
+
+.CorridorFigcaptionSmall {
+  height: min-content;
+  max-height: 30%;
+}
+
+.postTxt1 {
+  font-weight: bold;
+  font-size: var(--size6);
+  margin: calc(var(--separationStandar) * .6px) 0;
+}
+
+
+
+/* Big Posts */
+
+.corridorPostBig {
+   flex: 3;
+   margin-bottom: calc(var(--separationStandar) * 4px);
+}
+
+.scndCorridorImgBig {
+  height: var(--scndCorridorImgBigHeight);
+  max-height: 60%;
+  width: 100%;
+}
+
+.CorridorFigcaptionBig {
+  height: min-content;
+  max-height: 40%;
+}
+
+.CorridortxtBig1 {
+  font-weight: bold;
+  font-size: var(--size5);
+  margin: calc(var(--separationStandar) * .6px) 0;
+}
+
+.CorridortxtBig2 {
+  margin: calc(var(--separationStandar) * .2px) 0;
+}
+
+
+/* Bottom section post */
+
+.bottomPostContainer {
+  display: grid;
+  grid-column: var(--bottomPostContainerGridC);
+  grid-row: 2;
+  grid-gap: inherit;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+
+.bottomPost {
+  height: 60vh;
+  margin: 0 auto;
+  grid-column: var(--bottomPostGridC);
+}
+
+
+.bottomPostsImg {
+  height: 70%;
+  max-height: 100%;
+  width: 80%;
+}
+
+.bottomPostsFigcaption {
+  padding: calc(var(--separationStandar) * 2px);
+  margin: auto;
+  box-sizing: border-box;
+}
+
+/*
+------------------------------------------------------------
+------------------------ARCHIVE PAGE------------------------
+------------------------------------------------------------
+*/
+
+.archiveSection1 {
+  margin-top: 200px;
+}
+
+/* General  archive's sections CSS */
+.archiveSection {
+  display: grid;
+  grid-template-columns: var(--archiveSectionGridTemplateC);
+  grid-gap: 25px;
+  height: auto;
+}
+
+.archiveCorridor {
+  display: flex;
+  flex-direction: column;
+}
+
+.archivePost {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  margin-bottom: calc(var(--separationStandar) * 4px);
+  width: 100%;
+  align-items: stretch;
+  overflow: hidden;
+}
+
+.archivePostFigcaption {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.archivePostImg {
+  width: 100%;
+  height: 60%;
+  max-height: 60%;
+  object-fit: cover;
+  margin: 0 auto;
+}
+
+.archivePostFigcaption {
+  width: 80%;
+  height: 40%;
+  max-height: 40%;
+  margin: 0 auto auto auto;
+}
+
+.archivePostTitle {
+  margin: 15px 0 5px 0;
+  text-align: center;
+}
+
+.archivePostTxt1 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  margin: 0 auto 10px auto;
+}
+.postCategory {
+  grid-column: span 1;
+  grid-row: span 2;
+  margin: auto;
+  text-decoration: underline;
+  text-decoration-color: var(--color3);
+  font-size: var(--size5);
+}
+
+.postAuthor {
+  grid-column: 2;
+  grid-row: 1;
+  margin: auto;
+  margin-bottom: 0;
+}
+.postDate {
+  grid-column: 2;
+  grid-row: 2;
+  margin: auto;
+  margin-top: 0;
+}
+
+/* Archive main post */
+.archiveMainPostImg {
+  width: 80%;
+}
+
+/* Archive main corridor */
+
+.archiveMainCorridor {
+  grid-column: var(--archiveMainCorridorGridC);
+  border-right: 5px solid;
+}
+
+.archiveMainPost {
+  position: sticky!important;
+  width: 100%;
+  height: 90vh;
+  top: 20px;
+  margin: 0;
+}
+
+
+.archiveMainPostFigcaption {
+  height: 40%;
+  width: 100%;
+  box-sizing: border-box;
+  margin-top: var(--separationStandar);
+  padding: 0 5%;
+}
+
+.archiveMainPostTitle {
+  font-size: var(--size4);
+}
+
+
+/* Archive Scnd corridor */
+
+.archiveScndCorridor {
+  grid-column: var(--span2Span4);
+}
+
+.archivePostSize1Title, .archivePostSize3Title, .archivePostSize2Title  {
+  font-size: var(--size5);
+}
+
+
+.archivePostSize1 {
+  flex: 3;
+}
+.archivePostSize1Img {
+  width: 80%;
+}
+
+
+
+.archivePostSize2 {
+  flex: 4;
+}
+.archivePostSize2Img {
+  width: 90%;
+}
+
+
+.archivePostSize3 {
+  flex: 4;
+}
+.archivePostSize3Img {
+  width: 100%;
 }
