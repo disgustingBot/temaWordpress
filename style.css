@@ -164,12 +164,11 @@ Version: 1.0
     --related6GR:span 2;
 
 
-    --separationStandar: 10;
     --categorySectionHeight: min-content;
     --sectionMarkerDisplay: none;
     --mainCorridorGridC: span 6;
-    --scndCorridorGridC: span 3;
-    --thrdCorridorGridC: span 3;
+    --scndCorridorGridC: span 6;
+    --thrdCorridorGridC: span 6;
     --mainCorridorBorder: none;
     --bottomPostContainerGridC: span 6;
     --bottomPostGridC: span 3;
@@ -179,6 +178,20 @@ Version: 1.0
     --archiveMainCorridorGridC: span 2;
     --span2Span4: span 1;
     --archiveSectionGridTemplateC: repeat(2, 1fr);
+    --bottomPostContainerGR: 5;
+
+
+    --corridorDisplay: block;
+
+    --scndCorridorFlexDirection: row;
+    --thrdCorridorFlexDirection: row-reverse;
+    --specialMarginPost:0;
+    --scndCorridorImgBigMaxHeight: unset;
+    --scndCorridorImgBigWidth: 100%;
+    --scndCorridorImgSmallWidth: 80%;
+    --sectionMarkerPosition: static;
+    --sectionMarkerGC:span 6;
+    --sectionMarkerWidth: 100%;
 
 }
 
@@ -214,18 +227,24 @@ Version: 1.0
     --theContentGTC: 70;
 
     --categorySectionHeight: 200vh;
-    --mainCorridorGridC: span 5;
-    --scndCorridorGridC: 2/ span 3;
-    --thrdCorridorGridC: span 2;
-    --corridorDisplay: block;
+    --mainCorridorGridC: 2/span 5;
+    --scndCorridorGridC: 2/span 5;
+    --thrdCorridorGridC: 2/span 5;
+    --corridorDisplay: flex;
     --scndCorridorImgBigHeight: 200px;
     --scondCorridorImgSmallHeight: 300px;
     --sectionMarkerDisplay: block;
     --mainCorridorBorder: solid 5px black;
     --bottomPostContainerGridC: 2/ span 5;
     --bottomPostGridC: span 1;
+    --specialMarginPost:20px;
+    --scndCorridorImgBigWidth: 80%;
 
+    --scndCorridorImgSmallWidth: 100%;
 
+    --sectionMarkerPosition: sticky;
+    --sectionMarkerGC: 1;
+    --sectionMarkerWidth: min-content;
 
   }
   #isoLogo.inactive{
@@ -350,13 +369,18 @@ Version: 1.0
       --mainCorridorGridC: span 3;
       --scndCorridorGridC: span 1;
       --thrdCorridorGridC: span 1;
-      --corridorDisplay: flex;
-      --scndCorridorImgBigHeight: 60%;
+      --scndCorridorImgBigHeight: 100%;
       --scondCorridorImgSmallHeight: 70%;
       --postFigCaptionTextAlign: left;
 
 
+      --bottomPostContainerGR: 2;
 
+      --scndCorridorFlexDirection: column;
+      --thrdCorridorFlexDirection: column-reverse;
+      --specialMarginPost:0;
+      --scndCorridorImgBigMaxHeight: 60%;
+      --scndCorridorImgBigWidth: 100%;
   }
   #navBar.inactive{--navBarPadding: calc(var(--sE) * .5px) 10%;}
   }
@@ -381,15 +405,15 @@ Version: 1.0
 
 }
 
-*  { font-size: var(--size6); line-height: 30px;}
-h1 { font-size: var(--size3)}
-h2 { font-size: var(--size4)}
-h3 { font-size: var(--size5)}
-h4 { font-size: var(--size6)}
-h5 { font-size: var(--size7)}
-h6 { font-size: var(--size8)}
-p  { font-size: var(--size6); line-height: 30px;}
-a  { font-size: var(--size7)}
+*  {font-size:var(--size6)}
+h1 {font-size:var(--size3)}
+h2 {font-size:var(--size4)}
+h3 {font-size:var(--size5)}
+h4 {font-size:var(--size6)}
+h5 {font-size:var(--size7)}
+h6 {font-size:var(--size8)}
+p  {font-size:var(--size6)}
+a  {font-size:var(--size7)}
 
 
 
@@ -410,7 +434,7 @@ section {
   grid-auto-flow: column;
   grid-auto-columns: auto;
   grid-gap: calc(var(--sE) * 1px);
-  padding: 0 2.5%;
+  padding: calc(var(--sE) * 1px);
   -webkit-transform: translateZ(0);
 }
 
@@ -430,15 +454,6 @@ banner img {
   object-fit: contain;
   width: 100%;
 }
-
-h1 { font-size: var(--size3)}
-h2 { font-size: var(--size4)}
-h3 { font-size: var(--size5)}
-h4 { font-size: var(--size6)}
-h5 { font-size: var(--size7)}
-h6 { font-size: var(--size8)}
-p  { font-size: var(--size6); line-height: 30px;}
-a  { font-size: var(--size7)}
 
 /* ------------------------------------------- STRUCTURE ------------------------------------------- */
 
@@ -1244,8 +1259,34 @@ footer {
          MARKER
 ----------------------- */
 
+.sectionMarker {
+  /* width: min-content; */
+  width: var(--sectionMarkerWidth);
+  height: min-content;
+  display: block;
+  /* grid-template-rows: 100px 1fr 100px; */
+  color:var(--color1);
+  grid-column: var(--sectionMarkerGC);
+  position: -webkit-sticky;
+  position: var(--sectionMarkerPosition);
+  top: calc(var(--topCero) + 50% - 150px);
+  z-index: 0;
+}
 
-.markerLetter {height: 100%; fill: var(--color3);transition:.4s;opacity:0;}
+.sectionMarker h3 {
+  font-size: var(--size4);
+  margin: calc(var(--sE) * 2px) auto;
+  text-align: center;
+}
+
+.markerLetter {
+display: var(--sectionMarkerDisplay);
+  fill: var(--color3);
+  height: 100px;
+  max-width: 100%;
+  transition:.4s;
+  opacity:0;
+}
 .markerFirstLetter  {margin: 0 auto auto -100px;}
 .markerSecondLetter {margin: auto -100px 0 auto;}
 
@@ -1334,7 +1375,16 @@ blockquote::before {
 #breadcrumbs a:hover::after {
   width: 100%;
 }
+.page-numbers{
+  background: var(--color1);
+  padding: var(--pageNumbersPadding);
+  margin-bottom: 20px;
+  color: var(--color2);
+  font-size: var(--size6);
+}
 
+
+/* Boton leer mas */
 
 /* POST RATINGS */
 
@@ -1385,11 +1435,6 @@ blockquote::before {
   border: 1px solid var(--color1);
   margin:auto;
   padding: .5em 1em;
-}
-
-
-
-
 /* CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CUL CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO O  CULO  CULO  CULO  CULO  CULO CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO   CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO */
 
 /*
@@ -1429,6 +1474,62 @@ blockquote::before {
 
 
 
+/* CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CUL CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO O  CULO  CULO  CULO  CULO  CULO CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO   CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO  CULO */
+
+/*
+------------------------------------------------------------
+------------------------ARCHIVE PAGE------------------------
+------------------------------------------------------------
+*/
+/* General front-page's sections CSS */
+.categorySection {
+  /* height: var(--categorySectionHeight); */
+  display: grid;
+  grid-gap: calc(var(--sE) * 1px);
+  grid-template-columns: repeat(6, 1fr);
+  position: relative;
+}
+
+.corridor {
+  display: var(--corridorDisplay);
+  flex-direction: column;
+}
+
+.post {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  width: 100%;
+  align-items: stretch;
+  /* overflow: hidden; */
+}
+.post p,
+.post a{
+  color: var(--color1);
+}
+
+.postImg {
+  /* margin: 0 auto; */
+  flex:1;
+  /* hola */
+}
+
+.postFigCaptioncito{
+  width: 100%;
+  text-align: var(--postFigCaptionTextAlign);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin: 10px 0;
+}
+
+.postAuthor {
+  margin: 5px 0;
+}
+.mainPost .postAuthor{
+  margin-top: 10px;
+}
 
 
 
@@ -1484,7 +1585,7 @@ blockquote::before {
 .mainCorridor {
   border-right: var(--mainCorridorBorder);
   grid-column: var(--mainCorridorGridC);
-  padding: calc(var(--separationStandar) * 2px);
+  padding: calc(var(--sE) * 1px);
 }
 
 .mainPost {
@@ -1495,96 +1596,92 @@ blockquote::before {
   width: 90%;
   max-height: 70%;
   flex: 3;
-}
-
-.postFigcaption {
-  flex: 1;
+  margin: 0 auto;
 }
 
 .mainTxt {
   font-size: var(--size3);
   text-align: center;
-  margin: calc(var(--separationStandar) * 1px) 0;
+  margin: calc(var(--sE) * .5px) 0;
 }
-
+.mainPostDescription{
+  text-align: justify;
+}
 .mainTxt2 {
   font-size: var(--size5);
   text-align: center;
-  margin: calc(var(--separationStandar) * 1px) 0;
+  margin: calc(var(--sE) * .5px) 0;
 }
 
 /* Secondary corridors category*/
 
 .scndCorridor {
   grid-column: var(--scndCorridorGridC);
+  flex-direction: var(--scndCorridorFlexDirection)!important;
 }
-
+.scndCorridor .post:nth-child(1),
+.thrdCorridor .post:nth-child(2) {
+  margin-right: var(--specialMarginPost);
+}
 .thrdCorridor {
   grid-column: var(--thrdCorridorGridC);
+  flex-direction: var(--thrdCorridorFlexDirection)!important;
 }
 
 /* Small Posts */
 
 .corridorPostSmall {
  flex: 2;
- margin-bottom: calc(var(--separationStandar) * 4px);
+ margin-bottom: calc(var(--sE) * 1px);
 }
-
 .scndCorridorImgSmall {
-  height: var(--scondCorridorImgSmallHeight);
-  max-height: 70%;
-  width: 100%;
+  /* height: var(--scondCorridorImgSmallHeight); */
+  /* max-height: 70%; */
+  /* width: 100%; */
+  width: var(--scndCorridorImgSmallWidth);
+  margin:auto;
 }
-
-.CorridorFigcaptionSmall {
-  height: min-content;
-  max-height: 30%;
-}
-
 .postTxt1 {
   font-weight: bold;
   font-size: var(--size6);
-  margin: calc(var(--separationStandar) * .6px) 0;
+  margin: calc(var(--sE) * .3px) 0;
 }
 
 
+/* Bottom section post */
 
 /* Big Posts */
+.bottomPostContainer {
+  display: grid;
+  grid-column: var(--bottomPostContainerGridC);
+  grid-row: 2;
+  grid-gap: inherit;
+  grid-template-columns: repeat(3, 1fr);
+}
 
 .corridorPostBig {
    flex: 3;
-   margin-bottom: calc(var(--separationStandar) * 4px);
+   margin-bottom: calc(var(--sE) * 1px);
 }
 
 .scndCorridorImgBig {
-  height: var(--scndCorridorImgBigHeight);
-  max-height: 60%;
-  width: 100%;
+  /* height: var(--scndCorridorImgBigHeight); */
+  max-height: var(--scndCorridorImgBigMaxHeight);
+  width: var(--scndCorridorImgBigWidth);
+  margin:auto;
 }
-
-.CorridorFigcaptionBig {
-  height: min-content;
-  max-height: 40%;
+.scndCorridor .scndCorridorImgBig{
+  margin-top: auto;
 }
-
-.CorridortxtBig1 {
-  font-weight: bold;
-  font-size: var(--size5);
-  margin: calc(var(--separationStandar) * .6px) 0;
-}
-
-.CorridortxtBig2 {
-  margin: calc(var(--separationStandar) * .2px) 0;
-}
-
 
 /* Bottom section post */
 
 .bottomPostContainer {
   display: grid;
   grid-column: var(--bottomPostContainerGridC);
-  grid-row: 2;
-  grid-gap: inherit;
+  /* grid-row: 2; */
+  grid-row: var(--bottomPostContainerGR);
+  grid-gap: calc(var(--sE) * 2px);
   grid-template-columns: repeat(3, 1fr);
 }
 
@@ -1613,6 +1710,76 @@ blockquote::before {
 ------------------------ARCHIVE PAGE------------------------
 ------------------------------------------------------------
 */
+.bottomPostsImg {
+  /* height: 70%; */
+  /* max-height: 100%; */
+  width: 100%;
+}
+
+.bottomPostsFigcaption {
+  padding: calc(var(--sE) * 1px);
+  margin: auto;
+  box-sizing: border-box;
+}
+
+/*
+------------------------------------------------------------
+------------------------ARCHIVE PAGE------------------------
+------------------------------------------------------------
+*/
+
+.archiveSection1 {
+  margin-top: 200px;
+}
+
+/* General  archive's sections CSS */
+.archiveSection {
+  display: grid;
+  grid-template-columns: var(--archiveSectionGridTemplateC);
+  grid-gap: 25px;
+  height: auto;
+}
+
+.archiveCorridor {
+  display: flex;
+  flex-direction: column;
+}
+
+.archivePost {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  margin-bottom: calc(var(--sE) * 2px);
+  width: 100%;
+  align-items: stretch;
+  overflow: hidden;
+}
+
+.archivePostFigcaption {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.archivePostImg {
+  width: 100%;
+  height: 60%;
+  max-height: 60%;
+  margin: 0 auto;
+}
+
+.archivePostFigcaption {
+  width: 80%;
+  height: 40%;
+  max-height: 40%;
+  margin: 0 auto auto auto;
+}
+
+.archivePostTitle {
+  margin: 15px 0 5px 0;
+  text-align: center;
+}
 
 .archiveSection1 {
   margin-top: 200px;
@@ -1667,7 +1834,6 @@ blockquote::before {
   margin: 15px 0 5px 0;
   text-align: center;
 }
-
 .archivePostTxt1 {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -1721,7 +1887,6 @@ blockquote::before {
   height: 40%;
   width: 100%;
   box-sizing: border-box;
-  margin-top: var(--separationStandar);
   padding: 0 5%;
 }
 
