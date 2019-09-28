@@ -168,8 +168,8 @@ Version: 1.0
     --categorySectionHeight: min-content;
     --sectionMarkerDisplay: none;
     --mainCorridorGridC: span 6;
-    --scndCorridorGridC: span 3;
-    --thrdCorridorGridC: span 3;
+    --scndCorridorGridC: span 6;
+    --thrdCorridorGridC: span 6;
     --mainCorridorBorder: none;
     --bottomPostContainerGridC: span 6;
     --bottomPostGridC: span 3;
@@ -180,6 +180,19 @@ Version: 1.0
     --span2Span4: span 1;
     --archiveSectionGridTemplateC: repeat(2, 1fr);
 
+
+
+
+
+
+    --scndCorridorFlexDirection:column;
+    --thrdCorridorFlexDirection:column;
+    --bottomPostContainerGR:5;
+    --corridorDisplay: block;
+    --scndCorridorImgBigMaxHeight:;
+    --specialMarginPost:0;
+    --sectionMarkerPosition: static;
+    --sectionMarkerGC: span 6;
 }
 
 
@@ -214,10 +227,10 @@ Version: 1.0
     --theContentGTC: 70;
 
     --categorySectionHeight: 200vh;
-    --mainCorridorGridC: span 5;
-    --scndCorridorGridC: 2/ span 3;
-    --thrdCorridorGridC: span 2;
-    --corridorDisplay: block;
+    --mainCorridorGridC: 2/ span 5;
+    --scndCorridorGridC: 2/ span 5;
+    --thrdCorridorGridC: 2/ span 5;
+    --corridorDisplay: flex;
     --scndCorridorImgBigHeight: 200px;
     --scondCorridorImgSmallHeight: 300px;
     --sectionMarkerDisplay: block;
@@ -227,6 +240,12 @@ Version: 1.0
 
 
 
+    --scndCorridorFlexDirection:row;
+    --thrdCorridorFlexDirection:row-reverse;
+    --bottomPostContainerGR:4;
+    --specialMarginPost:calc(var(--sE) * 1px);
+    --sectionMarkerPosition: sticky;
+    --sectionMarkerGC: 1;
   }
   #isoLogo.inactive{
     --isoLogoMarginLeft:50%;
@@ -350,13 +369,17 @@ Version: 1.0
       --mainCorridorGridC: span 3;
       --scndCorridorGridC: span 1;
       --thrdCorridorGridC: span 1;
-      --corridorDisplay: flex;
       --scndCorridorImgBigHeight: 60%;
       --scondCorridorImgSmallHeight: 70%;
       --postFigCaptionTextAlign: left;
 
 
 
+      --scndCorridorFlexDirection:column;
+      --thrdCorridorFlexDirection:column-reverse;
+      --bottomPostContainerGR:2;
+      --scndCorridorImgBigMaxHeight:60%;
+      --specialMarginPost:0;
   }
   #navBar.inactive{--navBarPadding: calc(var(--sE) * .5px) 10%;}
   }
@@ -381,14 +404,14 @@ Version: 1.0
 
 }
 
-*  { font-size: var(--size6); line-height: 30px;}
+*  { font-size: var(--size6)}
 h1 { font-size: var(--size3)}
 h2 { font-size: var(--size4)}
 h3 { font-size: var(--size5)}
 h4 { font-size: var(--size6)}
 h5 { font-size: var(--size7)}
 h6 { font-size: var(--size8)}
-p  { font-size: var(--size6); line-height: 30px;}
+p  { font-size: var(--size6)}
 a  { font-size: var(--size7)}
 
 
@@ -410,7 +433,7 @@ section {
   grid-auto-flow: column;
   grid-auto-columns: auto;
   grid-gap: calc(var(--sE) * 1px);
-  padding: 0 2.5%;
+  padding: calc(var(--sE) * 1px);
   -webkit-transform: translateZ(0);
 }
 
@@ -430,15 +453,6 @@ banner img {
   object-fit: contain;
   width: 100%;
 }
-
-h1 { font-size: var(--size3)}
-h2 { font-size: var(--size4)}
-h3 { font-size: var(--size5)}
-h4 { font-size: var(--size6)}
-h5 { font-size: var(--size7)}
-h6 { font-size: var(--size8)}
-p  { font-size: var(--size6); line-height: 30px;}
-a  { font-size: var(--size7)}
 
 /* ------------------------------------------- STRUCTURE ------------------------------------------- */
 
@@ -1245,7 +1259,30 @@ footer {
 ----------------------- */
 
 
-.markerLetter {height: 100%; fill: var(--color3);transition:.4s;opacity:0;}
+.sectionMarker {
+  width: min-content;
+  height: min-content;
+  display: grid;
+  color:var(--color1);
+  width: 100%;
+  /* position: -webkit-sticky; */
+  position: var(--sectionMarkerPosition);
+  grid-column: var(--sectionMarkerGC);
+  top: calc(var(--topCero) + 50% - 150px);
+  z-index: 0;
+}
+.sectionMarker h3 {
+  font-size: var(--size4);
+  margin: calc(var(--sE) * 2px) 0;
+}
+.markerLetter {
+  fill: var(--color3);
+  height: 100px;
+  max-width: 100%;
+  transition:.4s;
+  opacity:0;
+  display: var(--sectionMarkerDisplay);
+}
 .markerFirstLetter  {margin: 0 auto auto -100px;}
 .markerSecondLetter {margin: auto -100px 0 auto;}
 
@@ -1399,7 +1436,6 @@ blockquote::before {
 */
 /* General front-page's sections CSS */
 .categorySection {
-  height: var(--categorySectionHeight);
   display: grid;
   grid-gap: 25px;
   grid-template-columns: repeat(6, 1fr);
@@ -1408,35 +1444,17 @@ blockquote::before {
 
 
 
-.sectionMarker {
-  width: min-content;
-  height: min-content;
-  display: var(--sectionMarkerDisplay);
-  grid-template-rows: 100px 1fr 100px;
-  color:var(--color1);
-  position: sticky;
-  position: -webkit-sticky;
-  top: calc(var(--topCero) + 50% - 150px);
-  z-index: 0;
-}
-
-.sectionMarker h3 {
-  font-size: var(--size4);
-  margin: calc(var(--sE) * 2px) 0;
-  padding: 0 calc(var(--sE) * 1.5px);
-}
-
-
-
-
-
-
-
 .corridor {
   display: var(--corridorDisplay);
-  flex-direction: column;
+  /* flex-direction: column; */
 }
 
+
+/* ---------------------------------------------------------------------------
+------------------------------------------------------------------------------
+                             =post:
+------------------------------------------------------------------------------
+--------------------------------------------------------------------------- */
 .post {
   position: relative;
   display: flex;
@@ -1444,26 +1462,29 @@ blockquote::before {
   margin: 0 auto;
   width: 100%;
   align-items: stretch;
-  overflow: hidden;
 }
-
+.post a, .post p {color:var(--color1)!important}
 .postImg {
-  object-fit: cover;
   margin: 0 auto;
+  flex:1;
 }
 
-  .postFigcaption {
+.postFigCaption {
   width: 100%;
   text-align: var(--postFigCaptionTextAlign);
+  justify-content: space-around;
   display: flex;
   flex-direction: column;
+  margin-top: calc(var(--sE) * .5px);
+}
+.postFigCaptioncito {
+  width: 100%;
+  text-align: var(--postFigCaptionTextAlign);
   justify-content: space-around;
-}
+  display: flex;
+  flex-direction: column;
+  margin-top: calc(var(--sE) * .5px);
 
-.postAuthor {
-  margin: 5px 0;
-}
-.postTxt {
 }
 
 .vistoNVeces {
@@ -1483,8 +1504,8 @@ blockquote::before {
 
 .mainCorridor {
   border-right: var(--mainCorridorBorder);
-  grid-column: var(--mainCorridorGridC);
-  padding: calc(var(--separationStandar) * 2px);
+  grid-column:  var(--mainCorridorGridC);
+  padding: calc(var(--sE) * 1px);
 }
 
 .mainPost {
@@ -1504,47 +1525,52 @@ blockquote::before {
 .mainTxt {
   font-size: var(--size3);
   text-align: center;
-  margin: calc(var(--separationStandar) * 1px) 0;
+  margin: calc(var(--sE) * .5px) 0;
 }
 
 .mainTxt2 {
   font-size: var(--size5);
   text-align: center;
-  margin: calc(var(--separationStandar) * 1px) 0;
+  margin: calc(var(--sE) * .5px) 0;
 }
 
 /* Secondary corridors category*/
 
 .scndCorridor {
   grid-column: var(--scndCorridorGridC);
+  flex-direction: var(--scndCorridorFlexDirection);
 }
+.scndCorridor .post:nth-child(2) .postImg{margin-top:auto!important}
+.scndCorridor .post:nth-child(1){margin-right:var(--specialMarginPost)}
+.thrdCorridor .post:nth-child(2){margin-right:var(--specialMarginPost)}
 
 .thrdCorridor {
   grid-column: var(--thrdCorridorGridC);
+  flex-direction: var(--thrdCorridorFlexDirection);
 }
 
 /* Small Posts */
 
 .corridorPostSmall {
  flex: 2;
- margin-bottom: calc(var(--separationStandar) * 4px);
+ /* margin-bottom: calc(var(--sE) * 2px); */
 }
 
 .scndCorridorImgSmall {
-  height: var(--scondCorridorImgSmallHeight);
-  max-height: 70%;
+  /* height: var(--scondCorridorImgSmallHeight); */
+  /* max-height: 70%; */
   width: 100%;
 }
 
 .CorridorFigcaptionSmall {
-  height: min-content;
-  max-height: 30%;
+  /* height: min-content; */
+  /* max-height: 30%; */
 }
 
 .postTxt1 {
   font-weight: bold;
   font-size: var(--size6);
-  margin: calc(var(--separationStandar) * .6px) 0;
+  margin: calc(var(--sE) * .3px) 0;
 }
 
 
@@ -1553,28 +1579,19 @@ blockquote::before {
 
 .corridorPostBig {
    flex: 3;
-   margin-bottom: calc(var(--separationStandar) * 4px);
+   /* margin-bottom: calc(var(--sE) * 1px); */
 }
 
 .scndCorridorImgBig {
-  height: var(--scndCorridorImgBigHeight);
-  max-height: 60%;
+  /* height: var(--scndCorridorImgBigHeight); */
+  /* max-height: 60%; */
+  max-height: var(--scndCorridorImgBigMaxHeight);
   width: 100%;
 }
 
 .CorridorFigcaptionBig {
-  height: min-content;
-  max-height: 40%;
-}
-
-.CorridortxtBig1 {
-  font-weight: bold;
-  font-size: var(--size5);
-  margin: calc(var(--separationStandar) * .6px) 0;
-}
-
-.CorridortxtBig2 {
-  margin: calc(var(--separationStandar) * .2px) 0;
+  /* height: min-content; */
+  /* max-height: 40%; */
 }
 
 
@@ -1583,7 +1600,8 @@ blockquote::before {
 .bottomPostContainer {
   display: grid;
   grid-column: var(--bottomPostContainerGridC);
-  grid-row: 2;
+  /* grid-row: 2; */
+  grid-row: var(--bottomPostContainerGR);
   grid-gap: inherit;
   grid-template-columns: repeat(3, 1fr);
 }
@@ -1597,13 +1615,13 @@ blockquote::before {
 
 
 .bottomPostsImg {
-  height: 70%;
-  max-height: 100%;
+  /* height: 70%; */
+  /* max-height: 100%; */
   width: 80%;
 }
 
 .bottomPostsFigcaption {
-  padding: calc(var(--separationStandar) * 2px);
+  /* padding: calc(var(--separationStandar) * 2px); */
   margin: auto;
   box-sizing: border-box;
 }

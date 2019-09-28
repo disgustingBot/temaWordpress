@@ -63,7 +63,7 @@ while($j<=2){ ?>
       );
 
       $blogPosts=new WP_Query($args); ?>
-      <section class="section">
+      <section class="categorySection">
         <div class="sectionMarker">
           <svg class="markerLetter markerFirstLetter" version="1.1"  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 26.16 37.44" xml:space="preserve"><path d="M22.08,0v33.12l4.08,0.96v2.64L18,36.96l-0.384-2.736c-2.144,2.144-4.784,3.216-7.92,3.216c-3.104,0-5.496-1.111-7.176-3.336C0.84,31.88,0,28.8,0,24.864c0-4.191,1.072-7.543,3.216-10.056c2.144-2.512,5.312-3.768,9.504-3.768c1.567,0,3.088,0.256,4.56,0.768V3.84L13.2,2.88V0.24L22.08,0z M17.28,30V15.84c-1.121-0.64-2.8-0.96-5.04-0.96c-4.8,0-7.2,3.2-7.2,9.6c0,2.816,0.487,5.04,1.464,6.672C7.479,32.784,8.992,33.6,11.04,33.6c1.567,0,2.896-0.416,3.984-1.248C16.047,31.52,16.8,30.736,17.28,30z"/></svg>
           <h3><?php echo get_category_by_slug($categoryName)->name; ?></h3>
@@ -86,7 +86,7 @@ while($j<=2){ ?>
         'tag' => 'featured',
       );
       $blogPosts=new WP_Query($args); ?>
-      <section id="sec3" class="section">
+      <section id="sec3" class="categorySection">
         <div class="sectionMarker">
           <svg class="markerLetter markerFirstLetter" version="1.1"  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 21.6 26.4" xml:space="preserve">
             <path d="M20.4,8.4h-3.12l-0.72-4.08C15.312,4,13.872,3.84,12.24,3.84c-2.304,0-4.08,0.737-5.328,2.208C5.664,7.52,5.04,9.809,5.04,12.912c0,3.104,0.656,5.488,1.968,7.152c1.312,1.664,3.136,2.496,5.472,2.496c0.672,0,1.336-0.064,1.992-0.192c0.655-0.128,1.279-0.296,1.872-0.504c0.592-0.208,1.128-0.439,1.608-0.696c0.48-0.256,0.864-0.512,1.152-0.768l0.816-0.72l1.68,2.88l-0.528,0.432c-0.384,0.32-0.912,0.681-1.584,1.08c-0.672,0.401-1.416,0.768-2.232,1.104c-0.816,0.336-1.68,0.624-2.592,0.864c-0.912,0.24-1.8,0.36-2.664,0.36c-3.904,0-6.88-1.16-8.928-3.48C1.024,20.6,0,17.424,0,13.392c0-1.984,0.295-3.8,0.888-5.448C1.48,6.296,2.32,4.888,3.408,3.72c1.087-1.167,2.4-2.08,3.936-2.736C8.88,0.329,10.592,0,12.48,0c0.64,0,1.296,0.048,1.968,0.144c0.672,0.096,1.327,0.208,1.968,0.336c0.64,0.128,1.231,0.28,1.776,0.456C18.736,1.112,19.2,1.28,19.584,1.44l1.056,0.48L20.4,8.4z"/>
@@ -104,17 +104,14 @@ while($j<=2){ ?>
       $blogPosts->the_post();$featuredID=get_the_ID(); ?>
       <figure class="post mainPost mainPost1">
         <figcaption class="postFigcaption mainFigcaption mainFigcaption1">
-          <a class="mainTxt postTxt" href="<?php the_permalink(); ?>"><h6><?php the_title(); ?></h6></a>
-          <?php if($i==0){ ?><a class="postTxt" href="<?php the_permalink(); ?>"><p class="postTxt"><?php the_excerpt(); ?></p></a><?php } ?>
+          <a class="mainTxt postTxt" href="<?php the_permalink(); ?>"><h6 class="mainTxt postTxt"><?php the_title(); ?></h6></a>
+          <?php if($i==0){ ?><a class="postTxt" href="<?php the_permalink(); ?>"><?php the_excerpt(); ?></a><?php } ?>
           <?php if(function_exists('the_views')){ ?><p class="vistoNVeces postTxt">👁 <?php the_views(); ?></p><?php } ?>
           <p class="postAuthor postTxt"><strong class="authorColor">Por <?php the_author(); ?></strong> - <?php the_time('F j, Y'); ?></p>
         </figcaption>
-        <a href="<?php the_permalink(); ?>">
-          <img class="postImg mainImg mainImg1" src="<?php echo get_the_post_thumbnail_url(get_the_ID()); ?>" alt="">
-        </a>
+        <img class="postImg mainImg mainImg1" src="<?php echo get_the_post_thumbnail_url(get_the_ID()); ?>" alt="">
       </figure>
     </div>
-    <div class="scndCorridor corridor">
     <?php } $i=1;
     $args = array(
       'post_type'=>'post',
@@ -125,21 +122,23 @@ while($j<=2){ ?>
     );
     $blogPosts=new WP_Query($args);
     while($blogPosts->have_posts()){$blogPosts->the_post(); ?>
+      <?php if ($i==1) { ?><div class="scndCorridor corridor"><?php } ?>
       <?php if ($i==3) { ?><div class="thrdCorridor corridor"><?php } ?>
       <?php if ($i==5) { ?><div class="bottomPostContainer"><?php } ?>
 
 
-      <figure class="<?php
-        if($i>0 && $i<=4) {
-          echo 'corridorPost ';
-          if($i % 2) {echo 'corridorPostSmall';} else {echo 'corridorPostBig';}
-        }
-        if($i>4)             {echo 'bottomPost';}
-        ?> post">
-        <a class="" href="<?php the_permalink(); ?>">
-          <img class="postImg scndCorridorImgBig" src="<?php echo get_the_post_thumbnail_url(get_the_ID()); ?>" alt="">
-        </a>
-        <figcaption class="postFigCaption CorridorFigcaptionBig">
+      <figure class="post<?php
+        if($i>0 && $i<=4) {if($i % 2) {echo ' corridorPostSmall';} else {echo ' corridorPostBig';}}
+        if($i>4) {echo ' bottomPost';}
+        ?>">
+        <img class="postImg<?php
+          if($i>0 && $i<=4) {if($i % 2) {echo ' scndCorridorImgSmall';} else {echo ' scndCorridorImgBig';}}
+          if($i>4) {echo ' bottomPostsImg';}
+          ?>" src="<?php echo get_the_post_thumbnail_url(get_the_ID()); ?>" alt="">
+        <figcaption class="postFigCaptioncito<?php
+          if($i>0 && $i<=4) {if($i % 2) {echo ' CorridorFigcaptionSmall';} else {echo ' CorridorFigcaptionBig';}}
+          if($i>4) {echo ' bottomPostsFigcaption';}
+          ?>">
           <a class="postTxt1 postTxt" href="<?php the_permalink(); ?>"><p><?php the_title(); ?></p></a>
           <p class="postAuthor postTxt"><strong class="authorColor">Por <?php the_author(); ?></strong> - <?php the_time('F j, Y'); ?></p>
           <?php if(function_exists('the_views')){ ?><p class="vistoNVeces postTxt">👁 <?php the_views(); ?></p><?php } ?>
