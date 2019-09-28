@@ -781,15 +781,6 @@ header a:hover{color:var(--color3)}
     ARCHIVE SECTION
 ------------------- */
 
-.archiveSection {
-  display: grid;
-  grid-gap: calc(var(--sE) * 1px);
-  grid-template-rows: var(--archiveSectionGTR);
-  grid-template-columns: var(--archiveSectionGTC);
-  grid-auto-flow: column dense;
-  grid-row-gap: 30px;
-}
-
 
 
 .theContent{
@@ -1632,10 +1623,6 @@ blockquote::before {
 ------------------------------------------------------------
 */
 
-.archiveSection1 {
-  margin-top: 200px;
-}
-
 /* General  archive's sections CSS */
 .archiveSection {
   display: grid;
@@ -1687,9 +1674,9 @@ blockquote::before {
 }
 
 .archivePostTxt1 {
-  display: grid;
+  /* display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
+  grid-template-rows: 1fr 1fr; */
   margin: 0 auto 10px auto;
 }
 .postCategory {
