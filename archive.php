@@ -72,7 +72,7 @@
           </a>
           <p class="archivePostTxt1">
             <span class="postAuthor">Por <?php the_author(); ?></span> -
-            <span class="postDate"><?php the_time('F j, Y'); ?></span>
+            <span class="postDate"><?php the_time('M j, Y'); ?></span>
           </p>
           <?php if(function_exists('the_views')){ ?>
             <div class="theViews">

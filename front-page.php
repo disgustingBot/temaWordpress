@@ -105,9 +105,9 @@ while($j<=2){ ?>
       <figure class="post mainPost mainPost1">
         <figcaption class="postFigcaption mainFigcaption mainFigcaption1">
           <a class="mainTxt postTxt" href="<?php the_permalink(); ?>"><h6 class="mainTxt postTxt"><?php the_title(); ?></h6></a>
-          <?php if($i==0){ ?><a class="postTxt" href="<?php the_permalink(); ?>"><?php the_excerpt(); ?></a><?php } ?>
+          <?php if($i==0){ ?><a class="postMainTxt" href="<?php the_permalink(); ?>"><?php the_excerpt(); ?></a><?php } ?>
           <?php if(function_exists('the_views')){ ?><p class="vistoNVeces postTxt">👁 <?php the_views(); ?></p><?php } ?>
-          <p class="postAuthor postTxt"><strong class="authorColor">Por <?php the_author(); ?></strong> - <?php the_time('F j, Y'); ?></p>
+          <p class="postAuthor postTxt"><strong class="authorColor">Por <?php the_author(); ?></strong> - <?php the_time('M j, Y'); ?></p>
         </figcaption>
         <img class="postImg mainImg mainImg1" src="<?php echo get_the_post_thumbnail_url(get_the_ID()); ?>" alt="">
       </figure>
@@ -140,7 +140,7 @@ while($j<=2){ ?>
           if($i>4) {echo ' bottomPostsFigcaption';}
           ?>">
           <a class="postTxt1 postTxt" href="<?php the_permalink(); ?>"><p><?php the_title(); ?></p></a>
-          <p class="postAuthor postTxt"><strong class="authorColor">Por <?php the_author(); ?></strong> - <?php the_time('F j, Y'); ?></p>
+          <p class="postAuthor postTxt"><strong class="authorColor">Por <?php the_author(); ?></strong> - <?php the_time('M j, Y'); ?></p>
           <?php if(function_exists('the_views')){ ?><p class="vistoNVeces postTxt">👁 <?php the_views(); ?></p><?php } ?>
         </figcaption>
       </figure>
