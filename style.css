@@ -111,6 +111,8 @@ Version: 1.0
     --legalFooterHeight: auto;
     --legaFooterNavBarItem: center;
 
+    --bottomPostContainerMarginTop: 10px;
+
 
     --legalFooterUlMarginRight: auto;
     --footerNavBarGridC: 1fr;
@@ -263,6 +265,9 @@ Version: 1.0
     --mainCorridorBorder: solid 5px black;
     --bottomPostGridC: span 1;
 
+    --bottomPostContainerMarginTop: 20px;
+
+
 
 
 
@@ -308,7 +313,9 @@ Version: 1.0
     --thrdPostImgMinHeight: 200px;
 
     --sectionMarkerDisplay: grid;
-    --sectionMarkerMargin: 0 calc(var(--sE) * 2px);
+    --sectionMarkerMargin: 10px calc(var(--sE) * 2px);
+
+    --mainImgMaxHeight: 350px;
 
     --sectionMarkerPosition: sticky;
     --sectionMarkerGC: 1;
@@ -323,6 +330,10 @@ Version: 1.0
     --scndCorridorFlexDirection:row;
     --thrdCorridorFlexDirection:row-reverse;
     --specialMarginPost:calc(var(--sE) * 1px);
+    --scndCorridorImgBigWidth: 100%;
+
+    --bottomPostHeight: 450px;
+
 
     --homeAtfGridTemplateR: min-content 70vh;
 
@@ -397,7 +408,7 @@ Version: 1.0
     --thrdPostGridC: span 5;
 
     --homeSlideFigcaptionMarginBottom: auto;
-    --homeAtfImgMargin: auto;
+    --homeAtfImgMargin: 0;
 
 
     --postRelatedListGTR: 1fr .3fr 1fr;
@@ -430,7 +441,10 @@ Version: 1.0
       --bottomPostContainerGR:2;
       --scndCorridorImgBigMaxHeight:60%;
       --specialMarginPost:0;
-      --scndCorridorImgBigWidth:80%;
+      --scndCorridorImgBigWidth: 100%;
+
+      --bottomPostContainerMarginTop: 30px;
+
   }
   #navBar.inactive{--navBarPadding: calc(var(--sE) * .5px) 10%;}
   }
@@ -450,6 +464,16 @@ Version: 1.0
       --footerLogoheight: 120px;
 
       --specialContSpan: 4 ;
+
+      --scndCorridorImgBigWidth: 80%;
+
+    
+
+      --bottomPostHeight: 550px;
+
+      --bottomPostContainerMarginTop: 40px;
+
+
 
     }
 
@@ -1673,8 +1697,8 @@ blockquote::before {
 
 .bottomPostContainer {
   display: grid;
+  margin-top: var(--bottomPostContainerMarginTop);
   grid-column: var(--bottomPostContainerGridC);
-  /* grid-row: 2; */
   grid-row: var(--bottomPostContainerGR);
   grid-gap: inherit;
   grid-template-columns: repeat(3, 1fr);
