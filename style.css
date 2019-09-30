@@ -88,6 +88,8 @@ Version: 1.0
     --mainImgMaxHeight: 300px;
     --postMarginTop: 20px;
 
+    --bottomPostHeight: 250px;
+
     --footerLogoheight: 100px;
 
     --footerInfoDisplay: flex;
@@ -133,11 +135,13 @@ Version: 1.0
     --thrdPostGridC: span 2;
 
     --thrdPostImgMinHeight: 200px;
+    --scndCorridorImgSmall: 215px;
 
     --sectionMarkerDisplay: none;
 
     --bannerProvisionalHeight: 200px;
 
+    --postMargin:  20px auto;
     --postMainGTC: 1fr;
     --postMainGridGap: calc(var(--sE) * 1px);
     --postRelatedListGTR: 1fr .4fr .4fr .4fr 1fr;
@@ -179,7 +183,9 @@ Version: 1.0
     --categorySectionHeight: min-content;
     --sectionMarkerDisplay: none;
     --sectionMarkerTextDecoration: underline;
-    --sectionMarkerFontSize: 2rem;
+    --sectionMarkerFontSize: var(--size3);
+    --sectionMarkerMargin: 0;
+
     --mainCorridorGridC: span 6;
     --scndCorridorGridC: span 6;
     --thrdCorridorGridC: span 6;
@@ -233,7 +239,7 @@ Version: 1.0
     --commentFormGTC:1fr 1fr;
     --secondColumn: 2;
 
-    --homeAtfImgMargin: auto;
+
 
     --archiveAtfCardGC: span 4;
     --archiveAtfCard3GC:span 4;
@@ -246,6 +252,8 @@ Version: 1.0
     --theContentGTC: 70;
 
     --mainImgMaxHeight: 450px;
+    --bottomPostHeight: 350px;
+
 
     --categorySectionHeight: 200vh;
 
@@ -258,8 +266,6 @@ Version: 1.0
 
 
 
-
-    --scndCorridorImgBigWidth:80%;
   }
   #isoLogo.inactive{
     --isoLogoMarginLeft:50%;
@@ -302,11 +308,12 @@ Version: 1.0
     --thrdPostImgMinHeight: 200px;
 
     --sectionMarkerDisplay: grid;
+    --sectionMarkerMargin: 0 calc(var(--sE) * 2px);
 
     --sectionMarkerPosition: sticky;
     --sectionMarkerGC: 1;
     --sectionMarkerTextDecoration: none;
-    --sectionMarkerFontSize: ;
+    --sectionMarkerFontSize: var(--size4);
     --sectionMarkerDisplay: block;
     --mainCorridorGridC: 2/ span 5;
     --scndCorridorGridC: 2/ span 5;
@@ -317,7 +324,7 @@ Version: 1.0
     --thrdCorridorFlexDirection:row-reverse;
     --specialMarginPost:calc(var(--sE) * 1px);
 
-    --homeAtfGridTemplateR: min-content 100vh;
+    --homeAtfGridTemplateR: min-content 70vh;
 
 
 
@@ -326,6 +333,7 @@ Version: 1.0
     --homeSlidePaddingX: 10%;
 
     --postMainGTC: 1fr min-content;
+    --postMargin:  0 auto;
 
     --archiveAtfCardGC:     span 3;
     --archiveAtfCard3GC:2 / span 3;
@@ -389,12 +397,16 @@ Version: 1.0
     --thrdPostGridC: span 5;
 
     --homeSlideFigcaptionMarginBottom: auto;
+    --homeAtfImgMargin: auto;
+
 
     --postRelatedListGTR: 1fr .3fr 1fr;
     --postRelatedListLi3th: 3 / span 3;
     --postRelatedListLi5th: span 3;
 
     --postMainGridGap: calc(var(--sE) * 3px);
+    --homeAtfGridTemplateR: min-content 100vh;
+
 
 
       --related1GR:span 1;
@@ -418,7 +430,7 @@ Version: 1.0
       --bottomPostContainerGR:2;
       --scndCorridorImgBigMaxHeight:60%;
       --specialMarginPost:0;
-      --scndCorridorImgBigWidth:100%;
+      --scndCorridorImgBigWidth:80%;
   }
   #navBar.inactive{--navBarPadding: calc(var(--sE) * .5px) 10%;}
   }
@@ -1161,7 +1173,7 @@ footer {
 	transition: all 0.25s ease;
 }
 
-.footerNavBarItem a p { margin: auto; height: 30px; }
+.footerNavBarItem a p { margin: auto; }
 
 .footerNavBarItem a:after {
   background-color: white;
@@ -1330,7 +1342,7 @@ footer {
 }
 .sectionMarker h3 {
   font-size: var(--size4);
-  margin: calc(var(--sE) * 2px) 0;
+  margin: var(--sectionMarkerMargin);
   text-align: center;
   text-decoration: var(--sectionMarkerTextDecoration);
   font-size: var(--sectionMarkerFontSize);
@@ -1526,7 +1538,7 @@ blockquote::before {
   position: relative;
   display: flex;
   flex-direction: column;
-  margin: 0 auto;
+  margin: var(--postMargin);
   width: 100%;
   align-items: stretch;
   margin-bottom: var(--postMarginBottom);
@@ -1627,18 +1639,15 @@ blockquote::before {
 
 .corridorPostSmall {
  flex: 2;
- /* margin-bottom: calc(var(--sE) * 2px); */
 }
 
 .scndCorridorImgSmall {
-  /* height: var(--scondCorridorImgSmallHeight); */
-  /* max-height: 70%; */
+  max-height: var(--scndCorridorImgSmall);
   width: 100%;
 }
 
 .CorridorFigcaptionSmall {
-  /* height: min-content; */
-  /* max-height: 30%; */
+
 }
 
 .postTxt1 {
@@ -1654,24 +1663,13 @@ blockquote::before {
 
 .corridorPostBig {
    flex: 3;
-   /* margin-bottom: calc(var(--sE) * 1px); */
 }
 
 .scndCorridorImgBig {
-  /* height: var(--scndCorridorImgBigHeight); */
-  /* max-height: 60%; */
-  /* width: 100%; */
   max-height: var(--scndCorridorImgBigMaxHeight);
   width: var(--scndCorridorImgBigWidth);
 }
 
-.CorridorFigcaptionBig {
-  /* height: min-content; */
-  /* max-height: 40%; */
-}
-
-
-/* Bottom section post */
 
 .bottomPostContainer {
   display: grid;
@@ -1684,20 +1682,17 @@ blockquote::before {
 
 
 .bottomPost {
-  height: 60vh;
   margin: 0 auto;
   grid-column: var(--bottomPostGridC);
+  height: var(--bottomPostHeight);
 }
 
 
 .bottomPostsImg {
-  /* height: 70%; */
-  /* max-height: 100%; */
-  width: 80%;
+  width: 100%;
 }
 
 .bottomPostsFigcaption {
-  /* padding: calc(var(--separationStandar) * 2px); */
   margin: auto;
   box-sizing: border-box;
 }
