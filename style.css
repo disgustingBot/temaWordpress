@@ -342,7 +342,7 @@ Version: 1.0
 
     --homeSlidePaddingX: 10%;
 
-    --postMainGTC: 70% 1fr;
+    --postMainGTC: 70% min-content;
     --postMargin:  0 auto;
 
     --archiveAtfCardGC:     span 3;
@@ -466,7 +466,7 @@ Version: 1.0
 
       --scndCorridorImgBigWidth: 80%;
 
-    
+
 
       --bottomPostHeight: 550px;
 
@@ -519,19 +519,21 @@ section {
 h1 {color:rgba(255,255,255,0)}
 
 banner {
-  background: var(--color1);
+  /* background: var(--color1); */
+  background-color: rgb(244, 244, 244);
   color: var(--color2);
   display: grid;
   height: min-content;
   padding: calc(var(--sE) * 1px) 0;
   text-align: center;
-  width: 100%;
+  width: calc(100% - calc(var(--sE) * 2px));
+  margin: 0 calc(var(--sE) * 1px);
 }
-banner img {
+/* banner img {
   height: auto;
   object-fit: contain;
   width: 100%;
-}
+} */
 
 /* ------------------------------------------- STRUCTURE ------------------------------------------- */
 
@@ -917,6 +919,7 @@ header a:hover{color:var(--color3)}
   grid-gap: var(--postMainGridGap);
   grid-template-columns: var(--postMainGTC);
   width: 100%;
+  justify-content: space-around;
 }
 .postContent{width:100%}
 .postContent img{width:100%}
@@ -930,7 +933,9 @@ header a:hover{color:var(--color3)}
   position: sticky;
   position: -webkit-sticky;
   top: calc(var(--topCero) + 50% - 40vh + 80px);
-  width:100%;
+  width:30vmin;
+  margin-left: auto;
+  margin-right: auto;
   z-index:0
 }
 .postSideBar li{
@@ -1157,8 +1162,10 @@ footer {
 }
 
 #footerBackground {
+  top:100px;
   bottom: 0px;
-  max-height: 100vh;
+  /* max-height: 100vh; */
+  /* position:var(--footerBackgroundPosition); */
   position:var(--footerBackgroundPosition);
   width: 100%;
   z-index: -1;
