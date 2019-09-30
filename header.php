@@ -16,6 +16,10 @@
         <img src="<?php echo get_template_directory_uri(); ?>/img/logo.png" alt="">
       </figure>
     </a>
+    <div id="espacioLaura">
+      <a href="#favsTitle">Favoritos</a>
+      <a href="https://about.gaeapeople.com/" target="_blank">About us</a>
+    </div>
     <ul id="headerSocial">
       <li>
         <a href="">
