@@ -1,3 +1,4 @@
+
 /*
 Theme Name: gaeaPeopleMagazine
 Author: Lattedev
@@ -80,6 +81,12 @@ Version: 1.0
     --isoLogoMarginLeft:0%;
     --isoLogoTransform: translateX(0%);
 
+
+    --homeAtfImgMargin: 0;
+
+    --mainImgMaxHeight: 300px;
+    --postMarginTop: 20px;
+
     --footerLogoheight: 100px;
 
     --footerInfoDisplay: flex;
@@ -106,6 +113,9 @@ Version: 1.0
     --footerNavBarGridC: 1fr;
 
     --atfGridR: 2fr 1fr;
+
+    --homeAtfGridTemplateR: min-content 70vh;
+
 
     --homeSlideFigcaptionMarginBottom: calc(var(--sE) * 1px);
     --homeSlidePaddingX: 0;
@@ -167,6 +177,8 @@ Version: 1.0
     --separationStandar: 10;
     --categorySectionHeight: min-content;
     --sectionMarkerDisplay: none;
+    --sectionMarkerTextDecoration: underline;
+    --sectionMarkerFontSize: 2rem;
     --mainCorridorGridC: span 6;
     --scndCorridorGridC: span 6;
     --thrdCorridorGridC: span 6;
@@ -220,6 +232,8 @@ Version: 1.0
     --commentFormGTC:1fr 1fr;
     --secondColumn: 2;
 
+    --homeAtfImgMargin: auto;
+
     --archiveAtfCardGC: span 4;
     --archiveAtfCard3GC:span 4;
     --archiveAtfCard3GR:3;
@@ -230,26 +244,20 @@ Version: 1.0
     --legalFooterUlGTR: 1fr;
     --theContentGTC: 70;
 
+    --mainImgMaxHeight: 450px;
+
     --categorySectionHeight: 200vh;
-    --mainCorridorGridC: 2/ span 5;
-    --scndCorridorGridC: 2/ span 5;
-    --thrdCorridorGridC: 2/ span 5;
+
     --corridorDisplay: flex;
     --scndCorridorImgBigHeight: 200px;
     --scondCorridorImgSmallHeight: 300px;
-    --sectionMarkerDisplay: block;
     --mainCorridorBorder: solid 5px black;
-    --bottomPostContainerGridC: 2/ span 5;
     --bottomPostGridC: span 1;
 
 
 
-    --scndCorridorFlexDirection:row;
-    --thrdCorridorFlexDirection:row-reverse;
-    --bottomPostContainerGR:4;
-    --specialMarginPost:calc(var(--sE) * 1px);
-    --sectionMarkerPosition: sticky;
-    --sectionMarkerGC: 1;
+
+
     --scndCorridorImgBigWidth:80%;
   }
   #isoLogo.inactive{
@@ -279,6 +287,7 @@ Version: 1.0
     --legalFooterHeight: 50px;
     --legaFooterNavBarItem: right;
 
+    --postMarginTop: auto;
 
         --hirschman: 2;
         --omedi: 3;
@@ -292,6 +301,25 @@ Version: 1.0
     --thrdPostImgMinHeight: 200px;
 
     --sectionMarkerDisplay: grid;
+
+    --sectionMarkerPosition: sticky;
+    --sectionMarkerGC: 1;
+    --sectionMarkerTextDecoration: none;
+    --sectionMarkerFontSize: ;
+    --sectionMarkerDisplay: block;
+    --mainCorridorGridC: 2/ span 5;
+    --scndCorridorGridC: 2/ span 5;
+    --thrdCorridorGridC: 2/ span 5;
+    --bottomPostContainerGridC: 2/ span 5;
+    --bottomPostContainerGR:4;
+    --scndCorridorFlexDirection:row;
+    --thrdCorridorFlexDirection:row-reverse;
+    --specialMarginPost:calc(var(--sE) * 1px);
+
+    --homeAtfGridTemplateR: min-content 100vh;
+
+
+
 
 
     --homeSlidePaddingX: 10%;
@@ -421,6 +449,10 @@ h6 { font-size: var(--size8)}
 p  { font-size: var(--size6)}
 a  { font-size: var(--size7)}
 
+/* A este comentario lo vamos a borrar */
+/* A este comentario lo vamos a borrar tambien */
+/* A este comentario lo vamos a borrar tambien */
+/* A este comentario lo vamos a borrar tambien */
 
 
 /* ----------------------------------------- LOGIC FOLD/ ----------------------------------------- */
@@ -629,7 +661,7 @@ header a:hover{color:var(--color3)}
 #homeAtf {
   display: grid;
   grid-auto-flow: row;
-  grid-template-rows: min-content 100vh;
+  grid-template-rows: var(--homeAtfGridTemplateR);
   grid-auto-rows: auto;
   overflow: hidden;
   padding-top: 0;
@@ -645,7 +677,7 @@ header a:hover{color:var(--color3)}
   transition-delay: .5s;
 }#homeAtf .slide.inactive {transition-delay: 0s;}
 #homeAtf .slide img {
-  margin: auto;
+  margin: var(--homeAtfImgMargin);
   margin-left: 0;
   grid-row: 1;
   grid-column: 1;
@@ -1282,6 +1314,9 @@ footer {
 .sectionMarker h3 {
   font-size: var(--size4);
   margin: calc(var(--sE) * 2px) 0;
+  text-align: center;
+  text-decoration: var(--sectionMarkerTextDecoration);
+  font-size: var(--sectionMarkerFontSize);
 }
 .markerLetter {
   fill: var(--color3);
@@ -1430,6 +1465,13 @@ blockquote::before {
   border: 1px solid var(--color1);
   margin:auto;
   padding: .5em 1em;
+  transition: .25s;
+}
+
+.leerMas:hover {
+  background: black;
+  color: white;
+  font-weight: bold;
 }
 
 
@@ -1470,6 +1512,7 @@ blockquote::before {
   margin: 0 auto;
   width: 100%;
   align-items: stretch;
+  margin-bottom: var(--postMarginBottom);
 }
 .post a, .post p {color:var(--color1)!important}
 .postImg {
@@ -1522,8 +1565,9 @@ blockquote::before {
 
 .mainImg {
   width: 90%;
-  max-height: 70%;
+  max-height: var(--mainImgMaxHeight);
   flex: 3;
+  margin: 0 auto;
   margin-top:calc(var(--sE) * 1px);
 }
 
@@ -1584,6 +1628,7 @@ blockquote::before {
   font-weight: bold;
   font-size: var(--size6);
   margin: calc(var(--sE) * .3px) 0;
+  text-align: center;
 }
 
 
