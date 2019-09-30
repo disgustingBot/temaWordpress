@@ -78,6 +78,7 @@ Version: 1.0
     --headerMenuRight: 0;
     --headerMenuTransform:rotate(0);
     --headerSocialMarginTop:-100px;
+    --espacioLauraMarginTop:calc(var(--sE) * -2px);
     --isoLogoMarginLeft:0%;
     --isoLogoTransform: translateX(0%);
 
@@ -363,6 +364,9 @@ Version: 1.0
   #headerSocial.inactive {
     --headerSocialMarginTop:calc(var(--sE) * .5px);
   }
+  #espacioLaura.inactive {
+    --espacioLauraMarginTop:55px;
+  }
 }
 @media screen and (min-width:  783px) {
 
@@ -460,6 +464,7 @@ a  { font-size: var(--size7)}
 h1,h2,h3,h4,h5,h6 {font-family: 'Bitter', serif;}
 p,a,div         {font-family: 'Raleway', sans-serif;}
 /* ------------------------------------------- GENERAL ------------------------------------------- */
+html{scroll-behavior:smooth}
 body{ overflow-x: hidden;}
 body,figure,ul,ol,h1,h2,h3,h4,h5,h6,p {margin:0}
 ul,ol{padding:0;list-style-type: none;}
@@ -515,6 +520,18 @@ header{
   transition: .3s;
   transform: var(--isoLogoTransform);
   width: min-content;
+}
+#espacioLaura{
+  grid-row: 1;
+  grid-column: 1;
+  margin:auto;
+  margin-right:calc(var(--sE) * 1px);
+  margin-top:var(--espacioLauraMarginTop);
+  margin-bottom:calc(var(--sE) * .5px);
+  grid-gap: calc(var(--sE) * .25px);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  transition: .3s;
 }
 header a:hover{color:var(--color3)}
 #logoHeader {

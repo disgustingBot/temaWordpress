@@ -2,6 +2,7 @@ d=document;w=window;c=console;
 const detector   = d.querySelector('#detector');
 const headerMenu = d.querySelector('#headerMenu');
 const headerSocl = d.querySelector('#headerSocial');
+const spaceLaura = d.querySelector('#espacioLaura');
 const headerLogo = d.querySelector('#isoLogo');
 const headerNavB = d.querySelector('#navBar');
 
@@ -17,10 +18,12 @@ const observer = new IntersectionObserver(function(entries, observer){
     if (entry.isIntersecting) {
       headerMenu.classList.add("inactive");
       headerSocl.classList.add("inactive");
+      spaceLaura.classList.add("inactive");
       headerLogo.classList.add("inactive");
       headerNavB.classList.add("inactive");
     } else {
       headerSocl.classList.remove("inactive");
+      spaceLaura.classList.remove("inactive");
       headerMenu.classList.remove("inactive");
       headerLogo.classList.remove("inactive");
       headerNavB.classList.remove("inactive");
@@ -37,7 +40,7 @@ const observer2 = new IntersectionObserver(function(entries, observer2){
       entry.target.querySelector(".markerFirstLetter").style.marginLeft = "0";
       entry.target.querySelector(".markerFirstLetter").style.opacity = "1";
 
-      
+
       entry.target.querySelector(".markerSecondLetter").style.marginRight = "0";
       entry.target.querySelector(".markerSecondLetter").style.opacity = "1";
       c.log("activate!");
