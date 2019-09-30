@@ -100,6 +100,7 @@ while($j<=2){ ?>
     <?php } ?>
 
     <?php
+    $i = 0;
     while($blogPosts->have_posts()) {
       $blogPosts->the_post();$featuredID=get_the_ID(); ?>
       <figure class="post mainPost mainPost1">
@@ -109,7 +110,7 @@ while($j<=2){ ?>
           <?php if(function_exists('the_views')){ ?><p class="vistoNVeces postTxt">👁 <?php the_views(); ?></p><?php } ?>
           <p class="postAuthor postTxt"><strong class="authorColor">Por <?php the_author(); ?></strong> - <?php the_time('M j, Y'); ?></p>
         </figcaption>
-        <img class="postImg mainImg mainImg1" src="<?php echo get_the_post_thumbnail_url(get_the_ID()); ?>" alt="">
+        <img class="mainImg" src="<?php echo get_the_post_thumbnail_url(get_the_ID()); ?>" alt="">
       </figure>
     </div>
     <?php } $i=1;
@@ -117,7 +118,7 @@ while($j<=2){ ?>
       'post_type'=>'post',
       'posts_per_page'=>7,
       'category_name' => $categoryName,
-      'post_not_in'  => $featuredID,
+      'post__not_in'  => array( $featuredID, 1 ),
       // 'tag__not_in' => get_term_by('slug', 'featured', 'post_tag')->term_id,
     );
     $blogPosts=new WP_Query($args);
