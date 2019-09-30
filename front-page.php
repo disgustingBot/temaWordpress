@@ -100,6 +100,7 @@ while($j<=2){ ?>
     <?php } ?>
 
     <?php
+    $i=0;
     while($blogPosts->have_posts()) {
       $blogPosts->the_post();$featuredID=get_the_ID(); ?>
       <figure class="post mainPost mainPost1">
