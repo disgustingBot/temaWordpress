@@ -116,7 +116,7 @@ while($j<=2){ ?>
     <?php } $i=1;
     $args = array(
       'post_type'=>'post',
-      'posts_per_page'=>7,
+      'posts_per_page'=>6,
       'category_name' => $categoryName,
       'post__not_in'  => array( $featuredID, 1 ),
       // 'tag__not_in' => get_term_by('slug', 'featured', 'post_tag')->term_id,
@@ -124,28 +124,31 @@ while($j<=2){ ?>
     $blogPosts=new WP_Query($args);
     while($blogPosts->have_posts()){$blogPosts->the_post(); ?>
       <?php if ($i==1) { ?><div class="scndCorridor corridor"><?php } ?>
-      <?php if ($i==3) { ?><div class="thrdCorridor corridor"><?php } ?>
-      <?php if ($i==5) { ?><div class="bottomPostContainer"><?php } ?>
+      <?php if ($i==4) { ?><div class="bottomPostContainer"><?php } ?>
 
 
       <figure class="post<?php
-        if($i>0 && $i<=4) {if($i % 2) {echo ' corridorPostSmall';} else {echo ' corridorPostBig';}}
-        if($i>4) {echo ' bottomPost';}
+        // if($i>0 && $i<=4) {if($i % 2) {echo ' corridorPostSmall';} else {echo ' corridorPostBig';}}
+        // if($i>0 && $i<=4) {if($i % 2) {echo ' corridorPostSmall';} else {echo ' corridorPostBig';}}
+        if($i<4) {echo ' scndPost';}
+        if($i>3) {echo ' bottomPost';}
         ?>">
         <img class="postImg<?php
-          if($i>0 && $i<=4) {if($i % 2) {echo ' scndCorridorImgSmall';} else {echo ' scndCorridorImgBig';}}
-          if($i>4) {echo ' bottomPostsImg';}
+          // if($i>0 && $i<=4) {if($i % 2) {echo ' scndCorridorImgSmall';} else {echo ' scndCorridorImgBig';}}
+          if($i<4) {echo ' scndPostImg';}
+          if($i>3) {echo ' bottomPostsImg';}
           ?>" src="<?php echo get_the_post_thumbnail_url(get_the_ID()); ?>" alt="">
         <figcaption class="postFigCaptioncito<?php
-          if($i>0 && $i<=4) {if($i % 2) {echo ' CorridorFigcaptionSmall';} else {echo ' CorridorFigcaptionBig';}}
-          if($i>4) {echo ' bottomPostsFigcaption';}
+          // if($i>0 && $i<=4) {if($i % 2) {echo ' CorridorFigcaptionSmall';} else {echo ' CorridorFigcaptionBig';}}
+          if($i<4) {echo ' scndPostFigcaption';}
+          if($i>3) {echo ' bottomPostsFigcaption';}
           ?>">
           <a class="postTxt1 postTxt" href="<?php the_permalink(); ?>"><p><?php the_title(); ?></p></a>
           <p class="postAuthor postTxt"><strong class="authorColor">Por <?php the_author(); ?></strong> - <?php the_time('M j, Y'); ?></p>
           <?php if(function_exists('the_views')){ ?><p class="vistoNVeces postTxt">👁 <?php the_views(); ?></p><?php } ?>
         </figcaption>
       </figure>
-      <?php if ($i==2 OR $i==4) { ?>
+      <?php if ($i==3) { ?>
         </div>
       <?php }
     $i++;} wp_reset_query(); ?>
