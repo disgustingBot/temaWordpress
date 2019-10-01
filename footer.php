@@ -7,6 +7,7 @@
 
     <div id="gaeaLogoFooterContainer">
       <img id="footerLogo" src="<?php echo get_template_directory_uri(); ?>/img/logo.png" alt="logo Gaea People">
+      <div id="scndBuscador" class="gcse-search"></div>
     </div>
 
 
@@ -98,7 +99,7 @@
       <p id="RegisteredBrand">© 2002 / 2019 OmniGaea S.L. / GaeaPeople</p>
       <ul>
         <li class="legalFooterNavBarItem">
-          <a href="https://gaeapeople.com/terms" target="_blank"><p>Terminos y condiciones</p></a>
+          <a href="https://gaeapeople.com/terms" target="_blank"><p>Términos y condiciones</p></a>
         </li>
         <li class="legalFooterNavBarItem">
           <a href="https://gaeapeople.com/legal" target="_blank"><p>Aviso Legal</p></a>
@@ -107,7 +108,7 @@
           <a href="https://gaeapeople.com/#contact" target="_blank"><p>Contact</p></a>
         </li>
         <li class="legalFooterNavBarItem">
-          <a href="https://gaeapeople.com/" target="_blank"><p>About Us</p></a>
+          <a href="https://gaeapeople.com/" target="_blank"><p>Acerca de nosotros</p></a>
         </li>
       </ul>
     </div>

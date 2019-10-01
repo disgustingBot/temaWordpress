@@ -5,6 +5,7 @@ const headerSocl = d.querySelector('#headerSocial');
 const spaceLaura = d.querySelector('#espacioLaura');
 const headerLogo = d.querySelector('#isoLogo');
 const headerNavB = d.querySelector('#navBar');
+const lupa = d.querySelector('#lupa');
 
 
 const options = {
@@ -21,12 +22,14 @@ const observer = new IntersectionObserver(function(entries, observer){
       spaceLaura.classList.add("inactive");
       headerLogo.classList.add("inactive");
       headerNavB.classList.add("inactive");
+      lupa.classList.add("inactive");
     } else {
       headerSocl.classList.remove("inactive");
       spaceLaura.classList.remove("inactive");
       headerMenu.classList.remove("inactive");
       headerLogo.classList.remove("inactive");
       headerNavB.classList.remove("inactive");
+      lupa.classList.remove("inactive");
     }
     // c.log(entry);
     // c.log(entry.target);
@@ -55,6 +58,23 @@ observer.observe(detector);
 d.querySelectorAll('.sectionMarker').forEach(e => {
   observer2.observe(e);
 })
+
+
+
+
+function headerMenuHandler(){
+  const navBar = d.getElementById('navBar').style;
+  if (navBar.transform!='translateX(0px)') {
+    navBar.transform='translateX(0)';
+    navBar.transition='transform .3s';
+  } else {
+    navBar.transform='translateX(100%)';
+    navBar.transition='transform .3s';
+
+  }
+}
+
+
 
 
 
