@@ -7,6 +7,7 @@
 
     <div id="gaeaLogoFooterContainer">
       <img id="footerLogo" src="<?php echo get_template_directory_uri(); ?>/img/logo.png" alt="logo Gaea People">
+      <div id="scndBuscador" class="gcse-search"></div>
     </div>
 
 

@@ -123,7 +123,7 @@ while($j<=2){ ?>
     );
     $blogPosts=new WP_Query($args);
     while($blogPosts->have_posts()){$blogPosts->the_post(); ?>
-      <?php if ($i==1) { ?><div class="scndCorridor corridor"><?php } ?>
+      <?php if ($i==1) { ?><div class="scndCorridor"><?php } ?>
       <?php if ($i==4) { ?><div class="bottomPostContainer"><?php } ?>
 
 
