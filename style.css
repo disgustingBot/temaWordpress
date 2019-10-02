@@ -97,8 +97,16 @@ Version: 1.0
     --footerInfoPosition: relative;
     --footerInfoPadding: 20px 0;
     --footerInfoBottomPosition: 0;
+    --gaeaBrandingAlignment: center;
+    --gaeaBrandingAMargin: auto auto 20px auto;
+    --scndPostChild1Border: none;
+
+
+
 
     --footerNavBarHeight: 190px;
+    --footerInfoBackground: rgba(0, 0, 0, 1);
+
 
     --footerSocialContainerHeight: 190px;
 
@@ -127,6 +135,8 @@ Version: 1.0
     --homeSlideButtonMarginX:0;
     --homeSlideFigcaptionPadding:calc(var(--sE) * 1px);
     --homeSlideImgWidth:100%;
+    --homeATFPadding: 0 5%;
+
 
     --homeSectionPadding: 0;
 
@@ -144,6 +154,8 @@ Version: 1.0
     --scndCorridorGTR:1fr 1fr 1fr;
     --scndPost1GR:1;
     --scndPostImgMaxHeight:150px;
+    --scndPost1Height: max-content;
+
 
     --sectionMarkerDisplay: none;
     --sectionMarkerPadding: 0;
@@ -168,6 +180,8 @@ Version: 1.0
     --archiveAtfFigcaptionMaxWidth: 80%;
     --archiveSectionFigcaptionPadding:0;
     --archiveSectionGTR:  1fr .4fr 1fr .5fr .5fr .5fr 1fr;
+    --archiveTitleTxtAlign: center;
+
 
     --pageNumbersPadding: .5em 1em;
 
@@ -177,7 +191,7 @@ Version: 1.0
     --legalFooterUlGTR: 1fr 1fr;
     --favsTitleGC: span 2;
 
-    --conocenosTop: 12%;
+    --conocenosTop: 15%;
     --theContentGTC: 90;
 
     --hirschman: 1;
@@ -308,6 +322,10 @@ Version: 1.0
     --footerInfoDisplay: grid;
     --footerInfoPosition: absolute;
     --footerInfoBottomPosition: 40px;
+    --footerInfoBackground: rgba(0, 0, 0, 0.55);
+    --gaeaBrandingAlignment: space-between;
+    --scndPostChild1Border: solid 2px black;
+    --scndPost1Height: auto;
 
     --legalFooterFlexDirection: row;
     --registeredBrandMarginLeft: 20px;
@@ -356,8 +374,6 @@ Version: 1.0
     --specialMarginPost:calc(var(--sE) * 1px);
     --scndCorridorImgBigWidth: 100%;
 
-    /* --bottomPostHeight: 450px; */
-
 
     --homeAtfGridTemplateR: min-content 50vh;
 
@@ -377,11 +393,13 @@ Version: 1.0
     --archiveSectionGTC:3fr 2fr 2fr;
     --archiveSectionGTR: 1fr .5fr .5fr .5fr 1fr;
     --archiveSectionFigcaptionPadding:calc(var(--sE) * 1px);
+    --archiveTitleTxtAlign: left;
 
 
     --footerBackgroundPosition: absolute;
     --footerInfoMarginTop: calc(48vw - 250px);
     --favsTitleGC: 1;
+    --gaeaBrandingAMargin: 0 calc(var(--sE) * .5px);
 
     --conocenosTop: 20%;
 
@@ -456,7 +474,7 @@ Version: 1.0
       --scndCorridorGridC: span 2;
       --thrdCorridorGridC: span 1;
       --scndCorridorGTC:1fr;
-      --scndCorridorGTR:1fr 1fr 1fr;
+      --scndCorridorGTR:3fr 2fr 2fr;
       --scndPost1GR:1;
       --scndPostImgMaxHeight:150px;
 
@@ -559,6 +577,7 @@ banner {
   text-align: center;
   width: calc(100% - calc(var(--sE) * 2px));
   margin: calc(var(--sE) * 1px);
+  box-sizing: border-box;
 }
 
 banner img {
@@ -818,6 +837,7 @@ header a:hover{color:var(--color3)}
   grid-template-rows: var(--homeAtfGridTemplateR);
   grid-auto-rows: auto;
   overflow: hidden;
+  padding: var(--homeATFPadding);
   padding-top: 0;
   position: relative;
   z-index:   0;
@@ -910,21 +930,17 @@ header a:hover{color:var(--color3)}
   grid-auto-rows: min-content;
   grid-auto-flow: row;
   grid-gap:calc(var(--sE) * 1px);
-  /* padding: calc(var(--sE) * 1px); */
 }
+
 #archiveTitle{
   color: var(--color1);
   margin: calc(var(--sE) * 1px) 0;
   font-size: var(--size3);
-  /* position: absolute; */
-  /* top: -1000px; */
+  text-align: var(--archiveTitleTxtAlign);
 }
-.archiveDescription{
-  /* margin: 0 12.5%; */
-}
+
 #archiveNav {
   border-bottom: 2px solid var(--color3);
-  /* margin: 0 var(--archiveNavMarginX); */
   padding: 20px;
   text-align: center;
 }
@@ -1282,25 +1298,34 @@ footer {
   padding: var(--footerInfoPadding);
   margin-top: var(--footerInfoMarginTop);
   margin-bottom: -4px;
-  background: rgba(0, 0, 0, 0.85);
+  background: var(--footerInfoBackground);
   display: var(--footerInfoDisplay);
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 1fr 2fr 1fr;
   flex-direction: column;
   z-index: 2;
 }
 
 #footerNavBar {
   display: grid;
-  grid-template-columns: var(--footerNavBarGridC);
+  grid-template-columns: 50% 50%;
   grid-gap: 10px;
   padding: calc(var(--sE) * .5px) calc(var(--sE) * 1px);
   margin: auto;
+  border-left: solid 4px #D2AA6C;
+  border-right: solid 4px #D2AA6C;
 }
 
 .footerNavBarItem {
   display: flex;
   transition: 0.25s;
+  justify-content: center;
+  padding: 5px 0;
+  font-size: var(--size7);
 }
+
+/* #footerNavBar .footerNavBarItem:last-child {
+  grid-column: 2/3;
+} */
 
 .footerNavBarItem a {
   color: white;
@@ -1311,7 +1336,18 @@ footer {
 	transition: all 0.25s ease;
 }
 
-.footerNavBarItem a p { margin: auto; }
+.smallFooterTxt {
+  font-size: .6rem;
+}
+
+
+.footerNavBarItem a p {
+  margin: auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
 
 .footerNavBarItem a:after {
   background-color: white;
@@ -1340,9 +1376,8 @@ footer {
 #footerSocialContainer {
   display: flex;
   flex-direction: column;
-  /* height: var(--footerSocialContainerHeight); */
-  /* margin: auto 0; */
   padding: calc(var(--sE) * .5px) 0;
+  grid-column: 1/2;
 }
 
 #footerSocialTitle {
@@ -1354,11 +1389,10 @@ footer {
 }
 
 #footerSvgSocialContainer {
-  border-left: solid 4px #D2AA6C;
-  border-right: solid 4px #D2AA6C;
   display: flex;
   margin: auto;
-  /* margin-top:5px; */
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .footerSocialSvg {
@@ -1374,11 +1408,6 @@ footer {
 #footerYouTube:hover   {fill:#ff0000}
 
 #gaeaLegal {
-  /* display: grid; */
-  /* grid-column-gap: 1em; */
-  /* grid-template-columns: 1fr 1fr; */
-  /* grid-template-rows: min-content 2fr 1fr; */
-  /* padding: 1em; */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1403,6 +1432,7 @@ footer {
   grid-column: var(--favsTitleGC);
   margin: auto;
   text-align: center;
+  grid-column: 1/-1;
 }
 
 #gaeaBrandingContainer a {
@@ -1465,14 +1495,11 @@ footer {
 }
 
 #gaeaBranding{
-  align-content: space-between;
+  align-content: var(--gaeaBrandingAlignment);
   background: var(--color1);
   color: white;
   display: flex;
-  /* flex-direction: var(--legalFooterFlexDirection); */
-  /* justify-content: space-around; */
-  justify-content: center;
-  /* flex-wrap: wrap; */
+  justify-content: space-between;
   flex-flow: var(--legalFooterFlexDirection) wrap;
   padding: 20px;
   order: 4;
@@ -1480,7 +1507,7 @@ footer {
 #gaeaBranding a{
   width: 200px;
   height: auto;
-  margin:0 calc(var(--sE) * .5px);
+  margin: var(--gaeaBrandingAMargin);
 }
 #gaeaBranding img{width: 100%}
 #gaeaBranding a:nth-last-child(1){
@@ -1659,16 +1686,21 @@ blockquote::before {
 }
 
 .leerMas{
-  color: var(--color1);
+  color: var(--color2);
+  background: var(--color1);
   border: 1px solid var(--color1);
+  font-size: var(--size5);
   margin:auto;
   padding: .5em 1em;
   transition: .25s;
+  text-align: center;
+  font-weight: bold;
+  letter-spacing: 2px;
 }
 
 .leerMas:hover {
-  background: black;
-  color: white;
+  background: white;
+  color: black;
   font-weight: bold;
 }
 
@@ -1688,6 +1720,7 @@ blockquote::before {
   grid-gap: 25px;
   grid-template-columns: repeat(6, 1fr);
   position: relative;
+  margin-bottom: 30px;
 }
 
 
@@ -1765,7 +1798,8 @@ blockquote::before {
 }
 
 .mainPost {
-  height: 100%;
+  height: max-content;
+  margin: auto;
 }
 
 .mainImg {
@@ -1808,7 +1842,10 @@ blockquote::before {
 }
 .scndPost:nth-child(1){
   grid-row:var(--scndPost1GR);
-  margin:auto;
+  margin: 0;
+  border-bottom: var(--scndPostChild1Border);
+  height: var(--scndPost1Height);
+
 }
 
 .scndPost:nth-child(1) .scndPostImg{max-height:250px}

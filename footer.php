@@ -19,29 +19,6 @@
 
 
     <div id="footerInfo">
-      <ul id="footerNavBar">
-        <h6 id="favsTitle">Nuestros favoritos</h6>
-        <li class="footerNavBarItem">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 512"><path d="M187.8 264.5L41 412.5c-4.7 4.7-12.3 4.7-17 0L4.2 392.7c-4.7-4.7-4.7-12.3 0-17L122.7 256 4.2 136.3c-4.7-4.7-4.7-12.3 0-17L24 99.5c4.7-4.7 12.3-4.7 17 0l146.8 148c4.7 4.7 4.7 12.3 0 17z"></path></svg>
-          <a href="https://nosotros.gaeapeople.com/#gaeanet/itechnology-design"><p>Realidad aumentada</p></a>
-        </li>
-        <li class="footerNavBarItem">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 512"><path d="M187.8 264.5L41 412.5c-4.7 4.7-12.3 4.7-17 0L4.2 392.7c-4.7-4.7-4.7-12.3 0-17L122.7 256 4.2 136.3c-4.7-4.7-4.7-12.3 0-17L24 99.5c4.7-4.7 12.3-4.7 17 0l146.8 148c4.7 4.7 4.7 12.3 0 17z"></path></svg>
-          <a href="https://gaeasmartdata.com/"><p>Analiza tu situación Online</p></a>
-        </li>
-        <li class="footerNavBarItem">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 512"><path d="M187.8 264.5L41 412.5c-4.7 4.7-12.3 4.7-17 0L4.2 392.7c-4.7-4.7-4.7-12.3 0-17L122.7 256 4.2 136.3c-4.7-4.7-4.7-12.3 0-17L24 99.5c4.7-4.7 12.3-4.7 17 0l146.8 148c4.7 4.7 4.7 12.3 0 17z"></path></svg>
-          <a href="http://nosotros.gaeapeople.com/#gaeanet/icontent-creation"><p>Creación de contenidos</p></a>
-        </li>
-        <li class="footerNavBarItem">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 512"><path d="M187.8 264.5L41 412.5c-4.7 4.7-12.3 4.7-17 0L4.2 392.7c-4.7-4.7-4.7-12.3 0-17L122.7 256 4.2 136.3c-4.7-4.7-4.7-12.3 0-17L24 99.5c4.7-4.7 12.3-4.7 17 0l146.8 148c4.7 4.7 4.7 12.3 0 17z"></path></svg>
-          <a href="https://nosotros.gaeapeople.com/#gaeanet/icontent-creation"><p>Estrategias de márketing</p></a>
-        </li>
-        <li class="footerNavBarItem">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 512"><path d="M187.8 264.5L41 412.5c-4.7 4.7-12.3 4.7-17 0L4.2 392.7c-4.7-4.7-4.7-12.3 0-17L122.7 256 4.2 136.3c-4.7-4.7-4.7-12.3 0-17L24 99.5c4.7-4.7 12.3-4.7 17 0l146.8 148c4.7 4.7 4.7 12.3 0 17z"></path></svg>
-          <a href="https://nosotros.gaeapeople.com/#gaealearning"><p>Formación</p></a>
-        </li>
-      </ul>
       <div id="footerSocialContainer">
         <h6 id="footerSocialTitle">Síguenos</h6>
         <div id="footerSvgSocialContainer">
@@ -79,6 +56,53 @@
           </a>
         </div>
       </div>
+      <ul id="footerNavBar">
+        <h6 id="favsTitle">Nuestros favoritos</h6>
+        <li class="footerNavBarItem">
+          <!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 512"><path d="M187.8 264.5L41 412.5c-4.7 4.7-12.3 4.7-17 0L4.2 392.7c-4.7-4.7-4.7-12.3 0-17L122.7 256 4.2 136.3c-4.7-4.7-4.7-12.3 0-17L24 99.5c4.7-4.7 12.3-4.7 17 0l146.8 148c4.7 4.7 4.7 12.3 0 17z"></path></svg> -->
+          <a href="https://gaeasmartdata.com/" target="_blank">
+            <p>GAEASMART DATA <br> <span class="smallFooterTxt">Analiza tu situación online con respecto a tu competencia</span></p>
+          </a>
+        </li>
+        <li class="footerNavBarItem">
+          <!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 512"><path d="M187.8 264.5L41 412.5c-4.7 4.7-12.3 4.7-17 0L4.2 392.7c-4.7-4.7-4.7-12.3 0-17L122.7 256 4.2 136.3c-4.7-4.7-4.7-12.3 0-17L24 99.5c4.7-4.7 12.3-4.7 17 0l146.8 148c4.7 4.7 4.7 12.3 0 17z"></path></svg> -->
+          <a href="https://gaealearning.com/" target="_blank">
+            <p>GAEALEARNING <br> <span class="smallFooterTxt">Toda la formación en estrategia de marketing digital que necesite</span></p>
+          </a>
+        </li>
+        <li class="footerNavBarItem">
+          <!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 512"><path d="M187.8 264.5L41 412.5c-4.7 4.7-12.3 4.7-17 0L4.2 392.7c-4.7-4.7-4.7-12.3 0-17L122.7 256 4.2 136.3c-4.7-4.7-4.7-12.3 0-17L24 99.5c4.7-4.7 12.3-4.7 17 0l146.8 148c4.7 4.7 4.7 12.3 0 17z"></path></svg> -->
+          <a href="https://and7dclubs.com/" target="_blank">
+            <p>AN7DCLUBS <br> <span class="smallFooterTxt">Te damos todas las iHerramientas para tu comunidad online</span></p>
+          </a>
+        </li>
+        <li class="footerNavBarItem">
+          <!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 512"><path d="M187.8 264.5L41 412.5c-4.7 4.7-12.3 4.7-17 0L4.2 392.7c-4.7-4.7-4.7-12.3 0-17L122.7 256 4.2 136.3c-4.7-4.7-4.7-12.3 0-17L24 99.5c4.7-4.7 12.3-4.7 17 0l146.8 148c4.7 4.7 4.7 12.3 0 17z"></path></svg> -->
+          <a href="https://nosotros.gaeapeople.com/#contact" target="_blank">
+            <p>GP + ACTIVO WIFI <br> <span class="smallFooterTxt">¿tienes un HOTSPOT? necesitas saber un montón de cosas de tus clientes para fidelizarlos.</span></p>
+          </a>
+        </li>
+        <li class="footerNavBarItem">
+          <!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 512"><path d="M187.8 264.5L41 412.5c-4.7 4.7-12.3 4.7-17 0L4.2 392.7c-4.7-4.7-4.7-12.3 0-17L122.7 256 4.2 136.3c-4.7-4.7-4.7-12.3 0-17L24 99.5c4.7-4.7 12.3-4.7 17 0l146.8 148c4.7 4.7 4.7 12.3 0 17z"></path></svg> -->
+          <a href="https://aproposito.de/" target="_blank">
+            <p>APROPOSITO.DE <br> <span class="smallFooterTxt">¡Tu tarjeta digital es la mejor forma de sincronizar todo tu i-Universo!</span></p>
+          </a>
+        </li>
+        <li class="footerNavBarItem">
+          <!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 512"><path d="M187.8 264.5L41 412.5c-4.7 4.7-12.3 4.7-17 0L4.2 392.7c-4.7-4.7-4.7-12.3 0-17L122.7 256 4.2 136.3c-4.7-4.7-4.7-12.3 0-17L24 99.5c4.7-4.7 12.3-4.7 17 0l146.8 148c4.7 4.7 4.7 12.3 0 17z"></path></svg> -->
+          <a href="http://saludenlared.com/" target="_blank">
+            <p>SALUDENLARED.COM <br> <span class="smallFooterTxt">La mejor forma de contar con agregación contenidos de MEDICINA</span></p>
+          </a>
+        </li>
+        <li class="footerNavBarItem">
+          <!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 512"><path d="M187.8 264.5L41 412.5c-4.7 4.7-12.3 4.7-17 0L4.2 392.7c-4.7-4.7-4.7-12.3 0-17L122.7 256 4.2 136.3c-4.7-4.7-4.7-12.3 0-17L24 99.5c4.7-4.7 12.3-4.7 17 0l146.8 148c4.7 4.7 4.7 12.3 0 17z"></path></svg> -->
+          <a href="http://nosotros.gaeapeople.com/" target="_blank">
+            <p>UNIVERSO GAEAPEOPLE <br> <span class="smallFooterTxt">Tenemos todo lo que necesitas para el soporte de tu estrategia de negocio online.
+</span></p>
+          </a>
+        </li>
+      </ul>
+
       <div id="gaeaLegal">
         <h6 id="legalTitle">Legal</h6>
         <a href="https://gaeapeople.com/terms" target="_blank"><p>Términos y condiciones</p></a>
@@ -88,15 +112,6 @@
       </div>
     </div>
 
-    <!-- <div id="legalFooter">
-      <p id="RegisteredBrand">© 2002 / 2019 OmniGaea S.L. / GaeaPeople</p>
-      <ul>
-        <li class="legalFooterNavBarItem"><a href="https://gaeapeople.com/terms" target="_blank"><p>Términos y condiciones</p></a></li>
-        <li class="legalFooterNavBarItem"><a href="https://gaeapeople.com/legal" target="_blank"><p>Aviso Legal</p></a></li>
-        <li class="legalFooterNavBarItem"><a href="https://gaeapeople.com/#contact" target="_blank"><p>Contacto</p></a></li>
-        <li class="legalFooterNavBarItem"><a href="https://gaeapeople.com/" target="_blank"><p>Nosotros</p></a></li>
-      </ul>
-    </div> -->
 
 
 
