@@ -145,7 +145,7 @@ while($j<=2){ ?>
           ?>">
           <a class="postTxt1 postTxt" href="<?php the_permalink(); ?>"><p><?php the_title(); ?></p></a>
           <p class="postAuthor postTxt"><strong class="authorColor">Por <?php the_author(); ?></strong> - <?php the_time('M j, Y'); ?></p>
-          <?php if(function_exists('the_views')){ ?><p class="vistoNVeces postTxt">👁 <?php the_views(); ?></p><?php } ?>
+          <?php if(function_exists('the_views')){ ?><p style="color:black;" class="vistoNVeces postTxt">👁 <?php the_views(); ?></p><?php } ?>
         </figcaption>
       </figure>
       <?php if ($i==3) { ?>
