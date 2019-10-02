@@ -5,12 +5,17 @@
 
 
 
+<banner>
+  <?php echo do_shortcode("[the_ad_group id='1625']"); ?>
+</banner>
 <section id="archiveAtf">
 
-  <?php echo do_shortcode("[the_ad_group id='1625']"); ?>
 
   <?php if(function_exists('yoast_breadcrumb')){yoast_breadcrumb('<p id="breadcrumbs">','</p>');} ?>
   <h1 id="archiveTitle"><?php the_archive_title(); ?></h1>
+  <?php
+    the_archive_description( '<div class="archiveDescription">', '</div>' );
+  ?>
   <?php
   $category = get_queried_object();
 
@@ -74,12 +79,8 @@
             <span class="postAuthor">Por <?php the_author(); ?></span> -
             <span class="postDate"><?php the_time('M j, Y'); ?></span>
           </p>
-          <?php if(function_exists('the_views')){ ?>
-            <div class="theViews">
-              <p><?php the_views(); ?></p>
-            </div>
-          <?php } ?>
-          <?php if($i % 7==0){ ?><?php the_excerpt(); ?><?php } ?>
+          <?php if(function_exists('the_views')){ ?><p class="vistoNVeces postTxt">👁 <?php the_views(); ?></p><?php } ?>
+          <?php if($i % 7==0){ ?><p><?php excerpt(130) ?></p><?php } ?>
           <p class="postCategory"><?php echo get_the_category_list(', '); ?></p>
         </figcaption>
       </figure>
