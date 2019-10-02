@@ -88,7 +88,7 @@ Version: 1.0
     --mainImgMaxHeight: 300px;
     --postMarginTop: 20px;
 
-    --bottomPostHeight: 250px;
+    --bottomPostHeight: max-content;
 
     --footerLogoheight: 100px;
 
@@ -139,6 +139,8 @@ Version: 1.0
     --scndCorridorImgSmall: 215px;
 
     --sectionMarkerDisplay: none;
+    --sectionMarkerPadding: 0;
+
 
     --bannerProvisionalHeight: 200px;
 
@@ -159,7 +161,6 @@ Version: 1.0
     --archiveAtfFigcaptionMaxWidth: 80%;
     --archiveSectionFigcaptionPadding:0;
     --archiveSectionGTR:  1fr .4fr 1fr .5fr .5fr .5fr 1fr;
-    --archiveMainPostHeight: ;
 
     --pageNumbersPadding: .5em 1em;
 
@@ -188,6 +189,8 @@ Version: 1.0
     --sectionMarkerTextDecoration: underline;
     --sectionMarkerFontSize: var(--size3);
     --sectionMarkerMargin: 0;
+    --sectionMarkerHeight: min-content;
+
 
     --mainCorridorGridC: span 6;
     --scndCorridorGridC: span 6;
@@ -314,7 +317,7 @@ Version: 1.0
     --thrdPostImgMinHeight: 200px;
 
     --sectionMarkerDisplay: grid;
-    --sectionMarkerMargin: 10px calc(var(--sE) * 2px);
+    --sectionMarkerMargin: 10px auto;
 
     --mainImgMaxHeight: 350px;
 
@@ -323,6 +326,8 @@ Version: 1.0
     --sectionMarkerTextDecoration: none;
     --sectionMarkerFontSize: var(--size4);
     --sectionMarkerDisplay: block;
+    --sectionMarkerPadding: padding: 0 50px;
+    --sectionMarkerHeight: 35vh;
     --mainCorridorGridC: 2/ span 5;
     --scndCorridorGridC: 2/ span 5;
     --thrdCorridorGridC: 2/ span 5;
@@ -336,7 +341,7 @@ Version: 1.0
     --bottomPostHeight: 450px;
 
 
-    --homeAtfGridTemplateR: min-content 70vh;
+    --homeAtfGridTemplateR: min-content 50vh;
 
 
 
@@ -354,7 +359,6 @@ Version: 1.0
     --archiveSectionGTC:3fr 2fr 2fr;
     --archiveSectionGTR: 1fr .5fr .5fr .5fr 1fr;
     --archiveSectionFigcaptionPadding:calc(var(--sE) * 1px);
-    --archiveMainPostHeight: calc(100vh - 100px);
 
 
     --footerBackgroundPosition: absolute;
@@ -418,7 +422,7 @@ Version: 1.0
     --postRelatedListLi5th: span 3;
 
     --postMainGridGap: calc(var(--sE) * 3px);
-    --homeAtfGridTemplateR: min-content 100vh;
+    --homeAtfGridTemplateR: min-content 80vh;
 
 
 
@@ -515,28 +519,26 @@ section {
   grid-auto-flow: column;
   grid-auto-columns: auto;
   grid-gap: calc(var(--sE) * 1px);
-  padding: calc(var(--sE) * 1px);
+  padding: 0 80px;
   -webkit-transform: translateZ(0);
 }
 
 h1 {color:rgba(255,255,255,0)}
 
 banner {
-  /* background: var(--color1); */
   background-color: rgb(244, 244, 244);
   color: var(--color2);
   display: grid;
   height: min-content;
-  padding: calc(var(--sE) * 1px) 0;
+  padding: calc(var(--sE) * 1px);
   text-align: center;
   width: calc(100% - calc(var(--sE) * 2px));
-  margin: 0 calc(var(--sE) * 1px);
+  /* margin: 0 calc(var(--sE) * 1px); */
 }
-/* banner img {
-  height: auto;
-  object-fit: contain;
-  width: 100%;
-} */
+banner img {
+  margin: auto;
+  max-width: 100%;
+}
 
 /* ------------------------------------------- STRUCTURE ------------------------------------------- */
 
@@ -1365,8 +1367,9 @@ footer {
 
 
 .sectionMarker {
+  box-sizing: border-box;
   width: min-content;
-  height: min-content;
+  height: var(--sectionMarkerHeight);
   display: grid;
   color:var(--color1);
   width: 100%;
@@ -1375,6 +1378,7 @@ footer {
   grid-column: var(--sectionMarkerGC);
   top: calc(var(--topCero) + 50% - 150px);
   z-index: 0;
+  padding: var(--sectionMarkerPadding);
 }
 .sectionMarker h3 {
   font-size: var(--size4);
@@ -1577,7 +1581,7 @@ blockquote::before {
   margin: var(--postMargin);
   width: 100%;
   align-items: stretch;
-  margin-bottom: var(--postMarginBottom);
+  margin-bottom: 30px;
 }
 .post a, .post p {color:var(--color1)!important}
 .postImg {
@@ -1703,7 +1707,7 @@ blockquote::before {
 
 .scndCorridorImgBig {
   max-height: var(--scndCorridorImgBigMaxHeight);
-  width: var(--scndCorridorImgBigWidth);
+  width: 100%;
 }
 
 
@@ -1726,6 +1730,7 @@ blockquote::before {
 
 .bottomPostsImg {
   width: 100%;
+  max-height: 100%;
 }
 
 .bottomPostsFigcaption {
@@ -1820,7 +1825,7 @@ blockquote::before {
 .archiveMainPost {
   position: sticky!important;
   width: 100%;
-  height: var(--archiveMainPostHeight);
+  height: max-content;
   padding: calc(var(--sE) * 1px);
   padding-top:0;
   box-sizing: border-box;
