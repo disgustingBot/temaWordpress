@@ -78,6 +78,7 @@ Version: 1.0
     --headerMenuRight: 0;
     --headerMenuTransform:rotate(0);
     --headerSocialMarginTop:-100px;
+    --lupaMarginRight:60px;
     --espacioLauraMarginTop:calc(var(--sE) * -2px);
     --isoLogoMarginLeft:0%;
     --isoLogoTransform: translateX(0%);
@@ -298,6 +299,9 @@ Version: 1.0
     --size7: calc(calc(var(--size7c) * 1px) + (var(--size7d) - var(--size7c)) * ((100vw - 768px) / (1200 - 768)));
     --size8: calc(calc(var(--size8c) * 1px) + (var(--size8d) - var(--size8c)) * ((100vw - 768px) / (1200 - 768)));
 
+    --lupaMarginRight:160px;
+
+
     --footerInfoDisplay: grid;
     --footerInfoPosition: absolute;
     --footerInfoBottomPosition: 40px;
@@ -415,6 +419,7 @@ Version: 1.0
 @media screen and (min-width: 992px) {
 
   :root {
+    --lupaMarginRight:190px;
     --nubeEtiquetasContainerHeight: 220px;
 
     --specialContSpan: 5;
@@ -550,7 +555,7 @@ banner {
   padding: calc(var(--sE) * 1px) 0;
   text-align: center;
   width: calc(100% - calc(var(--sE) * 2px));
-  margin: 0 calc(var(--sE) * 1px);
+  margin: calc(var(--sE) * 1px);
 }
 banner img {
   height: auto;
@@ -611,15 +616,16 @@ header a:hover{color:var(--color3)}
 #lupa{
   grid-row: 1;
   grid-column: 1;
-  position: fixed;
+  position: sticky;
   top: 30px;
-  right:60px;
+  margin: auto;
+  margin-right:60px;
   cursor: pointer;
   color: var(--color2);
   z-index: 6;
   transition: .3s;
 }
-#lupa.inactive{right:190px}
+#lupa.inactive{margin-right:var(--lupaMarginRight)}
 #lupa:hover ~ #buscador,
 #lupa:focus ~ #buscador,
 #buscador:hover,
@@ -898,19 +904,21 @@ header a:hover{color:var(--color3)}
   grid-auto-rows: min-content;
   grid-auto-flow: row;
   grid-gap:calc(var(--sE) * 1px);
-  padding: calc(var(--sE) * 1px);
-  padding-top: 0px!important;
+  /* padding: calc(var(--sE) * 1px); */
 }
 #archiveTitle{
   color: var(--color1);
-  margin: calc(var(--sE) * 2px) 12.5%;
+  margin: calc(var(--sE) * 1px) 0;
   font-size: var(--size3);
-  position: absolute;
-  top: -1000px;
+  /* position: absolute; */
+  /* top: -1000px; */
+}
+.archiveDescription{
+  /* margin: 0 12.5%; */
 }
 #archiveNav {
   border-bottom: 2px solid var(--color3);
-  margin: 0 var(--archiveNavMarginX);
+  /* margin: 0 var(--archiveNavMarginX); */
   padding: 20px;
   text-align: center;
 }
@@ -1359,24 +1367,30 @@ footer {
 #footerLinkedIn:hover  {fill:#0e76a8}
 #footerYouTube:hover   {fill:#ff0000}
 
-#gaeaBrandingContainer {
-  display: grid;
-  grid-column-gap: 1em;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: min-content 2fr 1fr;
+#gaeaLegal {
+  /* display: grid; */
+  /* grid-column-gap: 1em; */
+  /* grid-template-columns: 1fr 1fr; */
+  /* grid-template-rows: min-content 2fr 1fr; */
   /* padding: 1em; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
   padding: calc(var(--sE) * .5px) 0;
   margin: 0 calc(var(--sE) * .5px);
 }
-
-#somosTitle {
+#legalTitle {
   color: #D2AA6C;
   font-size: var(--size4);
   grid-column: span 2;
   margin: auto;
+  margin-top:0;
   text-align: center;
 }
-
+#gaeaLegal a{
+  margin: auto;
+}
 #favsTitle {
   color: #D2AA6C;
   font-size: var(--size4);
@@ -1442,6 +1456,29 @@ footer {
   align-items: center;
   justify-content: flex-end;
   text-align: var(--legaFooterNavBarItem);
+}
+
+#gaeaBranding{
+  align-content: space-between;
+  background: var(--color1);
+  color: white;
+  display: flex;
+  /* flex-direction: var(--legalFooterFlexDirection); */
+  /* justify-content: space-around; */
+  justify-content: center;
+  /* flex-wrap: wrap; */
+  flex-flow: var(--legalFooterFlexDirection) wrap;
+  padding: 20px;
+  order: 4;
+}
+#gaeaBranding a{
+  width: 200px;
+  height: auto;
+  margin:0 calc(var(--sE) * .5px);
+}
+#gaeaBranding img{width: 100%}
+#gaeaBranding a:nth-last-child(1){
+  width: 50px;
 }
 
 
