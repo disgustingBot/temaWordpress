@@ -1,11 +1,11 @@
 <?php get_header(); ?>
 
-<!-- <div class="breadcrumb"><?php // get_breadcrumb(); ?></div> -->
-<!-- <div class="breadcrumb"><?php if(function_exists('bcn_display')){ bcn_display(); } ?></div> -->
 
-
-
+<banner>
+  <?php echo do_shortcode("[the_ad_group id='1625']"); ?>
+</banner>
 <section id="homeAtf">
+
   <?php if(function_exists('yoast_breadcrumb')){yoast_breadcrumb('<p id="breadcrumbs">','</p>');} ?>
 
 <?php while(have_posts()){the_post(); ?>

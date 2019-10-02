@@ -79,42 +79,34 @@
           </a>
         </div>
       </div>
-      <div id="gaeaBrandingContainer">
-        <h6 id="somosTitle">Somos...</h6>
-        <a href="http://www.and7dreams.com/" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/img/dreams.png" alt="&7D isologotipo"></a>
-        <a href="http://www.gaealearning.com/" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/img/learning.png" alt="Gaea Learning isologotipo"></a>
-        <a href="http://www.saludenlared.com/" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/img/salud.png" alt="salud en la red imagotipo"></a>
-        <a href="http://www.gaeasmartdata.com/" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/img/smartdata.png" alt="Gaea Smart Data imagotipo"></a>
+      <div id="gaeaLegal">
+        <h6 id="legalTitle">Legal</h6>
+        <a href="https://gaeapeople.com/terms" target="_blank"><p>Términos y condiciones</p></a>
+        <a href="https://gaeapeople.com/legal" target="_blank"><p>Aviso Legal</p></a>
+        <a href="https://gaeapeople.com/#contact" target="_blank"><p>Contacto</p></a>
+        <a href="https://gaeapeople.com/" target="_blank"><p>Nosotros</p></a>
       </div>
     </div>
 
-
-
-
-
-
-
-
-    <div id="legalFooter">
+    <!-- <div id="legalFooter">
       <p id="RegisteredBrand">© 2002 / 2019 OmniGaea S.L. / GaeaPeople</p>
       <ul>
-        <li class="legalFooterNavBarItem">
-          <a href="https://gaeapeople.com/terms" target="_blank"><p>Términos y condiciones</p></a>
-        </li>
-        <li class="legalFooterNavBarItem">
-          <a href="https://gaeapeople.com/legal" target="_blank"><p>Aviso Legal</p></a>
-        </li>
-        <li class="legalFooterNavBarItem">
-          <a href="https://gaeapeople.com/#contact" target="_blank"><p>Contact</p></a>
-        </li>
-        <li class="legalFooterNavBarItem">
-          <a href="https://gaeapeople.com/" target="_blank"><p>Acerca de nosotros</p></a>
-        </li>
+        <li class="legalFooterNavBarItem"><a href="https://gaeapeople.com/terms" target="_blank"><p>Términos y condiciones</p></a></li>
+        <li class="legalFooterNavBarItem"><a href="https://gaeapeople.com/legal" target="_blank"><p>Aviso Legal</p></a></li>
+        <li class="legalFooterNavBarItem"><a href="https://gaeapeople.com/#contact" target="_blank"><p>Contacto</p></a></li>
+        <li class="legalFooterNavBarItem"><a href="https://gaeapeople.com/" target="_blank"><p>Nosotros</p></a></li>
       </ul>
+    </div> -->
+
+
+
+    <div id="gaeaBranding">
+      <a href="/" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/img/people.png" alt="Gaea People Magazine isologotipo"></a>
+      <a href="http://www.gaealearning.com/" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/img/learning.png" alt="Gaea Learning isologotipo"></a>
+      <a href="http://www.gaeasmartdata.com/" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/img/smartdata.png" alt="Gaea Smart Data imagotipo"></a>
+      <a href="http://www.saludenlared.com/" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/img/salud.png" alt="salud en la red imagotipo"></a>
+      <a href="http://www.and7dreams.com/" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/img/dreams.png" alt="&7D isologotipo"></a>
     </div>
-
-
-
 
 
 
