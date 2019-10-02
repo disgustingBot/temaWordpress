@@ -2029,3 +2029,11 @@ blockquote::before {
 .archivePostSize3Img {
   width: 100%;
 }
+
+/*
+SAFARI:  CHECK
+CHROME:  CHECK
+OPERA:   CHECK
+CHROME:  CHECK
+FIREFOX: CHECK
+*/
