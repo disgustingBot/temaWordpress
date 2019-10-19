@@ -26,6 +26,8 @@ Version: 1.0
 
 */
 
+/* =root */
+
 :root {
   --topCero: 46px;
   --topCero: 0px;
@@ -267,6 +269,15 @@ Version: 1.0
       --footerLegalFontSize: var(--size8);
 
 
+      --commentFormCommentGridC: span 2;
+      --commentFormPGridC: span 2;
+      --formSubmitGridC: span 2;
+      --commentConsentGridC: span 2;
+      --FormSubmitGridR: 5;
+      --formSubmitMarginLeft: ;
+
+
+
 }
 
 
@@ -326,6 +337,8 @@ Version: 1.0
 
   }
 }
+
+/* =768 */
 @media screen and (min-width: 768px) {
   :root {
     --size1: calc(calc(var(--size1c) * 1px) + (var(--size1d) - var(--size1c)) * ((100vw - 768px) / (1200 - 768)));
@@ -461,6 +474,14 @@ Version: 1.0
         --footerNewsLetterMargin: ;
         --footerLogosWrapping: ;
         --footer2LogoMargin: ;
+
+
+        --commentFormCommentGridC: 2;
+        --commentFormPGridC: 1;
+        --formSubmitGridC: 2;
+        --FormSubmitGridR: 2;
+        --commentConsentGridC: ;
+        --formSubmitMarginLeft: auto;
   }
   #navBar.inactive {
     --navBarPosition:static;
@@ -1310,14 +1331,20 @@ img.avatar{
   align-items: center;
   display: grid;
   grid-auto-columns: 1fr;
-  grid-auto-flow: column dense;
+  grid-template-columns: 1fr 1fr;
+  /* grid-auto-flow: column dense; */
   grid-template-rows: 1fr 1fr 1fr;
-  grid-gap: calc(var(--sE) * 1px);
+  grid-gap: calc(var(--sE) * 0.5px);
   justify-content: center;
   margin: calc(var(--sE) * 1px);
 }
 .comment-form p {display: grid;}
-.comment-form p:nth-child(-n+3){grid-column:1;}
+
+.comment-form p:nth-child(-n+3){
+  grid-column: var(--commentFormPGridC);
+  margin: auto;
+  margin-top: 0;
+}
 .comment-form input:not(#submit){
   box-sizing:border-box;
   height: 30px;
@@ -1325,8 +1352,8 @@ img.avatar{
   width: 100%;
 }
 .comment-form-comment{
-  grid-row: span 2;
-  grid-column: var(--secondColumn)!important;
+  grid-row: 1;
+  grid-column: var(--commentFormCommentGridC);
 }
 .comment-form-comment textarea{
   box-sizing: border-box;
@@ -1337,8 +1364,17 @@ img.avatar{
 .logged-in-as{
   grid-column: 1;
 }
-.form-submit{margin-left: auto;grid-column:var(--secondColumn)!important;}
+.form-submit{
+  margin-left: var(--formSubmitMarginLeft);
+  grid-column:var(--formSubmitGridC);
+  grid-row: var(--FormSubmitGridR);
+}
 
+.comment-form-cookies-consent { grid-column: var(--commentConsentGridC)}
+
+.comment-form-cookies-consent label {
+  font-size: var(--size7);
+}
 .comment-respond #submit{
   background: var(--color3);
   color: var(--color2);
