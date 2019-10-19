@@ -64,7 +64,7 @@ d.querySelectorAll('.sectionMarker').forEach(e => {
 
 // NAVBAR HANDLER
 const alternateNavBar=()=>{
-  const navBar=d.querySelector("#fullMenu");
+  const navBar=d.querySelector("#header");
   if(navBar.classList.contains("active")){
     navBar.classList.remove("active")
   }else{
