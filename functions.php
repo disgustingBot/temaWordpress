@@ -1,5 +1,38 @@
 <?php
 
+function en_el_init(){
+  wp_enqueue_style('style', get_stylesheet_uri(), NULL, microtime(), 'all');
+  // Register block editor script for backend.
+  wp_register_script(
+    'bannersbuild-cgb-block-js', // Handle.
+    get_theme_file_uri('/js/blocks.build.js', dirname( __FILE__ ) ),
+    // plugins_url( '/dist/blocks.build.js', dirname( __FILE__ ) ), // Block.build.js: We register the block here. Built with Webpack.
+    array( 'wp-blocks', 'wp-i18n', 'wp-element', 'wp-editor' ), // Dependencies, defined above.
+    null, // filemtime( plugin_dir_path( __DIR__ ) . 'dist/blocks.build.js' ), // Version: filemtime — Gets file modification time.
+    true // Enqueue the script in the footer.
+  );
+	register_block_type(
+		'cgb/block-bannersbuild', array( 'editor_script' => 'bannersbuild-cgb-block-js', )
+	);
+}
+
+
+
+add_action( 'init', 'en_el_init' );
+
+
+
+
+
+
+
+
+
+
+
+
+require_once 'customPosts.php';
+
 // database
 // user: lattedev_gaea
 // name: lattedev_gaea
@@ -38,31 +71,6 @@ add_filter('get_the_archive_title',function($title){
   }
   return $title;
 });
-
-
-// Custom Post Type
-
-function gp_custom_post_type() {
-  register_post_type('project',
-    array(
-      'rewrite' => array('slug' => 'projects'),
-      'labels'  => array(
-        'name'          => 'Projects',
-        'singular_name' => 'Project',
-        'add_new_item'  => 'Add New Project',
-        'edit_item'     => 'Edit Project'
-      ),
-      'menu-icon'   => 'dashicons-clipboard',
-      'public'      => true,
-      'has_archive' => true,
-      'supports'    => array(
-        'title', 'thumbnail', 'editor', 'excerpt', 'comments'
-      )
-    )
-  );
-}
-
-add_action('init', 'gp_custom_post_type');
 
 
 function ejr_jpeg_quality () {return 100;}
@@ -133,3 +141,37 @@ function excerpt($charNumber){
   $result = substr($excerpt, 0, strrpos($excerpt, ' '));
   echo $result;
 }
+
+
+
+
+
+
+
+
+
+// add_filter( 'register_post_type_args', 'dcwd_change_cpt_args', 10, 2 );
+// function dcwd_change_cpt_args( $args, $cpt_name ) {
+// 	//error_log( "CPT Name: $cpt_name" );
+// 	if ( 'advanced_ads' == $cpt_name ) {
+// 		$args['show_in_rest'] = true;
+// 		$args['supports'] = array( 'title', 'editor' );
+// 		//error_log( $cpt_name . ': ' . var_export( $args, true ) );
+// 	}
+// 	return $args;
+// }
+
+
+
+// add_filter('advanced-ads-ad-settings-pre-save', 'my_advanced_ads_admin_max_terms', 1);
+// function my_advanced_ads_admin_max_terms($args){
+//   // var_dump($args);
+//   // echo "<script>console.log(".$args.")</script>";
+//
+//   // $args['output'] = $args['content'];
+//   // $args['content'] = 'yo soy el nene';
+//   // $args['content'] = json_encode($args);
+//
+//
+//   return $args;
+// }
