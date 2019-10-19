@@ -79,6 +79,8 @@ Version: 1.0
 
     --bottomPostHeight: max-content;
 
+    --scndPostChild1Border: none;
+
     --nubeEtiquetasContainerHeight: 190px;
     --nubeEtiquetasContainerPadding: 10px 0px;
 
@@ -177,6 +179,7 @@ Version: 1.0
     --mainCorridorGridC: span 6;
     --scndCorridorGridC: span 6;
     --thrdCorridorGridC: span 6;
+    --mainCorridorBorder: none;
     --bottomPostContainerGridC: span 6;
     --bottomPostGridC: span 3;
     --postFigCaptionTextAlign: center;
@@ -304,6 +307,7 @@ Version: 1.0
     --corridorDisplay: flex;
     --scndCorridorImgBigHeight: 200px;
     --scondCorridorImgSmallHeight: 300px;
+    --mainCorridorBorder: solid 5px black;
     --bottomPostGridC: span 1;
 
     --bottomPostContainerMarginTop: 20px;
@@ -328,6 +332,7 @@ Version: 1.0
     --size8: calc(calc(var(--size8c) * 1px) + (var(--size8d) - var(--size8c)) * ((100vw - 768px) / (1200 - 768)));
 
 
+    --scndPostChild1Border: solid 2px black;
     --scndPost1Height: auto;
 
     --legalFooterFlexDirection: row;
@@ -759,41 +764,116 @@ banner {
 
 .header{
   background: var(--color1);
+  box-sizing: border-box;
   color: var(--color2);
   display: grid;
   grid-auto-flow: column;
-  grid-template-columns: max-content 1fr;
+  grid-template-columns: 1fr 1fr 2fr;
   justify-content: center;
   align-items: center;
   grid-gap: 20px;
-  padding: 20px;
+  padding: 10px 20px;
   position: sticky;
-  top:0;
+  top:       calc(-100vh + 80px);
+  margin-top:calc(-100vh + 80px);
   z-index: 100;
-  height: 80px;
+  /* height: 60px; */
+  height: 100vh;
+  transition:.5s;
 }
+.header.active{transform:translateY(calc(100vh - 80px));}
 
 
 .socialCont{
-
+  position: relative;
+  grid-column: 1;
+  grid-row: 2;
+  margin: auto;
+  margin-bottom: 10px;
+  z-index: 2;
 }
 
 .socialLink {
   fill:#D2AA6C;
-  height: 40px;
+  height: 30px;
   margin: 5px;
   transition: 0.3s;
 }
 
 
-.logo{
-  height: 100%;
-  width: auto;
-  margin: auto;
+.navCategories{
+  grid-column: 1;
+  grid-row: 1;
+  display: grid;
+}
+.navCategoriesLink{
+  font-size: var(--size4);
 }
 
+
+
+
+
+
+.navConocenos{
+  grid-column: 2;
+  grid-row: 1;
+  display: grid;
+}
+
+
+.navFavoritos{
+  grid-column: 3;
+  grid-row: 1;
+
+}
+
+
+.smallNav{
+  grid-column: 3;
+  grid-row: 2;
+  text-align: right;
+  padding-right: 40px;
+  margin-top: auto;
+  margin-bottom: 20px;
+}
+
+
+
+
+.isologo{
+  grid-column: 1/4;
+  grid-row: 1/3;
+  position:relative;
+  height: auto;
+  width: 240px;
+  margin: auto;
+  margin-bottom: 0;
+  transition: .4s;
+}
+.isologo .isoCircl{color:var(--color3)}
+.isologo .logoGaea{color:var(--color3)}
+
+.active .isologo{
+  transition: 1s;
+  width: 90%;
+  height: auto;
+  margin-bottom: 5%;
+  color: #333;
+}
+.active .isologo .isoCircl{color:unset}
+.active .isologo .logoGaea{color:unset}
+
+
+
+
+
+
 .burger{
-  background: var(--color3);
+  position: absolute;
+  top:calc(100vh - 70px);
+  right: 0;
+  background: transparent;
   border: none;
   padding: 5px;
   border-radius: 50%;
@@ -804,12 +884,14 @@ banner {
   display: flex;
   align-items: center;
   flex-direction: column;
+  transition: .5s;
 }
+.active .burger {top:10px;}
 .burgerBar{
   height: 6px;
   width: 25px;
   border-radius: 3px;
-  background: var(--color1);
+  background: var(--color2);
   margin: auto;
 }
 
@@ -833,19 +915,23 @@ banner {
 
 
 .fullMenu{
-  position: fixed;
-  width: 100%;
+  background: var(--color1);
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: 1fr 1fr 2fr;
   height: 100vh;
-  top:0;
   left: 100%;
   /* left: 0; */
-  background: var(--color1);
-  z-index: 200;
-  transition: .5s;
-  padding: 0;
   margin: 0;
+  padding: 4%;
+  position: fixed;
+  top:0;
+  transition: .5s;
+  width: 100%;
+  z-index: 200;
 }
 .fullMenu.active{left:0}
+.fullMenu > * {z-index:1;}
 .fullMenuBg{
   position:absolute;
   width: 90%;
@@ -861,7 +947,7 @@ banner {
 .active .fullMenuBg{
   color:#222;
   transition: 2s;
-  transition-delay: 2s;
+  transition-delay: 1s;
 }
 
 .close{
@@ -870,8 +956,9 @@ banner {
   display: var(--onlyMobile);
   cursor: pointer;
   height: 30px;
-  width: 30px;
+  width:  30px;
   position:absolute;
+  padding: 0;
   top:0;
   right: 0;
   margin: .7rem;
@@ -892,16 +979,6 @@ banner {
 .active .close {transform:translateX(0)}
 .active .cross {transform:rotate( 45deg)}
 .active .cross2{transform:rotate(-45deg)}
-
-.menuNav{
-  display: grid;
-}
-.menuNavLink{
-  font-size: var(--size3);
-
-}
-
-
 
 
 
@@ -1689,6 +1766,7 @@ blockquote::before {
   font-weight: bold;
   font-size: var(--size6);
   margin: calc(var(--sE) * .3px) 0;
+  text-align: center;
 }
 
 .postFigCaption {
@@ -1725,9 +1803,9 @@ blockquote::before {
 /* Main corridor */
 
 .mainCorridor {
+  border-right: var(--mainCorridorBorder);
   grid-column:  var(--mainCorridorGridC);
   padding: calc(var(--sE) * 1px);
-  padding-top:0;
 }
 
 .mainPost {
@@ -1740,7 +1818,7 @@ blockquote::before {
   max-height: var(--mainImgMaxHeight);
   flex: 3;
   margin: 0 auto;
-  margin-top: 0;
+  margin-top:calc(var(--sE) * 1px);
 }
 
 .postFigcaption {
@@ -1750,10 +1828,13 @@ blockquote::before {
 }
 
 .mainTxt {
-  font-size: var(--size4);
+  font-size: var(--size3);
+  text-align: center;
   margin: calc(var(--sE) * .5px) 0;
 }
-
+.postMainTxt{
+  text-align: justify;
+}
 .mainTxt2 {
   font-size: var(--size5);
   text-align: center;
@@ -1773,6 +1854,7 @@ blockquote::before {
 .scndPost:nth-child(1){
   grid-row:var(--scndPost1GR);
   margin: 0;
+  border-bottom: var(--scndPostChild1Border);
   height: var(--scndPost1Height);
 
 }
@@ -1881,7 +1963,8 @@ blockquote::before {
 .postAuthor {
   grid-column: 2;
   grid-row: 1;
-  margin: auto auto 0 0;
+  margin: auto;
+  margin-bottom: 0;
 }
 .postDate {
   grid-column: 2;
@@ -1969,9 +2052,7 @@ blockquote::before {
   display: var(--footerDisplay);
   grid-template-rows: 1fr auto auto;
   overflow: hidden;
-  background: black;
-  position: relative;
-  z-index: 6;
+  background: black;--footerDisplay
 }
 
 .footerLogo {
