@@ -63,52 +63,52 @@
 
 
 
-    <ul class="navFavoritos footerNavBar">
-      <h6 class="footerTitles favsTitle">PRODUCTOS FAVORITOS</h6>
+    <ul class="navFavoritos">
+      <h6 class="navFavoritosTitle">PRODUCTOS FAVORITOS</h6>
 
-      <li class="footerNavBarItem">
+      <li class="navFavoritosItem">
         <a href="https://gaeasmartdata.com/" target="_blank">
           <p class="footerNavTitles">GAEA SMART DATA <br> <span class="smallFooterTxt">Tus decisiones serán más CERTERAS</span></p>
         </a>
       </li>
 
-      <li class="footerNavBarItem">
+      <li class="navFavoritosItem">
         <a href="https://and7dclubs.com/" target="_blank">
           <p class="footerNavTitles">&7DCLUBS <br> <span class="smallFooterTxt">Tu PROPIA Herramienta de COMUNIDAD</span></p>
         </a>
       </li>
 
-      <li class="footerNavBarItem">
+      <li class="navFavoritosItem">
         <a href="https://gaealearning.com/" target="_blank">
           <p class="footerNavTitles">GAEALEARNING <br> <span class="smallFooterTxt">Formación para tu adaptación DIGITAL</span></p>
         </a>
       </li>
 
-      <li class="footerNavBarItem">
+      <li class="navFavoritosItem">
         <a href="https://aproposito.de/" target="_blank">
           <p class="footerNavTitles">APROPOSITO.DE <br> <span class="smallFooterTxt">Tu tarjeta digital para sincronizar todo tu iUniverso</span></p>
         </a>
       </li>
 
-      <li class="footerNavBarItem">
+      <li class="navFavoritosItem">
         <a href="http://nosotros.gaeapeople.com/" target="_blank">
           <p class="footerNavTitles">GP+ ACTIVO WIFI <br> <span class="smallFooterTxt">¿Tienes un HOTSPOT? Conoce a tu audiencia</span></p>
         </a>
       </li>
 
-      <li class="footerNavBarItem">
+      <li class="navFavoritosItem">
         <a href="http://nosotros.gaeapeople.com/" target="_blank">
           <p class="footerNavTitles">CONTENT MARKETING<br><span class="smallFooterTxt">Creamos tu contenido SEO</span></p>
         </a>
       </li>
 
-      <li class="footerNavBarItem">
+      <li class="navFavoritosItem">
         <a href="http://saludenlared.com/" target="_blank">
           <p class="footerNavTitles">MEDICAL CONFERENCES CALENDAR <br> <span class="smallFooterTxt">La APP de agenda de eventos médicos que se conecta a tus webs</span></p>
         </a>
       </li>
 
-      <li class="footerNavBarItem">
+      <li class="navFavoritosItem">
         <a href="http://nosotros.gaeapeople.com/" target="_blank">
           <p class="footerNavTitles">CREADORES DE IDEAS<br><span class="smallFooterTxt">El espacio privado en tu web para ayudar a tu gente a INVENTAR</span></p>
         </a>
