@@ -153,22 +153,22 @@
 
           switch ($i) {
             case 0:
-              echo "related1 cardFixForMacS1";
+              echo "related1";
               break;
             case 1:
-              echo "related2 cardFixForMacS2";
+              echo "related2";
               break;
             case 2:
-              echo "related3 cardFixForMacS3";
+              echo "related3";
               break;
             case 3:
-              echo "related4 cardFixForMacS3";
+              echo "related4";
               break;
             case 4:
-              echo "related5 cardFixForMacS2";
+              echo "related5";
               break;
             case 5:
-              echo "related6 cardFixForMacS1";
+              echo "related6";
             default:
               echo "";
               break;
