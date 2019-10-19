@@ -94,9 +94,11 @@ Version: 1.0
     --atfGridR: 2fr 1fr;
 
     --homeAtfGridTemplateR: min-content 70vh;
+    --atfTitleWidth: 100%;
 
 
-    --homeSlideFigcaptionMarginBottom: calc(var(--sE) * 1px);
+
+    --homeSlideFigcaptionMarginBottom: calc(var(--sE) * 0px);
     --homeSlidePaddingX: 0;
     --homeSlideButtonMarginX:0;
     --homeSlideFigcaptionPadding:calc(var(--sE) * 1px);
@@ -343,7 +345,7 @@ Version: 1.0
 
     --atfGridR: 1fr;
     --homeSlideButtonMarginX: 0;
-    --homeSlideFigcaptionPadding:calc(var(--sE) * 3px);
+    --homeSlideFigcaptionPadding:calc(var(--sE) * 2px);
 
     --thrdPostImgMinHeight: 200px;
 
@@ -377,6 +379,8 @@ Version: 1.0
 
 
     --homeAtfGridTemplateR: min-content 50vh;
+
+    --atfTitleWidth: min-content;
 
 
 
@@ -496,7 +500,9 @@ Version: 1.0
     --postRelatedListLi5th: span 3;
 
     --postMainGridGap: calc(var(--sE) * 3px);
-    --homeAtfGridTemplateR: min-content 80vh;
+    --homeAtfGridTemplateR: min-content 60vh;
+    --homeATFPadding: 0 10%;
+
 
 
 
@@ -573,9 +579,13 @@ Version: 1.0
 
       /* --bottomPostHeight: 550px; */
 
-      --bottomPostContainerMarginTop: 40px;
 
-      --size1: calc(var(--size1d) * 1px);
+          --homeAtfGridTemplateR: min-content 70vh;
+
+
+          --bottomPostContainerMarginTop: 40px;
+
+          --size1: calc(var(--size1d) * 1px);
           --size2: calc(var(--size2d) * 1px);
           --size3: calc(var(--size3d) * 1px);
           --size4: calc(var(--size4d) * 1px);
@@ -601,6 +611,10 @@ Version: 1.0
 
 @media  screen and (min-width: 1400px) {
     :root {
+
+      --homeATFPadding: 0 10%;
+
+
       --footerInfoHeight: 400px;
       --footerLegalMarginTop: 140px;
       --footerMapMarginTop: 60px;
@@ -609,9 +623,6 @@ Version: 1.0
       --footerLegalFontSize: var(--size5);
       --footerMapListJustification: space-around;
       --footerTitlesMarginTop: 10px;
-
-
-
     }
 }
 @media  screen and (min-width: 1500px) {
@@ -995,8 +1006,9 @@ banner {
   position: relative;
   transition: .3s;
   width:  50px;
-  z-index:   2;
+  z-index: 2;
 }
+
 .slideButton:hover{box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22)}
 .slideLeft {margin-left:  var(--homeSlideButtonMarginX)}
 .slideRight{margin-right: var(--homeSlideButtonMarginX)}
@@ -1014,7 +1026,13 @@ banner {
   position: relative;
   z-index:   0;
 }
+#homeAtf h1 {
+  font-size: 1px;
+}
+
+
 #homeAtf .slide{
+  position: relative;
   display: grid;
   font-family: 'Roboto', sans-serif;
   font-weight: 900;
@@ -1029,7 +1047,7 @@ banner {
   margin-left: 0;
   grid-row: 1;
   grid-column: 1;
-  height: 80%;
+  height: 100%;
   transform-origin: left;
   transition:       inherit;
   transition-delay: inherit;
@@ -1061,17 +1079,17 @@ banner {
   border-bottom: solid 1px rgba(255, 255, 255, .5);
   font-family: 'Roboto', sans-serif;
   font-size: var(--size4);
-  width: min-content;
+  width: var(--atfTitleWidth);
   padding: 10px 0;
 }
 
-#homeAtf .slide #atfCategory{
+/* #homeAtf .slide #atfCategory{
   color: #D2AA6C!important;
   font-family: 'Roboto', sans-serif;
   font-size: var(--size5);
   padding: 10px 0;
   text-transform: uppercase;
-}
+} */
 
 #homeAtf .slide #atfAuthor{
   color: var(--color3);
@@ -1102,7 +1120,7 @@ banner {
   cursor: pointer;
   z-index: 2;
   position: relative;
-}
+}.buttonSlide a {color:var(--color1);}
 
 
 /* --------------------
@@ -1733,6 +1751,7 @@ blockquote::before {
 .mainPost {
   height: max-content;
   margin: auto;
+  margin-top: 0px;
 }
 
 .mainImg {

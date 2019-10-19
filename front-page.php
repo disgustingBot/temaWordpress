@@ -13,7 +13,7 @@
     <figure class="slide inactive">
       <img src="<?php echo get_the_post_thumbnail_url(get_the_ID()); ?>" alt="">
       <figcaption>
-        <p id="atfCategory"><?php echo get_the_category_list(', '); ?></p>
+        <!-- <p id="atfCategory"><?php echo get_the_category_list(', '); ?></p> -->
         <h3 id="atfTitle"><?php the_title(); ?></h3>
         <p id="atfAuthor"><?php the_content(); ?></p>
       </figcaption>
