@@ -565,7 +565,7 @@ Version: 1.0
     --footerLegalListMargin: 5px 0;
     --footerLegalListFlexGrow: ;
     --footerLogosWidth: 80%;
-    --footerTitlesMarginTop: 10px;
+    --footerTitlesMarginTop: 5px;
     --footerMapListJustification: center;
     --footerSocialSvg: 25px;
     --footerContactaFontSize: var(--size5)!important;
@@ -586,6 +586,8 @@ Version: 1.0
       --size6: calc(var(--size6d) * 1px);
       --size7: calc(var(--size7d) * 1px);
       --size8: calc(var(--size8d) * 1px);
+      --footerTitlesMarginTop: 8px;
+
 
 
       --specialContSpan: 4 ;
@@ -631,6 +633,8 @@ Version: 1.0
       --footerNavTitlesFontSize: var(--size6);
       --footerLegalFontSize: var(--size5);
       --footerMapListJustification: space-around;
+      --footerTitlesMarginTop: 10px;
+
 
 
     }
