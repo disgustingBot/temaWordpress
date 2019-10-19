@@ -54,7 +54,7 @@ const observer2 = new IntersectionObserver(function(entries, observer2){
   })
 }, options);
 
-observer.observe(detector);
+// observer.observe(detector);
 d.querySelectorAll('.sectionMarker').forEach(e => {
   observer2.observe(e);
 })
@@ -62,15 +62,13 @@ d.querySelectorAll('.sectionMarker').forEach(e => {
 
 
 
-function headerMenuHandler(){
-  const navBar = d.getElementById('navBar').style;
-  if (navBar.transform!='translateX(0px)') {
-    navBar.transform='translateX(0)';
-    navBar.transition='transform .3s';
-  } else {
-    navBar.transform='translateX(100%)';
-    navBar.transition='transform .3s';
-
+// NAVBAR HANDLER
+const alternateNavBar=()=>{
+  const navBar=d.querySelector("#fullMenu");
+  if(navBar.classList.contains("active")){
+    navBar.classList.remove("active")
+  }else{
+    navBar.classList.add("active")
   }
 }
 

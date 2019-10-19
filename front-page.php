@@ -6,9 +6,8 @@
   <h1>Gaea People</h1>
   <?php
   $args=array(
-    'post_type'=>'post',
+    'post_type'=>'slide',
     'posts_per_page'=>5,
-    'tag' => 'atf',
   );$atf=new WP_Query($args);
   while($atf->have_posts()){$atf->the_post(); ?>
     <figure class="slide inactive">
@@ -16,13 +15,30 @@
       <figcaption>
         <p id="atfCategory"><?php echo get_the_category_list(', '); ?></p>
         <h3 id="atfTitle"><?php the_title(); ?></h3>
-        <p id="atfAuthor">Por <?php the_author(); ?> - <?php the_date(); ?></p>
+        <p id="atfAuthor"><?php the_content(); ?></p>
       </figcaption>
     </figure>
   <?php } wp_reset_query(); ?>
   <button class="slideButton slideLeft" onclick="plusDivs(-1)">&#10094;</button>
   <button class="slideButton slideRight" onclick="plusDivs(+1)">&#10095;</button>
 </section>
+
+
+
+
+<!--
+<figure class="banner actua">
+  <img class="bannerImg" src="http://localhost/Gaea/wp-content/uploads/2019/10/actua-300x67.png" alt="" />
+  <figcaption class="bannerCaption">
+    <p class="bannerTxt">Impulsa tu negocio.
+Conoce a tu audiencia y <span class="colorText">SOCIALIZA</span> tu web.</p>
+    <p class="bannerLink"><a href="">Sí, quiero conseguir mi informe</a></p>
+  </figcaption>
+</figure>
+-->
+
+
+
 
 
 
@@ -161,10 +177,21 @@ while($j<=2){ ?>
 
 
 <banner>
+
+  <?php
+    $categoryName = 'marketing-strategy';
+    $args = array(
+      'post_type'=>'banner',
+      'posts_per_page'=>1,
+    );
+    $blogPosts=new WP_Query($args);
+    while($blogPosts->have_posts()){ $blogPosts->the_post();the_content(); }
+  ?>
+
   <?php
   switch ($j) {
     case 0:
-      echo do_shortcode("[the_ad_group id='1622']");
+      // echo do_shortcode("[the_ad id='151']");
       break;
     case 1:
       echo do_shortcode("[the_ad_group id='1623']");

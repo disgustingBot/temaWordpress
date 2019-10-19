@@ -47,6 +47,7 @@ Version: 1.0
   /* --color5:#F5F0DC; */
   /* --color6:#FFFAE6; */
 
+
   /* SIZES */
   /* Al editar los tamaños, hacerlo siempre sin unidades
   sabiendo que el numero corresponde a la cantidad de pixeles */
@@ -69,21 +70,6 @@ Version: 1.0
   --size8: calc(var(--size8a) * 1px);
 
 /*VARIABLES DE CAMBIO VISUAL RELACIONADO A AL ANCHO DE LA PANTALLA*/
-
-    --navBarPosition:fixed;
-    --navBarGTC: 1fr;
-    --navBarGTR: repeat(5,1fr);
-    --navBarHeight: calc(100vh - 80px - var(--topCero));
-    --navBarWidth:max-content;
-    --navBarPadding: calc(var(--sE) * 1px);
-    --navBarTransform: translateX(100%);
-    --headerMenuRight: 0;
-    --headerMenuTransform:rotate(0);
-    --headerSocialMarginTop:-100px;
-    --lupaMarginRight:60px;
-    --espacioLauraMarginTop:calc(var(--sE) * -2px);
-    --isoLogoMarginLeft:0%;
-    --isoLogoTransform: translateX(0%);
 
 
     --homeAtfImgMargin: 0;
@@ -331,11 +317,6 @@ Version: 1.0
 
 
   }
-  #isoLogo.inactive{
-    --isoLogoMarginLeft:50%;
-    --isoLogoTransform: translateX(-50%);
-
-  }
 }
 
 /* =768 */
@@ -350,7 +331,6 @@ Version: 1.0
     --size7: calc(calc(var(--size7c) * 1px) + (var(--size7d) - var(--size7c)) * ((100vw - 768px) / (1200 - 768)));
     --size8: calc(calc(var(--size8c) * 1px) + (var(--size8d) - var(--size8c)) * ((100vw - 768px) / (1200 - 768)));
 
-    --lupaMarginRight:160px;
 
     --scndPostChild1Border: solid 2px black;
     --scndPost1Height: auto;
@@ -483,25 +463,6 @@ Version: 1.0
         --commentConsentGridC: ;
         --formSubmitMarginLeft: auto;
   }
-  #navBar.inactive {
-    --navBarPosition:static;
-    --navBarGTC: repeat(5,auto);
-    --navBarGTR: 1fr;
-    --navBarHeight: 60px;
-    --navBarWidth:100%;
-    --navBarPadding: calc(var(--sE) * .5px) 5%;
-    --navBarTransform: translateX(0);
-  }
-  #headerMenu.inactive{
-    --headerMenuRight: -50px;
-    --headerMenuTransform:rotate(90deg);
-  }
-  #headerSocial.inactive {
-    --headerSocialMarginTop:calc(var(--sE) * .5px);
-  }
-  #espacioLaura.inactive {
-    --espacioLauraMarginTop:50px;
-  }
 }
 @media screen and (min-width:  783px) {
 
@@ -523,7 +484,6 @@ Version: 1.0
 @media screen and (min-width: 992px) {
 
   :root {
-    --lupaMarginRight:190px;
     --nubeEtiquetasContainerHeight: 220px;
 
     --specialContSpan: 5;
@@ -593,7 +553,6 @@ Version: 1.0
     --subFooterPadding: 50px 10%;
 
   }
-  #navBar.inactive{--navBarPadding: calc(var(--sE) * .5px) 10%;}
   }
 
 
@@ -703,6 +662,15 @@ a  { font-size: var(--size7)}
 /* A este comentario lo vamos a borrar tambien */
 
 
+/* ESTO es para que el editor de bloques Gutenberg sea WIDE!!! */
+body.gutenberg-editor-page .editor-post-title__block,
+body.gutenberg-editor-page .editor-default-block-appender,
+body.gutenberg-editor-page .editor-block-list__block,
+.block-editor__container .wp-block{max-width:none!important}
+
+
+
+
 /* ----------------------------------------- LOGIC FOLD/ ----------------------------------------- */
 /* -------------------------------------------- FONTS -------------------------------------------- */
 h1,h2,h3,h4,h5,h6 {font-family: 'Bitter', serif;}
@@ -740,61 +708,215 @@ banner {
   box-sizing: border-box;
 }
 
-banner img {
+/* banner img {
   margin: auto;
   max-width: 100%;
   object-fit: contain;
   width: 100%;
- }
+ } */
+.banner {
+  display: grid;
+}
+.bannerImg{
+  width: 100%;
+  height: auto;
+}
+.bannerCaption {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background: var(--color1);
+}
+.bannerTxt{
+  color: var(--color2);
+  margin: calc(var(--sE) * 1px) 0;
+  text-align: left;
+  width: max-content;
+  margin: 20px auto;
+  margin-right:0;
+  /* background: red; */
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+.bannerTxt .block-editor-rich-text__editable strong{
+  color: currentColor!important;
+}
+.bannerTxt strong {
+  color: transparent;
+}
 
+
+.bannerLink {
+  background: var(--color3);
+  padding: .5em 1.5em;
+  margin: auto;
+  background: currentColor;
+}
+.bannerLink a {
+  margin: auto;
+  color:var(--color1);
+}
 
 /* ------------------------------------------- STRUCTURE ------------------------------------------- */
 
 /* -----------------------
          HEADER
 ----------------------- */
-header{
+
+.header{
   background: var(--color1);
+  color: var(--color2);
   display: grid;
-  text-align: center;
-  position: sticky!important;
-  position: -webkit-sticky!important;
-  top:var(--topCero);
-  z-index: 5;
-}
-#isoLogo{
-  color:var(--color2);
-  grid-row: 1;
-  grid-column: 1;
-  margin-left: var(--isoLogoMarginLeft);
-  transition: .3s;
-  transform: var(--isoLogoTransform);
-  width: min-content;
-}
-#espacioLaura{
-  grid-row: 1;
-  grid-column: 1;
-  margin:auto;
-  margin-right:calc(var(--sE) * 1px);
-  margin-top:var(--espacioLauraMarginTop);
-  margin-bottom:calc(var(--sE) * .5px);
-  grid-gap: calc(var(--sE) * .25px);
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  transition: .3s;
-}
-#espacioLaura a{height:min-content}
-header a:hover{color:var(--color3)}
-#logoHeader {
+  grid-auto-flow: column;
+  grid-template-columns: max-content 1fr;
+  justify-content: center;
+  align-items: center;
+  grid-gap: 20px;
+  padding: 20px;
+  position: sticky;
+  top:0;
+  z-index: 100;
   height: 80px;
-  margin: auto;
-  width: min-content;
 }
 
-#logoHeader img {
+
+.socialCont{
+
+}
+
+.socialLink {
+  fill:#D2AA6C;
+  height: 40px;
+  margin: 5px;
+  transition: 0.3s;
+}
+
+
+.logo{
   height: 100%;
   width: auto;
+  margin: auto;
 }
+
+.burger{
+  background: var(--color3);
+  border: none;
+  padding: 5px;
+  border-radius: 50%;
+  box-sizing: border-box;
+  height: 40px;
+  width:  40px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.burgerBar{
+  height: 6px;
+  width: 25px;
+  border-radius: 3px;
+  background: var(--color1);
+  margin: auto;
+}
+
+
+
+
+
+.navBarTop{
+  background: var(--color1);
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  text-align: center;
+  padding: 20px 10%;
+}
+.navBarTopLink{
+  color:var(--color2);
+}
+
+
+
+
+
+.fullMenu{
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  top:0;
+  /* left: 100%; */
+  left: 0;
+  background: var(--color1);
+  z-index: 200;
+  transition: .5s;
+  padding: 0;
+  margin: 0;
+}
+.fullMenu.active{left:0}
+.fullMenuBg{
+  position:absolute;
+  width: 90%;
+  margin: auto;
+  left:0;
+  right: 0;
+  bottom: 5%;
+  color: transparent;
+  z-index: 0;
+  transition: 0;
+  transition-delay: .5s;
+}
+.active .fullMenuBg{
+  color:#222;
+  transition: 2s;
+  transition-delay: 2s;
+}
+
+.close{
+  background: transparent;
+  border:none;
+  display: var(--onlyMobile);
+  cursor: pointer;
+  height: 30px;
+  width: 30px;
+  position:absolute;
+  top:0;
+  right: 0;
+  margin: .7rem;
+  transform: translateX(calc(30px + .7rem));
+  transition: .3s;
+  transition-delay: .7s;
+}
+.cross{
+  background: var(--color2);
+  border-radius: 2px;
+  height: 4px;
+  position: absolute;
+  transform-origin: center;
+  width: 100%;
+  transition: .3s;
+  transition-delay: 1s;
+}
+.active .close {transform:translateX(0)}
+.active .cross {transform:rotate( 45deg)}
+.active .cross2{transform:rotate(-45deg)}
+
+.menuNav{
+  display: grid;
+}
+.menuNavLink{
+  font-size: var(--size3);
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -810,7 +932,6 @@ header a:hover{color:var(--color3)}
   z-index: 6;
   transition: .3s;
 }
-#lupa.inactive{margin-right:var(--lupaMarginRight)}
 #lupa:hover ~ #buscador,
 #lupa:focus ~ #buscador,
 #buscador:hover,
@@ -849,107 +970,11 @@ header a:hover{color:var(--color3)}
   border: unset!important;
 }
 
-
-
-
-
-#headerSocial{
-  display: grid;
-  grid-template-columns:repeat(5,1fr);
-  grid-row: 1;
-  grid-column: 1;
-  grid-gap: 5px;
-  height: min-content;
-  margin: 0 auto;
-  margin-top:var(--headerSocialMarginTop);
-  margin-right:calc(var(--sE) * 1px);
-  transition: .3s;
-  width: min-content;
-}
-
-#headerSocial li{
-  align-items: center;
-  display: flex;
-  justify-content: center;
-}
-#headerSocial svg{
-  fill:var(--color3);
-  height: 20px;
-  transition: 0.25s;
-  width:  20px;
-}
 #twitterHeader:hover  {fill:#00aced}
 #facebookHeader:hover {fill:#3b5998}
 #instagramHeader:hover{fill:#E1306C}
 #linkedInHeader:hover {fill:#0e76a8}
 #youtubeHeader:hover  {fill:#ff0000}
-
-#navBar{
-  align-items:     center;
-  background: var(--color1);
-  box-sizing: border-box;
-  display: grid;
-  grid-template-columns: var(--navBarGTC);
-  grid-template-rows:    var(--navBarGTR);
-  height: var(--navBarHeight);
-  justify-content: space-between;
-  right: 0;
-  transform: translateX(100%);
-  padding: var(--navBarPadding);
-  position: var(--navBarPosition);
-  text-align:      center;
-  top:   calc(var(--topCero) + 80px);
-  width:  var(--navBarWidth);
-  z-index: 3;
-}
-#navBar.inactive{transform: var(--navBarTransform)}
-#headerMenu:focus+#navBar,#navBar:focus,#navBar:hover{transform: translateX(0);transition: transform .3s;}
-#navBar a{
-  color:var(--color2);
-  height: min-content;
-  left:0;
-  letter-spacing: 1px;
-  position: relative;
-  right:0;
-  text-transform: uppercase;
-  transition: all 0.25s ease;
-  width: max-content;
-}
-#navBar a:after {
-  background-color: white;
-  bottom: -4px;
-  content: "";
-  height: 2px;
-  left: 50%;
-  position: absolute;
-  transform: translateX(-50%);
-  -ms-transform: translateX(-50%);
-  -webkit-transform: translateX(-50%);
-  transition: 0.25s  all;
-  width: 0;
-}
-#navBar a:hover{color:var(--color3)}
-#navBar a:hover:after{width:100%}
-#navBar a.active:after{width:100%}
-
-#headerMenu{
-  align-items:     center;
-  background: var(--color3);
-  border-radius:50%;
-  color: var(--color1);
-  display: inline-flex;
-  height: 40px;
-  justify-content: center;
-  margin: 20px 10px;
-  transition: .3s;
-  right:  var(--headerMenuRight);
-  top:var(--topCero);
-  transform: var(--headerMenuTransform);
-  position: fixed;
-  width:  40px;
-  z-index: 5;
-}
-#headerMenu svg{width:60%;height:60%}
 
 
 
@@ -996,6 +1021,8 @@ header a:hover{color:var(--color3)}
 }
 #homeAtf .slide{
   display: grid;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 900;
   grid-column: 1;
   grid-row:  2;
   /* padding: 0 var(--homeSlidePaddingX); */
@@ -1021,6 +1048,7 @@ header a:hover{color:var(--color3)}
   color: var(--color2);
   grid-row:    1;
   grid-column: 1;
+  font-family: 'Roboto', sans-serif;
   height: auto;
   margin: auto;
   margin-right: 0;
@@ -1036,12 +1064,15 @@ header a:hover{color:var(--color3)}
 
 #homeAtf .slide #atfTitle {
   border-bottom: solid 1px rgba(255, 255, 255, .5);
+  font-family: 'Roboto', sans-serif;
   font-size: var(--size4);
+  width: min-content;
   padding: 10px 0;
 }
 
 #homeAtf .slide #atfCategory{
   color: #D2AA6C!important;
+  font-family: 'Roboto', sans-serif;
   font-size: var(--size5);
   padding: 10px 0;
   text-transform: uppercase;
@@ -1064,6 +1095,18 @@ header a:hover{color:var(--color3)}
   margin:auto;
   height:auto;
   width:20px
+}
+
+
+.buttonSlide {
+  background: var(--color3);
+  color:var(--color1);
+  font-size:var(--size8);
+  padding: .5em 1.5em;
+  margin: 1em 0;
+  cursor: pointer;
+  z-index: 2;
+  position: relative;
 }
 
 
