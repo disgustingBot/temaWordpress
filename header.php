@@ -48,7 +48,7 @@
 
 
     <nav class="navConocenos">
-      <h4 class="navConocenosTitle">Conócenos</h4>
+      <h4 class="navConocenosTitle">CONÓCENOS</h4>
       <a class="navConocenosLink" href="">Sobre nosotros</a>
       <a class="navConocenosLink" href="">Nuestro equipo</a>
       <a class="navConocenosLink" href="">Testimonios</a>
@@ -64,53 +64,61 @@
 
 
     <ul class="navFavoritos">
-      <h6 class="navFavoritosTitle">PRODUCTOS FAVORITOS</h6>
+      <h4 class="navFavoritosTitle">PRODUCTOS FAVORITOS</h4>
 
       <li class="navFavoritosItem">
         <a href="https://gaeasmartdata.com/" target="_blank">
-          <p class="footerNavTitles">GAEA SMART DATA <br> <span class="smallFooterTxt">Tus decisiones serán más CERTERAS</span></p>
+          <h6 class="navFavoritosItemTitle">GAEA SMART DATA</h6>
+          <p class="navFavoritosItemTxt">Tus decisiones serán más CERTERAS</p>
         </a>
       </li>
 
       <li class="navFavoritosItem">
         <a href="https://and7dclubs.com/" target="_blank">
-          <p class="footerNavTitles">&7DCLUBS <br> <span class="smallFooterTxt">Tu PROPIA Herramienta de COMUNIDAD</span></p>
+          <h6 class="navFavoritosItemTitle">&7DCLUBS</h6>
+          <p class="navFavoritosItemTxt">Tu PROPIA Herramienta de COMUNIDAD</p>
         </a>
       </li>
 
       <li class="navFavoritosItem">
         <a href="https://gaealearning.com/" target="_blank">
-          <p class="footerNavTitles">GAEALEARNING <br> <span class="smallFooterTxt">Formación para tu adaptación DIGITAL</span></p>
+          <h6 class="navFavoritosItemTitle">GAEALEARNING</h6>
+          <p class="navFavoritosItemTxt">Formación para tu adaptación DIGITAL</p>
         </a>
       </li>
 
       <li class="navFavoritosItem">
         <a href="https://aproposito.de/" target="_blank">
-          <p class="footerNavTitles">APROPOSITO.DE <br> <span class="smallFooterTxt">Tu tarjeta digital para sincronizar todo tu iUniverso</span></p>
+          <h6 class="navFavoritosItemTitle">APROPOSITO.DE</h6>
+          <p class="navFavoritosItemTxt">Tu tarjeta digital para sincronizar todo tu iUniverso</p>
         </a>
       </li>
 
       <li class="navFavoritosItem">
         <a href="http://nosotros.gaeapeople.com/" target="_blank">
-          <p class="footerNavTitles">GP+ ACTIVO WIFI <br> <span class="smallFooterTxt">¿Tienes un HOTSPOT? Conoce a tu audiencia</span></p>
+          <h6 class="navFavoritosItemTitle">GP+ ACTIVO WIFI</h6>
+          <p class="navFavoritosItemTxt">¿Tienes un HOTSPOT? Conoce a tu audiencia</p>
         </a>
       </li>
 
       <li class="navFavoritosItem">
         <a href="http://nosotros.gaeapeople.com/" target="_blank">
-          <p class="footerNavTitles">CONTENT MARKETING<br><span class="smallFooterTxt">Creamos tu contenido SEO</span></p>
+          <h6 class="navFavoritosItemTitle">CONTENT MARKETING</h6>
+          <p class="navFavoritosItemTxt">Creamos tu contenido SEO</p>
         </a>
       </li>
 
       <li class="navFavoritosItem">
         <a href="http://saludenlared.com/" target="_blank">
-          <p class="footerNavTitles">MEDICAL CONFERENCES CALENDAR <br> <span class="smallFooterTxt">La APP de agenda de eventos médicos que se conecta a tus webs</span></p>
+          <h6 class="navFavoritosItemTitle">MEDICAL CONFERENCES CALENDAR</h6>
+          <p class="navFavoritosItemTxt">La APP de agenda de eventos médicos que se conecta a tus webs</p>
         </a>
       </li>
 
       <li class="navFavoritosItem">
         <a href="http://nosotros.gaeapeople.com/" target="_blank">
-          <p class="footerNavTitles">CREADORES DE IDEAS<br><span class="smallFooterTxt">El espacio privado en tu web para ayudar a tu gente a INVENTAR</span></p>
+          <h6 class="navFavoritosItemTitle">CREADORES DE IDEAS</h6>
+          <p class="navFavoritosItemTxt">El espacio privado en tu web para ayudar a tu gente a INVENTAR</p>
         </a>
       </li>
     </ul>
@@ -146,8 +154,34 @@
       <a class="smallNavLink" href="">Sobre Nosotros</a>
     </nav>
 
+    <div class="suscriptions">
+      <a href="">Canal RSS</a>
+      <a href="">+ Subscribeme</a>
+    </div>
 
 
+    <?php $args = array(
+    	'smallest'                  => 10,
+    	'largest'                   => 12,
+    	'unit'                      => 'pt',
+    	'number'                    => 45,
+    	'format'                    => 'flat',
+      // 'separator'                 => "\n",
+      'separator'                 => " / ",
+    	'orderby'                   => 'name',
+    	'order'                     => 'ASC',
+    	'exclude'                   => null,
+    	'include'                   => null,
+    	'link'                      => 'view',
+    	'taxonomy'                  => 'post_tag',
+    	'echo'                      => true,
+    	'show_count'                  => 0,
+    	'child_of'                  => null, // see Note!
+    ); ?>
+    <div class="nubeEtiq">
+      <h5 class="nubeEtiqTitle">KWORDS</h5>
+      <?php wp_tag_cloud( $args ); ?>
+    </div>
 
 
 
