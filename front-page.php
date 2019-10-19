@@ -120,13 +120,13 @@ while($j<=2){ ?>
     while($blogPosts->have_posts()) {
       $blogPosts->the_post();$featuredID=get_the_ID(); ?>
       <figure class="post mainPost mainPost1">
+        <img class="mainImg" src="<?php echo get_the_post_thumbnail_url(get_the_ID()); ?>" alt="">
         <figcaption class="postFigcaption mainFigcaption mainFigcaption1">
           <a class="mainTxt postTxt" href="<?php the_permalink(); ?>"><h6 class="mainTxt postTxt"><?php the_title(); ?></h6></a>
           <?php if($i==0){ ?><a class="postMainTxt" href="<?php the_permalink(); ?>"><?php the_excerpt(); ?></a><?php } ?>
           <!-- <?php if(function_exists('the_views')){ ?><p class="vistoNVeces postTxt">👁 <?php the_views(); ?></p><?php } ?> -->
           <p class="postAuthor postTxt"><strong class="authorColor">Por <?php the_author(); ?></strong> - <?php the_time('M j, Y'); ?></p>
         </figcaption>
-        <img class="mainImg" src="<?php echo get_the_post_thumbnail_url(get_the_ID()); ?>" alt="">
       </figure>
     </div>
     <?php } $i=1;

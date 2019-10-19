@@ -79,8 +79,6 @@ Version: 1.0
 
     --bottomPostHeight: max-content;
 
-    --scndPostChild1Border: none;
-
     --nubeEtiquetasContainerHeight: 190px;
     --nubeEtiquetasContainerPadding: 10px 0px;
 
@@ -179,7 +177,6 @@ Version: 1.0
     --mainCorridorGridC: span 6;
     --scndCorridorGridC: span 6;
     --thrdCorridorGridC: span 6;
-    --mainCorridorBorder: none;
     --bottomPostContainerGridC: span 6;
     --bottomPostGridC: span 3;
     --postFigCaptionTextAlign: center;
@@ -307,7 +304,6 @@ Version: 1.0
     --corridorDisplay: flex;
     --scndCorridorImgBigHeight: 200px;
     --scondCorridorImgSmallHeight: 300px;
-    --mainCorridorBorder: solid 5px black;
     --bottomPostGridC: span 1;
 
     --bottomPostContainerMarginTop: 20px;
@@ -332,7 +328,6 @@ Version: 1.0
     --size8: calc(calc(var(--size8c) * 1px) + (var(--size8d) - var(--size8c)) * ((100vw - 768px) / (1200 - 768)));
 
 
-    --scndPostChild1Border: solid 2px black;
     --scndPost1Height: auto;
 
     --legalFooterFlexDirection: row;
@@ -1694,7 +1689,6 @@ blockquote::before {
   font-weight: bold;
   font-size: var(--size6);
   margin: calc(var(--sE) * .3px) 0;
-  text-align: center;
 }
 
 .postFigCaption {
@@ -1731,9 +1725,9 @@ blockquote::before {
 /* Main corridor */
 
 .mainCorridor {
-  border-right: var(--mainCorridorBorder);
   grid-column:  var(--mainCorridorGridC);
   padding: calc(var(--sE) * 1px);
+  padding-top:0;
 }
 
 .mainPost {
@@ -1746,7 +1740,7 @@ blockquote::before {
   max-height: var(--mainImgMaxHeight);
   flex: 3;
   margin: 0 auto;
-  margin-top:calc(var(--sE) * 1px);
+  margin-top: 0;
 }
 
 .postFigcaption {
@@ -1756,13 +1750,10 @@ blockquote::before {
 }
 
 .mainTxt {
-  font-size: var(--size3);
-  text-align: center;
+  font-size: var(--size4);
   margin: calc(var(--sE) * .5px) 0;
 }
-.postMainTxt{
-  text-align: justify;
-}
+
 .mainTxt2 {
   font-size: var(--size5);
   text-align: center;
@@ -1782,7 +1773,6 @@ blockquote::before {
 .scndPost:nth-child(1){
   grid-row:var(--scndPost1GR);
   margin: 0;
-  border-bottom: var(--scndPostChild1Border);
   height: var(--scndPost1Height);
 
 }
@@ -1891,8 +1881,7 @@ blockquote::before {
 .postAuthor {
   grid-column: 2;
   grid-row: 1;
-  margin: auto;
-  margin-bottom: 0;
+  margin: auto auto 0 0;
 }
 .postDate {
   grid-column: 2;
@@ -1980,7 +1969,9 @@ blockquote::before {
   display: var(--footerDisplay);
   grid-template-rows: 1fr auto auto;
   overflow: hidden;
-  background: black;--footerDisplay
+  background: black;
+  position: relative;
+  z-index: 6;
 }
 
 .footerLogo {
