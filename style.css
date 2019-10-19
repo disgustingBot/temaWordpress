@@ -425,8 +425,8 @@ Version: 1.0
         --footerNavTitlesFontSize: calc( var(--size8) * .8 );
         --footerInfoMarginBottom: 0px;
         --footerInfoHeight: 250px;
-        --footerLegalMarginTop: 70px;
-        --footerMapMarginTop: 50px;
+        --footerLegalMarginTop: 60px;
+        --footerMapMarginTop: 40px;
         --footerNavBarMarginTop: 20px;
         --footerNavBarItem: 0;
 
@@ -489,6 +489,14 @@ Version: 1.0
     --topCero: 32px;
     --topCero: 0px;
     --bannerProvisionalHeight: 400px;
+
+
+    --footerInfoMarginBottom: 0px;
+    --footerInfoHeight: 250px;
+    --footerLegalMarginTop: 40px;
+    --footerMapMarginTop: 20px;
+    --footerNavBarMarginTop: 0px;
+    --footerNavBarItem: 0;
   }}
 
 @media screen and (min-width: 992px) {
@@ -548,11 +556,11 @@ Version: 1.0
 
       --footerLogoWidth: 400px;
     --footerNavTitlesFontSize: calc( var(--size8) * .8 );
-    --footerInfoMarginBottom: 10px;
+    --footerInfoMarginBottom: 0px;
     --footerInfoHeight: 300px;
     --footerLegalMarginTop: 60px;
-    --footerMapMarginTop: 20px;
-    --footerNavBarMarginTop: 10px;
+    --footerMapMarginTop: 10px;
+    --footerNavBarMarginTop: 0px;
     --footerNavBarItem: 10px 0;
     --footerLegalListMargin: 5px 0;
     --footerLegalListFlexGrow: ;
@@ -599,12 +607,12 @@ Version: 1.0
           --size7: calc(var(--size7d) * 1px);
           --size8: calc(var(--size8d) * 1px);
 
-          --footerInfoMarginBottom: 30px;
+          --footerInfoMarginBottom: 10px;
           --footerInfoHeight: 450px;
           --footerLegalMarginTop: 180px;
           --footerMapMarginTop: 120px;
           --footerNavBarMarginTop: 80px;
-          --footerLegalListMargin: 20px 0;
+          --footerLegalListMargin: 10px 0;
           --footerLegalListFlexGrow: 2;
           --footerSocialSvg: 30px;
 
@@ -617,9 +625,9 @@ Version: 1.0
 @media  screen and (min-width: 1400px) {
     :root {
       --footerInfoHeight: 400px;
-      --footerLegalMarginTop: 160px;
-      --footerMapMarginTop: 80px;
-      --footerNavBarMarginTop: 40px;
+      --footerLegalMarginTop: 140px;
+      --footerMapMarginTop: 60px;
+      --footerNavBarMarginTop: 20px;
       --footerNavTitlesFontSize: var(--size6);
       --footerLegalFontSize: var(--size5);
       --footerMapListJustification: space-around;
