@@ -8,6 +8,13 @@ const headerNavB = d.querySelector('#navBar');
 const lupa = d.querySelector('#lupa');
 
 
+w.onload=()=>{
+  // REMOVE LOADER ANIMATION
+  d.getElementById("load").style.top="-100vh";
+}
+
+
+
 const options = {
   root: null, // it is the viewport, that's the default
   threshold: 1, // that's the default
@@ -39,17 +46,15 @@ const observer = new IntersectionObserver(function(entries, observer){
 const observer2 = new IntersectionObserver(function(entries, observer2){
   entries.forEach(entry => {
     if (entry.isIntersecting) {
-      // headerMenu.classList.add("inactive");
-      entry.target.querySelector(".markerFirstLetter").style.marginLeft = "0";
-      entry.target.querySelector(".markerFirstLetter").style.opacity = "1";
+      c.log(entry.target)
+      entry.target.querySelector(".firstLetter").style.marginLeft = "0";
+      entry.target.querySelector(".firstLetter").style.opacity = "1";
 
 
-      entry.target.querySelector(".markerSecondLetter").style.marginRight = "0";
-      entry.target.querySelector(".markerSecondLetter").style.opacity = "1";
+      entry.target.querySelector(".secondLetter").style.marginRight = "0";
+      entry.target.querySelector(".secondLetter").style.opacity = "1";
       c.log("activate!");
-      // c.log(entry.target);
-    } else {
-      // headerSocl.classList.remove("inactive");
+      observer2.unobserve(entry.target);
     }
   })
 }, options);

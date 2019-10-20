@@ -11,15 +11,16 @@
   <script async src="https://cse.google.com/cse.js?cx=012193554652871164598:n4tjkqqjkvp"></script>
 </head>
 <body>
+  <view id="load" class="load"><div class="circle"></div></view>
   <header class="header" id="header">
 
 
     <nav class="navCategories">
-      <a class="navCategoriesLink" href="">Marketing Strategy</a>
-      <a class="navCategoriesLink" href="">Digital Health</a>
-      <a class="navCategoriesLink" href="">Tech Channel</a>
-      <a class="navCategoriesLink" href="">Cool Content</a>
-      <a class="navCategoriesLink" href="">Events</a>
+      <a class="navCategoriesLink subrayable<?php if(is_category("marketing-estrategia")){echo ' subrayado"';} ?>" href="<?php echo site_url('/category/marketing-estrategia'); ?>">Marketing Strategy</a>
+      <a class="navCategoriesLink subrayable<?php if(is_category("salud-digital")){echo ' subrayado"';} ?>" href="<?php echo site_url('/category/salud-digital'); ?>">Digital Health</a>
+      <a class="navCategoriesLink subrayable<?php if(is_category("canal-digital")){echo ' subrayado"';} ?>" href="<?php echo site_url('/category/canal-digital'); ?>">Tech Channel</a>
+      <a class="navCategoriesLink subrayable<?php if(is_category("seo-contenidos")){echo ' subrayado"';} ?>" href="<?php echo site_url('/category/seo-contenidos'); ?>">Cool Content</a>
+      <a class="navCategoriesLink subrayable<?php if(is_category("events")){echo ' subrayado"';} ?>" href="<?php echo site_url('/category/events'); ?>">Events</a>
     </nav>
 
 
@@ -149,9 +150,9 @@
     </svg>
 
     <nav class="smallNav">
-      <a class="smallNavLink" href="">Productos Favoritos</a>
+      <a class="smallNavLink" href="#footer">Productos Favoritos</a>
       <span> / </span>
-      <a class="smallNavLink" href="">Sobre Nosotros</a>
+      <a class="smallNavLink" href="https://www.gaeapeople.com" target="_blank">Sobre Nosotros</a>
     </nav>
 
     <div class="suscriptions">
@@ -166,7 +167,6 @@
     	'unit'                      => 'pt',
     	'number'                    => 45,
     	'format'                    => 'flat',
-      // 'separator'                 => "\n",
       'separator'                 => " / ",
     	'orderby'                   => 'name',
     	'order'                     => 'ASC',
@@ -196,9 +196,9 @@
 
 
   <nav class="navBarTop">
-    <a class="navBarTopLink" href="">Marketing Strategy</a>
-    <a class="navBarTopLink" href="">Digital Health</a>
-    <a class="navBarTopLink" href="">Tech Channel</a>
-    <a class="navBarTopLink" href="">Cool Content</a>
-    <a class="navBarTopLink" href="">Events</a>
+    <a class="navBarTopLink subrayable<?php if(is_category("marketing-estrategia")){echo ' subrayado"';} ?>" href="<?php echo site_url('/category/marketing-estrategia'); ?>">Marketing Strategy</a>
+    <a class="navBarTopLink subrayable<?php if(is_category("salud-digital")){echo ' subrayado"';} ?>" href="<?php echo site_url('/category/salud-digital'); ?>">Digital Health</a>
+    <a class="navBarTopLink subrayable<?php if(is_category("canal-digital")){echo ' subrayado"';} ?>" href="<?php echo site_url('/category/canal-digital'); ?>">Tech Channel</a>
+    <a class="navBarTopLink subrayable<?php if(is_category("seo-contenidos")){echo ' subrayado"';} ?>" href="<?php echo site_url('/category/seo-contenidos'); ?>">Cool Content</a>
+    <a class="navBarTopLink subrayable<?php if(is_category("events")){echo ' subrayado"';} ?>" href="<?php echo site_url('/category/events'); ?>">Events</a>
   </nav>
