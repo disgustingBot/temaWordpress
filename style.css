@@ -74,7 +74,6 @@ Version: 1.0
     /* header */
     --headerGTC:2fr 1fr 1fr;
     --navFavoritosGTC: min-content;
-    --navCategoriesLinkFontSize:var(--size4);
     --navFavoritosItemTxtDisplay:none;
     --socialContMarginLeft:-300px;
     --smallNavTransform:350px;
@@ -83,6 +82,11 @@ Version: 1.0
 
 
 
+    --relatedSectionGTC:1fr;
+    --relatedFlexDirection:column;
+    --relatedFlexDirectionRev:column-reverse;
+    --relatedPostImgHeight1:100px;
+    --relatedPostImgHeight2:100px;
 
 
 
@@ -149,7 +153,6 @@ Version: 1.0
     --postMargin:  20px auto;
     --postMainGTC: 1fr;
     --postMainGridGap: calc(var(--sE) * 1px);
-    --postRelatedListGTR: 1fr .4fr .4fr .4fr 1fr;
     --postRelatedListLi3th: span 2;
     --postRelatedListLi5th: 3 / span 3;
 
@@ -163,7 +166,6 @@ Version: 1.0
     --archiveAtfFigcaptionMaxWidth: 80%;
     --archiveSectionFigcaptionPadding:0;
     --archiveSectionGTR:  1fr .4fr 1fr .5fr .5fr .5fr 1fr;
-    --archiveTitleTxtAlign: center;
 
 
     --pageNumbersPadding: .5em 1em;
@@ -173,14 +175,6 @@ Version: 1.0
 
     --hirschman: 1;
     --omedi: 2;
-
-    --related1GR:span 2;
-    --related2GR:span 2;
-    --related3GR:span 1;
-    --related4GR:span 1;
-    --related5GR:span 2;
-    --related6GR:span 2;
-
 
     --separationStandar: 10;
     --categorySectionHeight: min-content;
@@ -293,15 +287,20 @@ Version: 1.0
   --size6: calc(calc(var(--size6a) * 1px) + (var(--size6b) - var(--size6a)) * ((100vw - 360px) / (768 - 360)));
   --size7: calc(calc(var(--size7a) * 1px) + (var(--size7b) - var(--size7a)) * ((100vw - 360px) / (768 - 360)));
   --size8: calc(calc(var(--size8a) * 1px) + (var(--size8b) - var(--size8a)) * ((100vw - 360px) / (768 - 360)));
+
+  --navCategoriesLinkFontSize:var(--size5);
 }}
 @media screen and (min-width: 576px) {
   :root {
     --homeSlideImgWidth:calc(100% - var(--sE) * 3px);
     --homeSectionPadding: calc(var(--sE) * 1px);
+    --navCategoriesLinkFontSize:var(--size4);
     --commentFormGTC:1fr 1fr;
     --secondColumn: 2;
 
 
+    --relatedFlexDirection:row;
+    --relatedFlexDirectionRev:row-reverse;
 
     --archiveAtfCardGC: span 4;
     --archiveAtfCard3GC:span 4;
@@ -431,7 +430,6 @@ Version: 1.0
     --archiveSectionGTC:3fr 2fr 2fr;
     --archiveSectionGTR: 1fr .5fr .5fr .5fr 1fr;
     --archiveSectionFigcaptionPadding:calc(var(--sE) * 1px);
-    --archiveTitleTxtAlign: left;
 
 
 
@@ -528,7 +526,6 @@ Version: 1.0
     --homeAtfImgMargin: 0;
 
 
-    --postRelatedListGTR: 1fr .3fr 1fr;
     --postRelatedListLi3th: 3 / span 3;
     --postRelatedListLi5th: span 3;
 
@@ -536,13 +533,13 @@ Version: 1.0
     --homeAtfGridTemplateR: min-content 80vh;
 
 
+    --relatedSectionGTC:1fr 1fr 1fr;
+    --relatedFlexDirection:column;
+    --relatedFlexDirectionRev:column-reverse;
+    --relatedPostImgHeight1:120px;
+    --relatedPostImgHeight2: 80px;
 
-      --related1GR:span 1;
-      --related2GR:span 2;
-      --related3GR:span 2;
-      --related4GR:span 1;
-      --related5GR:span 1;
-      --related6GR:span 2;
+
 
       --mainCorridorGridC: span 3;
       --scndCorridorGridC: span 2;
@@ -694,14 +691,6 @@ a  { font-size: var(--size7)}
 /* A este comentario lo vamos a borrar tambien */
 
 
-/* ESTO es para que el editor de bloques Gutenberg sea WIDE!!! */
-body.gutenberg-editor-page .editor-post-title__block,
-body.gutenberg-editor-page .editor-default-block-appender,
-body.gutenberg-editor-page .editor-block-list__block,
-.block-editor__container .wp-block{max-width:none!important}
-
-
-
 
 /* ----------------------------------------- LOGIC FOLD/ ----------------------------------------- */
 /* -------------------------------------------- FONTS -------------------------------------------- */
@@ -727,6 +716,41 @@ section {
 }
 
 h1 {color:rgba(255,255,255,0)}
+
+
+
+
+/* ---------------------------------------------------------------------------
+------------------------------------------------------------------------------
+                               6.1) =load:
+------------------------------------------------------------------------------
+--------------------------------------------------------------------------- */
+.load{
+  background: var(--color2);
+  display: grid;
+  height: 100vh;
+  left:0;
+  position: fixed;
+  top:0;
+  transition:.5s;
+  width:100%;
+  z-index: 10000;
+}
+.circle{
+  animation: wheel 1s infinite;
+  border-radius: 50%;
+  border-top: 2px solid var(--color1);
+  height: 50px;
+  margin: auto;
+  width:  50px;
+}
+@keyframes wheel{to{transform:rotate(360deg)}}
+
+
+
+
+
+
 
 banner {
   background-color: rgb(244, 244, 244);
@@ -800,20 +824,16 @@ banner {
   color: var(--color2);
   display: grid;
   grid-auto-flow: column;
-  /* grid-template-columns: 1fr 1fr 2fr; */
   grid-template-columns:var(--headerGTC);
-  /* grid-template-rows: 1fr 1fr 2fr; */
   justify-content: center;
   align-items: center;
-  grid-gap: 20px;
+  /* grid-gap: 20px; */
   padding: 10px 20px;
-  /* padding-top:var(--headerPaddingTop); */
   padding-top:80px;
   position: sticky;
   top:       calc(-100vh + 80px);
   margin-top:calc(-100vh + 80px);
   z-index: 100;
-  /* height: 60px; */
   height: 100vh;
   transition:.5s;
   overflow: hidden;
@@ -853,12 +873,12 @@ banner {
   z-index: 2;
 }
 .navCategoriesLink{
-  /* font-size: calc(var(--size4) + 4px); */
   font-size: var(--navCategoriesLinkFontSize);
   margin-top: -200px;
   opacity: 0;
   transition:opacity .2s, margin-top .2s;
   transition-delay: 0;
+  color:var(--color2);
 }
 .active .navCategoriesLink{opacity: 1;margin-top:0;}
 
@@ -908,7 +928,6 @@ banner {
   grid-column: 3;
   grid-row: 1/4;
   display: grid;
-  /* grid-template-columns:1fr 1fr; */
   grid-template-columns:var(--navFavoritosGTC);
   grid-column-gap: 10px;
   height: 60vh;
@@ -961,10 +980,8 @@ banner {
   padding-right: var(--smallNavPaddingRight);
   margin-top: auto;
   margin-bottom: 20px;
-  /* padding-left: 112px; */
   padding-left: var(--smallNavPaddingLeft);
   transform:translateX(var(--smallNavTransform));
-  /* white-space: pre-wrap; */
   transition: .3s;
   transition-delay:0;
 }
@@ -982,7 +999,6 @@ banner {
 }
 
 .nubeEtiq{
-  /* display: grid; */
   grid-template-columns: 1fr 1fr;
   grid-row: 2/4;
   grid-column: 2;
@@ -1069,13 +1085,17 @@ banner {
 
 .navBarTop{
   background: var(--color1);
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  display: flex;
+  flex-wrap: wrap;
+  /* grid-template-columns: repeat(5, max-content); */
+  justify-content: space-around;
   text-align: center;
   padding: 20px 10%;
 }
 .navBarTopLink{
   color:var(--color2);
+  padding:5px 0;
+  margin: 0 10px;
 }
 
 
@@ -1083,6 +1103,34 @@ banner {
 
 
 
+/* ---------------------------------------------------------------------------
+------------------------------------------------------------------------------
+                          6.6.1) =subrayable:
+------------------------------------------------------------------------------
+--------------------------------------------------------------------------- */
+.subrayable{
+  /* color:var(--color1); */
+  display: flex;
+  align-items: center;
+  align-content: center;
+  position: relative;
+  text-decoration:none;
+  text-transform: uppercase;
+}
+.subrayable::after{
+  content:'';
+  position: absolute;
+  bottom: 0;
+  width:100%;
+  height: 3px;
+  background:var(--color3);
+  left:0;
+  transform-origin:0;
+  transform:scaleX(0);
+  transition: .3s;
+}
+.subrayable:hover::after{transform-origin:right;transform:scaleX(1);}
+.subrayado::after{transform:scaleX(1);}
 
 
 
@@ -1175,6 +1223,7 @@ banner {
   transition: .3s;
   width:  50px;
   z-index:   2;
+  transform: translateY(-200%);
 }
 .slideButton:hover{box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22)}
 .slideLeft {margin-left:  var(--homeSlideButtonMarginX)}
@@ -1305,7 +1354,10 @@ banner {
   color: var(--color1);
   margin: calc(var(--sE) * 1px) 0;
   font-size: var(--size3);
-  text-align: var(--archiveTitleTxtAlign);
+  text-align: center;
+}
+.archiveDescription{
+  text-align: justify;
 }
 
 #archiveNav {
@@ -1489,33 +1541,49 @@ banner {
   max-width:  calc((100vw - 212px) / 5);
 }
 
-.postRelated{
+.relatedSection{
   border-top: 2px solid var(--color1);
   display: grid;
+  /* grid-gap: 20px; */
+  grid-template-columns:var(--relatedSectionGTC);
   margin-top: calc(var(--sE) * 1px);
 }
-.postRelated h3{
+.relatedSection h3{
   background: var(--color1);
   color: var(--color2);
+  grid-column: 1/-1;
   margin:auto;
   margin-bottom: calc(var(--sE) * 1px);
   margin-right:0;
   padding: calc(var(--sE) * .5px);
   padding-left: calc(var(--sE) * 4px);
 }
-#postRelatedList {
-  display: grid;
-  grid-gap: calc(var(--sE) * 1px);
-  grid-template-rows: 1fr .4fr .4fr .4fr 1fr;
-  grid-template-rows: var(--postRelatedListGTR);
-  grid-auto-flow: column dense;
+
+
+.relatedFlex{
+  display: flex;
+  flex-direction: var(--relatedFlexDirection);
 }
-#postRelatedList .related1{grid-row:var(--related1GR)}
-#postRelatedList .related2{grid-row:var(--related2GR)}
-#postRelatedList .related3{grid-row:var(--related3GR)}
-#postRelatedList .related4{grid-row:var(--related4GR)}
-#postRelatedList .related5{grid-row:var(--related5GR)}
-#postRelatedList .related6{grid-row:var(--related6GR)}
+.relatedFlex:nth-child(3){flex-direction: var(--relatedFlexDirectionRev)}
+
+.relatedFlex>:nth-child(1){flex:3 1 calc(60% - 1rem)}
+.relatedFlex>:nth-child(2){flex:2 1 calc(40% - 1rem)}
+
+.relatedPost{
+  margin:10px;
+}
+.relatedPostImg{
+  width: 100%;
+  object-fit: cover;
+}
+
+.relatedFlex>:nth-child(1) .relatedPostImg{height:var(--relatedPostImgHeight1);}
+.relatedFlex>:nth-child(2) .relatedPostImg{height:var(--relatedPostImgHeight2);}
+
+
+
+
+
 
 .comments ul{ margin-left: calc(var(--sE) * 1px);}
 .comments li{margin: calc(var(--sE) * 1px) 0;}
@@ -1638,14 +1706,15 @@ input, textarea {
 .sectionMarker {
   box-sizing: border-box;
   width: min-content;
-  height: var(--sectionMarkerHeight);
+  /* height: var(--sectionMarkerHeight); */
+  height: min-content;
   display: grid;
   color:var(--color1);
   width: 100%;
   /* position: -webkit-sticky; */
   position: var(--sectionMarkerPosition);
   grid-column: var(--sectionMarkerGC);
-  top: calc(var(--topCero) + 50% - 130px);
+  top: calc(var(--topCero) + 50% - var(--size1) - var(--size3));
   z-index: 0;
   padding: var(--sectionMarkerPadding);
 }
@@ -1656,16 +1725,24 @@ input, textarea {
   text-decoration: var(--sectionMarkerTextDecoration);
   font-size: var(--sectionMarkerFontSize);
 }
-.markerLetter {
-  fill: var(--color3);
-  height: 100px;
-  max-width: 100%;
-  transition:.4s;
+
+.superLetter{
+  font-size: calc(var(--size1) + var(--size3));
+  line-height: calc(var(--size1) + var(--size3));
+  color:var(--color3);
+  font-family: 'Bitter', serif;
+  text-transform: lowercase;
   opacity:0;
   display: var(--sectionMarkerDisplay);
 }
-.markerFirstLetter  {margin: 0 auto auto -100px;}
-.markerSecondLetter {margin: auto -100px 0 auto;}
+.firstLetter{
+  margin: 0 auto auto -100px;
+}
+.secondLetter{
+  text-align: right;
+  margin: auto -100px 0 auto;
+}
+
 
 
 

@@ -1,6 +1,6 @@
 
 
-<footer class="footer">
+<footer class="footer" id="footer">
   <img class="footerBackground rowCol1" src="<?php echo get_template_directory_uri(); ?>/img/nuevoEquipo.jpg" alt="Ilustración del equipo de GaeaPeople">
   <svg class="footerLogo rowCol1" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
   	 width="350.399px" height="85.164px" viewBox="8.892 28.215 350.399 85.164" enable-background="new 8.892 28.215 350.399 85.164"

@@ -1,7 +1,7 @@
 <?php
 
 function en_el_init(){
-  wp_enqueue_style('style', get_stylesheet_uri(), NULL, microtime(), 'all');
+  // wp_enqueue_style('style', get_stylesheet_uri(), NULL, microtime(), 'all');
   // Register block editor script for backend.
   wp_register_script(
     'bannersbuild-cgb-block-js', // Handle.

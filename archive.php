@@ -13,15 +13,12 @@
 
   <?php if(function_exists('yoast_breadcrumb')){yoast_breadcrumb('<p id="breadcrumbs">','</p>');} ?>
   <h1 id="archiveTitle"><?php the_archive_title(); ?></h1>
-  <?php
-    the_archive_description( '<div class="archiveDescription">', '</div>' );
-  ?>
-  <?php
-  $category = get_queried_object();
+  <?php the_archive_description( '<div class="archiveDescription">', '</div>' ); ?>
 
+  <?php $category = get_queried_object();
   if(is_category()){
     $args = array('parent' => $category->term_id);
-    $args = array('child_of' => $category->term_id);
+    // $args = array('child_of' => $category->term_id);
     $categories = get_categories( $args );
     // var_dump($categories[0]);
     if ($categories) { ?>
