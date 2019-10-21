@@ -10,7 +10,9 @@ const lupa = d.querySelector('#lupa');
 
 w.onload=()=>{
   // REMOVE LOADER ANIMATION
-  d.getElementById("load").style.top="-100vh";
+  // d.getElementById("load").style.top="-100vh";
+  // d.getElementById("load").classList.add("loaded");
+  d.getElementById("header").classList.remove("loading");
 }
 
 

@@ -168,19 +168,19 @@ while($j<=2){ ?>
 <banner>
 
   <?php
-    $categorySlug = 'marketing-strategy';
-    $args = array(
-      'post_type'=>'banner',
-      'posts_per_page'=>1,
-    );
-    $blogPosts=new WP_Query($args);
-    while($blogPosts->have_posts()){ $blogPosts->the_post();the_content(); }
+    // $categorySlug = 'marketing-strategy';
+    // $args = array(
+    //   'post_type'=>'banner',
+    //   'posts_per_page'=>1,
+    // );
+    // $blogPosts=new WP_Query($args);
+    // while($blogPosts->have_posts()){ $blogPosts->the_post();the_content(); }
   ?>
 
   <?php
   switch ($j) {
     case 0:
-      // echo do_shortcode("[the_ad id='151']");
+      echo do_shortcode("[the_ad id='233']");
       break;
     case 1:
       echo do_shortcode("[the_ad_group id='1623']");
