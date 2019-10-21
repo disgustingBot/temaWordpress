@@ -2573,11 +2573,26 @@ blockquote::before {
 #footerLinkedIn:hover  {fill:#0e76a8}
 #footerYouTube:hover   {fill:#ff0000}
 
+.newsletterForm {
+  position: fixed;
+  z-index: 100;
+  bottom: 0;
+  right: 0;
+  width: 400px;
+  height: 300px;
+  background: rgba(0,0,0,0.8);
+  color: white;
+  padding: 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
 
-/*
-SAFARI:  CHECK
-CHROME:  CHECK
-OPERA:   CHECK
-CHROME:  CHECK
-FIREFOX: CHECK
-*/
+.newsletterForm>* {
+  margin: auto;
+}
+
+
+.newsletterForm>* input, textarea {
+  background: var(--color3);
+}

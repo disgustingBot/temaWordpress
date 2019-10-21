@@ -198,6 +198,7 @@ while($j<=2){ ?>
 
 <?php $j++;} ?>
 
+<?php echo do_shortcode("[mc4wp_form id='190']")   ?>
 
 
 <?php get_footer(); ?>
