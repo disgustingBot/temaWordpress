@@ -414,7 +414,6 @@ Version: 1.0
     --scndCorridorImgBigWidth: 100%;
 
 
-    --homeAtfGridTemplateR: min-content 70vh;
 
 
     --atfTitleWidth: auto;
@@ -656,7 +655,7 @@ Version: 1.0
       --scndCorridorImgBigWidth: 80%;
       --homeATFPadding: 0 15%;
       --homeAtfGridTemplateR: min-content 70vh;
-      --homeSlideFigcaptionPadding: calc(var(--sE) * 3px);
+      --homeSlideFigcaptionPadding: calc(var(--sE) * 2px);
 
 
 
@@ -925,10 +924,13 @@ banner {
   margin: auto;
   margin-top: 0;
   position: relative;
+  padding-left: 40px;
   z-index: 2;
 }
 .navCategoriesLink{
   font-size: var(--navCategoriesLinkFontSize);
+  font-weight: 600;
+  text-transform: capitalize;
   margin-top: -200px;
   opacity: 0;
   transition:opacity .2s, margin-top .2s;
@@ -1170,7 +1172,6 @@ banner {
   align-content: center;
   position: relative;
   text-decoration:none;
-  text-transform: uppercase;
 }
 .subrayable::after{
   content:'';
@@ -1273,12 +1274,13 @@ banner {
   height: 50px;
   grid-column: 1;
   grid-row:  2;
-  margin: auto;
   position: relative;
   transition: .3s;
   width:  50px;
   z-index:   2;
-  transform: translateY(-200%);
+  margin: 0 auto;
+  /* transform: translateY(-200%) translateZ(0);
+   */
 }
 .slideButton:hover{box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22)}
 .slideLeft {margin-left:  var(--homeSlideButtonMarginX)}
