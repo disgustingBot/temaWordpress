@@ -2596,3 +2596,7 @@ blockquote::before {
 .newsletterForm>* input, textarea {
   background: var(--color3);
 }
+
+.newsletterForm {
+  
+}
