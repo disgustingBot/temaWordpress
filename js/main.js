@@ -124,5 +124,5 @@ function carousel() {
 //newsletter behavior
 
 function closeNewsLetter() {
-  document.getElementById('mc4wp-form-1').style.bottom = '-500px';
+  document.querySelector('#mc4wp-form-1').style.bottom = '-500px';
 }

@@ -2691,7 +2691,7 @@ blockquote::before {
   right: 0;
   transition: .5s;
   width: var(--newsLetterAdWidth);
-  z-index: 100;
+  z-index: 2;
 }
 
 .isoNewsletter {width: 60px;}
@@ -2721,6 +2721,7 @@ blockquote::before {
   position: absolute;
   top: 20px;
   user-select: none;
+  border: none;
 }
 
 .newsletterForm>* {margin: 5px 0;}

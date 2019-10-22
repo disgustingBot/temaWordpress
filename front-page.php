@@ -24,11 +24,7 @@
 </section>
 
 
-<div class="bannerContainer">
-  <img src="" alt="src="<?php echo get_template_directory_uri(); ?>/img/nuevoEquipo.jpg" alt="Ilustración del equipo de GaeaPeople"">
-</div>
 
-<!--
 <figure class="banner actua">
   <img class="bannerImg" src="http://localhost/Gaea/wp-content/uploads/2019/10/actua-300x67.png" alt="" />
   <figcaption class="bannerCaption">
@@ -37,10 +33,6 @@ Conoce a tu audiencia y <span class="colorText">SOCIALIZA</span> tu web.</p>
     <p class="bannerLink"><a href="">Sí, quiero conseguir mi informe</a></p>
   </figcaption>
 </figure>
--->
-
-
-
 
 
 
@@ -169,15 +161,6 @@ while($j<=2){ ?>
 
 <banner>
 
-  <?php
-    // $categorySlug = 'marketing-strategy';
-    // $args = array(
-    //   'post_type'=>'banner',
-    //   'posts_per_page'=>1,
-    // );
-    // $blogPosts=new WP_Query($args);
-    // while($blogPosts->have_posts()){ $blogPosts->the_post();the_content(); }
-  ?>
 
   <?php
   switch ($j) {
@@ -201,8 +184,6 @@ while($j<=2){ ?>
 <?php $j++;} ?>
 
 <?php echo do_shortcode("[mc4wp_form id='190']")   ?>
-
-
 
 
 <?php get_footer(); ?>
