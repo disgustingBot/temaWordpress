@@ -83,6 +83,8 @@ Version: 1.0
     --bannerCaptionGridTemplateC: 1fr;
     --bannerTxtMargin: 10px auto;
     --bannerTxtAlign: center;
+    --bannerLinkMargin: 5px auto;
+    --bannerPadding: 0;
 
     /* header */
     --headerGCG:20px;
@@ -379,6 +381,7 @@ Version: 1.0
     --bannerCaptionGridTemplateC: 1fr 1fr;
     --bannerTxtMargin: 20px 0 20px auto;
     --bannerTxtAlign: left;
+    --bannerPadding: calc(var(--sE) * 1px);
 
 
 
@@ -841,7 +844,7 @@ banner {
   color: var(--color2);
   display: grid;
   height: min-content;
-  padding: calc(var(--sE) * 1px);
+  padding: var(--bannerPadding);
   text-align: center;
   width: calc(100% - calc(var(--sE) * 2px));
   margin: calc(var(--sE) * 1px);
@@ -882,10 +885,10 @@ banner {
 .bannerLink {
   background: #BC5090;
   padding: .5em 1.5em;
-  margin: auto;
+  margin: var(--bannerLinkMargin);
   max-width: 80%!important;
   font-weight: bold;
-  text-align: left;
+  text-align: var(--bannerTxtAlign);
 }
 .bannerLink a {
   margin: auto;
