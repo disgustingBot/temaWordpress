@@ -119,3 +119,10 @@ function carousel() {
   x[slideIndex-1].classList.remove("inactive");
   setTimeout(carousel, 10000); // Change image every 8 seconds
 }
+
+
+//newsletter behavior
+
+function closeNewsLetter() {
+  document.getElementById('mc4wp-form-1').style.bottom = '-500px';
+}

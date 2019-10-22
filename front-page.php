@@ -24,7 +24,9 @@
 </section>
 
 
-
+<div class="bannerContainer">
+  <img src="" alt="src="<?php echo get_template_directory_uri(); ?>/img/nuevoEquipo.jpg" alt="Ilustración del equipo de GaeaPeople"">
+</div>
 
 <!--
 <figure class="banner actua">
@@ -199,6 +201,8 @@ while($j<=2){ ?>
 <?php $j++;} ?>
 
 <?php echo do_shortcode("[mc4wp_form id='190']")   ?>
+
+
 
 
 <?php get_footer(); ?>
