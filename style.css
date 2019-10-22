@@ -40,9 +40,18 @@ Version: 1.0
   /* COLORS */
   /* Al editar colores siempre usar HEX y nunca
   dejar espacio entre los dos puntos y el color */
+
   --color1:#0F0F0F;
   --color2:#FFFFFF;
   --color3:#D2AA6C;
+  --colorAnaliza: #FF6362;
+  --colorActua: #BC5090;
+  --colorSocializa: #FFA602;
+  --colorPreparate: #8F80FF;
+  --colorDigitaliza: #5ECD66;
+  --colorCrea: #5095FF;
+  --colorDiferenciate: #FE594E;
+
   /* --color4:#EBE1C8; */
   /* --color5:#F5F0DC; */
   /* --color6:#FFFAE6; */
@@ -70,6 +79,10 @@ Version: 1.0
   --size8: calc(var(--size8a) * 1px);
 
 /*VARIABLES DE CAMBIO VISUAL RELACIONADO A AL ANCHO DE LA PANTALLA*/
+
+    --bannerCaptionGridTemplateC: 1fr;
+    --bannerTxtMargin: 10px auto;
+    --bannerTxtAlign: center;
 
     /* header */
     --headerGCG:20px;
@@ -361,6 +374,12 @@ Version: 1.0
     --size6: calc(calc(var(--size6c) * 1px) + (var(--size6d) - var(--size6c)) * ((100vw - 768px) / (1200 - 768)));
     --size7: calc(calc(var(--size7c) * 1px) + (var(--size7d) - var(--size7c)) * ((100vw - 768px) / (1200 - 768)));
     --size8: calc(calc(var(--size8c) * 1px) + (var(--size8d) - var(--size8c)) * ((100vw - 768px) / (1200 - 768)));
+
+
+    --bannerCaptionGridTemplateC: 1fr 1fr;
+    --bannerTxtMargin: 20px 0 20px auto;
+    --bannerTxtAlign: left;
+
 
 
     /* header */
@@ -815,24 +834,6 @@ h1 {color:rgba(255,255,255,0)}
 .loaded.load{
   background-color: transparent;
 }
-/* .circle{
-  animation: wheel 1s infinite;
-  border-radius: 50%;
-  height: 50px;
-  transition:1s;
-  margin: auto;
-  width:  50px;
-}
-.loaded .circle{
-  width: 0;
-  height:0;
-}
-@keyframes wheel{to{transform:rotate(360deg)}} */
-
-
-
-
-
 
 
 banner {
@@ -847,12 +848,7 @@ banner {
   box-sizing: border-box;
 }
 
-/* banner img {
-  margin: auto;
-  max-width: 100%;
-  object-fit: contain;
-  width: 100%;
- } */
+
 .banner {
   display: grid;
 }
@@ -862,22 +858,20 @@ banner {
 }
 .bannerCaption {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: var(--bannerCaptionGridTemplateC);
   background: var(--color1);
 }
 .bannerTxt{
   color: var(--color2);
   margin: calc(var(--sE) * 1px) 0;
   text-align: left;
-  /* width: max-content; */
   width: 80%;
-  margin: 20px auto;
-  margin-right:0;
-  /* background: red; */
+  margin: var(--bannerTxtMargin);
   background-clip: text;
   -webkit-background-clip: text;
+  text-align: var(--bannerTxtAlign);
 }
-.bannerTxt .block-editor-rich-text__editable strong{
+.bannerTxt .block-editor-rich-text__editable strong {
   color: currentColor!important;
 }
 .bannerTxt strong {
@@ -886,18 +880,40 @@ banner {
 
 
 .bannerLink {
-  background: var(--color3);
+  background: #BC5090;
   padding: .5em 1.5em;
   margin: auto;
-  background: currentColor;
-  /* width:100px; */
   max-width: 80%!important;
+  font-weight: bold;
+  text-align: left;
 }
 .bannerLink a {
   margin: auto;
   max-width: 80%!important;
   color:var(--color1);
 }
+.analiza{ background: var(--colorAnaliza)}
+.analiza .colorText { color: var(--colorAnaliza)}
+
+.actua {background: var(--colorActua)}
+.actua .colorText {color: var(--colorActua)}
+
+.socializa { background: var(--colorSocializa)}
+.socializa .colorText {color: var(--colorSocializa)}
+
+.preparate{ background: var(--colorPreparate)}
+.preparate .colorText {color: var(--colorPreparate)}
+
+.digitaliza{ background: var(--colorPreparate)}
+.digitaliza .colorText {color: var(--colorPreparate)}
+
+.crea{ background: var(--colorCrea)}
+.crea  .colorText {color: var(--colorCrea)}
+
+.diferenciate{ background: var(--colorDiferenciate)}
+.diferenciate .colorText {color: var(--colorDiferenciate)}
+
+
 
 /* ------------------------------------------- STRUCTURE ------------------------------------------- */
 
@@ -915,7 +931,6 @@ banner {
   grid-template-columns:var(--headerGTC);
   justify-content: center;
   align-items: center;
-  /* grid-gap: 20px; */
   padding: 10px 20px;
   padding-top:80px;
   position: sticky;
@@ -931,12 +946,6 @@ banner {
   transform:translateY(calc(100vh - 80px));
 }
 .header.loading :not(.loadingVisible){opacity:0}
-
-
-
-
-
-
 
 
 .isologoCont{
@@ -992,14 +1001,6 @@ banner {
 
 
 
-
-
-
-
-
-
-
-
 .socialCont{
   position: relative;
   grid-column: 1/3;
@@ -1051,7 +1052,6 @@ banner {
 .active .navCategoriesLink:nth-child(3){transition-delay: .8s;}
 .active .navCategoriesLink:nth-child(4){transition-delay: .7s;}
 .active .navCategoriesLink:nth-child(5){transition-delay: .6s;}
-
 
 
 
@@ -1748,10 +1748,6 @@ banner {
 .relatedFlex>:nth-child(2) .relatedPostImg{height:var(--relatedPostImgHeight2);}
 
 
-
-
-
-
 .comments ul{ margin-left: calc(var(--sE) * 1px);}
 .comments li{margin: calc(var(--sE) * 1px) 0;}
 .vcard{
@@ -1784,7 +1780,6 @@ img.avatar{
   display: grid;
   grid-auto-columns: 1fr;
   grid-template-columns: 1fr 1fr;
-  /* grid-auto-flow: column dense; */
   grid-template-rows: 1fr 1fr 1fr;
   grid-gap: calc(var(--sE) * 0.5px);
   justify-content: center;
@@ -1873,12 +1868,10 @@ input, textarea {
 .sectionMarker {
   box-sizing: border-box;
   width: min-content;
-  /* height: var(--sectionMarkerHeight); */
   height: min-content;
   display: grid;
   color:var(--color1);
   width: 100%;
-  /* position: -webkit-sticky; */
   position: var(--sectionMarkerPosition);
   grid-column: var(--sectionMarkerGC);
   top: calc(var(--topCero) + 50% - var(--size1) - var(--size3));
@@ -1911,13 +1904,9 @@ input, textarea {
 }
 
 
-
-
 /* -----------------------
          CARDS
 ----------------------- */
-
-
 
 
 /* QUOTES */
@@ -2061,9 +2050,6 @@ blockquote::before {
   color: black;
   font-weight: bold;
 }
-
-
-
 
 
 
@@ -2253,7 +2239,6 @@ blockquote::before {
   grid-template-columns: var(--archiveSectionGridTemplateC);
   grid-gap: 25px;
   height: auto;
-  /* padding:calc(var(--sE) * 1px) calc(var(--sE) * 4px); */
   padding:calc(var(--sE) * 1px) var(--archiveSectionPaddingX);
 }
 
@@ -2270,7 +2255,6 @@ blockquote::before {
   margin-bottom: calc(var(--sE) * 2px);
   width: 100%;
   align-items: stretch;
-  /* overflow: hidden; */
 }
 
 .archivePostImg {
@@ -2405,13 +2389,10 @@ blockquote::before {
   height: auto;
   margin: var(--footerLogoSize);
   margin-left: var(--footerLogoMarginLeft);
-  /* margin-top: var(--footerLogoMarginTop); */
   transform: var(--footerLogoTransform);
 }
 
-.footer li {
-  /* margin: auto 0; */
-}
+
 
 .rowCol1 {
   grid-column: 1;

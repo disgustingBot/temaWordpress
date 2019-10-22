@@ -25,14 +25,7 @@
 
 
 
-<figure class="banner actua">
-  <img class="bannerImg" src="http://localhost/Gaea/wp-content/uploads/2019/10/actua-300x67.png" alt="" />
-  <figcaption class="bannerCaption">
-    <p class="bannerTxt">Impulsa tu negocio.
-Conoce a tu audiencia y <span class="colorText">SOCIALIZA</span> tu web.</p>
-    <p class="bannerLink"><a href="">Sí, quiero conseguir mi informe</a></p>
-  </figcaption>
-</figure>
+
 
 
 
@@ -160,7 +153,14 @@ while($j<=2){ ?>
 
 
 <banner>
-
+  <figure class="banner actua">
+    <img class="bannerImg" src="http://localhost/OmniGaeaMagazine/produccion/wp-content/uploads/2019/10/actua-900x200.png" alt="" />
+    <figcaption class="bannerCaption">
+      <p class="bannerTxt">Impulsa tu negocio.
+      Conoce a tu audiencia y <span class="colorText">SOCIALIZA</span> tu web.</p>
+      <p class="bannerLink"><a href="">Sí, quiero conseguir <br> mi informe</a></p>
+    </figcaption>
+  </figure>
 
   <?php
   switch ($j) {
@@ -183,7 +183,7 @@ while($j<=2){ ?>
 
 <?php $j++;} ?>
 
-<?php echo do_shortcode("[mc4wp_form id='190']")   ?>
+<!-- <?php echo do_shortcode("[mc4wp_form id='190']")   ?> -->
 
 
 <?php get_footer(); ?>
