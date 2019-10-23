@@ -9,9 +9,11 @@ const lupa = d.querySelector('#lupa');
 
 
 w.onload=()=>{
+  // var chatButton = d.getElementById('tawkchat-container');
+  // c.log(chatButton);
+  // if(chatButton){chatButton.style.zIndex = "20";}
+
   // REMOVE LOADER ANIMATION
-  // d.getElementById("load").style.top="-100vh";
-  // d.getElementById("load").classList.add("loaded");
   d.getElementById("header").classList.remove("loading");
 }
 
