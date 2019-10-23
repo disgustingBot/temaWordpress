@@ -26,6 +26,19 @@
 
 
 
+<!--
+<figure class="banner actua">
+  <img class="bannerImg" src="http://localhost/Gaea/wp-content/uploads/2019/10/actua-300x67.png" alt="" />
+  <figcaption class="bannerCaption">
+    <p class="bannerTxt">Impulsa tu negocio.
+Conoce a tu audiencia y <span class="colorText">SOCIALIZA</span> tu web.</p>
+    <p class="bannerLink"><a href="">Sí, quiero conseguir mi informe</a></p>
+  </figcaption>
+</figure>
+-->
+
+
+
 
 
 
@@ -153,14 +166,16 @@ while($j<=2){ ?>
 
 
 <banner>
-  <figure class="banner actua">
-    <img class="bannerImg" src="http://localhost/OmniGaeaMagazine/produccion/wp-content/uploads/2019/10/actua-900x200.png" alt="" />
-    <figcaption class="bannerCaption">
-      <p class="bannerTxt">Impulsa tu negocio.
-      Conoce a tu audiencia y <span class="colorText">SOCIALIZA</span> tu web.</p>
-      <p class="bannerLink"><a href="">Sí, quiero conseguir <br> mi informe</a></p>
-    </figcaption>
-  </figure>
+
+  <?php
+    // $categorySlug = 'marketing-strategy';
+    // $args = array(
+    //   'post_type'=>'banner',
+    //   'posts_per_page'=>1,
+    // );
+    // $blogPosts=new WP_Query($args);
+    // while($blogPosts->have_posts()){ $blogPosts->the_post();the_content(); }
+  ?>
 
   <?php
   switch ($j) {
@@ -183,7 +198,9 @@ while($j<=2){ ?>
 
 <?php $j++;} ?>
 
+
 <?php echo do_shortcode("[mc4wp_form id='190']") ?>
+
 
 
 <?php get_footer(); ?>

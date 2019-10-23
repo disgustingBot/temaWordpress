@@ -16,8 +16,6 @@ function en_el_init(){
 	);
 }
 
-
-
 add_action( 'init', 'en_el_init' );
 
 
