@@ -117,9 +117,9 @@ while($j<=2){ ?>
           <p class="postAuthor postTxt"><strong class="authorColor">Por <?php the_author(); ?></strong> - <?php the_time('M j, Y'); ?></p>
         </figcaption>
       </figure>
+    <?php } $i=1; ?>
     </div>
-    <?php } $i=1;
-    $args = array(
+    <?php $args = array(
       'post_type'=>'post',
       'posts_per_page'=>6,
       'category_name' => $categorySlug,
@@ -180,13 +180,13 @@ while($j<=2){ ?>
   <?php
   switch ($j) {
     case 0:
-      echo do_shortcode("[the_ad id='233']");
+      echo do_shortcode("[the_ad id='11470']");
       break;
     case 1:
-      echo do_shortcode("[the_ad_group id='1623']");
+      echo do_shortcode("[the_ad id='11471']");
       break;
     case 2:
-      echo do_shortcode("[the_ad_group id='1624']");
+      echo do_shortcode("[the_ad id='11472']");
       break;
 
     default:

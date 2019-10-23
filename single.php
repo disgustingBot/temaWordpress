@@ -112,9 +112,6 @@
     // Get current page title
     $sb_title = str_replace( ' ', '%20', get_the_title());
 
-    // Get Post Thumbnail for pinterest
-    $sb_thumb = get_the_post_thumbnail_src(get_the_post_thumbnail());
-
     // Construct sharing URL without using any script
     $twitterURL = 'https://twitter.com/intent/tweet?text='.$sb_title.'&amp;url='.$sb_url.'&amp;via=wpvkp';
     $facebookURL = 'https://www.facebook.com/sharer/sharer.php?u='.$sb_url;

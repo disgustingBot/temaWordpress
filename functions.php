@@ -1,22 +1,22 @@
 <?php
 
-function en_el_init(){
-  // wp_enqueue_style('style', get_stylesheet_uri(), NULL, microtime(), 'all');
-  // Register block editor script for backend.
-  wp_register_script(
-    'bannersbuild-cgb-block-js', // Handle.
-    get_theme_file_uri('/js/blocks.build.js', dirname( __FILE__ ) ),
-    // plugins_url( '/dist/blocks.build.js', dirname( __FILE__ ) ), // Block.build.js: We register the block here. Built with Webpack.
-    array( 'wp-blocks', 'wp-i18n', 'wp-element', 'wp-editor' ), // Dependencies, defined above.
-    null, // filemtime( plugin_dir_path( __DIR__ ) . 'dist/blocks.build.js' ), // Version: filemtime — Gets file modification time.
-    true // Enqueue the script in the footer.
-  );
-	register_block_type(
-		'cgb/block-bannersbuild', array( 'editor_script' => 'bannersbuild-cgb-block-js', )
-	);
-}
-
-add_action( 'init', 'en_el_init' );
+// function en_el_init(){
+//   // wp_enqueue_style('style', get_stylesheet_uri(), NULL, microtime(), 'all');
+//   // Register block editor script for backend.
+//   wp_register_script(
+//     'bannersbuild-cgb-block-js', // Handle.
+//     get_theme_file_uri('/js/blocks.build.js', dirname( __FILE__ ) ),
+//     // plugins_url( '/dist/blocks.build.js', dirname( __FILE__ ) ), // Block.build.js: We register the block here. Built with Webpack.
+//     array( 'wp-blocks', 'wp-i18n', 'wp-element', 'wp-editor' ), // Dependencies, defined above.
+//     null, // filemtime( plugin_dir_path( __DIR__ ) . 'dist/blocks.build.js' ), // Version: filemtime — Gets file modification time.
+//     true // Enqueue the script in the footer.
+//   );
+// 	register_block_type(
+// 		'cgb/block-bannersbuild', array( 'editor_script' => 'bannersbuild-cgb-block-js', )
+// 	);
+// }
+//
+// add_action( 'init', 'en_el_init' );
 
 
 
