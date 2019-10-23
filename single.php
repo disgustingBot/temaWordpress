@@ -2,7 +2,7 @@
 
 
 <banner>
-  <?php echo do_shortcode("[the_ad_group id='1625']"); ?>
+  <?php echo do_shortcode("[the_ad_group id='11476']"); ?>
 </banner>
 <section id="homeAtf">
 
@@ -24,9 +24,7 @@
       </figcaption>
     </figure>
 </section>
-<banner>
-  <?php echo do_shortcode("[the_ad_group id='1629']");?>
-</banner>
+
 
 <section class="postMain">
   <div class="postContent">
@@ -189,5 +187,7 @@
 
 
 <?php } wp_reset_query(); ?>
+
+<?php echo do_shortcode("[mc4wp_form id='11486']") ?>
 
 <?php get_footer(); ?>

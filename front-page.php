@@ -180,13 +180,13 @@ while($j<=2){ ?>
   <?php
   switch ($j) {
     case 0:
-      echo do_shortcode("[the_ad id='233']");
+      echo do_shortcode("[the_ad id='11470']");
       break;
     case 1:
-      echo do_shortcode("[the_ad_group id='1623']");
+      echo do_shortcode("[the_ad id='11471']");
       break;
     case 2:
-      echo do_shortcode("[the_ad_group id='1624']");
+      echo do_shortcode("[the_ad id='11472']");
       break;
 
     default:
@@ -199,7 +199,7 @@ while($j<=2){ ?>
 <?php $j++;} ?>
 
 
-<?php echo do_shortcode("[mc4wp_form id='190']") ?>
+<?php echo do_shortcode("[mc4wp_form id='11486']") ?>
 
 
 
