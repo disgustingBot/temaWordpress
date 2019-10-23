@@ -163,7 +163,7 @@
 
 
     <a class="isologoCont loadingVisible" href="<?php echo site_url(''); ?>">
-      <svg class="iso loadingVisible" width="84.631px" height="85.165px" viewBox="0 0 84.631 85.165">
+      <svg class="iso loadingVisible" viewBox="0 0 84.631 85.165">
         <path class="isoSquar loadingVisible" fill="currentColor" d="M43.67,37.389h29.396l-10.28,10.779c-0.481,0-19.195,0-19.115,0C43.67,47.204,43.67,37.389,43.67,37.389z"/>
         <path class="isoCircl loadingVisible" fill="currentColor" d="M73.146,48.088c3.854,0,7.63,0,11.404,0C83.186,64.256,68.888,83.803,44.874,85.09
         	C21.341,86.458,2.386,68.842,0.218,46.961C-2.191,22.75,15.639,2.479,38.128,0.226c24.737-2.494,44.254,16.087,46.503,37.164
