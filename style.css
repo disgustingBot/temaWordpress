@@ -962,7 +962,15 @@ banner {
   height: 100vh;
   transition:.5s;
   overflow: hidden;
+  -webkit-backface-visibility:hidden;
+  -webkit-transform: translateZ(0)
 }
+
+.header>* {
+  -webkit-backface-visibility:hidden;
+  -webkit-transform: translateZ(0)
+}
+
 .header.active{transform:translateY(calc(100vh - 80px))}
 .header.loading{
   transform:translateY(calc(100vh - 80px));
@@ -1905,8 +1913,7 @@ input, textarea {
 
 .sectionMarker {
   box-sizing: border-box;
-  width: min-content;
-  height: min-content;
+  height: var(--sectionMarkerHeight);
   display: grid;
   color:var(--color1);
   width: 100%;
