@@ -208,7 +208,7 @@
     	'smallest'                  => 10,
     	'largest'                   => 12,
     	'unit'                      => 'pt',
-    	'number'                    => 45,
+    	'number'                    => 4,
     	'format'                    => 'flat',
       'separator'                 => " / ",
     	'orderby'                   => 'name',

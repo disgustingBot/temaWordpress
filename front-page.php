@@ -117,9 +117,9 @@ while($j<=2){ ?>
           <p class="postAuthor postTxt"><strong class="authorColor">Por <?php the_author(); ?></strong> - <?php the_time('M j, Y'); ?></p>
         </figcaption>
       </figure>
+    <?php } $i=1; ?>
     </div>
-    <?php } $i=1;
-    $args = array(
+    <?php $args = array(
       'post_type'=>'post',
       'posts_per_page'=>6,
       'category_name' => $categorySlug,
