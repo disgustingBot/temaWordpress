@@ -6,7 +6,7 @@
 
 
 <banner>
-  <?php echo do_shortcode("[the_ad_group id='1625']"); ?>
+  <?php echo do_shortcode("[the_ad_group id='11474']"); ?>
 </banner>
 <section id="archiveAtf">
 
@@ -99,14 +99,14 @@
         <?php
         switch ($i) {
           case 6:
-            echo do_shortcode("[the_ad_group id='1626']");
+            echo do_shortcode("[the_ad_group id='11474']");
             break;
           case 13:
-            echo do_shortcode("[the_ad_group id='1627']");
+            echo do_shortcode("[the_ad_group id='11473']");
             break;
 
           default:
-            echo do_shortcode("[the_ad_group id='']");
+            echo do_shortcode("[the_ad_group id='11475']");
             break;
         }
         ?>
@@ -121,5 +121,6 @@
   <?php echo paginate_links(); ?>
 </div>
 
+<?php echo do_shortcode("[mc4wp_form id='11486']") ?>
 
 <?php get_footer(); ?>

@@ -382,6 +382,8 @@ Version: 1.0
     --bannerTxtMargin: 20px 0 20px auto;
     --bannerTxtAlign: left;
     --bannerPadding: calc(var(--sE) * 1px);
+    --bannerLinkMargin: auto;
+
 
 
 
@@ -891,7 +893,9 @@ banner {
   max-width: 80%!important;
   font-weight: bold;
   text-align: var(--bannerTxtAlign);
+  height: min-content;
 }
+
 .bannerLink a {
   margin: auto;
   max-width: 80%!important;
@@ -899,24 +903,31 @@ banner {
 }
 .analiza{ background: var(--colorAnaliza)}
 .analiza .colorText { color: var(--colorAnaliza)}
+.analiza .bannerLink { background: var(--colorAnaliza)}
 
 .actua {background: var(--colorActua)}
 .actua .colorText {color: var(--colorActua)}
+.actua .bannerLink {background: var(--colorActua)}
 
 .socializa { background: var(--colorSocializa)}
 .socializa .colorText {color: var(--colorSocializa)}
+.socializa .bannerLink { background: var(--colorSocializa)}
 
 .preparate{ background: var(--colorPreparate)}
 .preparate .colorText {color: var(--colorPreparate)}
+.preparate .bannerLink { background: var(--colorPreparate)}
 
 .digitaliza{ background: var(--colorPreparate)}
 .digitaliza .colorText {color: var(--colorPreparate)}
+.digitaliza .bannerLink { background: var(--colorPreparate)}
 
 .crea{ background: var(--colorCrea)}
 .crea  .colorText {color: var(--colorCrea)}
+.crea{ background: var(--colorCrea)}
 
 .diferenciate{ background: var(--colorDiferenciate)}
 .diferenciate .colorText {color: var(--colorDiferenciate)}
+.diferenciate .bannerLink { background: var(--colorDiferenciate)}
 
 
 
@@ -2204,7 +2215,7 @@ blockquote::before {
 }
 
 .mainImg {
-  width: 90%;
+  width: 100%;
   max-height: var(--mainImgMaxHeight);
   flex: 3;
   margin: 0 auto;
