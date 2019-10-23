@@ -210,7 +210,7 @@
         <li><a href="">Aviso Legal</a></li>
         <li><a href="">Términos y condiciones</a></li>
         <li><a href="">Política de Cookies</a></li>
-        <li><a href="">Site Map</a></li>
+        <li><a href="" onclick="alternateNavBar()">Site Map</a></li>
       </ul>
       <div class="footerSocialContainer">
         <p class="footerTitles footerContacta">CONTACTA</p>
