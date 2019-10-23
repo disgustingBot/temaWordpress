@@ -40,7 +40,6 @@
 
 
 
-<?php echo get_sidebar('sidebar1')?>
 
 
 
