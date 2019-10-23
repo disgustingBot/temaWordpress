@@ -105,8 +105,8 @@ Version: 1.0
     --relatedSectionGTC:1fr;
     --relatedFlexDirection:column;
     --relatedFlexDirectionRev:column-reverse;
-    --relatedPostImgHeight1:100px;
-    --relatedPostImgHeight2:100px;
+    --relatedPostImgHeight1:300px;
+    --relatedPostImgHeight2:300px;
 
 
 
@@ -539,6 +539,8 @@ Version: 1.0
         --formSubmitMarginLeft: auto;
 
         --newsLetterAdWidth: 500px;
+
+
   }
 }
 @media screen and (min-width:  783px) {
@@ -618,8 +620,8 @@ Version: 1.0
     --relatedSectionGTC:1fr 1fr 1fr;
     --relatedFlexDirection:column;
     --relatedFlexDirectionRev:column-reverse;
-    --relatedPostImgHeight1:120px;
-    --relatedPostImgHeight2: 80px;
+    --relatedPostImgHeight1: 240px;
+    --relatedPostImgHeight2: 160px;
 
 
 
@@ -960,7 +962,15 @@ banner {
   height: 100vh;
   transition:.5s;
   overflow: hidden;
+  -webkit-backface-visibility:hidden;
+  -webkit-transform: translateZ(0)
 }
+
+.header>* {
+  -webkit-backface-visibility:hidden;
+  -webkit-transform: translateZ(0)
+}
+
 .header.active{transform:translateY(calc(100vh - 80px))}
 .header.loading{
   transform:translateY(calc(100vh - 80px));
@@ -1539,10 +1549,11 @@ banner {
   color: var(--color1);
   margin: calc(var(--sE) * 1px) 0;
   font-size: var(--size3);
-  text-align: center;
+  text-align: left;
+  padding: calc(var(--sE) * 1px);
 }
 .archiveDescription{
-  text-align: justify;
+  text-align: left;
   padding: calc(var(--sE) * 1px);
 }
 
@@ -1666,7 +1677,7 @@ banner {
   color:var(--color1);
   display: var(--sectionMarkerDisplay);
   grid-gap: calc(var(--sE) * 1px);
-  height: calc(80vh - 80px);
+  height: calc(40vh - 80px);
   box-sizing: border-box;
   position: sticky;
   position: -webkit-sticky;
@@ -1814,7 +1825,11 @@ img.avatar{
   justify-content: center;
   margin: calc(var(--sE) * 1px);
 }
-.comment-form p {display: grid;}
+.comment-form p {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+}
 
 .comment-form p:nth-child(-n+3){
   grid-column: var(--commentFormPGridC);
@@ -1846,7 +1861,18 @@ img.avatar{
   grid-row: var(--FormSubmitGridR);
 }
 
-.comment-form-cookies-consent { grid-column: var(--commentConsentGridC)}
+.comment-form-cookies-consent {
+  grid-column: var(--commentConsentGridC);
+  grid-template-columns: max-content 1fr;
+  grid-template-rows: 1fr;
+}
+
+#wp-comment-cookies-consent {
+  width: 30px!important;
+  height: 30px;
+  margin: 5px;
+}
+
 
 .comment-form-cookies-consent label {
   font-size: var(--size7);
@@ -1896,8 +1922,7 @@ input, textarea {
 
 .sectionMarker {
   box-sizing: border-box;
-  width: min-content;
-  height: min-content;
+  height: var(--sectionMarkerHeight);
   display: grid;
   color:var(--color1);
   width: 100%;
@@ -1923,10 +1948,13 @@ input, textarea {
   text-transform: lowercase;
   opacity:0;
   display: var(--sectionMarkerDisplay);
+  transition: .5s ease-in;
 }
+
 .firstLetter{
   margin: 0 auto auto -100px;
 }
+
 .secondLetter{
   text-align: right;
   margin: auto -100px 0 auto;
@@ -2303,12 +2331,12 @@ blockquote::before {
 
 .archivePostTitle {
   margin: calc(var(--sE) * .5px) 0 0 0;
-  text-align: center;
+  text-align: left;
   color: black;
 }
 
 .archivePostTxt1 {
-  margin: 0 auto 10px auto;
+  margin-left: 0;
 }
 .postCategory {
   grid-column: span 1;

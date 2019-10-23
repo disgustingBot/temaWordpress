@@ -143,6 +143,17 @@ function excerpt($charNumber){
 
 
 
+//Add our widget locations
+
+function GaeaWidgetsInit() {
+  register_sidebar( array (
+    'name' => 'sidebar',
+    'id'   => 'sidebar1'
+  ));
+}
+
+ add_action('widgets_init', 'GaeaWidgetsInit');
+
 
 
 

@@ -45,7 +45,6 @@
 
 
 
-
         <div style="display:none"><?php comments_template(); ?></div>
 
 
