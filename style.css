@@ -296,6 +296,11 @@ Version: 1.0
 
       --newsLetterAdWidth: 100%;
 
+      --bottomPostFigCaptionPadding: 0 10px;
+
+      --postSocialMenuWidth: 100%;
+
+
 
 
 
@@ -357,6 +362,8 @@ Version: 1.0
     --bottomPostGridC: span 1;
 
     --bottomPostContainerMarginTop: 20px;
+
+
 
 
 
@@ -545,6 +552,8 @@ Version: 1.0
 
         --newsLetterAdWidth: 500px;
 
+        --bottomPostFigCaptionPadding: 0;
+
 
   }
 }
@@ -670,6 +679,9 @@ Version: 1.0
     --footerContactaFontSize: var(--size5)!important;
     --subFooterPadding: 50px 10%;
 
+    --postSocialMenuWidth: 70%;
+
+
   }
   }
 
@@ -730,6 +742,9 @@ Version: 1.0
           --footerLegalListMargin: 10px 0;
           --footerLegalListFlexGrow: 2;
           --footerSocialSvg: 30px;
+
+          --postSocialMenuWidth: 50%;
+
 
 
     }
@@ -881,6 +896,7 @@ banner {
   -webkit-background-clip: text;
   text-align: var(--bannerTxtAlign);
 }
+
 .bannerTxt .block-editor-rich-text__editable strong {
   color: currentColor!important;
 }
@@ -1437,9 +1453,8 @@ banner {
   width:  50px;
   z-index:   2;
   margin: 0 auto;
-  /* transform: translateY(-200%) translateZ(0);
-   */
 }
+
 .slideButton:hover{box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22)}
 .slideLeft {margin-left:  var(--homeSlideButtonMarginX)}
 .slideRight{margin-right: var(--homeSlideButtonMarginX)}
@@ -1550,8 +1565,9 @@ banner {
   cursor: pointer;
   z-index: 2;
   position: relative;
-}
-
+}.buttonSlide a {color: var(--color1)}
+ .buttonSlide strong a  {color: var(--color1)}
+ .buttonSlide em a  {color: var(--color1)}
 
 /* --------------------
       FRONT PAGE
@@ -1760,12 +1776,11 @@ banner {
   align-items: center;
   background: rgba(0,0,0,.9);
   color: var(--color2);
-  display: inline-grid;
-  grid-gap: calc(var(--sE) * .5px);
-  grid-template-columns: repeat(6, min-content);
+  display: flex;
   height: auto;
-  justify-content: center;
-  padding: calc(var(--sE) * .5px) calc(var(--sE) * 1px);
+  width: var(--postSocialMenuWidth);
+  justify-content: space-around;
+  padding: 10px;
 }
 #postSocialMenu svg{
   width:  40px;
@@ -1804,6 +1819,7 @@ banner {
 .relatedPost{
   margin:10px;
 }
+.relatedPost h6 {font-size: var(--size6);}
 .relatedPostImg{
   width: 100%;
   object-fit: cover;
@@ -2213,6 +2229,7 @@ blockquote::before {
   align-items: center;
   background: var(--color3);
 }
+.categoryEye {color: black;}
 
 .authorColor {
   color: var(--color3);
@@ -2310,6 +2327,7 @@ blockquote::before {
 .bottomPostsFigcaption {
   margin: auto;
   box-sizing: border-box;
+  padding: var(--bottomPostFigCaptionPadding);
 }
 
 /*
@@ -2371,6 +2389,7 @@ blockquote::before {
   grid-column: span 1;
   grid-row: span 2;
   margin: auto;
+  margin-left: 0;
   font-size: var(--size5);
 }
 .postCategory a{
@@ -2445,7 +2464,7 @@ blockquote::before {
   flex: 4;
 }
 .archivePostSize2Img {
-  width: 90%;
+  width: 100%;
 }
 
 
@@ -2599,6 +2618,8 @@ blockquote::before {
   font-size: var(--size8);
   margin-bottom: var(--provisoryTagsMarginBottom);
 }
+
+.provisoryTags a {margin: 0 3px; color: white;}
 
 .kWords {
   border-bottom: 2px solid var(--color3);
