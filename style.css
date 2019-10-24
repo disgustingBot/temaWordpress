@@ -98,6 +98,9 @@ Version: 1.0
     --socialLinkHeight:26px;
     --isologoContMarginLeft:0;
     --isologoContTransformTranslateX:0;
+    --navCategoriesPaddingLeft:20px;
+    --navBarTopDisplay:none;
+
 
 
 
@@ -318,6 +321,7 @@ Version: 1.0
     --headerGCG:40px;
     --isologoContMarginLeft:50%;
     --isologoContTransformTranslateX:-50%;
+    --navCategoriesPaddingLeft:calc(10vw - 16px - 20px);
 
 
     --homeSlideImgWidth:calc(100% - var(--sE) * 3px);
@@ -398,8 +402,7 @@ Version: 1.0
     --smallNavPaddingRight:80px;
     --smallNavPaddingLeft:112px;
     --socialLinkHeight:30px;
-
-
+    --navBarTopDisplay:flex;
 
 
 
@@ -437,7 +440,7 @@ Version: 1.0
     --sectionMarkerFontSize: var(--size4);
     --sectionMarkerDisplay: block;
     --sectionMarkerPadding: padding: 0 50px;
-    --sectionMarkerHeight: 35vh;
+    --sectionMarkerHeight: calc(var(--size1) * 2 + var(--size3) * 4);
     --mainCorridorGridC: 2/ span 5;
     --scndCorridorGridC: 2/ span 5;
     --scndCorridorPadding: 0;
@@ -954,7 +957,7 @@ banner {
 /* -----------------------
          HEADER
 ----------------------- */
-
+#tawkchat-container{z-index:unset;z-index:99!important}
 .header{
   background: var(--color1);
   box-sizing: border-box;
@@ -1007,7 +1010,7 @@ banner {
 .loading .isologoCont{
   margin-bottom:calc(50vh - 0px);
   margin-left: calc(50% + 10px);
-  transform: translateY(50%) translateX(var(--isologoContTransformTranslateX));
+  transform: translateY(50%) translateX(-50%);
   width:100px;
   height: 100px;
 }
@@ -1027,17 +1030,19 @@ banner {
   margin-left: 0;
   width:  auto;
   transition:.4s;
+  color:white;
 }
 .loading .iso{
   height: 100px;
   animation: wheel 1s infinite;
 }
 @keyframes wheel{to{transform:rotate(360deg)}}
-.isologoCont .isoCircl{color:#D2AA6C}
-.isologoCont .logoGaea{color:#D2AA6C}
+.isoCircl{color:#D2AA6C}
+.logoGaea{color:#D2AA6C}
 .active .iso{
   height: calc(24vw - 16px);
   transition: 1s;
+  color: #333;
 }
 .active .isologoCont{
   transition: 1s;
@@ -1047,8 +1052,8 @@ banner {
   color: #333;
   z-index: 0;
 }
-.active .isologoCont .isoCircl{color:unset}
-.active .isologoCont .logoGaea{color:unset}
+.active .isoCircl{color:unset}
+.active .logoGaea{color:unset}
 
 
 
@@ -1080,9 +1085,10 @@ banner {
   height: 60vh;
   margin: auto;
   margin-top: 0;
-  padding-left:calc(10vw - 16px - 20px);
+  /* padding-left:calc(10vw - 16px - 20px); */
+  padding-left:var(--navCategoriesPaddingLeft);
   position: relative;
-  padding-left: 40px;
+  /* padding-left: 40px; */
   z-index: 2;
 }
 .navCategoriesLink{
@@ -1146,7 +1152,7 @@ banner {
 
 .navFavoritos{
   grid-column: 3;
-  grid-row: 1/4;
+  grid-row: 1;
   display: grid;
   grid-template-columns:var(--navFavoritosGTC);
   grid-column-gap: 20px;
@@ -1222,8 +1228,9 @@ banner {
 .nubeEtiq{
   grid-template-columns: 1fr 1fr;
   grid-row: 2/4;
-  grid-column: 2;
+  grid-column: 2/4;
   position: relative;
+  padding-right:calc(10vw - 16px - 20px);
   z-index: 2;
 }
 .nubeEtiqTitle{
@@ -1282,7 +1289,8 @@ banner {
 
 .navBarTop{
   background: var(--color1);
-  display: flex;
+  /* display: flex; */
+  display: var(--navBarTopDisplay);
   flex-wrap: wrap;
   /* grid-template-columns: repeat(5, max-content); */
   justify-content: space-around;
@@ -1391,6 +1399,12 @@ banner {
 .gsc-control-cse {
   background: unset!important;
   border: unset!important;
+}
+.form.gsc-search-box{
+  margin-bottom: 0;
+}
+.gsc-input-box{
+  border-radius: 0;
 }
 
 #twitterHeader:hover  {fill:#00aced}
@@ -2181,7 +2195,7 @@ blockquote::before {
 }
 .postFigCaptioncito {
   width: 100%;
-  text-align: var(--postFigCaptionTextAlign);
+  /* text-align: var(--postFigCaptionTextAlign); */
   justify-content: space-around;
   display: flex;
   flex-direction: column;
