@@ -255,9 +255,28 @@
         <li class="footerTitles"><a href="">TECH CHANNEL</a></li>
         <li class="footerTitles"><a href="">COOL CONTENT</a></li>
       </ul>
+
+
+      <?php $args = array(
+      	'smallest'                  => 10,
+      	'largest'                   => 10,
+      	'unit'                      => 'pt',
+      	'number'                    => 10,
+      	'format'                    => 'flat',
+        'separator'                 => ", ",
+      	'orderby'                   => 'name',
+      	'order'                     => 'ASC',
+      	'exclude'                   => null,
+      	'include'                   => null,
+      	'link'                      => 'view',
+      	'taxonomy'                  => 'post_tag',
+      	'echo'                      => true,
+      	'show_count'                  => 0,
+      	'child_of'                  => null, // see Note!
+      ); ?>
       <div class="footerTags">
         <p class="footerTitles kWords"><a href="">KWORDS</a></p>
-        <p class="provisoryTags">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris nec accumsan risus, vel lobortis ante. Pellentesque dignissim massa eu purus lacinia egestas. Suspendisse rutrum a massa id interdum.</p>
+        <p class="provisoryTags"><?php wp_tag_cloud( $args ); ?></p>
       </div>
       <p class="footerTitles listNone footerNewsletter"><a class="footerTitles" href="">NEWSLETTER</a></p>
       <p class="footerTitles RSS listNone">
