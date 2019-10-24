@@ -205,12 +205,12 @@
         <li>London</li>
       </ul>
       <ul class="footerLegalList listNone">
-        <li><a href="">Nuestro equipo</a></li>
-        <li><a href="">Testimonios</a></li>
-        <li><a href="">Aviso Legal</a></li>
-        <li><a href="">Términos y condiciones</a></li>
-        <li><a href="">Política de Cookies</a></li>
-        <li><a href="" onclick="alternateNavBar()">Site Map</a></li>
+        <li><a href="https://nosotros.gaeapeople.com/#about/team" target="_blank">Nuestro equipo</a></li>
+        <li><a href="https://nosotros.gaeapeople.com/#about/testimonials" target="_blank">Testimonios</a></li>
+        <li><a href="https://nosotros.gaeapeople.com/legal" target="_blank">Aviso Legal</a></li>
+        <li><a href="https://nosotros.gaeapeople.com/terms" target="_blank">Términos y condiciones</a></li>
+        <li><a href="https://nosotros.gaeapeople.com/terms" target="_blank">Política de Cookies</a></li>
+        <li><a href="#" target="_blank" onclick="alternateNavBar()">Site Map</a></li>
       </ul>
       <div class="footerSocialContainer">
         <p class="footerTitles footerContacta">CONTACTA</p>
@@ -250,14 +250,14 @@
     </div>
     <div class="footerMap">
       <ul class="footerMapList listNone">
-        <li class="footerTitles"><a href="">MARKETING STRATEGY</a></li>
-        <li class="footerTitles"><a href="">DIGITAL HEALTH</a></li>
-        <li class="footerTitles"><a href="">TECH CHANNEL</a></li>
-        <li class="footerTitles"><a href="">COOL CONTENT</a></li>
+        <li class="footerTitles"><a href="https://gaeadev.com/gaeapeoplemagazine/marketing-estrategia/" target="_blank">MARKETING STRATEGY</a></li>
+        <li class="footerTitles"><a href="https://gaeadev.com/gaeapeoplemagazine/salud-digital/" target="_blank">DIGITAL HEALTH</a></li>
+        <li class="footerTitles"><a href="https://gaeadev.com/gaeapeoplemagazine/canal-digital/" target="_blank">TECH CHANNEL</a></li>
+        <li class="footerTitles"><a href="https://gaeadev.com/gaeapeoplemagazine/seo-contenidos/" target="_blank">COOL CONTENT</a></li>
       </ul>
       <div class="footerTags">
         <p class="footerTitles kWords"><a href="">KWORDS</a></p>
-        <p class="provisoryTags">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris nec accumsan risus, vel lobortis ante. Pellentesque dignissim massa eu purus lacinia egestas. Suspendisse rutrum a massa id interdum.</p>
+        <p class="provisoryTags"><?php echo get_the_tag_list('<p class="provisoryTags"> ','','</p>'); ?></p>
       </div>
       <p class="footerTitles listNone footerNewsletter"><a class="footerTitles" href="">NEWSLETTER</a></p>
       <p class="footerTitles RSS listNone">
