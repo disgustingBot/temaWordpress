@@ -255,9 +255,28 @@
         <li class="footerTitles"><a href="https://gaeadev.com/gaeapeoplemagazine/canal-digital/" target="_blank">TECH CHANNEL</a></li>
         <li class="footerTitles"><a href="https://gaeadev.com/gaeapeoplemagazine/seo-contenidos/" target="_blank">COOL CONTENT</a></li>
       </ul>
+
+
+      <?php $args = array(
+      	'smallest'                  => 10,
+      	'largest'                   => 10,
+      	'unit'                      => 'pt',
+      	'number'                    => 10,
+      	'format'                    => 'flat',
+        'separator'                 => ", ",
+      	'orderby'                   => 'name',
+      	'order'                     => 'ASC',
+      	'exclude'                   => null,
+      	'include'                   => null,
+      	'link'                      => 'view',
+      	'taxonomy'                  => 'post_tag',
+      	'echo'                      => true,
+      	'show_count'                  => 0,
+      	'child_of'                  => null, // see Note!
+      ); ?>
       <div class="footerTags">
         <p class="footerTitles kWords"><a href="">KWORDS</a></p>
-        <p class="provisoryTags"><?php echo get_the_tag_list('<p class="provisoryTags"> ','','</p>'); ?></p>
+        <p class="provisoryTags"><?php wp_tag_cloud( $args ); ?></p>
       </div>
       <p class="footerTitles listNone footerNewsletter"><a class="footerTitles" href="">NEWSLETTER</a></p>
       <p class="footerTitles RSS listNone">
