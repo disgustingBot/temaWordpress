@@ -85,13 +85,13 @@
 
     <nav class="navConocenos">
       <h4 class="navConocenosTitle">CONÓCENOS</h4>
-      <a class="navConocenosLink" href="">Sobre nosotros</a>
-      <a class="navConocenosLink" href="">Nuestro equipo</a>
-      <a class="navConocenosLink" href="">Testimonios</a>
-      <a class="navConocenosLink" href="">Aviso Legal</a>
-      <a class="navConocenosLink" href="">Términos y condiciones</a>
-      <a class="navConocenosLink" href="">Política de cookies</a>
-      <a class="navConocenosLink" href="">Contacta</a>
+      <a class="navConocenosLink" href="https://nosotros.gaeapeople.com/#about" target="_blank">Sobre nosotros</a>
+      <a class="navConocenosLink" href="https://nosotros.gaeapeople.com/#about/team" target="_blank">Nuestro equipo</a>
+      <a class="navConocenosLink" href="https://nosotros.gaeapeople.com/#about/testimonials" target="_blank">Testimonios</a>
+      <a class="navConocenosLink" href="https://nosotros.gaeapeople.com/legal" target="_blank">Aviso Legal</a>
+      <a class="navConocenosLink" href="https://nosotros.gaeapeople.com/terms" target="_blank">Términos y condiciones</a>
+      <a class="navConocenosLink" href="https://nosotros.gaeapeople.com/legal" target="_blank">Política de cookies</a>
+      <a class="navConocenosLink" href="https://nosotros.gaeapeople.com/#contact" target="_blank">Contacta</a>
     </nav>
 
 
@@ -131,7 +131,7 @@
       </li>
 
       <li class="navFavoritosItem">
-        <a href="http://nosotros.gaeapeople.com/" target="_blank">
+        <a href="https://nosotros.gaeapeople.com/#contact" target="_blank">
           <h6 class="navFavoritosItemTitle">GP+ ACTIVO WIFI</h6>
           <p class="navFavoritosItemTxt">¿Tienes un HOTSPOT? Conoce a tu audiencia</p>
         </a>
