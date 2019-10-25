@@ -64,6 +64,9 @@
             if ($i % 7 >0) {if ($i % 3 == 1) { echo ' archivePostSize2FigCaption';}}
             if ($i % 7 >0) {if ($i % 3 == 2) { echo ' archivePostSize3FigCaption';}}
           ?>">
+          <?php if(function_exists('the_views')){ ?><p class="vistoNVeces postTxt">
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"/><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+            <?php the_views(); ?></p><?php } ?>
           <a href="<?php the_permalink(); ?>">
             <h3 class="archivePostTitle<?php
                 if ($i % 7 ==0) { echo ' archiveMainPostTitle';}
@@ -76,9 +79,7 @@
             <span class="postAuthor">Por <?php the_author(); ?></span> -
             <span class="postDate"><?php the_time('M j, Y'); ?></span>
           </p>
-          <?php if(function_exists('the_views')){ ?><p class="vistoNVeces postTxt">
-            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"/><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
-            <?php the_views(); ?></p><?php } ?>
+
           <?php if($i % 7==0){ ?><p><?php excerpt(130) ?></p><?php } ?>
           <p class="postCategory"><?php echo get_the_category_list(', '); ?></p>
         </figcaption>

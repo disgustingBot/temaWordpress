@@ -300,6 +300,9 @@ Version: 1.0
 
       --postSocialMenuWidth: 100%;
 
+      --archiveSectionGridGap: 25px;
+
+
 
 
 
@@ -553,6 +556,8 @@ Version: 1.0
         --newsLetterAdWidth: 500px;
 
         --bottomPostFigCaptionPadding: 0;
+
+        --archiveSectionGridGap: 50px;
 
 
   }
@@ -2229,6 +2234,10 @@ blockquote::before {
   align-items: center;
   background: var(--color3);
 }
+
+
+.vistoNVeces {}
+
 .categoryEye {color: black;}
 
 .authorColor {
@@ -2341,7 +2350,7 @@ blockquote::before {
   display: grid;
   grid-auto-flow: row;
   grid-template-columns: var(--archiveSectionGridTemplateC);
-  grid-gap: 25px;
+  grid-gap: var(--archiveSectionGridGap);
   height: auto;
   padding:calc(var(--sE) * 1px) var(--archiveSectionPaddingX);
 }
@@ -2417,7 +2426,7 @@ blockquote::before {
   position: sticky!important;
   width: 100%;
   height: max-content;
-  padding: calc(var(--sE) * 1px);
+  padding: ;
   padding-top:0;
   box-sizing: border-box;
   top: 100px;
@@ -2455,7 +2464,7 @@ blockquote::before {
   flex: 3;
 }
 .archivePostSize1Img {
-  width: 80%;
+  width: 100%;
 }
 
 
@@ -3417,3 +3426,23 @@ blockquote {
   .wpcf7 .wpcf7-validation-errors {
     color: #C50026;
     border: 1px solid #e9ecef; }
+
+/* eventos */
+
+.tribe-events-title-bar .tribe-events-page-title {color: black!important;}
+
+.tribe-bar-filters-inner { background: var(--color3);}
+.tribe-bar-views .tribe-clearfix { background: var(--color3);}
+
+.tribe-events-notices {color: black!important; background: white!important; border: solid black 2px!important;}
+.tribe-events-button,.tribe-no-param {background: black!important;}
+
+th {background: black!important;}
+
+.tribe-events-calendar div[id*=tribe-events-daynum-], .tribe-events-calendar div[id*=tribe-events-daynum-] a {
+  background: black;
+}
+.tribe-events-calendar td.tribe-events-present div[id*=tribe-events-daynum-] {
+  background: var(--color3)!important;
+  color: black!important;
+}
