@@ -6,7 +6,7 @@
 
 
 <banner>
-  <?php echo do_shortcode("[the_ad_group id='11474']"); ?>
+  <?php echo do_shortcode("[the_ad id='11474']"); ?>
 </banner>
 <section id="archiveAtf">
 
@@ -101,10 +101,10 @@
         <?php
         switch ($i) {
           case 6:
-            echo do_shortcode("[the_ad_group id='11474']");
+            echo do_shortcode("[the_ad id='11473']");
             break;
           case 13:
-            echo do_shortcode("[the_ad_group id='11473']");
+            echo do_shortcode("[the_ad id='11475']");
             break;
 
           default:

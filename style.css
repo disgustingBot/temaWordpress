@@ -936,13 +936,13 @@ banner {
 .preparate .colorText {color: var(--colorPreparate)}
 .preparate .bannerLink { background: var(--colorPreparate)}
 
-.digitaliza{ background: var(--colorPreparate)}
-.digitaliza .colorText {color: var(--colorPreparate)}
-.digitaliza .bannerLink { background: var(--colorPreparate)}
+.digitaliza{ background: var(--colorDigitaliza)}
+.digitaliza .colorText {color: var(--colorDigitaliza)}
+.digitaliza .bannerLink { background: var(--colorDigitaliza)}
 
 .crea{ background: var(--colorCrea)}
 .crea  .colorText {color: var(--colorCrea)}
-.crea{ background: var(--colorCrea)}
+.crea .bannerLink{ background: var(--colorCrea)}
 
 .diferenciate{ background: var(--colorDiferenciate)}
 .diferenciate .colorText {color: var(--colorDiferenciate)}
