@@ -2,7 +2,7 @@
 
 
 <banner>
-  <?php echo do_shortcode("[the_ad_group id='11476']"); ?>
+  <?php echo do_shortcode("[the_ad id='11476']"); ?>
 </banner>
 <section id="homeAtf">
 
